@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>搭建Jekyll 博客</title>
+  <meta name="description" content="1)  安装RVM```bash下载安装RVM管理器, $ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="搭建Jekyll 博客">
+  <meta name="twitter:description" content="1)  安装RVM```bash下载安装RVM管理器, $ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="搭建Jekyll 博客">
+  <meta property="og:description" content="1)  安装RVM```bash下载安装RVM管理器, $ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/08/new-jekyll-blog/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成. 一个懒人,但不是宅男、是个伪君子但绝非小人、爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.爱苍井空,爱武藤兰,也爱小泽玛莉亚。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-08-19 15:33:24 +0800" itemprop="datePublished" class="post-meta__date date">2017-08-19</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">搭建Jekyll 博客</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="1--安装rvm">1)  安装RVM</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>下载安装RVM管理器, 
+<span class="gp">$ </span>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+
+&amp; curl -sSL https://get.rvm.io | bash -s stable
+or
+&amp; curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
+
+启动rvm<span class="o">(</span>or重开终端或重启系统<span class="o">)</span>
+&amp; <span class="nb">source</span> /etc/profile.d/rvm.sh 
+
+更改ruby下载地址
+&amp; <span class="nb">echo</span> <span class="s2">"ruby_url=https://cache.ruby-china.org/pub/ruby"</span> &gt; ~/.rvm/user/db
+
+rvm 安装路径
+&amp; /usr/local/rvm
+</code></pre>
+</div>
+
+<h3 id="2-安装ruby">2) 安装ruby</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>rvm requirements
+  <span class="nv">$ </span>rvm install 2.3.0
+</code></pre>
+</div>
+
+<h3 id="6-安装-bundler">6) 安装 Bundler</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>gem install bundler
+</code></pre>
+</div>
+
+<h3 id="3-安装rails">3) 安装rails</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install rails
+</code></pre>
+</div>
+
+<h3 id="4--安装rubygame">4)  安装RubyGame</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> <span class="nv">$ </span>gem update
+</code></pre>
+</div>
+
+<h3 id="5-安装jekyll">5) 安装jekyll</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install jekyll
+</code></pre>
+</div>
+
+<h3 id="6-验证版本">6) 验证版本</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ruby -v
+
+<span class="gp">$ </span>gem -v
+
+<span class="gp">$ </span>rvm -v
+</code></pre>
+</div>
+
+<h3 id="7-安装nginx">7) 安装nginx</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> 下载 repo 列表
+<span class="gp">$ </span>wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+
+ 通过 rpm 添加列表
+<span class="gp">$ </span>rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm 
+
+ 通过 yum 安装 nginx
+<span class="gp">$ </span>yum install nginx
+
+ 运行Nginx
+ 设置为开机启动
+<span class="gp">$ </span>systemctl <span class="nb">enable </span>nginx
+
+ 配置文件
+<span class="gp">$ </span>vi /etc/nginx/conf.d/default.conf
+
+ 重启Nginx
+<span class="gp">$ </span>systemctl restart nginx
+</code></pre>
+</div>
+
+<h3 id="8-安装jekyll-主题vno">8) 安装jekyll 主题vno</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/onevcat/vno-jekyll.git your_site
+
+<span class="gp">$ </span><span class="nb">cd </span>your_site
+
+<span class="gp">$ </span>bundler install
+
+<span class="gp">$ </span>bundler <span class="nb">exec </span>jekyll serve
+
+<span class="gp">$ </span>jekyll serve --detach
+</code></pre>
+</div>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/10/zbjx/" title="link to 致北极熊">致北极熊</a></h2>
+       <p class="excerpt">我想对你说好多话,但是每次见到你我就像是面对一个新的框架,不知道从哪里开始.我相信命运的安排,但是当你和我说我们有一颗一样的痣长在手上几乎同样的位置,当你说我去过太多的地方你也曾经常去那里.当你告诉我你喜欢穿卫衣的男生,而我喜欢穿裙子的女孩,又是那么的恰巧我有好多件戴帽子的卫衣,而那天你穿了一件裙子的时候.我的内心独白是……这,怎么可能?我说我喜欢旅居,并不是出自喜欢旅行,而是对家和平凡的恐惧.以前曾经看过一页漫画,描述的是大众的人生:上完学找份工作,攒钱买房娶妻生子,还房贷车贷,等着升职...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-10-26 15:33:24 +0800" class="post-list__meta--date date">2017-10-26</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/10/zbjx/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2016/02/hello-world-vno/" title="link to Hello World - Vno">Hello World - Vno</a></h2>
+       <p class="excerpt">What’s thisVno Jekyll is a theme for Jekyll. It is a port of my Ghost theme vno, which is originally developed from Dale Anthony’s Uno.Usage$ git clone https://github.com/onevcat/vno-jekyll.git your_site$ cd your_site$ bundler install$ bundler exe...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2016-02-16 14:32:24 +0800" class="post-list__meta--date date">2016-02-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2016/02/hello-world-vno/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/08/new-jekyll-blog/";
+        this.page.identifier = "/2017/08/new-jekyll-blog/";
+    };
+
+    var disqus_shortname = 'henrydu007';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-11-17 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', '');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
