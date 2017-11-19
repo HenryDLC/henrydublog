@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>python基础(二)</title>
+  <meta name="description" content="循环(while)">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python基础(二)">
+  <meta name="twitter:description" content="循环(while)">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="python基础(二)">
+  <meta property="og:description" content="循环(while)">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/11/pythonbasis-2/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-11-19 16:22:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">python基础(二)</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="循环while">循环(while)</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#计算所有1-100之间的和</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">my_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+	<span class="n">my_sum</span> <span class="o">=</span> <span class="n">my_sum</span> <span class="o">+</span> <span class="n">index</span>
+	<span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"ret = </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">my_sum</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 计算所有1-100之间所有的奇数</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">my_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+	<span class="k">if</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="n">my_sum</span> <span class="o">=</span> <span class="n">my_sum</span> <span class="o">+</span> <span class="n">index</span>
+	<span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"ret = </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">my_sum</span><span class="p">)</span>
+
+<span class="c"># 计算所有1-100之间所有的偶数</span>
+<span class="c"># 计算1-100的和</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mysum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+	<span class="k">if</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="n">mysum</span> <span class="o">=</span> <span class="n">mysum</span> <span class="o">+</span> <span class="n">index</span>
+	<span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mysum</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 计算指定数字范围内的和</span>
+<span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入一个数"</span><span class="p">))</span>
+<span class="n">index2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入第二个数"</span><span class="p">))</span>
+<span class="n">my_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">if</span> <span class="n">index2</span> <span class="o">&gt;=</span> <span class="n">index</span><span class="p">:</span>
+	<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="n">index2</span><span class="p">:</span>
+			<span class="n">my_sum</span> <span class="o">=</span> <span class="n">my_sum</span> <span class="o">+</span> <span class="n">index</span>
+			<span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_sum</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 创建用户，用名字和账户金额，每次参与压住，猜中金钱翻倍，未猜中，则扣除金钱</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 打印直角三角形</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+	<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"*"</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+		<span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="k">print</span><span class="p">()</span>
+	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 创建用户，用名字和账户金额，每次参与压住，猜中金钱翻倍，未猜中，则扣除金钱</span>
+
+<span class="c"># 初始化信息</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入您的姓名:"</span><span class="p">)</span>
+<span class="n">money</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入您的账户余额!:"</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">money</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"您的金额不足!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="c"># 开始赌博</span>
+	<span class="k">while</span> <span class="n">money</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="c"># 下注</span>
+		<span class="n">yazhu</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入您押注的金额"</span><span class="p">))</span>
+		<span class="k">if</span> <span class="n">yazhu</span> <span class="o">&gt;</span> <span class="n">money</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"您的余额不足"</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="c"># 开始赌博</span>
+			<span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+			<span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入精彩数"</span><span class="p">))</span>
+			<span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="n">num</span><span class="p">:</span>
+				<span class="n">money</span> <span class="o">=</span> <span class="n">money</span> <span class="o">+</span> <span class="n">yazhu</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">"本次押注成功,您的余额为</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">money</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">money</span> <span class="o">=</span> <span class="n">money</span> <span class="o">-</span> <span class="n">yazhu</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">"抱歉,押注失败,您的余额为</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">money</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 打印九九乘法表</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">:</span>
+	<span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+	<span class="k">while</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">d*</span><span class="si">%</span><span class="s">d=</span><span class="si">%</span><span class="s">d "</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="o">*</span><span class="n">i</span><span class="p">),</span><span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+		<span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+</code></pre>
+</div>
+
+<h2 id="制表符">制表符:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>\<span class="err">​反斜杠符号</span>
+\<span class="s">'​单引号</span><span class="err">
+</span><span class="se">\"</span><span class="s">​双引号</span><span class="err">
+</span><span class="se">\n</span><span class="s">​换行</span><span class="err">
+</span><span class="se">\t</span><span class="s">  横向制表符</span><span class="err">
+</span><span class="se">\r</span><span class="s">  回车</span><span class="err">
+</span></code></pre>
+</div>
+
+<h1 id="字符串">字符串:</h1>
+
+<p>字符串名 = “字符串” 或 ‘字符串’</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">string</span> <span class="o">=</span> <span class="s">"henrydu"</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+
+<span class="c"># 多个字符串相加1)字符串相加2)格式化输出</span>
+<span class="n">first_name</span> <span class="o">=</span> <span class="s">"Henry"</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="s">"Du"</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="n">last_name</span>
+<span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"我的名字是</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h1 id="列表">列表:</h1>
+
+<p>存储多个字符串或多个数据,无需定义多个变量,可以使用列表存储</p>
+
+<p>定义:</p>
+
+<p>变量名 = [ ]</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 列表无需特意强调数据的类型,可以存储多个不同类型的数据</span>
+<span class="c">#一般情况下存储相同数据类型的数据</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s">"张三"</span><span class="p">,</span><span class="s">"李四"</span><span class="p">,</span><span class="s">"王五"</span><span class="p">,</span><span class="s">"赵六"</span><span class="p">]</span>
+
+</code></pre>
+</div>
+
+<h2 id="增删改查">增删改查:</h2>
+
+<p>增:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  xxx.append
+
+  xxx.insert(0,x)
+
+  xxx.insert(xxx)
+  '''
+</code></pre>
+</div>
+
+<p>删:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  del
+
+  xxx.pop
+</code></pre>
+</div>
+
+<p>改:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  xxx[1] = “xxxxxx”
+</code></pre>
+</div>
+
+<p>查:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  in
+
+  not in
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 列表无需特意强调数据的类型,可以存储多个不同类型的数据,一般情况下存储相同数据类型的数据</span>
+<span class="n">names1</span> <span class="o">=</span> <span class="p">[</span><span class="s">"张三"</span><span class="p">,</span><span class="s">"李四"</span><span class="p">,</span><span class="s">"王五"</span><span class="p">,</span><span class="s">"赵六"</span><span class="p">]</span>
+<span class="n">names2</span> <span class="o">=</span> <span class="p">[</span><span class="s">"张三"</span><span class="p">,</span><span class="s">"李四"</span><span class="p">,</span><span class="s">"王五"</span><span class="p">,</span><span class="s">"赵六"</span><span class="p">]</span>
+<span class="n">names3</span> <span class="o">=</span> <span class="n">names1</span>
+<span class="c"># 列表的操作(增	删	改	查)</span>
+<span class="c"># 1)增</span>
+<span class="n">names1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"德玛西亚"</span><span class="p">)</span> <span class="c"># 最后一个位置 添加</span>
+<span class="n">names1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">"艾欧尼亚"</span><span class="p">)</span> <span class="c"># 自定位置 添加</span>
+<span class="n">names2</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">names1</span><span class="p">)</span> <span class="c"># 其他列表数据 直接添加到尾部</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">names1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">names2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">names3</span><span class="p">)</span>
+<span class="c"># 列表无需特意强调数据的类型,可以存储多个不同类型的数据,一般情况下存储相同数据类型的数据</span>
+<span class="n">names1</span> <span class="o">=</span> <span class="p">[</span><span class="s">"张三"</span><span class="p">,</span><span class="s">"李四"</span><span class="p">,</span><span class="s">"王五"</span><span class="p">,</span><span class="s">"赵六"</span><span class="p">]</span>
+<span class="n">names2</span> <span class="o">=</span> <span class="p">[</span><span class="s">"张三"</span><span class="p">,</span><span class="s">"李四"</span><span class="p">,</span><span class="s">"王五"</span><span class="p">,</span><span class="s">"赵六"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">names1</span><span class="p">)</span>
+
+<span class="c"># 2)删</span>
+<span class="k">del</span> <span class="n">names1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c"># del 可以按照列表角标进行删除</span>
+
+<span class="n">names1</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c"># 删除最后一个</span>
+
+<span class="n">xxx</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="err">王五</span><span class="p">)</span> <span class="c"># 删除特定内容</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">names1</span><span class="p">)</span>
+
+<span class="c"># 3) 改</span>
+<span class="n">names1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">"德玛西亚"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">names1</span><span class="p">)</span>
+
+<span class="c"># 4) 查</span>
+<span class="c"># in -----&gt;判断是否存在</span>
+<span class="c"># not ----&gt;判断是否不在</span>
+<span class="n">find_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入你的姓名!"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">find_name</span> <span class="ow">in</span> <span class="n">names1</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="err">存在</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入你要访问的网址"</span><span class="p">)</span>
+<span class="n">unuserd_url</span> <span class="o">=</span> <span class="p">[</span><span class="s">"x.com"</span><span class="p">,</span><span class="s">"xx.com"</span><span class="p">,</span><span class="s">"xxx.com"</span><span class="p">,</span><span class="s">"www.youtube.com"</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">url</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unuserd_url</span><span class="p">:</span>
+	<span class="k">print</span>
+
+
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 如果使用append 或 insert 添加整个列表,它们将被视为一个整体 添加到 列表中 而不是单个数据</span>
+<span class="n">names1</span> <span class="o">=</span> <span class="p">[</span><span class="s">"张三"</span><span class="p">,</span><span class="s">"李四"</span><span class="p">,</span><span class="s">"王五"</span><span class="p">,</span><span class="s">"赵六"</span><span class="p">]</span>
+<span class="n">names2</span> <span class="o">=</span> <span class="p">[</span><span class="s">"艾欧尼亚"</span><span class="p">,</span><span class="s">"德玛西亚"</span><span class="p">]</span>
+<span class="n">names1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">names2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">names1</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h2 id="列表排序">列表排序:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 从小到大排序</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="c"># 从大到小排序</span>
+<span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+
+<span class="c"># reverse 逆序</span>
+<span class="c"># 与最初定义的字典相反排序</span>
+<span class="c"># nums.sort(reverse=True)解释:</span>
+<span class="s">'''
+nums.sort()作用为从小到大排序,加入命名参数"nums.sort(reverse=True)"之后
+逆序了从小到大排列,改为了从大到小排列
+'''</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">nums</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="示例">示例:</h2>
+
+<h3 id="名片10">名片1.0:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 名片显示1.0</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"============="</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"1.增加姓名"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"2.删除姓名"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"3.修改姓名"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"4.查找姓名"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"5.显示所有姓名"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"6.退出系统"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"============="</span><span class="p">)</span>
+
+	<span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"输入你需要的功能代码:"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+
+	<span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="s">"1"</span><span class="p">:</span>
+		<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入增加的姓名:"</span><span class="p">)</span>
+		<span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+	<span class="k">elif</span> <span class="n">num</span> <span class="o">==</span> <span class="s">"2"</span><span class="p">:</span>
+		<span class="n">del_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入删除的姓名:"</span><span class="p">)</span>
+		<span class="n">really</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"确认删除么(yes/no)"</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">really</span> <span class="o">==</span> <span class="s">"yes"</span><span class="p">:</span>
+			<span class="n">names</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">del_name</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">continue</span>
+
+	<span class="k">elif</span> <span class="n">num</span> <span class="o">==</span> <span class="s">"3"</span><span class="p">:</span>
+		<span class="n">old_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入原名字:"</span><span class="p">)</span>
+		<span class="n">position</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">old_name</span><span class="p">)</span>
+		<span class="n">new_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入新名字"</span><span class="p">)</span>
+		<span class="n">names</span><span class="p">[</span><span class="n">position</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_name</span>
+
+	<span class="k">elif</span> <span class="n">num</span> <span class="o">==</span> <span class="s">"4"</span><span class="p">:</span>
+		<span class="n">find_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入需要查询的名字"</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">find_name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s 存在!"</span> <span class="o">%</span> <span class="n">find_name</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s 不存在!"</span> <span class="o">%</span> <span class="n">find_name</span><span class="p">)</span>
+
+	<span class="k">elif</span> <span class="n">num</span> <span class="o">==</span> <span class="s">"5"</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+	<span class="k">elif</span> <span class="n">num</span> <span class="o">==</span> <span class="s">"6"</span><span class="p">:</span>
+		<span class="n">flag</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"是否要退出?yes/no"</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">flag</span> <span class="o">==</span> <span class="s">"yes"</span><span class="p">:</span>
+			<span class="k">break</span>
+
+</code></pre>
+</div>
+
+<h2 id="for循环遍历列表">for循环:遍历列表</h2>
+
+<p>for 变量名 in 列表:</p>
+
+<p>print(列表)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'c'</span><span class="p">,</span><span class="s">'d'</span><span class="p">]</span>
+<span class="c"># 是用while 循环遍历列表</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c"># 用for 循环遍历列表</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h1 id="切片">切片:</h1>
+
+<p>只读取字符串中,某个部分</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="s">"hello world"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="c"># [切片的起始位置:结束位置的(后一个)]</span>
+<span class="n">qiepian</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">qiepian</span><span class="p">)</span>
+<span class="c"># [切片的起始位置:结束位置的(后一个):步长]</span>
+<span class="n">qiepian</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">qiepian</span><span class="p">)</span>
+<span class="c"># 逆序,如果初始和结束位置不写,甚至步长不写</span>
+<span class="c"># 默认步长为"1",位置从左到右或从右到左(左右顺序看步长正负)</span>
+<span class="n">qiepian</span> <span class="o">=</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">qiepian</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h1 id="字典">字典:</h1>
+
+<p>变量名 = {key:value,key:value,key,value} # 键值对</p>
+
+<p>key:数字/小数点/ 字符串/元组 可以当做key使用</p>
+
+<p>列表/字典/集合 不可以当做key使用</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 存取多个 同样类型的数据 用	"列表"</span>
+<span class="c"># 存取多个 不同类型的数据 用	"字典"</span>
+
+<span class="c"># 声明字典:</span>
+<span class="n">infor</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span><span class="s">"henrydu"</span><span class="p">,</span><span class="s">"age"</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span><span class="s">"tel"</span><span class="p">:</span><span class="s">"18611955214"</span><span class="p">}</span>
+
+<span class="c"># 取字典数据</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infor</span><span class="p">[</span><span class="s">"age"</span><span class="p">])</span>
+
+<span class="c"># 删除数据</span>
+<span class="k">del</span> <span class="n">infor</span><span class="p">[</span><span class="s">"age"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infor</span><span class="p">)</span>
+
+<span class="c"># 添加数据</span>
+<span class="n">infor</span><span class="p">[</span><span class="s">"age"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infor</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 声明:</span>
+<span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c"># 增</span>
+<span class="n">info</span><span class="p">[</span><span class="s">"key"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"数据内容"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+<span class="c"># 删</span>
+<span class="k">del</span> <span class="n">info</span><span class="p">[</span><span class="s">"key"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+<span class="c"># 改(同 增加)</span>
+<span class="n">info</span><span class="p">[</span><span class="s">"key"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"数据内容2"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+<span class="c"># 查</span>
+<span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s">"key"</span><span class="p">])</span>
+</code></pre>
+</div>
+
+<h2 id="字典的操作">字典的操作:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># len()方法:</span>
+<span class="n">my_info</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"HenryDu"</span><span class="p">,</span> <span class="s">"age"</span><span class="p">:</span> <span class="s">"23"</span><span class="p">}</span>
+<span class="c"># 遍历字典时,只能遍历出key的值:</span>
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">my_info</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+
+
+<span class="c"># len() 字典中len返回的是"键值对"的个数</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s">'test'</span><span class="p">))</span>  <span class="c"># len方法测试字符串时,返回值是"字符串"个数</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_info</span><span class="p">))</span>  <span class="c"># len方法测试字典时,返回值时"键值对"个数</span>
+
+
+<span class="c"># xxx.keys和xxx.values用法:</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_info</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>  <span class="c"># xxx.keys 表示取出字典的key值</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_info</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>  <span class="c"># xxx.values 表示取出字典的value值</span>
+
+
+<span class="c"># xxx.items用法</span>
+<span class="c"># xxx.items 表示已元组的形式,取出字典的所有内容</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_info</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="c"># 遍历字典(元组形式)</span>
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">my_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+<span class="c"># 遍历字典(字符串形式)</span>
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">my_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre>
+</div>
+
+<h2 id="示例-1">示例:</h2>
+
+<h3 id="名片20">名片2.0:</h3>
+
+<h2 id="列表字典嵌套">列表/字典嵌套:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">school_name_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">"city_name"</span><span class="p">:</span> <span class="s">"北京市"</span><span class="p">,</span> <span class="s">"school_names"</span><span class="p">:</span> <span class="p">[</span><span class="s">"北京大学"</span><span class="p">,</span> <span class="s">"清华"</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s">"city_name"</span><span class="p">:</span> <span class="s">"天津市"</span><span class="p">,</span> <span class="s">"school_names"</span><span class="p">:</span> <span class="p">[</span><span class="s">"南开"</span><span class="p">,</span> <span class="s">"天大"</span><span class="p">]},</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">city_info</span> <span class="ow">in</span> <span class="n">school_name_list</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"城市的名字是:</span><span class="si">%</span><span class="s">s, 学校有:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">city_info</span><span class="p">[</span><span class="s">"city_name"</span><span class="p">],</span> <span class="n">city_info</span><span class="p">[</span><span class="s">'school_names'</span><span class="p">]))</span>
+
+<span class="c"># 下面的内容当做了解</span>
+<span class="n">my_info</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"dongge"</span><span class="p">,</span>
+           <span class="s">"my_wife"</span><span class="p">:</span> <span class="s">"xxx"</span><span class="p">,</span>
+           <span class="s">"qinqi"</span><span class="p">:</span> <span class="p">[{</span><span class="s">"relation"</span><span class="p">:</span> <span class="s">"姑姑家"</span><span class="p">,</span> <span class="s">"xxx"</span><span class="p">:</span> <span class="s">"xxx"</span><span class="p">},</span> <span class="p">{</span><span class="s">"relation"</span><span class="p">:</span> <span class="s">"舅舅家"</span><span class="p">}]</span>
+           <span class="p">}</span>
+
+<span class="n">class_info</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"dongge"</span><span class="p">,</span>
+     <span class="s">"my_wife"</span><span class="p">:</span> <span class="s">"xxx"</span><span class="p">,</span>
+     <span class="s">"qinqi"</span><span class="p">:</span> <span class="p">[{</span><span class="s">"relation"</span><span class="p">:</span> <span class="s">"姑姑家"</span><span class="p">,</span> <span class="s">"xxx"</span><span class="p">:</span> <span class="s">"xxx"</span><span class="p">},</span> <span class="p">{</span><span class="s">"relation"</span><span class="p">:</span> <span class="s">"舅舅家"</span><span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+</div>
+
+<h1 id="元组">元组:</h1>
+
+<p>列表———&gt;增删改查[ ]</p>
+
+<p>字典———&gt;增删改查{ }</p>
+
+<p>元组———&gt;只读( )</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">money_each_month</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">money_each_month</span><span class="p">))</span>
+
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">]</span>
+<span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c"># money_each_month[0] = 100  # 元组 和 列表很像 但是 不支持数据的修改</span>
+
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">money_each_month</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="注意一个元组的定义方式">注意:一个元组的定义方式:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 列表,一个元素定义方式</span>
+<span class="n">test</span> <span class="o">=</span> <span class="p">[</span><span class="s">"name"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+
+<span class="c"># 元组,一个元素定义方式(元素后面+ "逗号")</span>
+<span class="n">test</span> <span class="o">=</span> <span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+</code></pre>
+</div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-3/" title="link to python(基础三)">python(基础三)</a></h2>
+       <p class="excerpt">函数:# 函数名只能包含字母 数字 下划线,并且数字不能当开头# 函数的参数叫形参def test():	a = 1	b = 2	c = a + b	return ctest_def = test()print(test_def)# 函数内部定义的变量,局部变量,只能在函数内部使用# 多个函数中有同名变量,不会产生冲突,作用域不同# 在所有函数外部定义的变量,叫做全局变量# 再函数内部定义和全局变量同名的变量,就近原则,使用局部变量# 能够在函数的内部使用全局变量 可以访问值,不能修改全局...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:23:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-3/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-1/" title="link to python基础(一)">python基础(一)</a></h2>
+       <p class="excerpt">#conding=utf-8# -*- coding:utf-8  -*-注释：#单行注释#单行注释 往往为下面一行代码进行说明'''多行注释多行注释 往往为下面一段代码进行说明'''注意:官方建议:单行注释 # 空格后再进行注释print(“test”) # 代码后加注释,代码后空两格 # 空一格再进行注释多行注释:单引号 双引号 都可以变量:python 变量:如果是”双引号”里面的值为:字符串print后面依靠%s取出值如果要对字符串进行运算,在非相同变量类型的时候需要进行强制类型转...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:16:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-1/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/11/pythonbasis-2/";
+        this.page.identifier = "/2017/11/pythonbasis-2/";
+    };
+
+    var disqus_shortname = 'henrydu';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-11-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', '8.8.8.8');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

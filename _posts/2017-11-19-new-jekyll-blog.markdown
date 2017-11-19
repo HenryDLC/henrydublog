@@ -1,12 +1,12 @@
 ---
 layout: post
 title: 搭建Jekyll 博客
-date: 2017-08-19 15:33:24.000000000 +08:00
+date: '2017-11-19 15:51'
 ---
 
 ### 1)  安装RVM
 ```bash
-下载安装RVM管理器, 
+下载安装RVM管理器,
 $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
 & curl -sSL https://get.rvm.io | bash -s stable
@@ -14,7 +14,7 @@ or
 & curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
 
 启动rvm(or重开终端或重启系统)
-& source /etc/profile.d/rvm.sh 
+& source /etc/profile.d/rvm.sh
 
 更改ruby下载地址
 & echo "ruby_url=https://cache.ruby-china.org/pub/ruby" > ~/.rvm/user/db
@@ -28,8 +28,8 @@ rvm 安装路径
   $ rvm requirements
   $ rvm install 2.3.0
 ```
- 
-### 6) 安装 Bundler 
+
+### 6) 安装 Bundler
 ```bash
 gem install bundler
 ```
@@ -64,7 +64,7 @@ $ rvm -v
 $ wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
  通过 rpm 添加列表
-$ rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm 
+$ rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
  通过 yum 安装 nginx
 $ yum install nginx
@@ -92,4 +92,3 @@ $ bundler exec jekyll serve
 
 $ jekyll serve --detach
 ```
-

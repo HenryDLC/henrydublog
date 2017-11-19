@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>python(基础四)</title>
+  <meta name="description" content="面向对象:">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python(基础四)">
+  <meta name="twitter:description" content="面向对象:">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="python(基础四)">
+  <meta property="og:description" content="面向对象:">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/11/pythonbasis-4/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-11-19 16:23:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">python(基础四)</h1>
+  </header>
+
+  <section class="post">
+    <h1 id="面向对象">面向对象:</h1>
+
+<h2 id="类">类:</h2>
+
+<p>类:笼统的概念</p>
+
+<p>类名:名字</p>
+
+<p>属性:一组数据(特性)</p>
+
+<p>方法:功能</p>
+
+<p>对象:具体 表明 物体</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 联想:定义函数</span>
+<span class="s">"""
+def 函数名():
+    pass
+返回值 return
+参数:缺省参数/命名参数/不定长参数
+解包
+变量交换
+"""</span>
+
+<span class="c"># 定义一个类</span>
+<span class="c"># class 类名(大驼峰):</span>
+<span class="c">#     属性</span>
+<span class="c">#     方法</span>
+
+<span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+    <span class="c"># 属性</span>
+
+    <span class="c"># 方法(类里面的函数)</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"猫在吃鱼"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"猫在喝水"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">itroduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># print("我的名字是%s!我的年龄是%d" % (tom.name, tom.age))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"我的名字是</span><span class="si">%</span><span class="s">s!我的年龄是</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
+
+<span class="c"># 创建一个对象的方式:</span>
+<span class="c"># 变量名 = 类名()</span>
+<span class="c"># tom = Cat()是全局变量</span>
+<span class="n">tom</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
+
+<span class="c"># 调用对象方法:</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">drink</span><span class="p">()</span>
+
+<span class="c"># 给对象添加属性</span>
+<span class="c"># 对象属性无则添加,有则更改</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Tom"</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">31</span>
+
+<span class="c"># 获得tom对象的属性</span>
+<span class="c"># print(tom.name)</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">itroduce</span><span class="p">()</span>
+
+<span class="c"># 创建另一只猫对象添加属性(创建多个对象)</span>
+<span class="n">ding_dang</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
+<span class="n">ding_dang</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"DD"</span>
+<span class="n">ding_dang</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="n">ding_dang</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+<span class="n">ding_dang</span><span class="o">.</span><span class="n">drink</span><span class="p">()</span>
+<span class="n">ding_dang</span><span class="o">.</span><span class="n">itroduce</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h3 id="self表示自己">self(表示自己):</h3>
+
+<p>一个变量,用来接收 给它的引用</p>
+
+<h2 id="__init__方法对象初始化">__init__方法(对象初始化):</h2>
+
+<h3 id="创建对象的过程">创建对象的过程:</h3>
+
+<p>1.根据cat这个模板 创建一个对象</p>
+
+<p>2.自动 调用一个方法 (__init__方法)</p>
+
+<p>3.将初始化的 对象的引用 返回到创建对象的地方</p>
+
+<h2 id="__str__方法返回字符串对象描述">__str__方法(返回字符串,对象描述):</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">new_name</span><span class="p">,</span><span class="n">new_age</span><span class="p">):</span>
+		<span class="s">"""
+		自动调用__init__方法 会将刚创建好的对象 当做第一个参数传递给self变量中
+		剩余的形参用来接收 创建对象Cat()里面的实参
+
+		将已经初始化完成之后的对象应用 返回到 创建对象的地方
+		"""</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"------init--------"</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">new_name</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">new_age</span>
+
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="s">"""返回一个字符串,这字符串中往往表示这个对象的描述信息"""</span>
+		<span class="k">return</span> <span class="s">"Cat创建出来的对象:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+	<span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"猫在吃鱼"</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"猫在喝水"</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">itroduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"我的名字是</span><span class="si">%</span><span class="s">s!我的年龄是</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
+
+<span class="n">tom</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="s">"Tom"</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">drink</span><span class="p">()</span>
+
+
+<span class="c"># tom.name = "Tom"</span>
+<span class="c"># tom.age = 30</span>
+<span class="c"># tom.age = 31</span>
+
+
+<span class="n">tom</span><span class="o">.</span><span class="n">itroduce</span><span class="p">()</span>
+
+<span class="n">ding_dang</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="s">"DD"</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+<span class="c"># ding_dang.name = "DD"</span>
+<span class="c"># ding_dang.age = 31</span>
+<span class="n">ding_dang</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
+<span class="n">ding_dang</span><span class="o">.</span><span class="n">drink</span><span class="p">()</span>
+<span class="n">ding_dang</span><span class="o">.</span><span class="n">itroduce</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"----------分割线------------"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tom</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ding_dang</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>__init__: 创建一个对象的时候自动调用</p>
+
+<p>__str__:获取一个对象的描述时 自动调用</p>
+
+<h2 id="示例烤地瓜self属性">示例:(烤地瓜)(self属性)</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Yam</span><span class="p">:</span>
+    <span class="s">"""定义一个地瓜类"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""完成初始化设置"""</span>
+
+        <span class="n">num</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c"># 局部变量,调用init方法时,调用结束 局部变量无法使用</span>
+        <span class="c"># self.cook_string = "生的" cook_string变量有self属性,在其他方法中可以直接使用</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cook_string</span> <span class="o">=</span> <span class="s">"生的"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cook_all_time</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c"># 记录烤的总时间</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cook_item</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c"># 用来记录所添加的作料</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"地瓜的状态是:</span><span class="si">%</span><span class="s">s,添加的作料有:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cook_string</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cook_item</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">cook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cook_time</span><span class="p">):</span>
+        <span class="s">"""完成烤地瓜"""</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cook_all_time</span> <span class="o">+=</span> <span class="n">cook_time</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cook_all_time</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cook_string</span> <span class="o">=</span> <span class="s">"生的"</span>
+
+        <span class="k">elif</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">cook_all_time</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cook_string</span> <span class="o">=</span> <span class="s">"半生不熟"</span>
+        <span class="k">elif</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">cook_all_time</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cook_string</span> <span class="o">=</span> <span class="s">"熟了"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cook_string</span> <span class="o">=</span> <span class="s">"糊了"</span>
+
+    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">item</span><span class="p">):</span>
+        <span class="c"># 向"地瓜"对象中 添加参数</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cook_item</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="c"># 创建一个对象</span>
+<span class="n">di_gua</span> <span class="o">=</span> <span class="n">Yam</span><span class="p">()</span>
+
+<span class="c"># 烤地瓜</span>
+<span class="n">di_gua</span><span class="o">.</span><span class="n">cook</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">di_gua</span><span class="o">.</span><span class="n">cook</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">di_gua</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="s">"盐"</span><span class="p">)</span>
+<span class="n">di_gua</span><span class="o">.</span><span class="n">cook</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">di_gua</span><span class="o">.</span><span class="n">cook</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">di_gua</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="s">"辣椒"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">di_gua</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="示例放家具对象指向">示例:(放家具)(对象指向)</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">home</span><span class="p">:</span>
+    <span class="s">"""定义一个'房子类'"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_area</span> <span class="o">=</span> <span class="n">area</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">area</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c"># 用来存放所有的家具</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">areas</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
+            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
+            <span class="n">areas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+        <span class="c"># __init__方法里执行"self.items = []",指向了bed1对象</span>
+        <span class="c"># item.name没有self方法,所以指向的是被传过来的bed1对象里的name值</span>
+
+        <span class="k">return</span> <span class="s">"房子的总面积是:</span><span class="si">%</span><span class="s">d,房子的可用面积是</span><span class="si">%</span><span class="s">d,房子的地址是:</span><span class="si">%</span><span class="s">s,房子里的家具有:</span><span class="si">%</span><span class="s">s,家具的面积是:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> \
+               <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">total_area</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">names</span><span class="p">),</span> <span class="n">areas</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="s">"""将物品添加到房子里"""</span>
+        <span class="c"># 如果物品的面积大于可用面积 添加不成功</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">area</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">-</span> <span class="n">item</span><span class="o">.</span><span class="n">area</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"物品太大,换个小点的"</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Bed</span><span class="p">:</span>
+    <span class="s">"""定义一个'床'类"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">area</span>
+
+
+<span class="c"># 1.创建一个房子</span>
+<span class="n">my_home_1</span> <span class="o">=</span> <span class="n">home</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="s">"北京市朝阳区酒仙桥路七号院5号楼101"</span><span class="p">)</span>
+
+<span class="c"># 2.创建一个家具</span>
+<span class="n">bed1</span> <span class="o">=</span> <span class="n">Bed</span><span class="p">(</span><span class="s">"双人床"</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="c"># 3.把这个家具存放在房子里</span>
+<span class="n">my_home_1</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">bed1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_home_1</span><span class="p">)</span>
+
+<span class="c"># 4.在购买一个床</span>
+<span class="n">bed2</span> <span class="o">=</span> <span class="n">Bed</span><span class="p">(</span><span class="s">"炕"</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">my_home_1</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">bed2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_home_1</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h2 id="隐藏对象的属性私有属性">隐藏对象的属性:(私有属性)</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># self.age = 0</span>
+        <span class="c"># 定义了一个"私有"属性</span>
+        <span class="c"># "__"变量名,是"私有属性"</span>
+        <span class="c"># 特点:只能在方法中使用,self.__xxx 不允许同对象.__xxx使用</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__age</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">set_age</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="c"># if 1 &lt;= age &lt;= 20:</span>
+        <span class="c">#     self.age = age</span>
+        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__age</span>
+
+
+<span class="n">dog</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">()</span>
+
+<span class="c"># 如果 类没有定义def age(self): 方法,自动添加对象方法</span>
+<span class="c"># dog.age = 1</span>
+<span class="n">dog</span><span class="o">.</span><span class="n">set_age</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="c"># print(dog.__age)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dog</span><span class="o">.</span><span class="n">get_age</span><span class="p">())</span>
+
+<span class="c"># 如果加上if 1 &lt;= age &lt;= 20:,利用set_age方法,无法更改超过限定的值</span>
+<span class="c"># dog.set_age = 110</span>
+<span class="n">dog</span><span class="o">.</span><span class="n">set_age</span><span class="p">(</span><span class="mi">110</span><span class="p">)</span>
+<span class="c"># print(dog.__age)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dog</span><span class="o">.</span><span class="n">get_age</span><span class="p">())</span>
+
+
+<span class="c"># 自动添加的对象方法,可以绕过set_age方法对age值的限定if 1 &lt;= age &lt;= 20:</span>
+<span class="c"># dog.age = 110</span>
+<span class="c"># print(dog.__age)</span>
+</code></pre>
+</div>
+
+<h2 id="私有方法">私有方法:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="s">"""定义一个狗类"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="c"># 定义一个私有方法</span>
+    <span class="k">def</span> <span class="nf">__sit_down</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""坐下"""</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s坐下"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="c"># 定义了一个公有方法</span>
+    <span class="k">def</span> <span class="nf">sit_down</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="s">"""判断发号施令的人,是主任坐下..否则不理他"""</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">"主人"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__sit_down</span><span class="p">()</span>  <span class="c"># 在一个方法中,定义另一个方法,必须加self属性</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"不理你"</span><span class="p">)</span>
+
+
+<span class="n">wang_cai</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s">"旺财"</span><span class="p">)</span>
+<span class="c"># wang_cai.__sit_down()  # 不允许直接使用, 对象名,私有方法名()</span>
+<span class="n">wang_cai</span><span class="o">.</span><span class="n">sit_down</span><span class="p">(</span><span class="s">"主人"</span><span class="p">)</span>
+<span class="n">wang_cai</span><span class="o">.</span><span class="n">sit_down</span><span class="p">(</span><span class="s">"xxx"</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-3/" title="link to python(基础三)">python(基础三)</a></h2>
+       <p class="excerpt">函数:# 函数名只能包含字母 数字 下划线,并且数字不能当开头# 函数的参数叫形参def test():	a = 1	b = 2	c = a + b	return ctest_def = test()print(test_def)# 函数内部定义的变量,局部变量,只能在函数内部使用# 多个函数中有同名变量,不会产生冲突,作用域不同# 在所有函数外部定义的变量,叫做全局变量# 再函数内部定义和全局变量同名的变量,就近原则,使用局部变量# 能够在函数的内部使用全局变量 可以访问值,不能修改全局...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:23:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-3/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/11/pythonbasis-4/";
+        this.page.identifier = "/2017/11/pythonbasis-4/";
+    };
+
+    var disqus_shortname = 'henrydu';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-11-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', '8.8.8.8');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>python(基础三)</title>
+  <meta name="description" content="函数:">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python(基础三)">
+  <meta name="twitter:description" content="函数:">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="python(基础三)">
+  <meta property="og:description" content="函数:">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/11/pythonbasis-3/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-11-19 16:23:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">python(基础三)</h1>
+  </header>
+
+  <section class="post">
+    <h1 id="函数">函数:</h1>
+
+<p># 函数名只能包含字母 数字 下划线,并且数字不能当开头</p>
+
+<p># 函数的参数叫形参</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+	<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+	<span class="k">return</span> <span class="n">c</span>
+<span class="n">test_def</span> <span class="o">=</span> <span class="n">test</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test_def</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p># 函数内部定义的变量,局部变量,只能在函数内部使用</p>
+
+<p># 多个函数中有同名变量,不会产生冲突,作用域不同</p>
+
+<p># 在所有函数外部定义的变量,叫做全局变量</p>
+
+<p># 再函数内部定义和全局变量同名的变量,就近原则,使用局部变量</p>
+
+<p># 能够在函数的内部使用全局变量 可以访问值,不能修改全局变量的值</p>
+
+<p># 函数内部修改全局变量,在函数内部使用global关键字声明一下</p>
+
+<p># 函数的参数的默认和,也叫缺省参数</p>
+
+<p># 函数 如果第二个位置有默认值,从第二个位置开始</p>
+
+<h2 id="例子">例子:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 定义一个加法函数,完成两个数的加减运算,并输出结果</span>
+
+<span class="k">def</span> <span class="nf">myAdd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="c"># 定义一个函数用来检测输入的年龄是否有效</span>
+
+<span class="c"># 检测函数</span>
+<span class="k">def</span> <span class="nf">checkAge</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">True</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">False</span>
+
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入年龄(1-100)"</span><span class="p">))</span>
+
+<span class="c"># 调用函数检测年龄是否合法</span>
+<span class="k">if</span> <span class="n">checkAge</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"您输入的年龄合法"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"您输入的年龄不合法"</span><span class="p">)</span>
+
+<span class="c"># 定义一个函数求圆的面积</span>
+<span class="k">def</span> <span class="nf">caculateCircleS</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+	<span class="n">s</span> <span class="o">=</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">2</span>
+	<span class="k">return</span> <span class="n">s</span>
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 定义一个函数完成给定范围数累加和</span>
+
+<span class="c">#开始值 和 结束值</span>
+<span class="k">def</span> <span class="nf">mySum</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
+	<span class="c"># 累加和</span>
+	<span class="n">num_sum</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+		<span class="k">while</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">:</span>
+			<span class="n">num_sum</span> <span class="o">=</span> <span class="n">num_sum</span> <span class="o">+</span> <span class="n">start</span>
+			<span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"您输入的start大于end!"</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">num_sum</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">mySum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="返回值">返回值:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 如果一个函数 需要将一个结果 传递给 调用的地方</span>
+<span class="c"># 那么就需要return 返回值 返回到 调用函数的那个位置</span>
+<span class="k">def</span> <span class="nf">test1</span><span class="p">():</span>
+	<span class="k">return</span> <span class="mi">100</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">test1</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test1</span><span class="p">())</span>
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 完成两个数的加法 并算出平均值</span>
+<span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+	<span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+	<span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">average</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">average</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入一个数字:"</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入另一个数字:"</span><span class="p">))</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">average</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h2 id="函数类型">函数类型:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 函数类型</span>
+<span class="c"># 无参数/无返回值</span>
+<span class="s">'''
+def xxx():
+	pass
+'''</span>
+<span class="c"># 无参数/有返回值</span>
+<span class="s">'''
+def xxx():
+	...
+	return 100
+'''</span>
+<span class="c"># 有参数,无返回值</span>
+<span class="s">'''
+def xxx(a, b):
+	....
+'''</span>
+<span class="c"># 有参数,有返回值</span>
+<span class="s">'''
+def(a, b):
+	....
+	return 100
+'''</span>
+
+</code></pre>
+</div>
+
+<h3 id="global关键字-修改全局变量">global关键字 修改全局变量:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 全局变量的特点:可以在所有的函数中直接使用</span>
+<span class="c"># 全局变量的定义:在函数外边定义的变量称之为全局变量</span>
+
+<span class="n">sum_result</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># 定义了一个全局变量 它默认值是0</span>
+
+<span class="k">def</span> <span class="nf">sum_2_nums</span><span class="p">():</span>
+	<span class="c"># 通过下面一行的global代码,相当于告诉python解释器 在这个函数中的sum_result变量</span>
+	<span class="c"># 一定是那个全局的变量,而不是自己在这个函数中定义一个和全局变量相同的变量</span>
+	<span class="k">global</span> <span class="n">sum_result</span>
+	<span class="n">sum_result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">avaerage_2_nums</span><span class="p">():</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">sum_result</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入一个数字:"</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入另一个数字:"</span><span class="p">))</span>
+
+<span class="c"># 计算2个值得和</span>
+<span class="n">sum_2_nums</span><span class="p">()</span>
+<span class="n">avaerage_2_nums</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h2 id="函数嵌套">函数嵌套:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 定义一个函数完成给定范围数累加和</span>
+<span class="k">def</span> <span class="nf">checkParam</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">False</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">True</span>
+
+<span class="c">#开始值 和 结束值</span>
+<span class="k">def</span> <span class="nf">mySum</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
+	<span class="c"># 累加和</span>
+	<span class="n">num_sum</span> <span class="o">=</span> <span class="mi">0</span>
+
+	<span class="k">if</span> <span class="n">checkParam</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+				<span class="k">while</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">:</span>
+					<span class="n">num_sum</span> <span class="o">=</span> <span class="n">num_sum</span> <span class="o">+</span> <span class="n">start</span>
+					<span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">pass</span>
+
+	<span class="k">return</span> <span class="n">num_sum</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">mySum</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="函数嵌套调用">函数嵌套调用:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 打印三条线</span>
+<span class="k">def</span> <span class="nf">print_1_line</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"--------------"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">print_2_line</span><span class="p">():</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">print_1_line</span><span class="p">()</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">print_2_line</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 返回值调用嵌套函数</span>
+<span class="k">def</span> <span class="nf">sum_3_nums</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span>
+
+<span class="k">def</span> <span class="nf">average_3_nums</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">num3</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sum_3_nums</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">num3</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">average_3_nums</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span><span class="n">v</span>
+</code></pre>
+</div>
+
+<h3 id="全局变量局部变量作用域">全局变量/局部变量:作用域</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 定义了一个全局变量</span>
+<span class="c"># 作用域:从开始定义的位置开始算起 一直到整个程序的末尾</span>
+<span class="n">g_a</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c"># 为了避免和局部变量名字相同,一般会在全局变量名前面添加 g_</span>
+
+
+<span class="k">def</span> <span class="nf">test1</span><span class="p">():</span>
+    <span class="c"># 局部变量的作用域:从定义这个局部变量开始算起 到 整个函数结束</span>
+    <span class="c"># print(a)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c"># 如果在函数中看到了一个变量名=xx 并且变量名和全局变量名相同,那么在没有用global进行声明的时候,那么相当于定义了一个局部变量,仅仅是名字和全局变量相同罢了</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># 如果函数里没有定义局部变量a那么就会到全局变量中找a</span>
+
+<span class="n">test1</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">g_a</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="return高级用法">return高级用法:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># return 多返回值封装成"列表"字典"元组"</span>
+<span class="c"># 返回值 返回多个值</span>
+<span class="k">def</span> <span class="nf">get_my_inof</span><span class="p">():</span>
+	<span class="s">"""获取多个信息"""</span>
+	<span class="n">hight</span> <span class="o">=</span> <span class="mi">178</span>
+	<span class="n">weight</span> <span class="o">=</span> <span class="mi">100</span>
+	<span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+	<span class="k">return</span><span class="p">[</span><span class="n">hight</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">age</span><span class="p">]</span>
+	<span class="c"># return {"hight":hight,"weight":weight,"age":age}</span>
+	<span class="c"># return hight, weight, age """return返回多个值,默认是元组(hight, weight, age)"""</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">get_my_inof</span><span class="p">())</span>
+</code></pre>
+</div>
+
+<h3 id="缺省参数默认值">缺省参数(默认值):</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sum_nums</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span> <span class="mi">20</span><span class="p">):</span> <span class="c"># 形参 可以直接默认使用"默认值"</span>
+	<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+	<span class="k">return</span> <span class="n">result</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sum_nums</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">200</span><span class="p">))</span> <span class="c"># 实参传给形参,如果形参有默认值,实参替换形参进行计算</span>
+<span class="c"># 缺省参数必须往后靠 def sum_nums(a, b= 20) b是缺省参数,必须在a的后面(a, b= 20)</span>
+
+</code></pre>
+</div>
+
+<h3 id="不定长参数argskwargs">不定长参数*args/**kwargs:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 不定长参数*args</span>
+<span class="k">def</span> <span class="nf">sum_nums</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+	<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"--"</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+	<span class="c"># 遍历args 元组的和</span>
+	<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+		<span class="n">result</span> <span class="o">+=</span> <span class="n">num</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="n">sum_nums</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="n">sum_nums</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,)</span>
+<span class="n">sum_nums</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">)</span>
+<span class="n">sum_nums</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>
+<span class="n">sum_nums</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">66</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># *args 必须在第二个元素开始,不能作为第一个</span>
+<span class="c"># **kwargs 字典的形式 保存额外的命名参数</span>
+<span class="c"># (args/kwargs可以随意命名.*/**是不定长参数符号)</span>
+<span class="k">def</span> <span class="nf">sum_nums</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="c"># 第一个形参必须与第一个实参相互对应</span>
+<span class="n">sum_nums</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">3.14</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="解包拆包">解包/拆包:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 解包/拆包</span>
+<span class="c"># 把给sum_nums函数的实参 原封传递给test函数</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"-----in the test func-----"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sum_nums</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+	<span class="c"># test(args, kwargs)  # 相当于test((400, 500, 600),{"d":3.14})</span>
+	<span class="n">test</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c"># test(400, 500, 600, d=3.14)</span>
+
+<span class="n">sum_nums</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">3.14</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="拆包两个变量值交换">拆包:两个变量值交换</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span>  <span class="c"># a=11 b=22</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>  <span class="c"># a=11 b=22</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>  <span class="c"># a=11 b=22</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c"># 拆包</span>
+<span class="k">def</span> <span class="nf">get_my_info</span><span class="p">():</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="mi">178</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+    <span class="k">return</span> <span class="n">high</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">age</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">get_my_info</span><span class="p">())</span>
+<span class="n">high</span><span class="p">,</span> <span class="n">wight</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">get_my_info</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">high</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wight</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="引用">引用:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 在python中 a=10 b=a a和b的值是相同的 在内存中 并不真的存了两个值相同的数</span>
+<span class="c"># 而是只存了一次数,a/b两个变量同时引用指向了这个内存地址而已</span>
+<span class="c"># add_self函数中,a和b的变量值都是数组[11,22],所以b执行了b+=b时,a和b打印出来都是[11,22,11,22]</span>
+<span class="k">def</span> <span class="nf">add_self</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">+=</span> <span class="n">b</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+<span class="n">add_self</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c"># 下面的函数结果a输出[11, 22]b输出[11, 22, 11, 22].</span>
+<span class="c"># b += b表示b进行自加并没有声明新的变量</span>
+<span class="c"># b = b+b 表示 声明b变量,把b+b的和赋给了b</span>
+
+<span class="c"># 原则:变量名 = xxx</span>
+<span class="c">#      为新的声明变量</span>
+<span class="k">def</span> <span class="nf">add_self</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="c"># b += b</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">+</span><span class="n">b</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+<span class="n">add_self</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="引用数字字符串元组不可变类型">引用(数字/字符串/元组)不可变类型:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># python中(数字/字符串/元组)为不可变类型</span>
+<span class="c"># 不可变类型:无法再原有内存地址中改变值</span>
+<span class="c"># 下面代码:</span>
+<span class="c">#         a = 100 id是4297640064</span>
+<span class="c">#         a += a  id是4297643264</span>
+<span class="c">#         a += a操作后 等同于:a = 200</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="mi">4297640064</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">a</span> <span class="o">+=</span> <span class="n">a</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mi">4297643264</span>
+
+<span class="c"># 而其他类型如"数组"类型是可变类型</span>
+<span class="c"># 可以再原有内存地址中改变值</span>
+<span class="c"># a = [11, 22] 内存地址是4397524168</span>
+<span class="c"># a += a       内存地址是4397524168</span>
+<span class="c"># 两个内存地址 是相等的 都同样指向了a</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="mi">4397524168</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">a</span> <span class="o">+=</span> <span class="n">a</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="mi">4397524168</span>
+
+
+<span class="c"># 如果b = a 那么a做出改变,b也同样做出相同改变</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="mi">4397524168</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">a</span> <span class="o">+=</span> <span class="n">a</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="mi">4397524168</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="mi">4397524168</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<h3 id="匿名函数">匿名函数:</h3>
+
+<p>Lambda 形参:执行的功能</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 匿名函数应用(一)</span>
+<span class="c"># 回调</span>
+<span class="k">def</span> <span class="nf">call_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">call_func</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 匿名函数应用(二)</span>
+<span class="c"># python为什么是解释型语言:</span>
+<span class="c"># python可以在运行过程中,输入代码改变执行结果(eval)</span>
+<span class="k">def</span> <span class="nf">call_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">func_code</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入一个匿名函数:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">func_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">func_code</span><span class="p">))</span>
+
+<span class="c"># python3 把字符串转换成 代码: eval</span>
+<span class="c"># "lambda x, y: x+y" ---&gt; lambda x, y: x+y</span>
+<span class="n">func_code</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">func_code</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">call_func</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">func_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 匿名函数应用(三)</span>
+<span class="c"># 多字典key排序</span>
+<span class="n">info_list</span> <span class="o">=</span> <span class="p">[{</span><span class="s">"name"</span><span class="p">:</span><span class="s">"xxxsdf"</span><span class="p">,</span><span class="s">"age"</span><span class="p">:</span><span class="mi">18</span><span class="p">},</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span><span class="s">"aaaa"</span><span class="p">,</span><span class="s">"age"</span><span class="p">:</span><span class="mi">28</span><span class="p">}]</span>
+
+<span class="n">info_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="s">'age'</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">info_list</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="综合训练">综合训练:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c">#　创建用户信息</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s">"司马狗剩"</span>
+<span class="n">usermoney</span> <span class="o">=</span> <span class="mi">1000</span>
+
+
+<span class="c"># 显示用户信息</span>
+<span class="k">def</span> <span class="nf">showPerson</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"玩家姓名:</span><span class="si">%</span><span class="s">s 玩家金额:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">usermoney</span><span class="p">))</span>
+
+
+<span class="c"># 押注函数，返回两个结果，一个押注的金额　一个押注的倍率</span>
+<span class="k">def</span> <span class="nf">setGameMoney</span><span class="p">():</span>
+    <span class="c">#保存输入金额</span>
+    <span class="n">money</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">myrate</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"请输入押注的金额(1-</span><span class="si">%</span><span class="s">d):"</span> <span class="o">%</span> <span class="n">usermoney</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+        <span class="n">money</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">money</span> <span class="o">&lt;=</span> <span class="n">usermoney</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"余额不足，请重新输入!"</span><span class="p">)</span>
+
+
+    <span class="c"># 计算合理倍率</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">usermoney</span> <span class="o">//</span> <span class="n">money</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"请输入押注的倍率(1-</span><span class="si">%</span><span class="s">d):"</span> <span class="o">%</span> <span class="n">rate</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+        <span class="n">myrate</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">myrate</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">myrate</span> <span class="o">&lt;=</span> <span class="n">rate</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"您的倍率错误，请重新输入!"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">money</span><span class="p">,</span> <span class="n">myrate</span>
+
+
+<span class="c"># 赌博函数 money押注的金额　rate倍率</span>
+<span class="k">def</span> <span class="nf">game</span><span class="p">(</span><span class="n">money</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
+    <span class="c"># 先随机产生一个竞猜数字(1-5)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="c"># 让用户输入一个竞猜数字(1-5)</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入竞猜数字:"</span><span class="p">))</span>
+    <span class="c"># 显示竞猜数字</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"系统产生数字为:</span><span class="si">%</span><span class="s">d, 您的竞猜数字为:</span><span class="si">%</span><span class="s">d!"</span> <span class="o">%</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+    <span class="c"># 判断胜负</span>
+    <span class="k">global</span> <span class="n">usermoney</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+        <span class="c"># 胜利</span>
+        <span class="n">usermoney</span> <span class="o">=</span> <span class="n">usermoney</span> <span class="o">+</span> <span class="n">money</span> <span class="o">*</span> <span class="n">rate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># 失败</span>
+        <span class="n">usermoney</span> <span class="o">=</span> <span class="n">usermoney</span> <span class="o">-</span> <span class="n">money</span> <span class="o">*</span> <span class="n">rate</span>
+
+
+<span class="c"># 测试游戏</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">while</span> <span class="n">usermoney</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c"># 显示账户信息</span>
+        <span class="n">showPerson</span><span class="p">()</span>
+        <span class="c"># 押注</span>
+        <span class="n">money</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">setGameMoney</span><span class="p">()</span>
+        <span class="c"># 开始赌博</span>
+        <span class="n">game</span><span class="p">(</span><span class="n">money</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-----本局结束------"</span><span class="p">)</span>
+
+
+<span class="c"># 执行测试函数</span>
+<span class="n">test</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h1 id="文件操作">文件操作:</h1>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 读取文件</span>
+<span class="c"># 打开文件</span>
+<span class="s">'''
+"r"     只读(默认)
+"w"     只写
+"a"     追加
+'''</span>
+<span class="c"># + 加好表示"可读可写"</span>
+<span class="s">'''
+"r+"    文件存在.可读可写
+"w+"    无所谓存不存在,都新建文件.可读可写
+"a+"    文件存在,可读可写
+'''</span>
+<span class="c"># 除了文本文件以外,其他文件都为"二进制文件"(图片/音频)</span>
+<span class="s">'''
+"rb"     只读(默认)
+"wb"     只写
+"ab"     追加
+'''</span><span class="o">.</span>
+<span class="s">'''
+"rb+"    文件存在.可读可写
+"wb+"    无所谓存不存在,都新建文件.可读可写
+"ab+"    文件存在,可读可写
+'''</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./test.py"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+
+<span class="c"># 读取数据</span>
+<span class="c"># f.read('''读取多少字节数据就写多少字节数''')</span>
+<span class="c"># f.readline('''一次第一行,需要读取几行,写行数''')</span>
+<span class="c"># f.readlines('''已列表的形式,全部列出来''')</span>
+
+<span class="c">#f.read/f.readline/f.readlines (文件没有关闭之前,反复用.read方法,文件内数据只能读取一次,并向下逐次读取)</span>
+<span class="s">'''
+n [1]: f = open("plane.py")
+
+In [2]: f.read(1)
+Out[2]: 'n'
+
+In [3]: f.read(1)
+Out[3]: 'a'
+
+In [7]: f.readline()
+Out[7]: '["a", </span><span class="se">\'</span><span class="s">b</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">c</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">d</span><span class="se">\'</span><span class="s">]</span><span class="se">\n</span><span class="s">'
+
+In [8]: f.readlines()
+Out[8]: ["names = dict(num1='one', nume2='two',</span><span class="se">\n</span><span class="s">",
+'''</span>
+
+<span class="n">contend</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">contend</span><span class="p">)</span>
+
+<span class="c"># 关闭文件</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 打开文件/写入文件</span>
+<span class="c"># open函数相对/绝对路径都支持</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"/Users/henrydu/Documents/plane/test.py"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+<span class="c"># a = open("./test.py", "w")</span>
+
+<span class="c"># 写入数据</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"print('helloworld!')"</span><span class="p">)</span>
+
+<span class="c"># 关闭文件</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h3 id="示例复制文件">示例:复制文件</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 复制文件(简易版)</span>
+<span class="c"># 1) 获取要复制的文件名</span>
+<span class="n">old_file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入你要打开的文件名"</span><span class="p">)</span>
+
+<span class="c"># 2) 打开这个文件</span>
+<span class="n">old_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">old_file_name</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+
+<span class="c"># 3) 读取里面的数据</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">old_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c"># 4) 创建一个新文件(切片)</span>
+<span class="c"># 文件名.find("字符") 作用:查找字符参数在文件名里面的角标</span>
+<span class="c"># 文件名.rfind("字符") 作用:查找字符参数在文件名里面的角标(从右往左找)</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">old_file_name</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
+<span class="n">new_file_name</span> <span class="o">=</span> <span class="n">old_file_name</span><span class="p">[:</span><span class="n">position</span><span class="p">]</span> <span class="o">+</span> <span class="s">"[复件]"</span> <span class="o">+</span> <span class="n">old_file_name</span><span class="p">[</span><span class="n">position</span><span class="p">:]</span>
+<span class="n">new_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">new_file_name</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+
+<span class="c"># 5) 将读取到的数据写入到这个新文件中</span>
+<span class="n">new_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+<span class="c"># 6) 关闭所有的文件</span>
+<span class="n">old_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">new_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 复制文件(升级版)(每次读取1kb,写入1kb)</span>
+<span class="c"># 复制文件</span>
+<span class="c"># 1) 获取要复制的文件名</span>
+<span class="n">old_file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入你要打开的文件名"</span><span class="p">)</span>
+
+<span class="c"># 2) 打开这个文件</span>
+<span class="n">old_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">old_file_name</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+
+<span class="c"># 4) 创建一个新文件</span>
+<span class="c"># 文件名.find("字符") 作用:查找字符参数在文件名里面的角标</span>
+<span class="c"># 文件名.rfind("字符") 作用:查找字符参数在文件名里面的角标(从右往左找)</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">old_file_name</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
+<span class="n">new_file_name</span> <span class="o">=</span> <span class="n">old_file_name</span><span class="p">[:</span><span class="n">position</span><span class="p">]</span> <span class="o">+</span> <span class="s">"[复件]"</span> <span class="o">+</span> <span class="n">old_file_name</span><span class="p">[</span><span class="n">position</span><span class="p">:]</span>
+<span class="n">new_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">new_file_name</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c"># 3) 读取里面的数据</span>
+    <span class="c"># content = old_file.readline()</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">old_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c"># 5) 将读取到的数据写入到这个新文件中</span>
+        <span class="n">new_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="c"># 6) 关闭所有的文件</span>
+<span class="n">old_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">new_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</code></pre>
+</div>
+
+<h3 id="文件定位读写">文件定位读写:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># .tell()方法:</span>
+<span class="c"># 表示对文件数据已经操作的数据角标</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"plane.py"</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="mi">0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="s">'n'</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="mi">1</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 文件定位读写(python2使用)</span>
+<span class="c"># .seek(0, 0/1/2)</span>
+<span class="c"># 0/1/2 表示:</span>
+<span class="c"># 0:表示文件数据的起始位置</span>
+<span class="c"># 1:表示文件数据操作的位置</span>
+<span class="c"># 2:表示文件数据的末尾位置</span>
+</code></pre>
+</div>
+
+<h3 id="文件文件夹操作">文件/文件夹操作:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 调用 os 模块</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c"># 文件重命名</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s">"test.py"</span><span class="p">,</span> <span class="s">"xxx.py"</span><span class="p">)</span>
+
+<span class="c"># 删除文件</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">"xxx.py"</span><span class="p">)</span>
+
+<span class="c"># 创建文件夹</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">"test"</span><span class="p">)</span>
+
+<span class="c"># 删除文件夹</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s">"test"</span><span class="p">)</span>
+
+<span class="c"># 获取特定目录里所有的文件名(已列表的形式保存)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">"./"</span><span class="p">)</span>
+
+<span class="c"># 获取当前目录里所有的文件名</span>
+<span class="n">test_b</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="c"># 修改当前操作路径</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">"xxx"</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"./xxx"</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h3 id="文件操作示例批量重命名">文件操作示例:批量重命名</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c"># 获取文件夹名</span>
+<span class="n">folder_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入文件夹"</span><span class="p">)</span>
+
+<span class="c"># 获取文件夹所有文件</span>
+<span class="n">fil_names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder_name</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"./xxx"</span><span class="p">)</span>
+
+<span class="c"># 修改(添加)</span>
+<span class="k">for</span> <span class="n">fil_name</span> <span class="ow">in</span> <span class="n">fil_names</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">fil_name</span><span class="p">,</span> <span class="s">"[战机]"</span> <span class="o">+</span> <span class="n">fil_name</span><span class="p">)</span>
+<span class="s">'''修改(减少)
+for fil_name in fil_names:
+    postition = fil_name[4:]
+    print(postition)
+    os.rename(fil_name, postition)
+'''</span>
+
+</code></pre>
+</div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-4/" title="link to python(基础四)">python(基础四)</a></h2>
+       <p class="excerpt">面向对象:类:类:笼统的概念类名:名字属性:一组数据(特性)方法:功能对象:具体 表明 物体# 联想:定义函数"""def 函数名():    pass返回值 return参数:缺省参数/命名参数/不定长参数解包变量交换"""# 定义一个类# class 类名(大驼峰):#     属性#     方法class Cat:    # 属性    # 方法(类里面的函数)    def eat(self):        print("猫在吃鱼")    def drink(self):  ...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:23:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-4/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-2/" title="link to python基础(二)">python基础(二)</a></h2>
+       <p class="excerpt">循环(while)#计算所有1-100之间的和index = 1my_sum = 0while index &lt;= 100:	my_sum = my_sum + index	index += 1print("ret = %d" % my_sum)# 计算所有1-100之间所有的奇数index = 1my_sum = 0while index &lt;= 100:	if index % 2 != 0:		my_sum = my_sum + index	index += 1print("r...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:22:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-2/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/11/pythonbasis-3/";
+        this.page.identifier = "/2017/11/pythonbasis-3/";
+    };
+
+    var disqus_shortname = 'henrydu';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-11-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', '8.8.8.8');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>python基础(一)</title>
+  <meta name="description" content="#conding=utf-8# -*- coding:utf-8  -*-">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python基础(一)">
+  <meta name="twitter:description" content="#conding=utf-8# -*- coding:utf-8  -*-">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="python基础(一)">
+  <meta property="og:description" content="#conding=utf-8# -*- coding:utf-8  -*-">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/11/pythonbasis-1/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-11-19 16:16:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">python基础(一)</h1>
+  </header>
+
+  <section class="post">
+    <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#conding=utf-8</span>
+<span class="c"># -*- coding:utf-8  -*-</span>
+</code></pre>
+</div>
+
+<h1 id="注释">注释：</h1>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#单行注释</span>
+<span class="c">#单行注释 往往为下面一行代码进行说明</span>
+
+<span class="s">'''
+多行注释
+多行注释 往往为下面一段代码进行说明
+'''</span>
+</code></pre>
+</div>
+
+<p>注意:</p>
+
+<p>官方建议:单行注释 # 空格后再进行注释</p>
+
+<p>print(“test”) # 代码后加注释,代码后空两格 # 空一格再进行注释</p>
+
+<p>多行注释:单引号 双引号 都可以</p>
+
+<h1 id="变量">变量:</h1>
+
+<p>python 变量:如果是”双引号”里面的值为:字符串print后面依靠%s取出值</p>
+
+<p>如果要对字符串进行运算,在非相同变量类型的时候需要进行强制类型转换int(变量名)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">username</span> <span class="o">=</span> <span class="s">"henrydu"</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s">"00000000"</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s </span><span class="si">%</span><span class="s">s"</span><span class="o">%</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">password</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<p>type</p>
+
+<p>:可以获得变量的类型(以字符串的形式输出)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">username</span> <span class="o">=</span> <span class="s">"henrydu"</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s">"000000"</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">username</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">password</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<h2 id="运算符">运算符:</h2>
+
+<p>算数运算符</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">+</span> <span class="c"># 加法</span>
+<span class="o">-</span> <span class="c"># 减法</span>
+<span class="o">*</span> <span class="c"># 乘法</span>
+<span class="o">/</span> <span class="c"># 除法</span>
+<span class="o">//</span> <span class="c"># 取整数</span>
+<span class="o">%</span> <span class="c"># 取余</span>
+<span class="o">**</span> <span class="c"># 幂 返回x的y次幂 a**b为10的2次方 输出结果是100</span>
+</code></pre>
+</div>
+
+<p>复合运算符</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">+=</span> <span class="c"># c += a 等效于 c = c+a</span>
+<span class="o">-=</span> <span class="c"># c -= a 等效于 c = c-a</span>
+<span class="o">*=</span> <span class="c"># c *= a 等效于 c = c*a</span>
+<span class="o">/=</span> <span class="c"># c /= a 等效于 c = c/a</span>
+<span class="o">%=</span> <span class="c"># c %= a 等效于 c = c%a</span>
+<span class="o">**=</span> <span class="c"># c ** = a 等效于 c = c**a</span>
+<span class="o">//=</span> <span class="c"># c // = a 等效于 c = c//a</span>
+</code></pre>
+</div>
+
+<h2 id="不同变量之间计算">不同变量之间计算:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># int和int类型计算</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">ret1</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">b1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret1</span><span class="p">)</span>
+
+<span class="c"># float和float类型计算</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="mf">5.67</span>
+<span class="n">ret2</span> <span class="o">=</span> <span class="n">a2</span> <span class="o">+</span> <span class="n">b2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret2</span><span class="p">)</span>
+
+<span class="c"># int和float类型计算</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">a4</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">ret3</span> <span class="o">=</span> <span class="n">a3</span> <span class="o">+</span> <span class="n">a4</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ret3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret3</span><span class="p">)</span>
+
+<span class="c"># int和Bool类型计算</span>
+<span class="n">a4</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">b4</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">ret4</span> <span class="o">=</span> <span class="n">a4</span> <span class="o">+</span> <span class="n">b4</span>
+<span class="n">my_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">ret4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_type</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret4</span><span class="p">)</span>
+
+<span class="c"># 字符串类型+计算</span>
+<span class="n">first_name</span> <span class="o">=</span> <span class="s">"Henry "</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="s">"Du "</span>
+<span class="n">oter_name</span> <span class="o">=</span> <span class="s">"MF"</span>
+<span class="n">my_name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="n">oter_name</span> <span class="o">+</span> <span class="n">last_name</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_name</span><span class="p">)</span>
+
+<span class="c"># 重复拼接字符串</span>
+<span class="n">ret5</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret5</span><span class="p">)</span>
+
+<span class="c"># 特别注意,字符串不能够直接和数字运算</span>
+<span class="c"># ret6 = first_name + 10</span>
+<span class="c"># print(ret6)</span>
+</code></pre>
+</div>
+
+<h2 id="标识符规则">标识符规则:</h2>
+
+<p>标识符由字母/下划线/数字组成,并且数字不能用于开头</p>
+
+<h2 id="格式化输出">格式化输出:</h2>
+
+<p>两种格式化输出样式</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">d"</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">d </span><span class="si">%</span><span class="s">d"</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="s">"HenryDu "</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"方法1:My name is "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"Nice too meet you!"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"格式化输出:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"方法2:My name is </span><span class="si">%</span><span class="s">s Nice too meet you!"</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+<span class="n">stu_number</span> <span class="o">=</span> <span class="mi">20142233127</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"学号:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">stu_number</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"===============++++++======"</span><span class="p">)</span>
+<span class="c"># 定义apple价格</span>
+<span class="n">apple_price</span> <span class="o">=</span> <span class="mf">9.45</span>
+<span class="c"># 买了多少</span>
+<span class="n">buy_weight</span> <span class="o">=</span> <span class="mf">7.5</span>
+<span class="c"># 总价格</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">apple_price</span> <span class="o">*</span> <span class="n">buy_weight</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"今天苹果的价格是</span><span class="si">%.2</span><span class="s">f,买了</span><span class="si">%.1</span><span class="s">f斤,一共花了</span><span class="si">%.2</span><span class="s">f元"</span> <span class="o">%</span>
+<span class="p">(</span><span class="n">apple_price</span><span class="p">,</span><span class="n">buy_weight</span><span class="p">,</span><span class="n">buy_weight</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"===============+++++++======"</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"比率是:</span><span class="si">%</span><span class="s">d</span><span class="si">%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">scale</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>常用的格式符号:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%</span><span class="n">S</span> <span class="c"># 通过str()字符串转换过来格式化</span>
+<span class="o">%</span><span class="n">d</span> <span class="c"># 整数输出</span>
+<span class="o">%</span><span class="n">o</span> <span class="c"># 八进制整数</span>
+<span class="o">%</span><span class="n">x</span> <span class="c"># 十六进制整数(小写字母)</span>
+<span class="o">%</span><span class="n">f</span> <span class="c"># 浮点实数,%.2f表示输出小数后两位</span>
+<span class="o">%%</span> <span class="c"># 输出%号</span>
+</code></pre>
+</div>
+
+<h2 id="输入input">输入input:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">stu_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入您的姓名"</span><span class="p">)</span>
+<span class="n">stu_age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入您的年龄"</span><span class="p">)</span>
+<span class="n">stu_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入您的学号"</span><span class="p">)</span>
+<span class="n">stu_acount</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入您的身份证号码"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"==========================="</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"录入成功,请核对您的个人信息"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"==========================="</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"姓名:</span><span class="si">%</span><span class="s">s"</span><span class="o">%</span><span class="n">stu_name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"年龄:</span><span class="si">%</span><span class="s">s"</span><span class="o">%</span><span class="n">stu_age</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"学号:</span><span class="si">%</span><span class="s">s"</span><span class="o">%</span><span class="n">stu_id</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"身份证号:</span><span class="si">%</span><span class="s">s"</span><span class="o">%</span><span class="n">stu_acount</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"==========================="</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="强制类型转换">强制类型转换:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>         <span class="err">将</span><span class="n">x</span><span class="err">转换成</span><span class="nb">int</span><span class="err">类型</span>
+<span class="n">Flaot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>       <span class="err">将</span><span class="n">x</span><span class="err">转换成</span><span class="nb">float</span><span class="err">类型</span>
+</code></pre>
+</div>
+
+<h1 id="分支语句">分支语句:</h1>
+
+<h2 id="if">if:</h2>
+
+<p>if 判断的条件:</p>
+
+<p>条件成立时,要做的事情</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#例子:</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入你的年龄:"</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"成年人"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="关系运算符">关系运算符:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">==</span>  <span class="err">相等</span>
+<span class="o">!=</span>  <span class="err">不相等</span>
+<span class="o">&gt;</span>   <span class="err">大于</span>
+<span class="o">&lt;</span>   <span class="err">小于</span>
+<span class="o">&gt;=</span>  <span class="err">大于等于</span>
+<span class="o">&lt;=</span>  <span class="err">小于等于</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#银行取款</span>
+
+<span class="c">#用户账户余额</span>
+<span class="n">acount</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c">#输入取款金额</span>
+<span class="n">cash</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入取款金额:"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">acount</span> <span class="o">&lt;</span> <span class="n">cash</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"余额不足!"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">acount</span> <span class="o">&gt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cash</span><span class="p">):</span>
+	<span class="n">acount</span> <span class="o">=</span> <span class="n">acount</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">cash</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"取款金额</span><span class="si">%</span><span class="s">d元成功,您所剩金额为</span><span class="si">%</span><span class="s">d元!"</span><span class="o">%</span><span class="p">(</span><span class="n">cash</span><span class="p">,</span><span class="n">acount</span><span class="p">))</span>
+
+
+</code></pre>
+</div>
+
+<h2 id="逻辑运算符">逻辑运算符:</h2>
+
+<p>and 判断语句中,两个或多个条件同时满足 判断为真</p>
+
+<p>or 判断语句中,两个或多个条件满足一个 判断为真</p>
+
+<p>not 判断语句中,两个或多个条件全部满足(不满足) 判断为假(真)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#登录:账户为admin,密码123或者123456,等级不小于3</span>
+<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入用户名"</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入密码"</span><span class="p">)</span>
+<span class="n">level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入您的等级"</span><span class="p">))</span>
+<span class="c">#逻辑与</span>
+<span class="k">if</span> <span class="n">username</span> <span class="o">==</span> <span class="s">"admin"</span> <span class="ow">and</span> <span class="n">password</span> <span class="o">==</span> <span class="s">"123456"</span> <span class="ow">or</span> <span class="s">"123"</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"登陆成功"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="if-else">if-else:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 输入用户名和密码，如果登录成功，则显示学生信息，登录失败则不显示</span>
+<span class="c"># 输入成绩，如果成绩大于60，输出您的成绩及格，否则您本次考试不及格</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="s">"henrydu"</span>
+<span class="n">userpassword</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">usersex</span> <span class="o">=</span> <span class="s">"男"</span>
+<span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">78</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">student</span><span class="p">():</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"++++++++++++++++++++++++"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">userpassword</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">usersex</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"++++++++++++++++++++++++"</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"您的成绩是:"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">input</span><span class="p">(</span><span class="s">"登录名:"</span><span class="p">)</span> <span class="o">==</span> <span class="s">"henrydu"</span> <span class="ow">and</span> <span class="nb">input</span><span class="p">(</span><span class="s">"密码"</span><span class="p">)</span> <span class="o">==</span> <span class="s">"123"</span><span class="p">:</span>
+	<span class="n">student</span><span class="p">()</span>
+	<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"合格"</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"不合格"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"用户或密码输入错误!"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 输入数字，判断数的奇偶,如果是偶数输出，否则输出不是偶数</span>
+<span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"输入数字:"</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"偶数"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"奇数"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#输入数字，判断数字的正负性</span>
+<span class="n">number</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入数字:"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"正数"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"负数"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="if--elif-else">if -elif-else:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 输入成绩，当成绩大于90，输出A，80，则输出B，否则输出，您需要都努力了</span>
+<span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入成绩"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span><span class="mi">90</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"A"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span> <span class="ow">and</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"B"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="ow">and</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"C"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span> <span class="ow">and</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">70</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"D"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"E"</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 输入数字，输出今天是星期几，否则显示您输入的数字无效</span>
+<span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入数字:"</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"今天是星期一"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"今天是星期二"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"今天是星期三"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"今天是星期四"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"今天是星期五"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"今天是星期六"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"今天是星期七"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"输入错误"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 随机产生一个数字，用户输入，比较大小等于</span>
+
+<span class="c"># 引入随机数包,包里存有写好的功能</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="c"># 包名.函数(方法功能)</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入数字"</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="n">num</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"赢了"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"输了"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"平局"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="if嵌套">if嵌套:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 随机产生一个数字，用户输入，比较大小等于</span>
+
+<span class="c"># 引入随机数包,包里存有写好的功能</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="c"># 包名.函数(方法功能)</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入数字"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">number</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+	<span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="n">num</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"赢了"</span><span class="p">)</span>
+	<span class="k">elif</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"输了"</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"平局"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"输入错误:"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 是否年龄够18岁，如果够进入网吧，再判断钱是否够。</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入年龄:"</span><span class="p">))</span>
+<span class="n">money</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入所带金额:"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span><span class="mi">18</span><span class="p">:</span>
+	<span class="k">if</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"请进!"</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"额度不够"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"年龄不合法"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 输入账号密码，判断登录。再输入身份信息，判断权限，显示不同菜单</span>
+<span class="n">myId</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入账号:"</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入密码"</span><span class="p">)</span>
+<span class="n">level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入等级"</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">myId</span> <span class="o">==</span> <span class="s">"h"</span> <span class="ow">and</span> <span class="n">password</span> <span class="o">==</span> <span class="s">"woaini"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">myId</span> <span class="o">==</span> <span class="s">"henry"</span> <span class="ow">and</span> <span class="n">password</span> <span class="o">==</span> <span class="s">"123"</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"管理员登录成功"</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"1)添加用户"</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"2)删除用户"</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"1)普通用户登录成功"</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"2)查看信息"</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"3)修改密码"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"用户或密码错误!"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 正数加减法，先判断数字是否大于0，然后判断符号</span>
+
+<span class="n">num1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入第一个加数:"</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">num1</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+	<span class="n">num2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入第二个加数:"</span><span class="p">))</span>
+	<span class="k">if</span> <span class="n">num2</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"请输入加法或减法运算"</span><span class="p">)</span>
+		<span class="nb">sum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"1加/2减"</span><span class="p">))</span>
+		<span class="k">if</span> <span class="nb">sum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">d + </span><span class="si">%</span><span class="s">d = </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)))</span>
+		<span class="k">elif</span> <span class="nb">sum</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">d - </span><span class="si">%</span><span class="s">d = </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,(</span><span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span><span class="p">)))</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"输入错误!"</span><span class="p">)</span>
+
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"输入错误!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"输入错误!"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 请输入您要计算的图形编辑:长方形、三角形、圆，然后要求用户输出相应参数，计算</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"面积计算器:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"1 矩形(正方形或长方形)"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"2 圆形"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"3 三角形"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"+++++++++++++++++++++++++++"</span><span class="p">)</span>
+<span class="n">tuxing</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入图形:"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">tuxing</span> <span class="o">==</span> <span class="s">"1"</span><span class="p">:</span>
+	<span class="n">chang1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入边长"</span><span class="p">))</span>
+	<span class="n">chang2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入第二条边长"</span><span class="p">))</span>
+	<span class="n">mianji</span> <span class="o">=</span> <span class="n">chang1</span> <span class="o">*</span> <span class="n">chang2</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"长方形/正方形的面积是</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="n">mianji</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">tuxing</span> <span class="o">==</span> <span class="s">"2"</span><span class="p">:</span>
+	<span class="n">PI</span> <span class="o">=</span> <span class="mf">3.1415926</span>
+	<span class="n">r</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入半径"</span><span class="p">))</span>
+	<span class="n">yuamianji</span> <span class="o">=</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">2</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"圆的面积是</span><span class="si">%.2</span><span class="s">f"</span> <span class="o">%</span> <span class="n">yuamianji</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">tuxing</span> <span class="o">==</span> <span class="s">"3"</span><span class="p">:</span>
+	<span class="n">di</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入底边长度"</span><span class="p">))</span>
+	<span class="n">gao</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"请输入高长度"</span><span class="p">))</span>
+	<span class="n">sanjiaoxingmianji</span> <span class="o">=</span> <span class="n">di</span> <span class="o">*</span> <span class="n">gao</span> <span class="o">/</span> <span class="mi">2</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"三角形面积是</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="n">sanjiaoxingmianji</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"输入错误!"</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h2 id="break和continue">break和continue:</h2>
+
+<p>Break:结束整个循环</p>
+
+<p>continue:结束本次循环</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"======="</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+		<span class="c"># break</span>
+		<span class="k">continue</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>break 和 continue 只对 当前循环有用,不对外循环起作用</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"============"</span><span class="p">)</span>
+	<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+		<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"*******"</span><span class="p">)</span>
+
+		<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+			<span class="k">break</span>
+			<span class="c"># continue</span>
+
+		<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+	<span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre>
+</div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-2/" title="link to python基础(二)">python基础(二)</a></h2>
+       <p class="excerpt">循环(while)#计算所有1-100之间的和index = 1my_sum = 0while index &lt;= 100:	my_sum = my_sum + index	index += 1print("ret = %d" % my_sum)# 计算所有1-100之间所有的奇数index = 1my_sum = 0while index &lt;= 100:	if index % 2 != 0:		my_sum = my_sum + index	index += 1print("r...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:22:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-2/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/new-jekyll-blog/" title="link to 搭建Jekyll 博客">搭建Jekyll 博客</a></h2>
+       <p class="excerpt">1)  安装RVM下载安装RVM管理器,$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3&amp; curl -sSL https://get.rvm.io | bash -s stableor&amp; curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 15:51:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/new-jekyll-blog/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/11/pythonbasis-1/";
+        this.page.identifier = "/2017/11/pythonbasis-1/";
+    };
+
+    var disqus_shortname = 'henrydu';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-11-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', '8.8.8.8');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
