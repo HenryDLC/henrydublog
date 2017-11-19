@@ -35,11 +35,11 @@ paginate_path: "page/:num/"
 
 # Comment
 comment:
-    disqus: henrydu
+    disqus:
     # duoshuo:
 
 # Social
-Social:
+social:
     weibo: tiantianplayworld
     github: HenryDLC
     twitter: henryduLC
@@ -49,4 +49,4 @@ Social:
 # Google Analytics
 ga:
      id: UA-104897325-1
-     host: 8.8.8.8
+    # host: your_host
