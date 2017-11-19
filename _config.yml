@@ -35,9 +35,9 @@ paginate_path: "page/:num/"
 
 # Comment
 comment:
-    disqus: onevcat
+    # disqus: onevcat
     # duoshuo:
-    
+
 # Social
 social:
     weibo: tiantianplayworld
