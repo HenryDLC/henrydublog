@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>HUGO 博客搭建(Ubuntu)</title>
+  <meta name="description" content="ubuntu 环境下:">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HUGO 博客搭建(Ubuntu)">
+  <meta name="twitter:description" content="ubuntu 环境下:">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="HUGO 博客搭建(Ubuntu)">
+  <meta property="og:description" content="ubuntu 环境下:">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/11/hugo-blog/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-11-19 16:39:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">HUGO 博客搭建(Ubuntu)</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="ubuntu-环境下">ubuntu 环境下:</h3>
+
+<p>下载HUGO.deb安装包</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget <span class="o">[</span>https://github.com/gohugoio/hugo/releases/download/v0.26/hugo<span class="se">\_</span>0.26<span class="se">\_</span>Linux-64bit.deb]<span class="o">(</span>https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.deb<span class="o">)</span>
+</code></pre>
+</div>
+
+<p>安装deb文件</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dpkg -i hugo<span class="se">\*</span>.deb
+</code></pre>
+</div>
+
+<p>查看版本</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>hugo version
+</code></pre>
+</div>
+
+<p>安装git</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get install git
+</code></pre>
+</div>
+
+<p>创建博客:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>hugo new site myabout <span class="nb">cd </span>myblogs
+</code></pre>
+</div>
+
+<p>git克隆hugo主题:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/sethmacleod/dimension.git themes/dimension
+</code></pre>
+</div>
+
+<p>把config.toml拷贝到博客根目录:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cp themes/dimension/exampleSite/config.toml 拷贝到myblogs根目录
+</code></pre>
+</div>
+
+<p>安装Nginx:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get install nginx
+</code></pre>
+</div>
+
+<p>配置Nginx(建议先备份default):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo vim /etc/nginx/sites-available/default
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>server { listen 80; listen [::]:80;
+server\_name ip或域名地址; root /opt/myblogs;
+location ^~ / { proxy\_set\_header X-Real-IP $remote\_addr; proxy\_set\_header Host $http\_host; proxy\_pass http://127.0.0.1:1313/; } }
+</code></pre>
+</div>
+
+<p>重启Nginx配置或整个Nginx程序:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>service nginx reload
+
+service nginx restart
+</code></pre>
+</div>
+
+<p>后台启动hugo:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>nohup hugo server —watch &amp;
+
+nohup hugo server --watch &amp;
+
+nohup hugo server --watch &amp;
+</code></pre>
+</div>
+
+<p>参考网址:</p>
+
+<p><a href="https://themes.gohugo.io/academic/">https://themes.gohugo.io/academic/</a></p>
+
+<p><a href="https://themes.gohugo.io/dimension/">https://themes.gohugo.io/dimension/</a></p>
+
+<p><a href="https://github.com/sethmacleod/dimension">https://github.com/sethmacleod/dimension</a></p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-hugo-a-static-site-generator-on-ubuntu-14-04#building-and-serving-the-site">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-hugo-a-static-site-generator-on-ubuntu-14-04#building-and-serving-the-site</a></p>
+
+<p><a href="http://www.singleye.net/2017/01/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BAhugo%E9%9D%99%E6%80%81blog%E6%9C%8D%E5%8A%A1/">http://www.singleye.net/2017/01/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BAhugo%E9%9D%99%E6%80%81blog%E6%9C%8D%E5%8A%A1/</a></p>
+
+<h3 id="ubuntu-阿里源">ubuntu 阿里源:</h3>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo gedit /etc/apt/sources.list
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>\# deb cdrom:[Ubuntu 16.04 LTS \_Xenial Xerus\_ - Release amd64 (20160420.1)]/ xenial main restricted
+
+deb-src http://archive.ubuntu.com/ubuntu xenial main restricted \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse \#Added by software-properties
+
+deb http://archive.canonical.com/ubuntu xenial partner
+
+deb-src http://archive.canonical.com/ubuntu xenial partner
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
+</code></pre>
+</div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/ghostblog/" title="link to 搭建Ghost 博客">搭建Ghost 博客</a></h2>
+       <p class="excerpt">升级所有包，不改变软件设置和系统设置，系统版本升级，内核不改变yum -y upgrade更新 yum 的 repo listrpm -Uvh http://download-i2.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm验证成功rpm -q epel-release重建缓存yum makecache安装wget（-bash: wget: command not found）yum -y install wget...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:36:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/ghostblog/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/11/hugo-blog/";
+        this.page.identifier = "/2017/11/hugo-blog/";
+    };
+
+    var disqus_shortname = 'henrydu';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-11-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', '8.8.8.8');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

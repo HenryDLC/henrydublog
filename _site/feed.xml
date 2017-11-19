@@ -5,9 +5,630 @@
     <description>Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Nov 2017 16:24:58 +0800</pubDate>
-    <lastBuildDate>Sun, 19 Nov 2017 16:24:58 +0800</lastBuildDate>
+    <pubDate>Sun, 19 Nov 2017 17:08:51 +0800</pubDate>
+    <lastBuildDate>Sun, 19 Nov 2017 17:08:51 +0800</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
+    
+      <item>
+        <title>HUGO 博客搭建(Ubuntu)</title>
+        <description>&lt;h3 id=&quot;ubuntu-环境下&quot;&gt;ubuntu 环境下:&lt;/h3&gt;
+
+&lt;p&gt;下载HUGO.deb安装包&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://github.com/gohugoio/hugo/releases/download/v0.26/hugo&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;0.26&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;Linux-64bit.deb]&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.deb&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;安装deb文件&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg -i hugo&lt;span class=&quot;se&quot;&gt;\*&lt;/span&gt;.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;查看版本&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hugo version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;安装git&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;创建博客:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hugo new site myabout &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myblogs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;git克隆hugo主题:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/sethmacleod/dimension.git themes/dimension
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;把config.toml拷贝到博客根目录:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp themes/dimension/exampleSite/config.toml 拷贝到myblogs根目录
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;安装Nginx:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;配置Nginx(建议先备份default):&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vim /etc/nginx/sites-available/default
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server { listen 80; listen [::]:80;
+server\_name ip或域名地址; root /opt/myblogs;
+location ^~ / { proxy\_set\_header X-Real-IP $remote\_addr; proxy\_set\_header Host $http\_host; proxy\_pass http://127.0.0.1:1313/; } }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;重启Nginx配置或整个Nginx程序:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service nginx reload
+
+service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;后台启动hugo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nohup hugo server —watch &amp;amp;
+
+nohup hugo server --watch &amp;amp;
+
+nohup hugo server --watch &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;参考网址:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://themes.gohugo.io/academic/&quot;&gt;https://themes.gohugo.io/academic/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://themes.gohugo.io/dimension/&quot;&gt;https://themes.gohugo.io/dimension/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/sethmacleod/dimension&quot;&gt;https://github.com/sethmacleod/dimension&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-and-use-hugo-a-static-site-generator-on-ubuntu-14-04#building-and-serving-the-site&quot;&gt;https://www.digitalocean.com/community/tutorials/how-to-install-and-use-hugo-a-static-site-generator-on-ubuntu-14-04#building-and-serving-the-site&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.singleye.net/2017/01/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BAhugo%E9%9D%99%E6%80%81blog%E6%9C%8D%E5%8A%A1/&quot;&gt;http://www.singleye.net/2017/01/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BAhugo%E9%9D%99%E6%80%81blog%E6%9C%8D%E5%8A%A1/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;ubuntu-阿里源&quot;&gt;ubuntu 阿里源:&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gedit /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\# deb cdrom:[Ubuntu 16.04 LTS \_Xenial Xerus\_ - Release amd64 (20160420.1)]/ xenial main restricted
+
+deb-src http://archive.ubuntu.com/ubuntu xenial main restricted \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse \#Added by software-properties
+
+deb http://archive.canonical.com/ubuntu xenial partner
+
+deb-src http://archive.canonical.com/ubuntu xenial partner
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 19 Nov 2017 16:39:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/11/hugo-blog/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/11/hugo-blog/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>搭建Ghost 博客</title>
+        <description>&lt;p&gt;升级所有包，不改变软件设置和系统设置，系统版本升级，内核不改变&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum -y upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;更新-yum-的-repo-list&quot;&gt;更新 yum 的 repo list&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rpm -Uvh http://download-i2.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;验证成功&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rpm -q epel-release
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;重建缓存&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum makecache
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;安装wget-bash-wget-command-not-found&quot;&gt;安装wget（-bash: wget: command not found）&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum -y install wget
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;安装-node-和-npm&quot;&gt;安装 node 和 npm&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://nodejs.org/dist/v0.12.18/node-v0.12.18-linux-x64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;解压node&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar zxvf node-v0.12.18-linux-x64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;设置全局&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;node-v0.12.18-linux-x64/bin/
+ln -s /root/node-v0.12.18-linux-x64/bin/node /usr/local/bin/node
+ln -s /root/node-v0.12.18-linux-x64/bin/npm /usr/local/bin/npm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;验证安装&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node -v
+npm -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;安装nginx&quot;&gt;安装Nginx&lt;/h3&gt;
+&lt;p&gt;下载 repo 列表&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;通过-rpm-添加列表&quot;&gt;通过 rpm 添加列表&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;通过-yum-安装-nginx&quot;&gt;通过 yum 安装 nginx&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;运行nginx-设置为开机启动&quot;&gt;运行Nginx 设置为开机启动&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl enable nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;配置文件&quot;&gt;配置文件&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/nginx/conf.d/default.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {  
+    listen       80;
+    #你的域名
+    server_name  undefinedblog.com;
+
+    #后续Wordpress原有数据导入章节会详细说明
+    location /wp-content/ {
+        root /var/www/content/images;
+    }
+
+    #下面几个location都是让nginx直接serve静态文件
+    location ~ ^/(img/|css/|lib/|vendor/|fonts/|robots.txt|humans.txt) {
+      root /var/www/core/client/assets;
+      access_log off;
+      expires max;
+    }
+
+    location ~ ^/(shared/|built/) {
+      root /var/www/core;
+      access_log off;
+      expires max;
+    }
+
+    location ~ ^/(favicon.ico) {
+      root /var/www/core/shared;
+      access_log off;
+      expires max;
+    }
+
+    location ~ ^/(content/images/) {
+      root /var/www;
+      access_log off;
+      expires max;
+    }
+
+    #后续Wordpress原有数据导入会详细讲解
+    rewrite ^/(\d+)/(\d+)/(.*)$ http://undefinedblog.com/$3 permanent;
+
+    #核心block，将请求proxy到Ghost实例上
+    #其中端口可以在Ghost的config.js中修改，但要保持一致
+    location / {
+        proxy_set_header        X-Real-IP $remote_addr;
+        proxy_set_header        Host      $http_host;
+        proxy_pass              http://127.0.0.1:2368;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;重启Nginx&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;安装MariaDB&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install mariadb-server -y  //安装
+sudo systemctl enable mariadb	//开机启动
+sudo systemctl start mariadb	//启动mariadb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;配置mariadb&quot;&gt;配置MariaDB&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mysql_secure_installation  //进入mariadb
+输入安装 MySQL 时指定的 root 密码，一般直接按回车
+是否改变 root 密码，输入 y
+输入新的 root 密码
+是否删除匿名用户，输入 y
+是否禁止 root 远程登录，输入 y
+是否删除默认的 test 数据库，输入 y
+是否马上应用最新的设置，输入 y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;为了避免数据库存放的中文是乱码，我们还需要设置Mysql的编码&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/my.cnf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;写入以下内容&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[client]
+default-character-set=utf8  
+[mysql]
+default-character-set=utf8  
+[mysqld]
+character-set-server=utf8  
+collation-server=utf8_general_ci
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;创建数据库&quot;&gt;创建数据库&lt;/h3&gt;
+&lt;p&gt;登录MySQL&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u root -p 你的密码
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;创建名为ghost的用户并新建名为ghost的数据库，同时给ghost用户授予ghost数据库的所有权限&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE DATABASE ghost;  
+GRANT ALL PRIVILEGES ON ghost.* To 'ghost'@'127.0.0.1' IDENTIFIED BY '707116148';
+
+exit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart mariadb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;安装Ghost（Ghost v0.7.4 full (zh)）&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir /var/www &amp;amp;&amp;amp; cd /var/www
+wget http://dl.ghostchina.com/Ghost-0.7.4-zh-full.zip
+yum -y install unzip	//安装unzip（-bash: unzip: command not found）
+unzip Ghost*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;配置Ghost&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp config.example.js config.js
+vi config.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;production: {  
+    url: 'http://undefinedblog.com', //替换为你自己的域名。
+    mail: {},
+    database: {
+        client: 'mysql',
+        connection: {
+            host     : '127.0.0.1',
+            user     : 'ghost', //上面配置过
+            password : 'ghost对应的密码', //上面配置过
+            database : 'ghost', //我们前面为 Ghost 创建的数据库名称
+            charset  : 'utf8'
+        }
+    },
+    server: {
+        host: '127.0.0.1',
+        port: '2368'//若修改该端口记得在nginx中做相应改变
+    }
+},
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install --production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;测试&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;结束测试&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ctrl + C
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;运行&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nohup npm start &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;https://undefinedblog.com/centos-installing-ghost/
+https://segmentfault.com/a/1190000006245224
+http://blog.csdn.net/xiaofeiaiai/article/details/55048812
+http://zzimoo.com/first/&lt;/p&gt;
+
+&lt;h3 id=&quot;搭建-ftp服务器&quot;&gt;搭建 FTP服务器&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum check-update
+yum -y install vsftpd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;修改参数：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/vsftpd/vsftpd.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;anonymous_enable=NO
+chroot_local_user=YES
+allow_writeable_chroot=YES
+pasv_enable=YES
+pasv_min_port=40000
+pasv_max_port=40100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;重启FTP&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart vsftpd.service
+systemctl enable vsftpd.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;创建用户和FTP文件夹以及设置权限&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;useradd -d /home/www -m henrydu -s /sbin/nologin
+cd /home/
+chmod -R 777 www/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;设置ftp密码&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;passwd henrydu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;删除mysql数据库:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm /usr/local/mysql
+
+sudo rm -rf /usr/local/mysql\*
+
+sudo rm -rf /Library/StartupItems/MySQLCOM
+
+sudo rm -rf /Library/PreferencePanes/My\*
+
+rm -rf ~/Library/PreferencePanes/My\*
+
+sudo rm -rf /Library/Receipts/mysql\*
+
+sudo rm -rf /Library/Receipts/MySQL\*
+
+sudo rm -rf /var/db/receipts/com.mysql.
+
+调用vim /etc/hostconfig，删除 MYSQLCOM=-YES-这一行。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 19 Nov 2017 16:36:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/11/ghostblog/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/11/ghostblog/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化</title>
+        <description>&lt;h2 id=&quot;前言&quot;&gt;前言:&lt;/h2&gt;
+
+&lt;p&gt;一直在用的SS服务商给我发了封邮件…..内容是它被查水表了 需要关闭所有SS服务…..&lt;/p&gt;
+
+&lt;p&gt;没办法 我只能在自己的blog服务器中 搭建自己的SS服务器 并且开启BBR算法 优化服务器的上网速度&lt;/p&gt;
+
+&lt;h3 id=&quot;ss服务器你需要&quot;&gt;SS服务器你需要:&lt;/h3&gt;
+
+&lt;p&gt;硬件层:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;一台非中国大陆地区的Linux系统服务器(本文使用centOS7)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;软件层:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Python2         python第二版 一般Linux系统自带
+
+pip             python包管理器
+
+shadowsocks     ss服务器端
+
+Linux内核       内核版本&amp;gt;=4.9
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;服务器的选择&quot;&gt;服务器的选择:&lt;/h3&gt;
+
+&lt;p&gt;你需要购买一台非大陆地区的服务器&lt;/p&gt;
+
+&lt;p&gt;因为后续要开启BBR算法优化,所以需要你的服务器使用虚拟化技术搭建(VPS服务器)&lt;/p&gt;
+
+&lt;p&gt;国内阿里云/百度云/腾讯云都有非大陆地区的VPS服务器租赁,但是有流量带宽限制且价格昂贵…..好处就是可以租香港/台湾/新加坡这些物理距离较近的服务器地址(P.S物理距离越近 理论上ping值越小)&lt;/p&gt;
+
+&lt;p&gt;海外主流的VPS提供商:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Linode&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;digitalocean&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Vultr&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;对于购买VPS 需要三点注意事项:&lt;/p&gt;
+
+&lt;p&gt;1)物理距离,一般国内体验比较好的是日本VPS&lt;/p&gt;
+
+&lt;p&gt;2)ping值,ping值和丢包率 直接影响连接速度 掉线率 和 带宽速度&lt;/p&gt;
+
+&lt;p&gt;3)IP环绕 现阶段很多vps服务器 从中国请求访问 不直接连接服务器地址 而是先绕到美国 再返回到服务器地址…..反之亦然…..&lt;/p&gt;
+
+&lt;h3 id=&quot;购买建议&quot;&gt;购买建议:&lt;/h3&gt;
+
+&lt;p&gt;我正在用的VPS是Linode公司的日本机房&lt;/p&gt;
+
+&lt;p&gt;Linode 是老牌的VPS提供商 线路稳定 机房众多 请求从中国大陆直接连接日本服务器 不会参与IP环绕 但是第一次购买需要信用卡付款 再之后可以选择PayPal支付&lt;/p&gt;
+
+&lt;p&gt;具体速度测试及更多购买建议请参考:&lt;a href=&quot;http://www.jianshu.com/p/da8f4d0d983c&quot;&gt;http://www.jianshu.com/p/da8f4d0d983c&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;开始安装摘自&quot;&gt;开始安装:摘自&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html&quot;&gt;http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装pip包管理器:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &quot;https://bootstrap.pypa.io/get-pip.py&quot; -o &quot;get-pip.py&quot;
+
+python get-pip.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;安装shadowsocks&quot;&gt;安装shadowsocks:&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install --upgrade pip
+
+pip install shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;配置shadowsocks&quot;&gt;配置shadowsocks:&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/shadowsocks.json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;增加以下内容:&lt;/p&gt;
+
+&lt;p&gt;Shadowsocks接受这样的&lt;a href=&quot;http://www.json.org/&quot;&gt;JSON&lt;/a&gt;格式配置：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ip地址&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;server_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8388&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;local_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;密码&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;timeout&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aes-256-cfb&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;加密方式:可选&lt;code class=&quot;highlighter-rouge&quot;&gt;aes-128-cfb, aes-192-cfb, aes-256-cfb, bf-cfb, cast5-cfb, des-cfb, rc4-md5, chacha20, salsa20, rc4, table&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;配置自启动&quot;&gt;配置自启动:&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/systemd/system/shadowsocks.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;增加以下内容:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Shadowsocks
+
+[Service]
+TimeoutStartSec=0
+
+ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
+[Install] WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;更新配置启动shadowsocks&quot;&gt;更新配置,启动Shadowsocks&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl enable shadowsocks
+
+systemctl start shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;检查SS服务是否启动:
+———–&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl status shadowsocks -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;显示类似以下内容表示成功:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;shadowsocks.service - Shadowsocks&lt;/p&gt;
+
+  &lt;p&gt;Loaded: loaded (/etc/systemd/system/shadowsocks.service; enabled; vendor preset: disabled)&lt;/p&gt;
+
+  &lt;p&gt;Active: active (running) since 二 2017-09-26 16:19:17 UTC; 10h ago&lt;/p&gt;
+
+  &lt;p&gt;Main PID: 3632 (ssserver)&lt;/p&gt;
+
+  &lt;p&gt;CGroup: /system.slice/shadowsocks.service&lt;/p&gt;
+
+  &lt;p&gt;└─3632 /usr/bin/python /usr/bin/ssserver -c /etc/shadowsocks.json&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;开启bbr&quot;&gt;开启BBR:&lt;/h2&gt;
+
+&lt;p&gt;摘自:&lt;a href=&quot;https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7&quot;&gt;https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;为了启用BBR算法，您需要修改&lt;code class=&quot;highlighter-rouge&quot;&gt;sysctl&lt;/code&gt;配置如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'net.core.default_qdisc=fq'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tee&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conf&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'net.ipv4.tcp_congestion_control=bbr'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tee&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conf&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;现在，您可以使用以下命令确认启用了BBR：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ipv4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp_available_congestion_control&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;输出应该类似于：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;net.ipv4.tcp_available_congestion_control = bbr cubic reno&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;接下来，验证：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ipv4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp_congestion_control&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;输出应为：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;bbr&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 19 Nov 2017 16:34:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/11/shadowsocks-centos7/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/11/shadowsocks-centos7/</guid>
+        
+        
+      </item>
     
       <item>
         <title>python(基础四)</title>

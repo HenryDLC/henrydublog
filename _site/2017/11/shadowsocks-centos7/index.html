@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化</title>
+  <meta name="description" content="前言:">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化">
+  <meta name="twitter:description" content="前言:">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化">
+  <meta property="og:description" content="前言:">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/11/shadowsocks-centos7/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-11-19 16:34:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="前言">前言:</h2>
+
+<p>一直在用的SS服务商给我发了封邮件…..内容是它被查水表了 需要关闭所有SS服务…..</p>
+
+<p>没办法 我只能在自己的blog服务器中 搭建自己的SS服务器 并且开启BBR算法 优化服务器的上网速度</p>
+
+<h3 id="ss服务器你需要">SS服务器你需要:</h3>
+
+<p>硬件层:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>一台非中国大陆地区的Linux系统服务器(本文使用centOS7)
+</code></pre>
+</div>
+<p>软件层:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Python2         python第二版 一般Linux系统自带
+
+pip             python包管理器
+
+shadowsocks     ss服务器端
+
+Linux内核       内核版本&gt;=4.9
+</code></pre>
+</div>
+<h3 id="服务器的选择">服务器的选择:</h3>
+
+<p>你需要购买一台非大陆地区的服务器</p>
+
+<p>因为后续要开启BBR算法优化,所以需要你的服务器使用虚拟化技术搭建(VPS服务器)</p>
+
+<p>国内阿里云/百度云/腾讯云都有非大陆地区的VPS服务器租赁,但是有流量带宽限制且价格昂贵…..好处就是可以租香港/台湾/新加坡这些物理距离较近的服务器地址(P.S物理距离越近 理论上ping值越小)</p>
+
+<p>海外主流的VPS提供商:</p>
+
+<blockquote>
+  <p>Linode</p>
+</blockquote>
+
+<blockquote>
+  <p>digitalocean</p>
+</blockquote>
+
+<blockquote>
+  <p>Vultr</p>
+</blockquote>
+
+<p>对于购买VPS 需要三点注意事项:</p>
+
+<p>1)物理距离,一般国内体验比较好的是日本VPS</p>
+
+<p>2)ping值,ping值和丢包率 直接影响连接速度 掉线率 和 带宽速度</p>
+
+<p>3)IP环绕 现阶段很多vps服务器 从中国请求访问 不直接连接服务器地址 而是先绕到美国 再返回到服务器地址…..反之亦然…..</p>
+
+<h3 id="购买建议">购买建议:</h3>
+
+<p>我正在用的VPS是Linode公司的日本机房</p>
+
+<p>Linode 是老牌的VPS提供商 线路稳定 机房众多 请求从中国大陆直接连接日本服务器 不会参与IP环绕 但是第一次购买需要信用卡付款 再之后可以选择PayPal支付</p>
+
+<p>具体速度测试及更多购买建议请参考:<a href="http://www.jianshu.com/p/da8f4d0d983c">http://www.jianshu.com/p/da8f4d0d983c</a></p>
+
+<h3 id="开始安装摘自">开始安装:摘自</h3>
+<p><a href="http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html">http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html</a></p>
+
+<p>安装pip包管理器:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+
+python get-pip.py
+</code></pre>
+</div>
+<h3 id="安装shadowsocks">安装shadowsocks:</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install --upgrade pip
+
+pip install shadowsocks
+</code></pre>
+</div>
+<h3 id="配置shadowsocks">配置shadowsocks:</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>vim /etc/shadowsocks.json
+</code></pre>
+</div>
+<p>增加以下内容:</p>
+
+<p>Shadowsocks接受这样的<a href="http://www.json.org/">JSON</a>格式配置：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"server"</span><span class="p">:</span><span class="s2">"ip地址"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"server_port"</span><span class="p">:</span><span class="mi">8388</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"local_port"</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"password"</span><span class="p">:</span><span class="s2">"密码"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timeout"</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"aes-256-cfb"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>加密方式:可选<code class="highlighter-rouge">aes-128-cfb, aes-192-cfb, aes-256-cfb, bf-cfb, cast5-cfb, des-cfb, rc4-md5, chacha20, salsa20, rc4, table</code></p>
+
+<h2 id="配置自启动">配置自启动:</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>vim /etc/systemd/system/shadowsocks.service
+</code></pre>
+</div>
+<p>增加以下内容:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
+Description=Shadowsocks
+
+[Service]
+TimeoutStartSec=0
+
+ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
+[Install] WantedBy=multi-user.target
+</code></pre>
+</div>
+
+<h2 id="更新配置启动shadowsocks">更新配置,启动Shadowsocks</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>systemctl enable shadowsocks
+
+systemctl start shadowsocks
+</code></pre>
+</div>
+<p>检查SS服务是否启动:
+———–</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>systemctl status shadowsocks -l
+</code></pre>
+</div>
+<p>显示类似以下内容表示成功:</p>
+
+<blockquote>
+  <p>shadowsocks.service - Shadowsocks</p>
+
+  <p>Loaded: loaded (/etc/systemd/system/shadowsocks.service; enabled; vendor preset: disabled)</p>
+
+  <p>Active: active (running) since 二 2017-09-26 16:19:17 UTC; 10h ago</p>
+
+  <p>Main PID: 3632 (ssserver)</p>
+
+  <p>CGroup: /system.slice/shadowsocks.service</p>
+
+  <p>└─3632 /usr/bin/python /usr/bin/ssserver -c /etc/shadowsocks.json</p>
+</blockquote>
+
+<h2 id="开启bbr">开启BBR:</h2>
+
+<p>摘自:<a href="https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7">https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7</a></p>
+
+<p>为了启用BBR算法，您需要修改<code class="highlighter-rouge">sysctl</code>配置如下：</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">echo</span> <span class="s">'net.core.default_qdisc=fq'</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">echo</span> <span class="s">'net.ipv4.tcp_congestion_control=bbr'</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">p</span>
+</code></pre>
+</div>
+
+<p>现在，您可以使用以下命令确认启用了BBR：</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">sysctl</span> <span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">tcp_available_congestion_control</span>
+</code></pre>
+</div>
+
+<p>输出应该类似于：</p>
+
+<blockquote>
+  <p>net.ipv4.tcp_available_congestion_control = bbr cubic reno</p>
+</blockquote>
+
+<p>接下来，验证：</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">n</span> <span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">tcp_congestion_control</span>
+</code></pre>
+</div>
+
+<p>输出应为：</p>
+
+<blockquote>
+  <p>bbr</p>
+</blockquote>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/ghostblog/" title="link to 搭建Ghost 博客">搭建Ghost 博客</a></h2>
+       <p class="excerpt">升级所有包，不改变软件设置和系统设置，系统版本升级，内核不改变yum -y upgrade更新 yum 的 repo listrpm -Uvh http://download-i2.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm验证成功rpm -q epel-release重建缓存yum makecache安装wget（-bash: wget: command not found）yum -y install wget...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:36:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/ghostblog/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-4/" title="link to python(基础四)">python(基础四)</a></h2>
+       <p class="excerpt">面向对象:类:类:笼统的概念类名:名字属性:一组数据(特性)方法:功能对象:具体 表明 物体# 联想:定义函数"""def 函数名():    pass返回值 return参数:缺省参数/命名参数/不定长参数解包变量交换"""# 定义一个类# class 类名(大驼峰):#     属性#     方法class Cat:    # 属性    # 方法(类里面的函数)    def eat(self):        print("猫在吃鱼")    def drink(self):  ...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:23:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-4/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/11/shadowsocks-centos7/";
+        this.page.identifier = "/2017/11/shadowsocks-centos7/";
+    };
+
+    var disqus_shortname = 'henrydu';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-11-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', '8.8.8.8');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
