@@ -35,9 +35,9 @@ paginate_path: "page/:num/"
 
 # Comment
 comment:
-    disqus:
+    disqus: onevcat
     # duoshuo:
-
+    
 # Social
 social:
     weibo: tiantianplayworld
@@ -49,4 +49,4 @@ social:
 # Google Analytics
 ga:
      id: UA-104897325-1
-    # host: your_host
+     host: henrydublog.com
