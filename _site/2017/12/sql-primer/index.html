@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>SQL-primer</title>
+  <meta name="description" content="MySQL">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SQL-primer">
+  <meta name="twitter:description" content="MySQL">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SQL-primer">
+  <meta property="og:description" content="MySQL">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/12/sql-primer/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-12-01 18:55:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-12-01</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">SQL-primer</h1>
+  </header>
+
+  <section class="post">
+    <h1 id="mysql">MySQL</h1>
+
+<h3 id="安装启动mysql">安装启动MySQL</h3>
+
+<p>sudo apt-get install mysql-server</p>
+
+<p>sudo service mysql start</p>
+
+<p>sudo service mysql stop</p>
+
+<p>sudo service mysql restart</p>
+
+<h3 id="进入mysql">进入mysql</h3>
+
+<blockquote>
+  <p>mysql -uroot -p
+your_password</p>
+</blockquote>
+
+<p>配置mysql</p>
+
+<p>vim /etc/mysql/mysql.cnf/mysql.conf.d/mysql.cnf</p>
+
+<p>Bind-address 服务器绑定ip</p>
+
+<p>port 端口 3306</p>
+
+<p>datadir 数据库目录 /var/lib/mysql</p>
+
+<p>general_log_file 普通日志 /var/log/mysql/mysql.log</p>
+
+<p>Log-error 错误日志/var/log/mysql/error.log</p>
+
+<h2 id="数据库操作">数据库操作:</h2>
+
+<p>show databases; #查看所有数据库</p>
+
+<p>use 数据库名 #使用数据库</p>
+
+<p>select database(); #查看当前使用的数据库</p>
+
+<p>create database 数据库名 charset=utf8; #创建数据库</p>
+
+<p>drop database 数据库名 删除数据库</p>
+
+<h2 id="数据表">数据表:</h2>
+
+<p>show tables; #查看当前数据库中所有表</p>
+
+<p>desc 表名字 # 查看表结构</p>
+
+<h3 id="修改表">修改表:</h3>
+
+<p># 添加字段</p>
+
+<p>alter talbe 表名 add 列名 类型;</p>
+
+<p>alter table stundets add birthday datetime;</p>
+
+<p># 修改字段</p>
+
+<p>alter table 表名 change 原名 新名 类型及约束</p>
+
+<p>alter table students change birthday birth datetime not null;</p>
+
+<p># 删除字段</p>
+
+<p>alter table 表名 drop 列名</p>
+
+<p>alter table students drop birth</p>
+
+<p># 查看表的创建语句</p>
+
+<p>show create table 表名</p>
+
+<p>show create table students</p>
+
+<h3 id="查询表">查询表:</h3>
+
+<p># 查询所有列</p>
+
+<p>select * from 表名</p>
+
+<p>select * from students;</p>
+
+<p># 查询指定列</p>
+
+<p>select 列1,列2,列3… from 表名</p>
+
+<p>select id,name from studets;</p>
+
+<h3 id="增加表">增加表:</h3>
+
+<p># 全列插入</p>
+
+<p>insert into 表名 values(…)</p>
+
+<p>insert into students values(0,’郭靖’,1,’蒙古’,’2017-1-1’);</p>
+
+<p># 部分列插入</p>
+
+<p>insert into students(name,age,height) values(‘黄蓉’,18,180);</p>
+
+<h3 id="修改表-1">修改表:</h3>
+
+<p>update 表名 set 列1=值, 列2=值… where 条件</p>
+
+<p>update students set isdelete=0 where id=1</p>
+
+<p>删除表:</p>
+
+<p>delete from 表名 where 条件</p>
+
+<p>delete from 表名 where id=1;</p>
+
+<h3 id="备份恢复数据库">备份恢复数据库:</h3>
+
+<p># 备份</p>
+
+<p>mysqldump -uroot -p 数据库名 &gt; python.sql;</p>
+
+<p># 按提示 输入mysql密码</p>
+
+<p># 恢复</p>
+
+<p>mysql -uroot -p 数据库名 &lt; python.sql</p>
+
+<p># 按提示 输入mysql密码</p>
+
+<h2 id="mysql与python交互">MySQL与python交互</h2>
+
+<p>环境搭建:</p>
+
+<p>sudo pip install pymsql</p>
+
+<p>增删改</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 增删改</span>
+<span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">Connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'mysql'</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">'root'</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s">'test'</span><span class="p">,</span><span class="n">charset</span><span class="o">=</span><span class="s">"utf8"</span><span class="p">)</span>
+<span class="n">cs1</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'insert into students(name) values("你猜")'</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'update students set name = "随缘" where id=3'</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'delete from students where id = 2'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="n">cs1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>查询</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">Connect</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span> <span class="n">charset</span><span class="o">=</span><span class="s">'utf8'</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">'root'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'mysql'</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s">'test'</span><span class="p">)</span>
+<span class="n">cs1</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'select id,name from students'</span><span class="p">)</span>
+<span class="n">resutl</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resutl</span><span class="p">)</span>
+<span class="n">cs1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h3 id="综合应用">综合应用:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c"># 连接mysql</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">Connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">'root'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'mysql'</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s">'test'</span><span class="p">,</span> <span class="n">charset</span><span class="o">=</span><span class="s">'utf8'</span><span class="p">)</span>
+<span class="c"># 获取连接对象</span>
+<span class="n">cs1</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="c"># 增伤改查</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'delete from students where id=7'</span><span class="p">)</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'delete from students where id=8'</span><span class="p">)</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'select id,name from students'</span><span class="p">)</span>
+<span class="c"># 获取查询结果</span>
+<span class="n">resutl</span> <span class="o">=</span> <span class="n">cs1</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resutl</span><span class="p">)</span>
+<span class="c"># 关闭连接对象</span>
+<span class="n">cs1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c"># 提交数据库</span>
+<span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="c"># 关闭数据库</span>
+<span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</code></pre>
+</div>
+
+<h1 id="mongodb">MongoDB</h1>
+
+<p>三元素:</p>
+
+<p>数据库:</p>
+
+<p>集合:关系型数据库中的表</p>
+
+<p>文档:对应着数据库中的行,由键值对构成,是拓展的json格式</p>
+
+<p>开启mongo:</p>
+
+<p>ubuntu: sudo mongod –dbpath /var/lib/mongodb/ &amp;</p>
+
+<p>Mac: mongod –config /usr/local/etc/mongod.conf &amp;</p>
+
+<h2 id="数据库操作-1">数据库操作:</h2>
+
+<p>查看当前数据库: db</p>
+
+<p>查看所有数据库名称: show dbs</p>
+
+<p>切换数据库(数据库不存在时,插入数据,自动创建该数据库) : use 数据库名</p>
+
+<p>删除数据库: db.dropDatabase()</p>
+
+<h2 id="集合命令">集合命令:</h2>
+
+<p>创建集合:</p>
+
+<p>name: 集合名称 options 集合配置</p>
+
+<p>db.createCollection(name.options) —&gt;</p>
+
+<p># 不限制集合大小 db.createCollection(“stu”)</p>
+
+<p># 限制集合大小 单位字节</p>
+
+<p>db.createCollection(’sub’, {capped: true, size:10})</p>
+
+<p>查看集合:</p>
+
+<p>show collections</p>
+
+<p>删除集合:</p>
+
+<p>db.集合名称.drop()</p>
+
+<h2 id="增删改查操作">增删改查操作:</h2>
+
+<h3 id="插入">插入:</h3>
+
+<p>db.集合名称.insert(document)</p>
+
+<p>例子:</p>
+
+<p>db.stu.insert({name:’guojing’,gender:1})</p>
+
+<p>s1={_id:’20171008’,name:’hr’}</p>
+
+<p>s1.gender=0</p>
+
+<p>db.stu.insert(s1)</p>
+
+<h3 id="简单查询">简单查询:</h3>
+
+<p>db.集合名称.find()</p>
+
+<h3 id="更新">更新:</h3>
+
+<p>query:条件查询 类似于where</p>
+
+<p>update:更新操作符 类似于 set</p>
+
+<p>multi:可选参数,表示把所有符合条件的文档全部更新</p>
+
+<p>db.集合名称.update(&lt;query&gt;,&lt;update&gt;,{multi:&lt;boolean&gt;})</p>
+
+<p># 全文档更新</p>
+
+<p>db.update({name:’hr’},{name:’mnc’})</p>
+
+<p># 指定属性更新:set</p>
+
+<p>db.stu.insert({name:’hr’,gender:0})</p>
+
+<p>db.stu.update({name:’hr’},{set:{name:’hys’}})</p>
+
+<p># 修改多条匹配到的数据</p>
+
+<p>db.stu.update({},{$set:{gender:0}},{multi:true})</p>
+
+<h3 id="保存">保存:</h3>
+
+<p>db.集合名称.save(document)</p>
+
+<p>db.stu.save({_id:’20101010’,’name’:’HE’,gender:1})</p>
+
+<p>db.stu.save({_id:’20180101’,’name’:’’hello})</p>
+
+<h3 id="删除">删除:</h3>
+
+<p>db.集合名称.remove(</p>
+
+<p>&lt;query&gt;,{justOne:&lt;boolean&gt;}</p>
+
+<p>)</p>
+
+<p>query:删除的文档的条件</p>
+
+<p>justOne:如果没有true或1,则只删除一条,默认false,表示删除多条</p>
+
+<p>db.stu.remove({gender:0},{justOne:true})</p>
+
+<p># 全部删除{}</p>
+
+<p>db.stu.remove({})</p>
+
+<h3 id="示例">示例:</h3>
+
+<p>db.stu.drop()</p>
+
+<p>db.stu.insert({name:’郭靖’,hometown:’蒙古’,age:20,gender:true})</p>
+
+<p>db.stu.insert({name:’黄蓉’,hometown:’桃花岛’,age:18,gender:false})</p>
+
+<p>db.stu.insert({name:’华筝’,hometown:’蒙古’,age:18,gender:false})</p>
+
+<p>db.stu.insert({name:’黄药师’,hometown:’桃花岛’,age:40,gender:true})</p>
+
+<p>db.stu.insert({name:’段誉’,hometown:’大理’,age:16,gender:true})</p>
+
+<p>db.stu.insert({name:’段王爷’,hometown:’大理’,age:45,gender:true})</p>
+
+<p>db.stu.insert({name:’洪七公’,hometown:’华山’,age:18,gender:true})</p>
+
+<h2 id="数据查询">数据查询:</h2>
+
+<h3 id="基本查询">基本查询:</h3>
+
+<p>find():查询</p>
+
+<p>db.集合名称.find({条件文档})</p>
+
+<p>findOne():查询,只返回第一个</p>
+
+<p>db.集合名称.findOne({条件文档})</p>
+
+<p>方法pretty():将结果格式化</p>
+
+<p>db.集合名称.find({条件文档}).pretty</p>
+
+<h3 id="比较运算符">比较运算符:</h3>
+
+<ul>
+  <li>等于,默认是等于判断,没有运算符</li>
+  <li>小于$lt</li>
+  <li>小于或等于$lte</li>
+  <li>大于$gt</li>
+  <li>大于或等于$gte</li>
+  <li>不等于$ne</li>
+</ul>
+
+<p>db.stu.find({name:’郭靖’}) #查询特定名称的数据</p>
+
+<p>db.stu.find({age:{$gte:18}}) #查询大于或等于18的数据</p>
+
+<h3 id="逻辑运算符">逻辑运算符:</h3>
+
+<p>逻辑与:默认使用逻辑”与”</p>
+
+<p>db.stu.find({age:{$gte:18},gender:true}) # 多条件查询</p>
+
+<p>逻辑或:使用$or,值为数组,数组中每个元素为json</p>
+
+<p>db.stu.find({$or:[{age:{$gt:18}},{gender:false}]})</p>
+
+<p>and和or一起使用</p>
+
+<p>db.stu.find({$or:[{age:{$gt:20}},{gender:true}],name:’郭靖’})</p>
+
+<h3 id="范围运算符">范围运算符:</h3>
+
+<p>使用$in,$nin 判断是否在某个范围内</p>
+
+<p>db.stu.find({age:{$in:[18,28]}})</p>
+
+<h3 id="自定义函数">自定义函数:</h3>
+
+<p>db.stu.find({$where:function(){return this.age &gt; 30}}) # 查询年龄大于30的数据</p>
+
+<h3 id="limit用于读取指定数量的文档">Limit:用于读取指定数量的文档</h3>
+
+<p>参数NUMBER表示要获取文档的条数</p>
+
+<p>如果没有指定参数则显示集合中的所有文档</p>
+
+<p>db.集合名称.find()limit(NUMBER)</p>
+
+<p>示例:db.stu.find()limit(3)</p>
+
+<h3 id="skip用于跳过指定数量的文档">Skip:用于跳过指定数量的文档</h3>
+
+<p>参数NUMBER表示跳过的记录条数,默认0</p>
+
+<p>db.集合名称.find().skip(NUMBER)</p>
+
+<p>示例:db.stu.find().skip(2)</p>
+
+<h3 id="一起使用不分先后顺序">一起使用:不分先后顺序</h3>
+
+<p># 创建数据集</p>
+
+<p>for(i=0;i&lt;15;i++){</p>
+
+<p>db.t1.insert({_id:i})</p>
+
+<p>}</p>
+
+<p>&gt; db.t1.find().limit(5).skip(2) # 五条数据,从第二条数据开始</p>
+
+<p>&gt; db.t1.find().limit(2).skip(5) # 两条数据,从第五条数据开始</p>
+
+<h2 id="投影">投影:</h2>
+
+<p>查询特定字段</p>
+
+<p>db.集合名称.find({},{字段名称:1,…})</p>
+
+<p>需要显示的字段,设置为1,不设置不显示._id字段默认显示,设置为0则不显示</p>
+
+<p>db.stu.find({},{_id:0,name:1,gender:1})</p>
+
+<h2 id="排序">排序:</h2>
+
+<p>sort(),用于对结果进行排序</p>
+
+<p>db.集合名称.find().sort({字段:1,…})</p>
+
+<ul>
+  <li>参数1:升序排列</li>
+  <li>参数-1:降序排列</li>
+</ul>
+
+<p># 根据性别降序,再根据年龄升序</p>
+
+<p>&gt; db.stu.find().sort({gender:-1,age:1})</p>
+
+<h3 id="统计个数">统计个数:</h3>
+
+<p>db.集合名称.find({条件}).count</p>
+
+<p>或者</p>
+
+<p>db.集合名称.count({条件})</p>
+
+<p># 统计男生人数</p>
+
+<p>db.stu.count({gender:true})</p>
+
+<h3 id="消除重复">消除重复:</h3>
+
+<p>db.集合名称.distinct(‘驱虫字段’,{条件})</p>
+
+<p>#查询年龄大于18的数据,来自哪里</p>
+
+<p>db.stu.distinct(‘hometown’,{age:{$gt:18}})</p>
+
+<h3 id="备份">备份:</h3>
+
+<p>mongodump -h dbhost -d dbname -o dbdirectory</p>
+
+<p>-h 服务器地址</p>
+
+<p>-d 需要备份的数据库名称</p>
+
+<p>-o 备份的数据存放位置,此目录中存放着备份出来的数据</p>
+
+<p>sudo mongodump -h IP地址 -d 数据库名称 -o ~/Desktop/备份路径</p>
+
+<h3 id="恢复">恢复:</h3>
+
+<p>mongorestore -h dbhost -d —dir dbdirectory</p>
+
+<p>-h 服务器地址</p>
+
+<p>-d 需要回复的数据库实例</p>
+
+<p>—dir 备份数据库所在的位置</p>
+
+<p>sudo mongorestore -h IP地址 -d 数据库名称 —dir ~/数据库所在的位置</p>
+
+<h2 id="与python-交互">与Python 交互:</h2>
+
+<p># 安装</p>
+
+<p>pip3 install pymongo</p>
+
+<p># 导入</p>
+
+<p>from pymongo import *</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">from</span> <span class="n">pymongo</span> <span class="n">import</span> <span class="o">*</span>
+
+<span class="n">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="k">host</span><span class="o">=</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">27017</span><span class="p">)</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">stu</span>
+    <span class="o">#</span> <span class="err">增</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">stu</span><span class="p">.</span><span class="n">insert_one</span><span class="p">(</span><span class="err">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s1">'abc'</span><span class="p">,</span> <span class="s1">'gender'</span><span class="p">:</span> <span class="k">True</span><span class="err">}</span><span class="p">)</span>
+
+    <span class="o">#</span> <span class="err">查</span> <span class="err">一条</span>
+    <span class="k">result</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">stu</span><span class="p">.</span><span class="n">find_one</span><span class="p">()</span>
+    <span class="n">print</span><span class="p">(</span><span class="k">result</span><span class="p">)</span>
+    <span class="o">#</span> <span class="err">查</span> <span class="err">多条</span><span class="p">(</span><span class="err">字典形式</span><span class="p">,</span><span class="err">遍历字典</span><span class="p">)</span>
+    <span class="k">result</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">stu</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="err">{</span><span class="s1">'hometown'</span><span class="p">:</span> <span class="s1">'大理'</span><span class="err">}</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="k">result</span><span class="p">:</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">'hometown'</span><span class="p">])</span>
+
+    <span class="o">#</span> <span class="err">修改</span> <span class="err">一条</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">stu</span><span class="p">.</span><span class="n">update_one</span><span class="p">(</span><span class="err">{</span><span class="s1">'gender'</span><span class="p">:</span> <span class="k">False</span><span class="err">}</span><span class="p">,</span> <span class="err">{</span><span class="s1">'$set'</span><span class="p">:</span> <span class="err">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s1">'hehe'</span><span class="err">}}</span><span class="p">)</span>
+    <span class="o">#</span> <span class="err">修改</span> <span class="err">多条</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">stu</span><span class="p">.</span><span class="n">update_many</span><span class="p">(</span><span class="err">{</span><span class="s1">'gender'</span><span class="p">:</span> <span class="k">True</span><span class="err">}</span><span class="p">,</span> <span class="err">{</span><span class="s1">'$set'</span><span class="p">:</span> <span class="err">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s1">'haha'</span><span class="err">}}</span><span class="p">)</span>
+
+    <span class="o">#</span> <span class="err">删除</span> <span class="err">一条</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">stu</span><span class="p">.</span><span class="n">delete_one</span><span class="p">(</span><span class="err">{</span><span class="s1">'gender'</span><span class="p">:</span> <span class="k">False</span><span class="err">}</span><span class="p">)</span>
+    <span class="o">#</span> <span class="err">删除</span> <span class="err">多条</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">stu</span><span class="p">.</span><span class="n">delete_many</span><span class="p">(</span><span class="err">{</span><span class="s1">'gender'</span><span class="p">:</span> <span class="k">True</span><span class="err">}</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">'ok'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h1 id="redis">Redis</h1>
+
+<h2 id="启动redis">启动redis:</h2>
+
+<p>/usr/local/bin/redis-server /usr/local/etc/redis.conf &amp;</p>
+
+<p>进入redis:</p>
+
+<p>&gt; redis_cli</p>
+
+<h2 id="数据库操作-2">数据库操作:</h2>
+
+<p>redis 默认16个数据库,通过0-15 来标识</p>
+
+<p>切换数据库:</p>
+
+<p>&gt; select 1</p>
+
+<p>&gt; select 2</p>
+
+<p>&gt; select 3</p>
+
+<h2 id="数据操作">数据操作:</h2>
+
+<p>redis是key-value的数据结构,每条数据都是一个键值对</p>
+
+<p>键的类型是字符串,键不能重复</p>
+
+<p>值的类型分为:</p>
+
+<ul>
+  <li>字符串:string</li>
+  <li>哈希:hash</li>
+  <li>列表:list</li>
+  <li>集合:set</li>
+  <li>有序集合:zset</li>
+</ul>
+
+<h2 id="string">string:</h2>
+
+<p>string是redis最基本的数据类型</p>
+
+<p>最大能存储512MB数据</p>
+
+<p>string是二进制安全的,可以存储任何数据,数字/图片等</p>
+
+<h3 id="增加修改">增加/修改:</h3>
+
+<p>如果设置的键不存在则添加,存在则修改</p>
+
+<p>set key value</p>
+
+<p># 设置键为’py1’ 值为’gj’的数据</p>
+
+<p>set ‘py1’ ‘gj’</p>
+
+<p>设置键值及过期时间,以秒为单位</p>
+
+<p>setex key seconds value</p>
+
+<p># setex ‘py1’ 5 ‘guojing’</p>
+
+<p>设置多个键</p>
+
+<p>mset key1 value1 key2 value2 …</p>
+
+<p># mset ‘py1’ ‘guojing’ ‘py2’ ‘huangrong’</p>
+
+<p>追加值</p>
+
+<p>append key value</p>
+
+<p># append ‘py1’ ‘huangrong’</p>
+
+<p>&gt; “guojinghuangrong”</p>
+
+<h3 id="获取">获取:</h3>
+
+<p>根据键获取值,如果不存在返回nil</p>
+
+<p>get key</p>
+
+<p># get ‘py1’</p>
+
+<p>根据多个键获取多个值</p>
+
+<p>mget key1 key2…</p>
+
+<p># mget ‘py1’ ‘py2’</p>
+
+<h3 id="键命令">键命令:</h3>
+
+<p>查找键 参数支持正则表达式</p>
+
+<p>keys pattern</p>
+
+<p># 查看所有键</p>
+
+<p>&gt; key *</p>
+
+<p># 查看名称中包含a的键</p>
+
+<p>&gt; keys ‘*a*’</p>
+
+<p># 判断是否存在,如果存在返回1,不存在返回0</p>
+
+<p>exists key1</p>
+
+<p>&gt; exists ‘py1’</p>
+
+<p>&gt; exists ‘py2’</p>
+
+<p># 查看键对应的value的类型</p>
+
+<p>type key</p>
+
+<p>&gt; type ‘py1’</p>
+
+<p># 删除键及对应的值</p>
+
+<p>del key1 key2 …</p>
+
+<p>del ‘py1’ ‘py2’</p>
+
+<p># 设置过期时间,以秒为单位 如果没有制定过期时间则一直存在,指导使用del溢出</p>
+
+<p>expire key seconds</p>
+
+<p>&gt; expire ‘py1’ 10</p>
+
+<p># 查看有效时间</p>
+
+<p>ttl key</p>
+
+<p>&gt; ttl ‘py1’</p>
+
+<h2 id="hash">Hash:</h2>
+
+<p>用于存储对象,对象结构为属性/值</p>
+
+<p>值得类型为string</p>
+
+<h3 id="增加修改-1">增加/修改:</h3>
+
+<p>设置单个属性</p>
+
+<p>hset key field value</p>
+
+<p># 设置键’py1’的属性’name’为’hr’</p>
+
+<p>&gt; hset ‘py1’ ’name’ ‘hr</p>
+
+<p>设置多个属性:</p>
+
+<p>hmset key field1 value1 field2 value2</p>
+
+<p># 设置键’py1’的属性’name’为’dx’/属性’gender’为’1’ 属性’birthday’为’2017-1-1’</p>
+
+<p>hmset ‘py2’ ‘name’ ‘dx’ ‘gender’ ‘1’ ‘birthday’ ‘2017-1-1’</p>
+
+<h3 id="获取-1">获取:</h3>
+
+<p>获取指定键所有的属性</p>
+
+<p>hkeys key</p>
+
+<p># 获取键’py1’的所有属性</p>
+
+<p>hkeys ‘py1’</p>
+
+<p>获取一个属性的值</p>
+
+<p>hget key field</p>
+
+<p># 获取键’py1’属性’name’的值</p>
+
+<p>hget ‘py1’ ‘name’</p>
+
+<p>获取多个属性的值</p>
+
+<p>hmget key field1 field2…</p>
+
+<p># 获取键’py1’属性’name’ ‘gender’ ‘birthday’的值</p>
+
+<p>hmget ‘py1’ ‘name’ ‘gender’’birthday’</p>
+
+<p>获取所有属性的值</p>
+
+<p>hvals key</p>
+
+<p># 获取键’py1’所有属性的值</p>
+
+<p>hvals ‘py1’</p>
+
+<h3 id="删除-1">删除:</h3>
+
+<p>删除整个hash键及值,使用del命令</p>
+
+<p>删除属性,属性对应的值被一起使用删除</p>
+
+<p>hdel key field1 field2 …</p>
+
+<p># 获取键’py1’的属性’gender’ ‘birthday’</p>
+
+<p>hdel ‘py1’ ‘gender’ ‘birthday’</p>
+
+<h2 id="list">List</h2>
+
+<p>列表的元素为string</p>
+
+<p>按照插入顺序排序</p>
+
+<h3 id="增加">增加:</h3>
+
+<p>lpush key value1 value2…</p>
+
+<p>从键’py1’的列表,左侧加入数据’dx’ ‘xd’</p>
+
+<p>lpush ‘py11’ ‘dx’ ‘xd’</p>
+
+<p>从右侧插入数据</p>
+
+<p>rpush key value1 value2…</p>
+
+<p># 从键’py1’的列表右侧加入数据’nd’ ‘bg’</p>
+
+<p>rpush ‘py1’ ’nd’ ‘bg’</p>
+
+<p>在指定元素的前或后插入新元素</p>
+
+<p>linsert key before 或 after 现有元素 新元素</p>
+
+<p># 在键为’py1’的列表中元素’nd’前加入’zbt’</p>
+
+<p>linsert ‘py1’ before ‘nd’ ‘zbt’</p>
+
+<h3 id="获取-2">获取:</h3>
+
+<p>返回列表里指定范围内的元素</p>
+
+<ul>
+  <li>start/stop 微元素的下标索引</li>
+  <li>索引从左侧开始,第一个元素为0</li>
+  <li>索引可以是负数,表示从尾部开始计数,如-1表示最后一个元素</li>
+</ul>
+
+<p>lrange key start stop</p>
+
+<p># 获取键为’py1’ 的列表所有元素</p>
+
+<p>lrange ‘py1’ 0 -1</p>
+
+<h3 id="修改">修改:</h3>
+
+<p>设置指定索引位置的元素值</p>
+
+<ul>
+  <li>索引从左侧开始,第一个元素为0</li>
+  <li>索引可以是负数,表示尾部开始计数,如-1表示最后一个元素</li>
+</ul>
+
+<p>lset key index value</p>
+
+<p># 修改键为’py1’的列表中下标为1的元素值为’xidu’</p>
+
+<p>lset ‘py1’ 1 ‘xidu’</p>
+
+<h3 id="删除-2">删除</h3>
+
+<p>删除指定元素</p>
+
+<ul>
+  <li>将列表中前count次出现的值为value的元素移除</li>
+  <li>count&gt;0:从头尾移除</li>
+  <li>count&lt;0:从尾往头移除</li>
+  <li>count=0:移除所有</li>
+</ul>
+
+<p>lrem key count value</p>
+
+<p># 向列表’py1’中加入元素’h0’ ’h1’ ’h2’ ’h0’ ’h1’ ’h3’ ’h0’ ’h1’</p>
+
+<p>rpush ‘py1 ’h0’ ’h1’ ’h2’ ’h0’ ’h1’ ’h3’ ’h0’ ’h1’</p>
+
+<p># 从’py1’列表右侧开始删除2个元素’h0’</p>
+
+<p>lrem ‘py1’ -2 ‘h0’</p>
+
+<p># 查看列表’py1’的所有元素</p>
+
+<p>lrange ‘py1’ 0 -1</p>
+
+<h2 id="set">Set</h2>
+
+<ul>
+  <li>无序集合</li>
+  <li>元素为string类型</li>
+  <li>元素具有唯一性,不重复</li>
+  <li>说明:对于集合没有修改操作</li>
+</ul>
+
+<h3 id="增加-1">增加</h3>
+
+<p>添加元素</p>
+
+<p>sadd key member1 member2</p>
+
+<p># 向键’py1’的集合中添加元素’yg’ ‘xln’ ‘yzp’</p>
+
+<p>sadd ‘py1’ ‘yg’ ‘xln’ ‘yzp’</p>
+
+<h3 id="获取-3">获取</h3>
+
+<p>返回所有的元素</p>
+
+<p>smemers key</p>
+
+<p># 获取键’py1’的集合中所有元素</p>
+
+<p>smembers ‘py1’</p>
+
+<h3 id="删除-3">删除</h3>
+
+<p>删除指定元素</p>
+
+<p>srem key member</p>
+
+<p># 删除键’py1’的集合中元素’yzp’</p>
+
+<p>srem ‘py1’ ‘yzp’</p>
+
+<h3 id="zset">zset</h3>
+
+<ul>
+  <li>sorted set 有序集合</li>
+  <li>元素为string类型</li>
+  <li>元素具有唯一性,不重复</li>
+  <li>每个元素都会关联一个double类型的score,表示权重,通过权重将元素从小到大排序</li>
+  <li>说明:没有修改操作</li>
+</ul>
+
+<h3 id="增加-2">增加</h3>
+
+<p>添加</p>
+
+<p>zadd key score1 member1 score2 member2 …</p>
+
+<p># 向键’py1’的集合中添加元素’gj’’hr’’xln’,权重分别为1/5/8/3</p>
+
+<p>zadd ‘py1’ 1 ‘gj’ 5 ‘hr’ 8 ‘yg’ 3 ‘xln’</p>
+
+<h3 id="获取-4">获取</h3>
+
+<p>返回指定范围内的元素</p>
+
+<ul>
+  <li>start/stop为元素的下标索引</li>
+  <li>索引从左侧开始,第一个元素为0</li>
+  <li>索引可以是负数,表示从尾部开始计数,如-1表示最后一个元素</li>
+</ul>
+
+<p>zrange key start stop</p>
+
+<p># 获取键’py1’的集合中所有元素</p>
+
+<p>zrange ‘py1’ 0 -1</p>
+
+<p>返回score值在min和max之间的成员</p>
+
+<p>zrangebyscore ‘py1’ 4 9</p>
+
+<p>返回成员member的score值</p>
+
+<p>zscore key member</p>
+
+<p># 获取键’py1’的集合中元素’yg’的权重</p>
+
+<p>zscore ‘py1’ ‘yg’</p>
+
+<h3 id="删除-4">删除</h3>
+
+<p>删除指定元素</p>
+
+<p>zrem key member1 member2 …</p>
+
+<p># 删除集合’py1’ 中元素’yg’</p>
+
+<p>zrem ‘py1’ ‘yg’</p>
+
+<p>删除权重在指定范围的元素</p>
+
+<p>zremrangebyscore key min max</p>
+
+<p># 删除集合’py1’中权限在4/9之间的元素</p>
+
+<p>zremrangebyscore ‘py1’ 4 9</p>
+
+<h2 id="总结">总结:</h2>
+
+<h3 id="string-1">string:</h3>
+
+<ul>
+  <li>set</li>
+  <li>setex</li>
+  <li>mset</li>
+  <li>append</li>
+  <li>get</li>
+  <li>mget</li>
+</ul>
+
+<h3 id="key">Key:</h3>
+
+<ul>
+  <li>keys</li>
+  <li>exists</li>
+  <li>type</li>
+  <li>delete</li>
+  <li>expire</li>
+  <li>getrange</li>
+  <li>ttl</li>
+</ul>
+
+<h3 id="hash-1">Hash</h3>
+
+<ul>
+  <li>hset</li>
+  <li>hmset</li>
+  <li>hkeys</li>
+  <li>hget</li>
+  <li>hmget</li>
+  <li>hvals</li>
+  <li>hdel</li>
+</ul>
+
+<h3 id="list-1">List</h3>
+
+<ul>
+  <li>lpush</li>
+  <li>rpush</li>
+  <li>linsert</li>
+  <li>lrange</li>
+  <li>lset</li>
+  <li>lrem</li>
+</ul>
+
+<h3 id="set-1">Set</h3>
+
+<ul>
+  <li>sadd</li>
+  <li>smembers</li>
+  <li>srem</li>
+</ul>
+
+<h3 id="zset-1">zset</h3>
+
+<ul>
+  <li>zadd</li>
+  <li>zrange</li>
+  <li>zrangebyscore</li>
+  <li>zscore</li>
+  <li>zrem</li>
+  <li>zremrangebyscore</li>
+</ul>
+
+  </section>
+  
+</article>
+
+
+
+<section class="read-more">
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/hugo-blog/" title="link to HUGO 博客搭建(Ubuntu)">HUGO 博客搭建(Ubuntu)</a></h2>
+       <p class="excerpt">ubuntu 环境下:下载HUGO.deb安装包wget [https://github.com/gohugoio/hugo/releases/download/v0.26/hugo\_0.26\_Linux-64bit.deb](https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.deb)安装deb文件sudo dpkg -i hugo\*.deb查看版本hugo version安装...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:39:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/hugo-blog/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/12/sql-primer/";
+        this.page.identifier = "/2017/12/sql-primer/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-12-01 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
