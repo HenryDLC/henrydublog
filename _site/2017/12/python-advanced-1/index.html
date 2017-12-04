@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>python高级语法1(生成器/迭代器/闭包/装饰器)</title>
+  <meta name="description" content="生成器:====">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python高级语法1(生成器/迭代器/闭包/装饰器)">
+  <meta name="twitter:description" content="生成器:====">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="python高级语法1(生成器/迭代器/闭包/装饰器)">
+  <meta property="og:description" content="生成器:====">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/12/python-advanced-1/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-12-04 16:10:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-12-04</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">python高级语法1(生成器/迭代器/闭包/装饰器)</h1>
+  </header>
+
+  <section class="post">
+    <h1 id="生成器">生成器:</h1>
+<p>====</p>
+
+<p>不直接生成,保存计算方式.每一次用创建一个,减轻内存消耗</p>
+
+<h2 id="列表生成式">列表生成式</h2>
+
+<blockquote>
+  <p>a = [x*2 for x in range(1000000000)]</p>
+</blockquote>
+
+<h3 id="构造生成器">构造生成器:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 创建生成器(方法一)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">))</span>
+<span class="c"># 生成器 每次只生成一个(内存中保存的是计算的方法)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"###########"</span><span class="p">)</span>
+
+
+<span class="c"># # 创建生成器(方法二) yield 创建生成器对象</span>
+<span class="c"># 调用生成器:next() 或 a.__next__()</span>
+
+<span class="c"># 斐波那契数列</span>
+<span class="k">def</span> <span class="nf">creatNum</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+	<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">'---start-----'</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+		<span class="c"># print(b)</span>
+		<span class="k">yield</span> <span class="n">b</span>
+		<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">'---stop-----'</span><span class="p">)</span>
+
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">creatNum</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="c"># 迭代生成器对象(避免多次next(),出现异常)</span>
+<span class="k">for</span> <span class="n">nums</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+
+
+</code></pre>
+</div>
+
+<h3 id="send方法">.send()方法:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 首先把上一次挂起的yield语句的返回值通过参数设定，从而实现与生成器方法的交互</span>
+<span class="c"># 第一次调用生成器,不能使用.send()方法,因为第一次yield没被启用,所以无法将参数传给yield</span>
+<span class="c"># 第一次使用yield生成器,可以使用.send(None)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+	<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+		<span class="n">temp</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">i</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+		<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">test</span><span class="p">()</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">__next__</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="示例协程多任务处理">示例(协程:多任务处理):</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 示例(协程:多任务处理):</span>
+<span class="k">def</span> <span class="nf">test1</span><span class="p">():</span>
+	<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"--1--"</span><span class="p">)</span>
+		<span class="k">yield</span> <span class="bp">None</span>
+
+
+<span class="k">def</span> <span class="nf">test2</span><span class="p">():</span>
+	<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"--2--"</span><span class="p">)</span>
+		<span class="k">yield</span> <span class="bp">None</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">test1</span><span class="p">()</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">test2</span><span class="p">()</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+	<span class="n">t1</span><span class="o">.</span><span class="n">__next__</span><span class="p">()</span>
+	<span class="n">t2</span><span class="o">.</span><span class="n">__next__</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h1 id="迭代器">迭代器</h1>
+<p>===</p>
+
+<p>for 循环可以遍历可迭代对象和迭代器</p>
+
+<p>iter()方法,传入可迭代对象,返回迭代器</p>
+
+<p>迭代器:同时具备:__iter__ 和 __next__ 方法</p>
+
+<p>可被迭代的不一定是可迭代对象,也可能是生成器(或迭代器)</p>
+
+<h2 id="可迭代对象容器">可迭代对象(容器):</h2>
+
+<ul>
+  <li>List</li>
+  <li>Tuple</li>
+  <li>dict</li>
+  <li>Set</li>
+  <li>str</li>
+</ul>
+
+<h3 id="判断是否可被迭代">判断是否可被迭代:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 通过dir()方法查询</span>
+<span class="c"># 可迭代对象:具备了__iter__方法的对象</span>
+<span class="n">li</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">li</span><span class="p">))</span>
+
+<span class="c"># 判断是否是可迭代对象:</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">li</span> <span class="p">,</span><span class="n">Iterable</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<h3 id="迭代器iter方法">迭代器:iter()方法</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># 把列表转成 迭代器</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span> <span class="p">,</span><span class="n">Iterable</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<h3 id="自定义迭代对象和迭代器">自定义迭代对象和迭代器:</h3>
+
+<p>迭代器:</p>
+
+<blockquote>
+  <p>同时具备:__iter__ 和 __next__ 方法</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">my_list</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="s">"""自定义的可迭代对象,容器"""</span>
+
+	<span class="c"># 数据(属性)</span>
+	<span class="c"># 类属性:每一个对象都可以使用的数据</span>
+	<span class="c"># 对象(实例)属性:每一个对象,都有独有的属性</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">container</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">item</span><span class="p">):</span>
+		<span class="s">"""向对象中添加数据"""</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="s">"""用来返回迭代器对象"""</span>
+		<span class="k">return</span> <span class="n">MyIterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container</span><span class="p">)</span>
+
+
+
+<span class="k">class</span> <span class="nc">MyIterator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="s">"""自定义迭代器"""</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">container</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">container</span> <span class="o">=</span> <span class="n">container</span>
+
+	<span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="s">"""对迭代器每次迭代的时候被调用"""</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container</span><span class="p">):</span>
+			<span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">]</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">return</span> <span class="n">item</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="nb">StopIteration</span>
+
+	<span class="c"># 迭代器:同时具备:__iter__ 和 __next__ 方法</span>
+	<span class="c"># __iter__方法:返回自身,迭代器本身是可迭代对象</span>
+	<span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span>
+
+
+
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">()</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">my_list</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Iterator</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="n">Iterator</span><span class="p">))</span>
+
+
+<span class="c"># 属性:</span>
+<span class="c"># 类属性:每一个对象都可以使用的数据</span>
+<span class="c"># 对象(实例)属性:每一个对象,都有独有的属性</span>
+
+<span class="c"># 函数 方法</span>
+
+<span class="c"># 对象方法:</span>
+<span class="k">def</span> <span class="nf">object_fun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="c"># 通过self可以操作对象属性 类属性</span>
+	<span class="k">pass</span>
+
+<span class="c"># 类方法</span>
+<span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">class_fun</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+	<span class="c"># 通过cls可以使用类属性</span>
+	<span class="k">pass</span>
+
+<span class="c"># 静态方法</span>
+<span class="k">def</span> <span class="nf">static_fun</span><span class="p">():</span>
+	<span class="c"># 如果不通过类名,那么类属性和对象属性 都无法使用</span>
+	<span class="k">pass</span>
+
+</code></pre>
+</div>
+
+<h3 id="定义完整的迭代器">定义完整的迭代器:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Mylist</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="bp">self</span><span class="o">.</span><span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">item</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="nb">list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">]</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">return</span> <span class="n">item</span>
+
+	<span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span>
+
+<span class="n">Mylist</span> <span class="o">=</span> <span class="n">Mylist</span><span class="p">()</span>
+<span class="n">Mylist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Mylist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">Mylist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Mylist</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h1 id="闭包">闭包:</h1>
+<p>===</p>
+
+<h3 id="函数对象">函数对象:</h3>
+
+<p>在python中 万物皆对象</p>
+
+<p>def 创建的函数 是一个函数对象 函数名foo 指向了一个函数</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 在python中 万物皆对象</span>
+<span class="c"># def 创建的函数 是一个函数对象 函数名foo 指向了一个函数</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="nb">sum</span><span class="p">):</span>
+	<span class="s">"""说明文档"""</span>
+	<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+
+
+<span class="n">a</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">__name__</span>  <span class="c"># 函数对象名字</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">__doc__</span>  <span class="c"># 函数对象 说明文档</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="n">foo</span>  <span class="c"># 把foo函数对象指向了bar</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">bar</span><span class="p">))</span>  <span class="c"># bar 是函数对象</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">bar</span><span class="o">.</span><span class="n">__name__</span>  <span class="c"># bar 指向foo函数,所以bar函数对象,函数名为:foo</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">foo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="k">print</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>  <span class="c"># foo 重新指向了一个整形,所以foo不再是函数对象</span>
+
+<span class="n">bar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c"># bar已然指向最开始的foo函数对象,但是foo已经被重新指向了1000 这个整形</span>
+
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 函数只是一个对象 可以被作为参数 传递</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>
+	<span class="n">fun</span><span class="p">()</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"end"</span><span class="p">)</span>
+
+<span class="n">bar</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="闭包概念">闭包概念:</h2>
+
+<p>闭包:函数嵌套中,把内部函数当做变量 直接return返回</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">outter</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">inner</span>
+
+<span class="c"># 闭包:函数嵌套,把函数直接return返回</span>
+</code></pre>
+</div>
+
+<h3 id="自由变量">自由变量:</h3>
+
+<p>闭包引用了外层函数的变量num,外层函数结束后因为被闭包引用所以num变量没有被回收.这种变量叫自由变量</p>
+
+<p>闭包结束之前,都不回收”当前”的自由变量(相当于面向对象类的self,实例属性)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">outter</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">inner</span>
+<span class="c"># 自由变量</span>
+<span class="n">fun</span> <span class="o">=</span> <span class="n">outter</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c"># fun = inner</span>
+<span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># 自由变量:闭包引用了外层函数的变量num,外层函数结束因为被闭包引用所以num变量没有被回收</span>
+<span class="n">fun2</span> <span class="o">=</span> <span class="n">outter</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">fun2</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fun</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c"># 闭包结束之前,都不回收当前的自由变量(相当于面向对象类的self,实例属性)</span>
+</code></pre>
+</div>
+
+<h3 id="闭包应用">闭包应用:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 减少 重复参数 的传递工作</span>
+<span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">line_sum</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">line_sum</span>
+
+
+<span class="n">line1</span> <span class="o">=</span> <span class="n">line</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">line1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">line1</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">line2</span> <span class="o">=</span> <span class="n">line</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">line2</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h3 id="闭包内层函数修改外层函数变量-nonlocal关键字">闭包内层函数修改外层函数变量: nonlocal关键字</h3>
+
+<p>nonlocal 逐层 寻找外层变量</p>
+
+<p>python2中没有nonlocal关键字 函数内部修改全局变量 可以使用可变类型声明全局变量 如:列表list = []</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">set_counter</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">counter</span><span class="p">():</span>
+		<span class="n">nonlocal</span> <span class="n">num</span>
+		<span class="n">num</span> <span class="o">+=</span><span class="mi">1</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">counter</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">set_counter</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">c</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>python2中没有nonlocal关键字 函数内部修改全局变量 可以使用可变类型声明全局变量 如:列表list = []</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">set_counter</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+	<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span><span class="p">]</span>
+	<span class="k">def</span> <span class="nf">counter</span><span class="p">():</span>
+		<span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+	<span class="k">return</span> <span class="n">counter</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="n">set_counter</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">counter</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h1 id="装饰器">装饰器:</h1>
+<p>====</p>
+
+<p>装饰器:本质就是一个闭包函数</p>
+
+<p>需要在闭包外层接收一个函数参数</p>
+
+<p>工作流程::</p>
+
+<p>定义一个闭包函数,外层函数需要接收被装饰的函数</p>
+
+<p>在inner底层函数中,调用被装饰的函数.</p>
+
+<p>跟随闭包里的方法逻辑以及调用的被装饰的函数,实现增加原本函数的功能</p>
+
+<p>被装饰函数名 ==&gt; @装饰器 ==&gt; 装饰器(被装饰函数) ==&gt; 被装饰函数 == inner 被return</p>
+
+<p>log_time_test ==&gt; @log_time ==&gt; log_time(log_time_test) ==&gt; log_time_test = inner 被return</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 装饰器应用场景-日志信息</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c"># 原始写法</span>
+<span class="c"># def _time():</span>
+<span class="c">#     a = time.time()</span>
+<span class="c">#     li = [x for x in range(10000000)]</span>
+<span class="c">#     print("时间日志")</span>
+<span class="c">#     b = time.time()</span>
+<span class="c">#     print(b - a)</span>
+<span class="c">#</span>
+<span class="c"># _time()</span>
+
+<span class="c"># 定义装饰器</span>
+<span class="k">def</span> <span class="nf">log_time</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+		<span class="n">a</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+		<span class="n">fun</span><span class="p">()</span>
+		<span class="n">b</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">inner</span>
+
+<span class="c"># 使用定义好的 装饰器</span>
+<span class="nd">@log_time</span>
+<span class="k">def</span> <span class="nf">log_time_test</span><span class="p">():</span>
+	<span class="n">a</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+	<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)]</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"时间日志"</span><span class="p">)</span>
+
+<span class="n">log_time_test</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h3 id="多层装饰器">多层装饰器:</h3>
+
+<p>在使用多层装饰器时,每一层装饰器必须单起一行</p>
+
+<p>从上到下执行</p>
+
+<p>@装饰器1(@装饰器2(被装饰函数))</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test1</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test1 start"</span><span class="p">)</span>
+		<span class="n">fun</span><span class="p">()</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test1 end"</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">inner</span>
+
+
+<span class="k">def</span> <span class="nf">test2</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"say hello"</span><span class="p">)</span>
+		<span class="n">f</span><span class="p">()</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test2 end"</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">inner</span>
+
+
+<span class="c"># 多层装饰器使用</span>
+<span class="nd">@test1</span>
+<span class="nd">@test2</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>
+
+
+<span class="n">say_hello</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h3 id="补充打包解包">补充:打包/解包</h3>
+
+<p>函数调用传参:</p>
+
+<p>打包: 函数不定长参数(可变参数):</p>
+
+<blockquote>
+  <p>* 修饰的参数,表示可以接受多传过来的参数, 是元祖类型的变量</p>
+</blockquote>
+
+<blockquote>
+  <p>**修饰的参数,表示可以接受多传过来的命名参数,是字典类型的变量,以字典的形式返回变量名和参数</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">kargs</span><span class="p">)</span>
+
+<span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>解包:</p>
+
+<p>* 表示把元组里的数据按顺序展开,已对应的位置传递给函数</p>
+
+<p>** 表示把字典里的数据按顺序展开,已对应的位置传递给函数(函数形参名必须和解包字典key一样)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span>
+<span class="c"># add(t[0], t[1])</span>
+<span class="n">add</span><span class="p">(</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">"num1"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s">"num2"</span><span class="p">:</span><span class="mi">200</span><span class="p">}</span>
+<span class="n">add</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="装饰的可变参数">装饰的可变参数:</h3>
+
+<p>当被装饰的函数需要传入参数时,装饰器中的inner函数也需要接收相应的参数</p>
+
+<p>inner函数接收后,需要传递给fun()函数中,才不会影响到被装饰函数的调用结果</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="c"># 打包</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test1 start"</span><span class="p">)</span>
+		<span class="n">fun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="c"># 解包</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test1 end"</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">inner</span>
+
+<span class="c"># 被装饰函数,需要传如参数时:</span>
+<span class="nd">@test</span>
+<span class="k">def</span> <span class="nf">num</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)</span>
+
+
+<span class="n">num</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="装饰器的返回值处理">装饰器的返回值处理:</h3>
+
+<p>函数中如果没有使用return返回参数,默认情况下函数也是有返回值的,默认为None</p>
+
+<p>装饰器装饰函数后,调用函数实际上是调用的inner函数.再inner函数中定义一个变量用来接收被装饰的函数中的返回值, 最后inner函数返回那个变量就可以处理装饰的返回值了.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test1 start"</span><span class="p">)</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test1 end"</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">result</span>
+
+	<span class="k">return</span> <span class="n">inner</span>
+
+<span class="c"># 被装饰函数,需要传入参数时:</span>
+<span class="nd">@test</span>
+<span class="k">def</span> <span class="nf">num</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">num</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret</span> <span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="带参数的装饰器">带参数的装饰器:</h3>
+
+<p>被装饰器装饰过的函数,因为调用该函数,实质上是在调用装饰器里的inner函数,所以当我们在查看该函数的属性(__inner__/__doc__)时,实际上实在查看inner函数的属性</p>
+
+<p>利用wraps函数:</p>
+
+<p>wraps是用来将inner函数的属性设置为fun的属性值</p>
+
+<p>wraps方法的本质:</p>
+
+<ul>
+  <li>inner.__name__ = fun.__name__</li>
+  <li>inner.__doc__ = fun.__doc__</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+	<span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span> <span class="c"># wraps是用来将inner函数的属性设置为fun的属性值</span>
+	<span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test1 start"</span><span class="p">)</span>
+		<span class="n">fun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"test1 end"</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">inner</span>
+
+
+<span class="nd">@test</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+	<span class="s">"""function say hello"""</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"say_hello"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">say_hello</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span> <span class="c"># inner.__name__</span>
+<span class="k">print</span><span class="p">(</span><span class="n">say_hello</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span> <span class="c"># inner.__doc__</span>
+</code></pre>
+</div>
+
+<h3 id="多层嵌套闭包带参数的装饰器">多层嵌套闭包:(带参数的装饰器)</h3>
+
+<p>装饰器需要接收多个值进行判断或运算,可以设计多层闭包</p>
+
+<p>每一层函数都return返回底层的函数,形成闭包.</p>
+
+<p>上一层接收到的值编程自由变量,提供给inner函数使用</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="c"># 带参数的装饰器</span>
+<span class="k">def</span> <span class="nf">set_log</span><span class="p">(</span><span class="n">end_print_flat</span><span class="p">):</span>
+
+	<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+
+		<span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"start:"</span><span class="p">)</span>
+			<span class="n">a</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+			<span class="n">fun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">end_print_flat</span><span class="p">:</span>
+				<span class="n">b</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+				<span class="k">print</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"end:"</span><span class="p">)</span>
+
+		<span class="k">return</span> <span class="n">inner</span>
+
+	<span class="k">return</span> <span class="n">log</span>
+
+<span class="c"># 使用带参数的装饰器</span>
+<span class="nd">@set_log</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"hi hello"</span><span class="p">)</span>
+
+<span class="n">say_hello</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"+++++分割线+++++"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="nd">@set_log</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"login called"</span><span class="p">)</span>
+
+
+<span class="n">login</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>参考:</p>
+
+<ul>
+  <li><a href="https://www.zhihu.com/question/20829330">https://www.zhihu.com/question/20829330</a></li>
+  <li><a href="https://segmentfault.com/a/1190000004461404">https://segmentfault.com/a/1190000004461404</a></li>
+</ul>
+
+  </section>
+  
+</article>
+
+
+
+<section class="read-more">
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/12/sql-primer/" title="link to SQL-primer">SQL-primer</a></h2>
+       <p class="excerpt">MySQL安装启动MySQLsudo apt-get install mysql-serversudo service mysql startsudo service mysql stopsudo service mysql restart进入mysql  mysql -uroot -pyour_password配置mysqlvim /etc/mysql/mysql.cnf/mysql.conf.d/mysql.cnfBind-address 服务器绑定ipport 端口 3306data...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-12-01 18:55:00 +0800" class="post-list__meta--date date">2017-12-01</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/sql-primer/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/12/python-advanced-1/";
+        this.page.identifier = "/2017/12/python-advanced-1/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-12-04 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
