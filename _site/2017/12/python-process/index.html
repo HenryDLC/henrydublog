@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>python-多任务(1)</title>
+  <meta name="description" content="  进程/多进程/进程池/阻塞/非阻塞">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python-多任务(1)">
+  <meta name="twitter:description" content="  进程/多进程/进程池/阻塞/非阻塞">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="python-多任务(1)">
+  <meta property="og:description" content="  进程/多进程/进程池/阻塞/非阻塞">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/12/python-process/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-12-05 21:41:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-12-05</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">python-多任务(1)</h1>
+  </header>
+
+  <section class="post">
+    <blockquote>
+  <p>进程/多进程/进程池/阻塞/非阻塞</p>
+</blockquote>
+
+<p>多任务:让多个任务同时进行</p>
+
+<p>程序 : 代码(不表示代码已经运行)</p>
+
+<p>进程 : 代码运行中,除了代码还包括运行时需要的环境/资源等等</p>
+
+<h1 id="进程">进程:</h1>
+
+<ul>
+  <li>运行着的代码，称为进程</li>
+  <li>进程:除了包含代码以外，还包含需要运行需要的系统资源等</li>
+</ul>
+
+<p>注:进程是操作系统分配资源的最小单位。</p>
+
+<h2 id="父进程子进程">父进程&amp;子进程:</h2>
+
+<h3 id="fork函数">fork()函数:</h3>
+
+<p>通过fork函数,可以在程序中新创建进程</p>
+
+<ul>
+  <li>os.fork()会创建一个子进程,并将程序信息复制到子进程中去.</li>
+  <li>os.fork()父进程和子进程都会得到一个返回值.
+    <ul>
+      <li>子进程返回0</li>
+      <li>父进程返回子进程的ID号(大于0)</li>
+    </ul>
+  </li>
+  <li>os.fork()可以创建多个子进程</li>
+</ul>
+
+<p>因为fork()创建子进程,会把父进程的所有资源和状态复制给子进程.父子进程的计数器是一样的,所以都会在cpu中被同时执行…..从而实现多进程的功能</p>
+
+<p>注:因为父子进程是同时进行的,所以程序执行时的输出是没有先后顺序的</p>
+
+<blockquote>
+  <p>注:父进程创建子进程,是将父进程所有的信息和资源等复制到子进程开辟的空间中.父子进程资源本身并不共享</p>
+</blockquote>
+
+<p>例:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>  <span class="c"># 创建新的进程</span>
+
+<span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"放音乐"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"跳舞"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h3 id="getpidgetppid">getpid()&amp;getppid():</h3>
+
+<p>操作系统管理进程通过进程编号来维护,进程编号: PID</p>
+
+<p>os.pid():</p>
+
+<ul>
+  <li>当前程序的进程PID</li>
+</ul>
+
+<p>os.ppid():</p>
+
+<ul>
+  <li>当前进程的父进程PID</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>  <span class="c"># 创建新的进程</span>
+
+<span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c"># 子进程</span>
+    <span class="c"># 子进程拿到的返回值是0</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程pid:</span><span class="si">%</span><span class="s">s, ppid:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"放音乐"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># 父进程</span>
+    <span class="c"># 父进程中拿到的返回值是创建的子进程的pid</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"fork方法创建的子进程的进程PID:ret=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">ret</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程pid:</span><span class="si">%</span><span class="s">s, ppid:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"跳舞"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="回收-子进程资源阻塞">回收-子进程资源(阻塞):</h2>
+
+<h3 id="oswait等待子进程结束并结束">os.wait():等待子进程结束并结束</h3>
+
+<p>os.wait() 两个返回值</p>
+
+<ul>
+  <li>pid 表示回收的子进程PID</li>
+  <li>result 表示回收的子进程 结束状态(没有出现异常 返回0)</li>
+  <li>pid, result = os.wait() # 回收子进程资源 阻塞</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>  <span class="c"># 创建新的进程</span>
+
+<span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c"># 子进程执行</span>
+    <span class="c"># 子进程拿到的返回值是0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"放音乐"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># 父进程</span>
+    <span class="c"># 父进程中拿到的返回值是创建子进程的pid,大于0</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程: pid:</span><span class="si">%</span><span class="s">d, ppid:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程: 父进程结束...子进程 不受影响"</span><span class="p">)</span>
+
+    <span class="c"># os.wait() 两个返回值</span>
+    <span class="c"># pid 表示回收的子进程PID</span>
+    <span class="c"># result 表示回收的子进程 结束状态(没有出现异常 返回0)</span>
+    <span class="n">pid</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span> <span class="c"># 回收子进程资源 阻塞</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"回收的子进程PID:</span><span class="si">%</span><span class="s">d,子进程退出的状态:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">pid</span><span class="p">,</span><span class="n">result</span><span class="p">))</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程结束..."</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="孤儿进程僵尸进程">孤儿进程/僵尸进程:</h2>
+
+<h3 id="孤儿进程">孤儿进程:</h3>
+
+<ul>
+  <li>定义:子进程还未结束,父进程结束退出,留下的子进程</li>
+  <li>父进程结束,孤儿进程会被别的进程托管,通常是init进程(pid:0)</li>
+  <li>孤儿进程会被托管的父进程回收</li>
+</ul>
+
+<p>查看孤儿进程PID:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">os</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程(孤儿进程)PID:</span><span class="si">%</span><span class="s">d, PPID:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"子进程在Run...."</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程PID:</span><span class="si">%</span><span class="s">d,PPID:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程Run...."</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程.....end.."</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h3 id="僵尸进程">僵尸进程:</h3>
+
+<p>定义:父进程持续运行,没有回收已经结束的子进程.子进程所占用的资源没有被回收</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">os</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程PID:</span><span class="si">%</span><span class="s">d, PPID:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程...end..."</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程PID:</span><span class="si">%</span><span class="s">d,PPID:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"父进程Run...."</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="process类">Process类:</h2>
+
+<blockquote>
+  <p>os.fork()方法 内建于操作系统中(OS X &amp; Linux) 其他操作系统并没有该方法</p>
+</blockquote>
+
+<h3 id="创建子进程">创建子进程:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">def</span> <span class="nf">sub_fun</span><span class="p">():</span>
+    <span class="s">"""子进程的执行代码"""</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程PID:</span><span class="si">%</span><span class="s">d,PPID:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程...end..."</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程PID:</span><span class="si">%</span><span class="s">d PPID:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="c"># 创建子进程对象</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">sub_fun</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c"># 创建子进程</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程:.....Run...."</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>  <span class="c"># 回收子进程</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程:....END...."</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h3 id="通过继承创建子类封装创建子进程">通过继承创建子类(封装创建子进程):</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">class</span> <span class="nc">SubProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+    <span class="s">"""创建Process子类"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SubProcess</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>   <span class="c"># 执行父类Process默认的__init__方法</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""子进程的执行代码"""</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"子进程PID:</span><span class="si">%</span><span class="s">d,PPID:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"子进程功能 计算器: </span><span class="si">%</span><span class="s">d + </span><span class="si">%</span><span class="s">d = </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"子进程...end..."</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程PID:</span><span class="si">%</span><span class="s">d PPID:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
+    <span class="c"># 创建子进程对象</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">SubProcess</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c"># 创建子进程</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程:.....Run...."</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>  <span class="c"># 回收子进程</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"父进程:....END...."</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<h1 id="多进程">多进程:</h1>
+
+<blockquote>
+  <p>阻塞:一心一意做一件事</p>
+</blockquote>
+
+<blockquote>
+  <p>非阻塞:一心多用,同时做很多事</p>
+</blockquote>
+
+<h2 id="进程池">进程池:</h2>
+
+<blockquote>
+  <p>pool = Pool(4)</p>
+</blockquote>
+
+<blockquote>
+  <p>创建进程池对象,参数表名这个进程池中包含4个进程</p>
+</blockquote>
+
+<blockquote>
+  <p>每创建一个子进程,对去寻找一次任务名(任务名:函数变量,不是任务本身)</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>注:先创建任务,再定义子进程</strong></p>
+</blockquote>
+
+<h3 id="非阻塞">非阻塞:</h3>
+
+<blockquote>
+  <p>pool.apply_async()</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 非阻塞 使用进程池</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="s">"""定义的任务代码"""</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程PID:</span><span class="si">%</span><span class="s">d Run...Code...执行任务:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">num</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程PID:</span><span class="si">%</span><span class="s">d END...Code...执行任务:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">num</span><span class="p">))</span>
+
+
+
+<span class="c"># 创建进程池对象,参数表名这个进程池中包含4个进程(每创建一个子进程,对去寻找一次任务名(任务名:函数变量,不是任务本身))</span>
+<span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,))</span> <span class="c"># 向进程池添加任务 非阻塞</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"所有任务都已添加到进程池中....."</span><span class="p">)</span>
+
+<span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c"># 关闭进程池对象, 表示不能再向进程池添加任务</span>
+
+<span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span> <span class="c"># 回收进程池</span>
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; 所有任务都已添加到进程池中.....
+&gt; 子进程PID:4880 Run...Code...执行任务:0
+&gt; 子进程PID:4881 Run...Code...执行任务:1
+&gt; 子进程PID:4882 Run...Code...执行任务:2
+&gt; 子进程PID:4883 Run...Code...执行任务:3
+&gt; 子进程PID:4881 END...Code...执行任务:1
+&gt; 子进程PID:4880 END...Code...执行任务:0
+&gt; 子进程PID:4880 Run...Code...执行任务:4
+&gt; 子进程PID:4881 Run...Code...执行任务:5
+&gt; 子进程PID:4882 END...Code...执行任务:2
+&gt; 子进程PID:4883 END...Code...执行任务:3
+&gt; 子进程PID:4883 Run...Code...执行任务:6
+&gt; 子进程PID:4882 Run...Code...执行任务:7
+&gt; 子进程PID:4880 END...Code...执行任务:4
+&gt; 子进程PID:4881 END...Code...执行任务:5
+&gt; 子进程PID:4880 Run...Code...执行任务:8
+&gt; 子进程PID:4881 Run...Code...执行任务:9
+&gt; 子进程PID:4882 END...Code...执行任务:7
+&gt; 子进程PID:4883 END...Code...执行任务:6
+&gt; 子进程PID:4880 END...Code...执行任务:8
+&gt; 子进程PID:4881 END...Code...执行任务:9
+</code></pre>
+</div>
+
+<h3 id="阻塞">阻塞:</h3>
+
+<blockquote>
+  <p>pool.apply()</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 非阻塞 使用进程池</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="s">"""定义的任务代码"""</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程PID:</span><span class="si">%</span><span class="s">d Run...Code...执行任务:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">num</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"子进程PID:</span><span class="si">%</span><span class="s">d END...Code...执行任务:</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="n">num</span><span class="p">))</span>
+
+
+
+<span class="c"># 创建进程池对象,参数表名这个进程池中包含4个进程(每创建一个子进程,对去寻找一次任务名(任务名:函数变量,不是任务本身))</span>
+<span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">pool</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,))</span> <span class="c"># 创建进程池对象,参数表名这个进程池中包含4个进程(每创建一个子进程,对去寻找一次任务名)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"所有任务都已添加到进程池中....."</span><span class="p">)</span>
+
+<span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c"># 关闭进程池对象, 表示不能再向进程池添加任务</span>
+
+<span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span> <span class="c"># 回收进程池</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; 子进程PID:4873 Run...Code...执行任务:0
+&gt; 子进程PID:4873 END...Code...执行任务:0
+&gt; 子进程PID:4874 Run...Code...执行任务:1
+&gt; 子进程PID:4874 END...Code...执行任务:1
+&gt; 子进程PID:4875 Run...Code...执行任务:2
+&gt; 子进程PID:4875 END...Code...执行任务:2
+&gt; 子进程PID:4876 Run...Code...执行任务:3
+&gt; 子进程PID:4876 END...Code...执行任务:3
+&gt; 子进程PID:4873 Run...Code...执行任务:4
+&gt; 子进程PID:4873 END...Code...执行任务:4
+&gt; 子进程PID:4874 Run...Code...执行任务:5
+&gt; 子进程PID:4874 END...Code...执行任务:5
+&gt; 子进程PID:4875 Run...Code...执行任务:6
+&gt; 子进程PID:4875 END...Code...执行任务:6
+&gt; 子进程PID:4876 Run...Code...执行任务:7
+&gt; 子进程PID:4876 END...Code...执行任务:7
+&gt; 子进程PID:4873 Run...Code...执行任务:8
+&gt; 子进程PID:4873 END...Code...执行任务:8
+&gt; 子进程PID:4874 Run...Code...执行任务:9
+&gt; 子进程PID:4874 END...Code...执行任务:9
+&gt; 所有任务都已添加到进程池中.....
+</code></pre>
+</div>
+
+  </section>
+  
+</article>
+
+
+
+<section class="read-more">
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/12/python-Build-in-Function/" title="link to python常用内建函数&set集合">python常用内建函数&set集合</a></h2>
+       <p class="excerpt">range函数:python3:返回可迭代对象python2:返回列表range(起始值, 结束值的前一个, 步长)步长:range: 步长为负值,不同于切片rangge: 步长为负值,从起始值开始减去步长 直到减到结束值的前一个.切片: 步长表示正向或反向输出顺序,不参与运算# python3:range返回可迭代对象# python2:range返回列表# 注:python2中xrange函数相当于python3中的range,返回可迭代对象a = range(10)  # range...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-12-04 19:00:00 +0800" class="post-list__meta--date date">2017-12-04</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/python-Build-in-Function/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/12/python-process/";
+        this.page.identifier = "/2017/12/python-process/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-12-05 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
