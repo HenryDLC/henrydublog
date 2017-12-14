@@ -1,0 +1,254 @@
+---
+layout: "post"
+title: "数据通信-UDP"
+date: "2017-12-14 19:18"
+---
+UDP协议
+=====
+
+### UDP:用户数据报协议
+
+* 无连接
+  * 把数据直接传递到目标地址,无所谓对方是否接收到
+* 面向数据报
+  * 把报文一次性传递给对方,不分批次传递
+
+优点:
+
+* 效率高:适用于实时性比较高的业务(直播/语音聊天)
+
+缺点:
+
+* 不可靠
+
+Socket套接字
+---------
+
+操作系统封装的实现设备间网络通信的工具
+
+### 创建socket:
+
+> socket.socket(AddressFamily, Type)
+
+Address Family：
+
+* 可以选择 AF\_INET（用于 Internet 进程间通信） 或者 AF\_UNIX（用于同一台机器进程间通信）,实际工作中常用AF\_INET
+
+Type：
+
+* 套接字类型，可以是 SOCK\_STREAM（流式套接字，主要用于 TCP 协议）或者 SOCK\_DGRAM（数据报套接字，主要用于 UDP 协议）
+
+### UDP流程:
+
+UDP客户端:
+
+1. 创建socket()客户端
+2. sendto() 请求数据
+3. resvfrom() 接收到数据
+4. close() 关闭客户端
+
+UDP服务器:
+
+1. 创建socket()服务器
+2. I绑定身份bind() IP地址/端口号
+3. recvfrom() 一直阻塞到收到客户端请求
+4. 梳理请求
+5. sendto() 发送数据给客户端
+
+UDP服务器代码实现:
+-----------
+
+> 注:终端使用  nc -u IP地址 端口号 模仿客户端 对服务器进行测试
+
+recv()和recv\_from():
+
+* 两个方法功能相同,都是接收客户端传来的数据
+* recv()只能接收客户端传来的数据
+* resv\_from()可以接收数据的同时 还可以返回客户端的ip地址
+
+```python
+# 精简版
+import socket
+
+PORT = 8080  # 常量 定义端口号
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+address = ("", PORT)
+server_socket.bind(address)
+
+while True:
+  recv_data, clinet_address = server_socket.recvfrom(1024)
+  print("接收到了客户端 %s 传来的数据 %s" % (clinet_address, recv_data.decode()))
+
+# server_socket.close()
+```
+
+```python
+import socket
+
+PORT = 8080  # 常量 定义端口号
+
+# 创建一个socket对象, 用于进行通讯
+# 指明使用sokcet.AF_NIET地址集,进行网间通讯
+# socket.SOCK_DGRAM 指明使用数据协议, 及使用传输层UDP协议
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# 为服务器绑定一个固定地址, ip和端口
+# server_socket.bind(ip地址, 端口号)
+# server_socket.bind("", 8080) # ip地址如果使用空字符串, 表示发送给本机的所有数据都可以接收处理
+address = ("", PORT)
+server_socket.bind(address)
+
+while True: # 服务器 多次接收 客户端发来的数据
+    # 接受客户端传来的数据 默认阻塞行为 直到有客户端传来数据
+    # recvfrom 参数的意义, 表示你最大接收数据, 单位:字节
+    '''
+    recvfrom 返回值:
+    recv_data接收字节类型的数据, bytes .decode() 解码,将bytes类型转换为字符串类型
+    client_address 传来数据的客户端的身份信息,客户端的ip和端口号,元祖
+    '''
+    recv_data, clinet_address = server_socket.recvfrom(1024)
+    print("接收到了客户端 %s 传来的数据 %s" % (clinet_address, recv_data.decode()))
+
+# 不再接收数据, 将套接字socket关闭
+# server_socket.close()
+```
+
+UDP客户端代码实现:
+-----------
+
+> 注:终端使用  nc -lu 端口号 模仿服务器 对客户端进行测试
+
+```python
+# 精简版
+import socket
+
+clinet_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+msg = input("请输入发送的内容")
+server_address = ("127.0.0.1", 8080)
+clinet_socket.sendto(msg.encode(), server_address)
+
+clinet_socket.close()
+```
+
+```python
+import socket
+
+# 创建用于通讯的socket套接字
+clinet_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# 对于客户端可以不用绑定地址信息, 操作系统会随机分配一个端口用以通讯使用
+
+# 使用sendto向对方发送数据
+# clinet_socket.sendto(发送数据内容bytes类型, 接收方的地址信息)
+msg = input("请输入发送的内容") # 字符串类型, 通过.encode() 方法 转换为bytes类型
+server_address = ("127.0.0.1", 8080) # 接收方 服务器的ip地址和端口号
+clinet_socket.sendto(msg.encode(), server_address)
+
+# 如果不需要使用套接字进行通讯, 关闭套接字
+clinet_socket.close()
+```
+
+### 客户端/服务器 都可以循环多次发送接收数据:
+
+回显服务器:接收到了客户端发送的数据, 再把数据返回给客户端
+
+客户端:
+
+```python
+# 客户端 发送数据给服务器端 并接收服务器端发来的数据
+import socket
+
+clinet_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+while True:
+    msg = input("请输入发送的内容")
+    server_address = ("127.0.0.1", 8080)
+    clinet_socket.sendto(msg.encode(), server_address)
+
+    # 接收对方发送回来的数据
+    recv_data, sender_address = clinet_socket.recvfrom_into(1024)
+    print("接收端了服务器%s 传来的数据%s" % (sender_address, recv_data.decode()))
+
+# clinet_socket.close()
+```
+
+服务器端:
+
+```python
+# 服务器端接收客户端数据 并将数据发回给客户端
+import socket
+
+PORT = 8080
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+address = ("", PORT)
+server_socket.bind(address)
+
+while True:
+  recv_data, clinet_address = server_socket.recvfrom(1024)
+  print("接收到了客户端 %s 传来的数据 %s" % (clinet_address, recv_data.decode()))
+
+  # 向客户端发送数据
+  server_socket.sendto(recv_data, clinet_address)
+
+# server_socket.close()
+```
+
+### 使用UDP进行广播:
+
+```python
+# 精华版
+import socket
+
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+
+while True:
+    msg = input("请输入要发送的内容：")
+    receiver_address = ("<broadcast>", 8000)
+    client_socket.sendto(msg.encode(), receiver_address)
+
+# # 如果不再使用套接字进行通讯，关闭套接字
+# client_socket.close()
+```
+
+```python
+import socket
+
+
+# 创建用于通讯的套接字socket
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+# 设置socket对象，将socket的广播功能打开
+# socket.SOL_SOCKET 表示设置的选项参数的等级  Set Option Level - SOCKET
+# socket.SO_BROADCAST 表示设置的具体是哪个选项参数， Set Option - Broadcast 广播
+client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+
+# 对于客户端可以不用绑定地址信息，操作系统会随机分配一个端口用以通讯使用
+
+while True:
+    # 使用sendto向对方发送数据
+    # client_socket.sendto(发送的数据内容bytes类型，接收方的地址信息)
+    msg = input("请输入要发送的内容：")   # 字符串类型， 通过msg.encode() 编码 转换为bytes类型
+    # receiver_address = ("192.168.70.255", 8000)  # 接收方 设置广播地址
+    # 使用<broadcast>可以指明广播地址，但是不用固定死，可以达到通用
+    receiver_address = ("<broadcast>", 8000)  # 接收方 设置广播地址
+    client_socket.sendto(msg.encode(), receiver_address)
+
+# # 如果不再使用套接字进行通讯，关闭套接字
+# client_socket.close()
+
+```
+
+UDP总结:
+------
+
+* UDP是传输层的一种协议,不需要进行连接就可以用来发送和接收数据,但不保证数据的可靠传输
+* UDP服务器/客户端:
+  * UDP的服务器和客户端的区别:往往通过请求服务和提供服务来进行区分
+  * 请求服务:客户端
+  * 提供服务:服务器
+* UDP绑定:
+  * 一般情况下,服务器需要绑定端口,目的是为了让其他的客户端能够正确发送到此进程
+  * 客户端:一般不需要绑定,而是让操作系统随机分配,这样就不会因为需要绑定的端口被占用而导致程序无法运行的情况

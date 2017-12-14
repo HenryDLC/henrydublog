@@ -155,6 +155,20 @@
   <ol class="post-list">
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/12/data-udp/" title="访问 数据通信-UDP">数据通信-UDP</a></h2>
+      <p class="excerpt">UDP协议UDP:用户数据报协议  无连接          把数据直接传递到目标地址,无所谓对方是否接收到        面向数据报          把报文一次性传递给对方,不分批次传递      优点:  效率高:适用于实时性比较高的业务(直播/语音聊天)缺点:  不可靠Socket套接字操作系统封装的实现设备间网络通信的工具创建socket:  socket.socket(AddressFamily, Type)Address Family：  可以选择 AF_INET（用于 In...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2017-12-14 19:18:00 +0800" class="post-list__meta--date date">2017-12-14</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/data-udp/>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/12/data-tcp/" title="访问 数据通信-TCP(1)">数据通信-TCP(1)</a></h2>
+      <p class="excerpt">TCP协议TCP协议:传输控制协议  面向连接:创建连接-数据传送-终止连接  可靠传输:          发送应答机制:每发送一个信息,都会收到目标地址返回的确认收到信息      超时重传:等待特定时间没有收到确认信息,会再次重新发送一遍,知道接收端返回给发送端确认收到信息      错误校验:发送数据报文时会加上该数据的错误校验信息,接收方收到数据后拿收到的校验信息校验数据.如果吻合才会给发送端发送确认收收到信息.如果不吻合,接收方不会发送信息,等待发送方出发超时重传机制,重新发送...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2017-12-14 19:18:00 +0800" class="post-list__meta--date date">2017-12-14</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/data-tcp/>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/12/python-process-2/" title="访问 python-多任务(2)">python-多任务(2)</a></h2>
       <p class="excerpt">同步/异步/线程/互斥锁通讯队列同步&amp;异步:参考:https://www.cnblogs.com/George1994/p/6702084.html  同步:多任务, 多个任务之间执行有先后顺序,必须一个先执行完成之后,另一个才能继续执行,zhi’you’yi’ge’zhu’xian  异步:多任务, 多个任务之间执行没有先后顺序,可以同时运行,执行的先后顺序不会有什么影响,存在多条运行主线进程池异步添加任务使用回调函数:回调函数是由主进程完成的异步添加任务,还以添加回调函数作为异...&hellip;</p>
       <div class="post-list__meta"><time datetime="2017-12-10 13:18:00 +0800" class="post-list__meta--date date">2017-12-10</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/python-process-2/>继续阅读</a></div>
@@ -210,20 +224,6 @@
       <hr class="post-list__divider" />
     </li>
     
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-4/" title="访问 python(基础四)">python(基础四)</a></h2>
-      <p class="excerpt">面向对象:类:类:笼统的概念类名:名字属性:一组数据(特性)方法:功能对象:具体 表明 物体# 联想:定义函数"""def 函数名():    pass返回值 return参数:缺省参数/命名参数/不定长参数解包变量交换"""# 定义一个类# class 类名(大驼峰):#     属性#     方法class Cat:    # 属性    # 方法(类里面的函数)    def eat(self):        print("猫在吃鱼")    def drink(self):  ...&hellip;</p>
-      <div class="post-list__meta"><time datetime="2017-11-19 16:23:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-4/>继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-3/" title="访问 python(基础三)">python(基础三)</a></h2>
-      <p class="excerpt">函数:# 函数名只能包含字母 数字 下划线,并且数字不能当开头# 函数的参数叫形参def test():	a = 1	b = 2	c = a + b	return ctest_def = test()print(test_def)# 函数内部定义的变量,局部变量,只能在函数内部使用# 多个函数中有同名变量,不会产生冲突,作用域不同# 在所有函数外部定义的变量,叫做全局变量# 再函数内部定义和全局变量同名的变量,就近原则,使用局部变量# 能够在函数的内部使用全局变量 可以访问值,不能修改全局...&hellip;</p>
-      <div class="post-list__meta"><time datetime="2017-11-19 16:23:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-3/>继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-    
   </ol>
 
   <hr class="post-list__divider " />
@@ -242,7 +242,7 @@
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-12-10 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-12-14 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
         <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
     </footer>
 </section>
