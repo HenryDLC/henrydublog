@@ -5,9 +5,281 @@
     <description>Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 Dec 2017 16:18:52 +0800</pubDate>
-    <lastBuildDate>Fri, 15 Dec 2017 16:18:52 +0800</lastBuildDate>
+    <pubDate>Fri, 15 Dec 2017 22:57:39 +0800</pubDate>
+    <lastBuildDate>Fri, 15 Dec 2017 22:57:39 +0800</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
+    
+      <item>
+        <title>软件测试-基础理论</title>
+        <description>&lt;h1 id=&quot;软件开发模型&quot;&gt;软件开发模型&lt;/h1&gt;
+
+&lt;h2 id=&quot;瀑布模式&quot;&gt;瀑布模式:&lt;/h2&gt;
+
+&lt;p&gt;定义阶段:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;计划&lt;/li&gt;
+  &lt;li&gt;需求分析&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;开发阶段:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;设计&lt;/li&gt;
+  &lt;li&gt;编码&lt;/li&gt;
+  &lt;li&gt;测试&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;维护阶段:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;运行&lt;/li&gt;
+  &lt;li&gt;维护&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;优点:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;开发的软件质量好&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;缺点:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;早期的错误可能要等到开发后期的阶段才能实现&lt;/li&gt;
+  &lt;li&gt;各阶段之间产生大量文档,极大的增加了工作量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;适用的场合:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;项目小,需求明确&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;敏捷式开发模型&quot;&gt;敏捷式开发模型:&lt;/h2&gt;
+
+&lt;p&gt;测试根据需求,把整个项目分成不同的模块,每个模块按照测试标准给出开发需求,让开发按照需求开发&lt;/p&gt;
+
+&lt;p&gt;优点:&lt;/p&gt;
+
+&lt;p&gt;测试人员为开发提供开发标准,开发的产品能够保质保量,开发效率高&lt;/p&gt;
+
+&lt;p&gt;缺点:&lt;/p&gt;
+
+&lt;p&gt;测试人员要求有需求分析能力和一定的代码基础&lt;/p&gt;
+
+&lt;h1 id=&quot;软件测试定义&quot;&gt;软件测试定义:&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用人工和自动手段来运行或测试某个系统的过程,其目的在于检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别,保证软件质量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;目的&quot;&gt;目的:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;验证被测软件是否满足客户需求,找到二者之间的差异并解决,保证软件质量&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;避免后期出现致命问题,降低修复成本,尽早介入测试,在前期发现大量问题,保障项目能够按时验收/铲平集市上线&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;运行结果 来自-&amp;gt; 需求&lt;/li&gt;
+  &lt;li&gt;实际结果 来自-&amp;gt; 预期结果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;过程&quot;&gt;过程:&lt;/h2&gt;
+
+&lt;h3 id=&quot;测试过程&quot;&gt;测试过程:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;场内测试(公司内部测试):预生产环境
+    &lt;ul&gt;
+      &lt;li&gt;单元测试流程
+        &lt;ul&gt;
+          &lt;li&gt;对软件中的最小可测单元进行检查和验证&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;集成测试流程
+        &lt;ul&gt;
+          &lt;li&gt;在单元测试的基础上,将所有模块按照设计要求(如根据结构图)组装成为子系统或系统,进行集成测试&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;系统测试流程
+        &lt;ul&gt;
+          &lt;li&gt;将已经确认的软件/计算机硬件/外设/网络等其他元素结合在一起,进行信息系统的各种组黄测试和确认测试&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;场外测试
+    &lt;ul&gt;
+      &lt;li&gt;α测试&lt;/li&gt;
+      &lt;li&gt;β测试&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;回归测试:重复测试,要求使用相同方法,使用相同的测试用例和数据,在相同的环境下进行测试
+    &lt;ul&gt;
+      &lt;li&gt;完全回归
+        &lt;ul&gt;
+          &lt;li&gt;所有的功能模块全部再测一遍(重复工作量大,耗时长)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;周边选择回归
+        &lt;ul&gt;
+          &lt;li&gt;依据需求将与此功能相关联的部分再测试一遍&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;测试方法&quot;&gt;测试方法:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;是否执行北侧软件划分
+    &lt;ul&gt;
+      &lt;li&gt;静态测试
+        &lt;ul&gt;
+          &lt;li&gt;计算机测试源程序时,计算机并不真正运行被测试的程序,只对被测程序进行特性分析&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;动态测试
+        &lt;ul&gt;
+          &lt;li&gt;真正运行被测程序,在执行过程中,通过输入有效的测试用例,对其输入与输出的对应关系进行分析,已达到检测的目的&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;测试对象不同划分
+    &lt;ul&gt;
+      &lt;li&gt;黑盒测试
+        &lt;ul&gt;
+          &lt;li&gt;也称功能测试,不需要代码,或程序的逻辑结构的情况下进行测试&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;白盒测试
+        &lt;ul&gt;
+          &lt;li&gt;基于代码的测试,能够看见程序的源码和逻辑机构,用于单元测试阶段&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;灰盒测试
+        &lt;ul&gt;
+          &lt;li&gt;介于白盒测试与黑盒测试之间,回合测试多用于集成测试阶段,看不见源码,但是知道程序的内部结构&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;执行手段划分
+    &lt;ul&gt;
+      &lt;li&gt;手工测试
+        &lt;ul&gt;
+          &lt;li&gt;不借助外部工具,用手点眼看的方式执行测试用例,完成测试的过程&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;自动化测试
+        &lt;ul&gt;
+          &lt;li&gt;借助外部工具,模仿手工测试过程,采用计算机自动化执行,完成测试的过程&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;软件质量模型&quot;&gt;软件质量模型:&lt;/h1&gt;
+
+&lt;p&gt;外部和内部质量:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;功能性
+    &lt;ul&gt;
+      &lt;li&gt;适合性:开发后的软件是否符合软件需求要实现的功能个数及名称&lt;/li&gt;
+      &lt;li&gt;准确性单个独立功能是否能够正确实现&lt;/li&gt;
+      &lt;li&gt;互操作性:接口之间的调用能否准确实现&lt;/li&gt;
+      &lt;li&gt;保密安全性:软件通过一些必要手段来保证软件的使用安全
+        &lt;ul&gt;
+          &lt;li&gt;加密：数据传输过程中是否进行了加密处理（密码暗文显示，链接https）&lt;/li&gt;
+          &lt;li&gt;密码输入错误：密码连续三次输入错误，账户是否会被锁定&lt;/li&gt;
+          &lt;li&gt;验证码：验证码获取时间超时，接收到的验证码是否能够使用&lt;/li&gt;
+          &lt;li&gt;异地登录：可否支持多台设备登录，异地登录是否有提示，是否需要验证&lt;/li&gt;
+          &lt;li&gt;账号状态：登陆后在一定时间内没有做任何操作，是否需要重新登录才能正常使用&lt;/li&gt;
+          &lt;li&gt;权限：允许通过公司内部 IP 登录访问，外部 IP 地址是否有访问权限&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;功能性的依从性:是否符合当地法律法规,是否符合软件行业标准&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;可靠性
+    &lt;ul&gt;
+      &lt;li&gt;成熟性:
+        &lt;ul&gt;
+          &lt;li&gt;当用户输入非法信息,或程序因外界因素异常退出时,系统有应对这些风险的能力,不至于意外崩溃后不能使用,\&lt;/li&gt;
+          &lt;li&gt;风险不一定被触发,但是否提前在软件中预设解决机制&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;容错性:当系统出现问题时是否有相应的提示信息以及具体的解决措施&lt;/li&gt;
+      &lt;li&gt;易恢复性:当系统出现故障时快速恢复正常的能力&lt;/li&gt;
+      &lt;li&gt;可靠性的依从性:是否符合当地法律法规,是否符合软件行业标准&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;易用性
+    &lt;ul&gt;
+      &lt;li&gt;易理解性:文字或按钮是否容易让人明白&lt;/li&gt;
+      &lt;li&gt;易学性:输入数据或操作复杂时是否有提示信息&lt;/li&gt;
+      &lt;li&gt;易操作性:
+        &lt;ul&gt;
+          &lt;li&gt;操作是否简单容易&lt;/li&gt;
+          &lt;li&gt;是否支持快捷键/方向键/Tab补齐键/手写板等&lt;/li&gt;
+          &lt;li&gt;针对的是软件受众群体&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;吸引性:界面是否美观/内容是否有吸引力&lt;/li&gt;
+      &lt;li&gt;易用性的依从性:是否符合当地法律法规,是否符合软降行业标准&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;效率
+    &lt;ul&gt;
+      &lt;li&gt;时间特性:软件运行时间符合软件需求的希望达到的时间&lt;/li&gt;
+      &lt;li&gt;资源利用性:资源占用率应小于软件需求的资源占用率
+        &lt;ul&gt;
+          &lt;li&gt;CPU–80%(手机发烫)&lt;/li&gt;
+          &lt;li&gt;内存—80%(手机卡/程序无响应)&lt;/li&gt;
+          &lt;li&gt;硬盘—75%&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;效率依从性:是否符合当地法律法规,是否符合软件行业标准&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;维护性
+    &lt;ul&gt;
+      &lt;li&gt;易分析性:当系统出现故障时是否容易定位缺陷,快速排查错误&lt;/li&gt;
+      &lt;li&gt;易改变性:当需求发生变更,所消耗的工作量和人员成本&lt;/li&gt;
+      &lt;li&gt;稳定性:当某一模块或功能出现故障时,是否会响应其他功能模块的正常使用(标准:系统稳定运行7*24小时)&lt;/li&gt;
+      &lt;li&gt;易测试性:当某一模块或功能出现故障时,是否会影响测试其他功能模块&lt;/li&gt;
+      &lt;li&gt;维护性的依从性:是否符合当地法律法规,是否符合软降行业标准&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;可移植性
+    &lt;ul&gt;
+      &lt;li&gt;适应性:是否适用于多种平台&lt;/li&gt;
+      &lt;li&gt;易安装性:安装是否容易,安装包是否包含所需的所有组件&lt;/li&gt;
+      &lt;li&gt;易替换性:
+        &lt;ul&gt;
+          &lt;li&gt;软件的更新升级是否容易&lt;/li&gt;
+          &lt;li&gt;删除旧版本,安装新版本&lt;/li&gt;
+          &lt;li&gt;在原有版本上一键升级&lt;/li&gt;
+          &lt;li&gt;是否保留原始数据&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;共存性:该软件部署在一个平台上是否会影响该平台上,其他软件的正常运行使用&lt;/li&gt;
+      &lt;li&gt;可移植性的依从性:是否符合当地的法律法规,是否符合软降行业标准&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 15 Dec 2017 22:55:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/testing-theory/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/testing-theory/</guid>
+        
+        
+      </item>
     
       <item>
         <title>数据通信-UDP</title>
@@ -4149,190 +4421,6 @@ sudo rm -rf /var/db/receipts/com.mysql.
         <pubDate>Sun, 19 Nov 2017 16:36:00 +0800</pubDate>
         <link>http://localhost:4000/2017/11/ghostblog/</link>
         <guid isPermaLink="true">http://localhost:4000/2017/11/ghostblog/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化</title>
-        <description>&lt;h2 id=&quot;前言&quot;&gt;前言:&lt;/h2&gt;
-
-&lt;p&gt;一直在用的SS服务商给我发了封邮件…..内容是它被查水表了 需要关闭所有SS服务…..&lt;/p&gt;
-
-&lt;p&gt;没办法 我只能在自己的blog服务器中 搭建自己的SS服务器 并且开启BBR算法 优化服务器的上网速度&lt;/p&gt;
-
-&lt;h3 id=&quot;ss服务器你需要&quot;&gt;SS服务器你需要:&lt;/h3&gt;
-
-&lt;p&gt;硬件层:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;一台非中国大陆地区的Linux系统服务器(本文使用centOS7)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;软件层:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Python2         python第二版 一般Linux系统自带
-
-pip             python包管理器
-
-shadowsocks     ss服务器端
-
-Linux内核       内核版本&amp;gt;=4.9
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;服务器的选择&quot;&gt;服务器的选择:&lt;/h3&gt;
-
-&lt;p&gt;你需要购买一台非大陆地区的服务器&lt;/p&gt;
-
-&lt;p&gt;因为后续要开启BBR算法优化,所以需要你的服务器使用虚拟化技术搭建(VPS服务器)&lt;/p&gt;
-
-&lt;p&gt;国内阿里云/百度云/腾讯云都有非大陆地区的VPS服务器租赁,但是有流量带宽限制且价格昂贵…..好处就是可以租香港/台湾/新加坡这些物理距离较近的服务器地址(P.S物理距离越近 理论上ping值越小)&lt;/p&gt;
-
-&lt;p&gt;海外主流的VPS提供商:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Linode&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;digitalocean&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Vultr&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;对于购买VPS 需要三点注意事项:&lt;/p&gt;
-
-&lt;p&gt;1)物理距离,一般国内体验比较好的是日本VPS&lt;/p&gt;
-
-&lt;p&gt;2)ping值,ping值和丢包率 直接影响连接速度 掉线率 和 带宽速度&lt;/p&gt;
-
-&lt;p&gt;3)IP环绕 现阶段很多vps服务器 从中国请求访问 不直接连接服务器地址 而是先绕到美国 再返回到服务器地址…..反之亦然…..&lt;/p&gt;
-
-&lt;h3 id=&quot;购买建议&quot;&gt;购买建议:&lt;/h3&gt;
-
-&lt;p&gt;我正在用的VPS是Linode公司的日本机房&lt;/p&gt;
-
-&lt;p&gt;Linode 是老牌的VPS提供商 线路稳定 机房众多 请求从中国大陆直接连接日本服务器 不会参与IP环绕 但是第一次购买需要信用卡付款 再之后可以选择PayPal支付&lt;/p&gt;
-
-&lt;p&gt;具体速度测试及更多购买建议请参考:&lt;a href=&quot;http://www.jianshu.com/p/da8f4d0d983c&quot;&gt;http://www.jianshu.com/p/da8f4d0d983c&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;开始安装摘自&quot;&gt;开始安装:摘自&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html&quot;&gt;http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;安装pip包管理器:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &quot;https://bootstrap.pypa.io/get-pip.py&quot; -o &quot;get-pip.py&quot;
-
-python get-pip.py
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;安装shadowsocks&quot;&gt;安装shadowsocks:&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install --upgrade pip
-
-pip install shadowsocks
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;配置shadowsocks&quot;&gt;配置shadowsocks:&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/shadowsocks.json
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;增加以下内容:&lt;/p&gt;
-
-&lt;p&gt;Shadowsocks接受这样的&lt;a href=&quot;http://www.json.org/&quot;&gt;JSON&lt;/a&gt;格式配置：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ip地址&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;server_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8388&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;local_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;密码&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;timeout&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aes-256-cfb&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;加密方式:可选&lt;code class=&quot;highlighter-rouge&quot;&gt;aes-128-cfb, aes-192-cfb, aes-256-cfb, bf-cfb, cast5-cfb, des-cfb, rc4-md5, chacha20, salsa20, rc4, table&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;配置自启动&quot;&gt;配置自启动:&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/systemd/system/shadowsocks.service
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;增加以下内容:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
-Description=Shadowsocks
-
-[Service]
-TimeoutStartSec=0
-
-ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
-[Install] WantedBy=multi-user.target
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;更新配置启动shadowsocks&quot;&gt;更新配置,启动Shadowsocks&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl enable shadowsocks
-
-systemctl start shadowsocks
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;检查SS服务是否启动:
-———–&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl status shadowsocks -l
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;显示类似以下内容表示成功:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;shadowsocks.service - Shadowsocks&lt;/p&gt;
-
-  &lt;p&gt;Loaded: loaded (/etc/systemd/system/shadowsocks.service; enabled; vendor preset: disabled)&lt;/p&gt;
-
-  &lt;p&gt;Active: active (running) since 二 2017-09-26 16:19:17 UTC; 10h ago&lt;/p&gt;
-
-  &lt;p&gt;Main PID: 3632 (ssserver)&lt;/p&gt;
-
-  &lt;p&gt;CGroup: /system.slice/shadowsocks.service&lt;/p&gt;
-
-  &lt;p&gt;└─3632 /usr/bin/python /usr/bin/ssserver -c /etc/shadowsocks.json&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;开启bbr&quot;&gt;开启BBR:&lt;/h2&gt;
-
-&lt;p&gt;摘自:&lt;a href=&quot;https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7&quot;&gt;https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;为了启用BBR算法，您需要修改&lt;code class=&quot;highlighter-rouge&quot;&gt;sysctl&lt;/code&gt;配置如下：&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'net.core.default_qdisc=fq'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tee&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conf&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'net.ipv4.tcp_congestion_control=bbr'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tee&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conf&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;现在，您可以使用以下命令确认启用了BBR：&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ipv4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp_available_congestion_control&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;输出应该类似于：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;net.ipv4.tcp_available_congestion_control = bbr cubic reno&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;接下来，验证：&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ipv4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp_congestion_control&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;输出应为：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;bbr&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Sun, 19 Nov 2017 16:34:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/11/shadowsocks-centos7/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/11/shadowsocks-centos7/</guid>
         
         
       </item>
