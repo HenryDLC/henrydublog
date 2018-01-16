@@ -5,15 +5,13 @@
     <description>Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Jan 2018 22:28:06 +0800</pubDate>
-    <lastBuildDate>Tue, 16 Jan 2018 22:28:06 +0800</lastBuildDate>
+    <pubDate>Tue, 16 Jan 2018 22:38:03 +0800</pubDate>
+    <lastBuildDate>Tue, 16 Jan 2018 22:38:03 +0800</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
     
       <item>
         <title>quantOS量化平台搭建</title>
-        <description>&lt;p&gt;&lt;img src=&quot;./resources/07EAFEADE955E41F923D32EB6862CEAD.png&quot; alt=&quot;flowchat.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;tushare&quot;&gt;Tushare&lt;/h1&gt;
+        <description>&lt;h1 id=&quot;tushare&quot;&gt;Tushare&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;pip install tushare&lt;/li&gt;

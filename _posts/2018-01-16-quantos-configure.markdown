@@ -3,7 +3,6 @@ layout: "post"
 title: "quantOS量化平台搭建"
 date: "2018-01-16 22:11"
 ---
-![flowchat.png](./resources/07EAFEADE955E41F923D32EB6862CEAD.png)
 
 
 
