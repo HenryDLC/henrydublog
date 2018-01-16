@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>quantOS量化平台搭建</title>
+  <meta name="description" content="">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="quantOS量化平台搭建">
+  <meta name="twitter:description" content="">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="quantOS量化平台搭建">
+  <meta property="og:description" content="">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/01/quantos-configure/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-01-16 22:11:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-01-16</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">quantOS量化平台搭建</h1>
+  </header>
+
+  <section class="post">
+    <p><img src="./resources/07EAFEADE955E41F923D32EB6862CEAD.png" alt="flowchat.png" /></p>
+
+<h1 id="tushare">Tushare</h1>
+
+<ul>
+  <li>pip install tushare</li>
+  <li>pip install tushare –upgrade</li>
+</ul>
+
+<h1 id="datacore">DataCore</h1>
+
+<p>引用:<a href="https://www.quantos.org/datacore/doc.html">https://www.quantos.org/datacore/doc.html</a></p>
+
+<p>实时行情:</p>
+
+<p>wget <a href="http://www.quantos.org/downloads/datacore/mdlink-1.2-linux.7z">http://www.quantos.org/downloads/datacore/mdlink-1.2-linux.7z</a></p>
+
+<p>数据服务</p>
+
+<p>wget <a href="http://www.quantos.org/downloads/datacore/tktools-linux.7z">http://www.quantos.org/downloads/datacore/tktools-linux.7z</a></p>
+
+<p>数据工具</p>
+
+<p>wget <a href="http://www.quantos.org/downloads/datacore/tktools-linux.7z">http://www.quantos.org/downloads/datacore/tktools-linux.7z</a></p>
+
+<h2 id="数据api安装">数据API安装:</h2>
+
+<p>依赖:</p>
+
+<ul>
+  <li>pandas</li>
+  <li>numpy</li>
+  <li>pyzmq</li>
+  <li>msgpack_python</li>
+  <li>python-snappy</li>
+</ul>
+
+<p>下载DataApi</p>
+
+<p>git clone <a href="https://github.com/quantOS-org/DataApi.git">https://github.com/quantOS-org/DataApi.git</a></p>
+
+<h2 id="服务端安装mdlinkqms">服务端安装mdlink/qms</h2>
+
+<p>服务端依赖:</p>
+
+<ul>
+  <li>zeromq</li>
+  <li>protobuf</li>
+  <li>JDK8</li>
+</ul>
+
+<h3 id="mdlinkqms配置文件准备">mdlink/qms配置文件准备</h3>
+
+<p># etc/jzs.json</p>
+
+<p># json数据 把注释删掉</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"global"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mdlink_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8700"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink连接地址</span><span class="w">
+        </span><span class="nt">"qms_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:9000"</span><span class="w"> </span><span class="err">//qms连接地址</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="nt">"qms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qms01"</span><span class="p">,</span><span class="w"> </span><span class="err">//qms名称</span><span class="w">
+        </span><span class="nt">"check_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//qms重启时，是否对tick文件进行代码检查</span><span class="w">
+        </span><span class="nt">"save_tk"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//是否保存tick文件，保存tick后，qms在重启时会根据保存的tick还原分钟线，否则重启后会丢失之前的分钟线数据</span><span class="w">
+        </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:9000"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">qms地址及端口</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="nt">"mdlink"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mdlink2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">配置名称</span><span class="w">
+            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:8700"</span><span class="p">,</span><span class="w"> </span><span class="err">//行情推送地址及端口</span><span class="w">
+            </span><span class="nt">"do_merge"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">是否进行行情合并</span><span class="w">
+            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERGE"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，MERGE表示为行情合并mdlink</span><span class="w">
+            </span><span class="nt">"time_tolerance"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">上游mdlink行情源及相应地址和端口</span><span class="w">
+                </span><span class="p">{</span><span class="w"> </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:10001"</span><span class="p">,</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future1"</span><span class="w"> </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w"> </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:10002"</span><span class="p">,</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock1"</span><span class="w"> </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+
+        </span><span class="nt">"future1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTP"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，CTP表示为mdlink_ctp读取的配置</span><span class="w">
+            </span><span class="nt">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">source编号</span><span class="w">
+            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">CTP行情源配置，该配置由期货公司提供</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTP"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"front"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="s2">"180.168.146.187:10010"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"180.168.146.187:10011"</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nt">"broker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"investor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"udp"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"multicast"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+
+        </span><span class="nt">"stock1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10002"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDF"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，</span><span class="nt">"TDF"</span><span class="err">表示为mdlink_tdf读取的配置</span><span class="w">
+            </span><span class="nt">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">TDF行情源配置，该配置由万得宏汇公司提供</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDF"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.xxx.xxx.xxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="err">xxxx</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDXXXXXX"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ-2;SH-2;CF-2"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"stock2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10003"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SINA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock2"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SINA"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://hq.sinajs.cn/list="</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ;SH;"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"insttypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1;2;3;4;5;100;"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+
+        </span><span class="nt">"stock3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10004"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TENCENT"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock3"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TENCENT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://qt.gtimg.cn/q="</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ;SH;"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"insttypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1;2;3;4;5;100;"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>数据准备程序:</p>
+
+<p>./scripts/prepare_data.sh</p>
+
+<p>启动程序:</p>
+
+<p>./scripts/start.sh</p>
+
+<p># 可以依次启动全部mdlink程序和qms程序。如果需要单独启动某个程序，需要先运行：</p>
+
+<p>. scripts/set-env.sh</p>
+
+<p>运行”./bin/程序名 配置名”或者运行”jztsctrl 程序名 配置名 start”即可启动程序</p>
+
+<ul>
+  <li>./bin/qms2 qms2 &gt; qms2.log&amp;</li>
+  <li>./bin/mdlink2 mdlink2 &gt; mdlink2.log&amp;</li>
+  <li>./bin/mdlink_ctp future1 &gt; future1.log&amp;</li>
+  <li>./bin/mdlink_tdf stock1 &gt; stock1.log&amp;</li>
+</ul>
+
+<p>或</p>
+
+<ul>
+  <li>jztsctrl qms2 qms2 start</li>
+  <li>jztsctrl mdlink2 mdlink2 start</li>
+  <li>jztsctrl mdlink_ctp future1 start</li>
+  <li>jztsctrl mdlink_tdf stock1 start</li>
+</ul>
+
+<h3 id="dataserver配置准备">DataServer配置准备</h3>
+
+<p># dataserver-dev.conf</p>
+
+<p># json数据 把注释删掉</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"mdlink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">需要连接的mdlink地址</span><span class="w">
+    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8700"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8701"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="nt">"qms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//需要连接的qms地址</span><span class="w">
+    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:9000"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="nt">"frontend"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">dataserver地址（DataApi用）</span><span class="w">
+    </span><span class="nt">"zmqrpc_addr"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:8910"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="nt">"http_server"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">websocket访问端口</span><span class="w">
+    </span><span class="nt">"port"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"8912"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"doc_root"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"web/new"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="nt">"his_bar"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">历史行情数据文件配置（1.2版本加入）</span><span class="w">
+    </span><span class="nt">"bar1m_path"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarONE/@MKT/@YYYY/@MKT@YYYYMMDD-1M.h5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bar5m_path"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarFIVE/@MKT/@YYYY/@MKT@YYYYMMDD-5M.h5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bar15m_path"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarQUARTER/@MKT/@YYYY/@MKT@YYYYMMDD-15M.h5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tick_path"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/Tick/@MKT/@YYYY/@MKT@YYYYMMDD-tk.h5"</span><span class="w">
+  </span><span class="p">}</span><span class="w">  
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h3 id="启动dataserver">启动DataServer</h3>
+
+<p>启动DataServer前需要确保mdlink和qms已经正常运行。</p>
+
+<p>数据准备程序</p>
+
+<p>./script/prepare_data.sh</p>
+
+<p>启动DataServer</p>
+
+<p>./script/start.sh</p>
+
+<h1 id="jaqs">JAQS</h1>
+
+<p>参考:<a href="https://github.com/quantOS-org/JAQS/blob/master/doc/install.md">https://github.com/quantOS-org/JAQS/blob/master/doc/install.md</a></p>
+
+<h3 id="安装依赖">安装依赖:</h3>
+
+<p>snappy的开发包libsnappy-dev:</p>
+
+<ul>
+  <li>sudo apt-get install libsnappy-dev</li>
+</ul>
+
+<p>安装snappy</p>
+
+<ul>
+  <li>pip install python-snappy</li>
+</ul>
+
+<p>安装JAQS</p>
+
+<ul>
+  <li>pip install jaqs</li>
+</ul>
+
+<p>验证:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">jaqs</span>
+
+<span class="n">Jaqs</span><span class="o">.</span><span class="n">__version__</span>
+</code></pre>
+</div>
+
+<h1 id="tradesim">TradeSim</h1>
+
+<p>下载TradeSim源码</p>
+
+<p>git clone <a href="https://github.com/quantOS-org/TradeSim.git">https://github.com/quantOS-org/TradeSim.git</a></p>
+
+<p>加载到项目里…</p>
+
+<h3 id="安装vntrader客户端">安装vnTrader客户端:</h3>
+
+<p>git clone <a href="https://github.com/quantOS-org/TradeSim.git">https://github.com/quantOS-org/TradeSim.git</a></p>
+
+<p>cd ./TradeSim-master/vnTrader</p>
+
+<p>python vtMain.py</p>
+
+<h1 id="vnpy">vn.py</h1>
+
+<p>参考:<a href="https://github.com/vnpy/vnpy/wiki/Ubuntu%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85">https://github.com/vnpy/vnpy/wiki/Ubuntu%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85</a></p>
+
+<p>安装依赖</p>
+
+<ul>
+  <li>sudo apt-get install mongodb</li>
+  <li>sudo apt-get install libboost-all-dev</li>
+  <li>sudo apt-get install cmake</li>
+  <li>sudo apt-get install git</li>
+  <li>sudo apt-get install libsnappy-dev</li>
+  <li>sudo apt-get install python-snappy</li>
+</ul>
+
+<p>准备编译工具</p>
+
+<ul>
+  <li>apt-get install build-essential</li>
+  <li>apt-get install python-dev</li>
+</ul>
+
+<p>获取框架安装脚本</p>
+
+<p>wget <a href="https://github.com/vnpy/vnpy/archive/v1.7.2.zip">https://github.com/vnpy/vnpy/archive/v1.7.2.zip</a></p>
+
+<p>安装脚本</p>
+
+<p>bash install.sh</p>
+
+  </section>
+
+</article>
+
+
+<div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+
+</div>
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"]
+    }
+};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+
+<section class="read-more">
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/01/ubuntu-configure/" title="link to ubuntu初始配置">ubuntu初始配置</a></h2>
+       <p class="excerpt">替换阿里源sudo gedit /etc/apt/sources.list\# deb cdrom:[Ubuntu 16.04 LTS \_Xenial Xerus\_ - Release amd64 (20160420.1)]/ xenial main restricteddeb-src http://archive.ubuntu.com/ubuntu xenial main restricted \#Added by software-propertiesdeb http://mirr...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-01-16 22:09:00 +0800" class="post-list__meta--date date">2018-01-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/01/ubuntu-configure/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/01/quantos-configure/";
+        this.page.identifier = "/2018/01/quantos-configure/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-01-16 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

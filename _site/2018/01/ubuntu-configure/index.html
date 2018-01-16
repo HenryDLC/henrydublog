@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>搭建Jekyll 博客</title>
-  <meta name="description" content="1)  安装RVM```bash下载安装RVM管理器,$ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  <title>ubuntu初始配置</title>
+  <meta name="description" content="替换阿里源">
   <meta name="author" content="Wei Wang">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="搭建Jekyll 博客">
-  <meta name="twitter:description" content="1)  安装RVM```bash下载安装RVM管理器,$ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  <meta name="twitter:title" content="ubuntu初始配置">
+  <meta name="twitter:description" content="替换阿里源">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="搭建Jekyll 博客">
-  <meta property="og:description" content="1)  安装RVM```bash下载安装RVM管理器,$ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  <meta property="og:title" content="ubuntu初始配置">
+  <meta property="og:description" content="替换阿里源">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2017/11/new-jekyll-blog/">
+  <link rel="canonical" href="http://localhost:4000/2018/01/ubuntu-configure/">
   <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -153,98 +153,148 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-11-19 15:51:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2018-01-16 22:09:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-01-16</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
-    <h1 class="post-title">搭建Jekyll 博客</h1>
+    <h1 class="post-title">ubuntu初始配置</h1>
   </header>
 
   <section class="post">
-    <h3 id="1--安装rvm">1)  安装RVM</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>下载安装RVM管理器,
-<span class="gp">$ </span>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    <h3 id="替换阿里源">替换阿里源</h3>
 
-&amp; curl -sSL https://get.rvm.io | bash -s stable
-or
-&amp; curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo gedit /etc/apt/sources.list
 
-启动rvm<span class="o">(</span>or重开终端或重启系统<span class="o">)</span>
-&amp; <span class="nb">source</span> /etc/profile.d/rvm.sh
+\# deb cdrom:[Ubuntu 16.04 LTS \_Xenial Xerus\_ - Release amd64 (20160420.1)]/ xenial main restricted
 
-更改ruby下载地址
-&amp; <span class="nb">echo</span> <span class="s2">"ruby_url=https://cache.ruby-china.org/pub/ruby"</span> &gt; ~/.rvm/user/db
+deb-src http://archive.ubuntu.com/ubuntu xenial main restricted \#Added by software-properties
 
-rvm 安装路径
-&amp; /usr/local/rvm
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse \#Added by software-properties
+
+deb http://archive.canonical.com/ubuntu xenial partner
+
+deb-src http://archive.canonical.com/ubuntu xenial partner
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
+
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe \#Added by software-properties
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
+
+sudo apt-get update
+
+sudo apt-get upgrade
 </code></pre>
 </div>
 
-<h3 id="2-安装ruby">2) 安装ruby</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>rvm requirements
-  <span class="nv">$ </span>rvm install 2.3.0
+<h3 id="卸载掉不常用app">卸载掉不常用App</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>* sudo apt-get remove unity-webapps-common
+* sudo apt-get remove thunderbird（邮箱）
+* sudo apt-get remove totem （视频播放器）
+* sudo apt-get remove rhythmbox（音乐播放器）
+* sudo apt-get remove empathy
+* sudo apt-get remove brasero
+* sudo apt-get remove simple-scan
+* sudo apt-get remove gnome-mahjongg
+* sudo apt-get remove aisleriot
+* sudo apt-get remove gnome-mines
+* sudo apt-get remove transmission-common
+* sudo apt-get remove gnome-orca
+* sudo apt-get remove webbrowser-app
+* sudo apt-get remove gnome-sudoku
+* sudo apt-get remove libreoffice-common
 </code></pre>
 </div>
-
-<h3 id="6-安装-bundler">6) 安装 Bundler</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>gem install bundler
+<h3 id="安装常用app">安装常用App</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>* sudo apt-get install wget
+* sudo apt-get install vim
+* sudo apt-get install git
+* sudo apt-get install vpnc
+* sudo apt-get install axel
+* sudo apt-get install openssh-server
+* sudo apt-get install cmake qtcreator
+* sudo apt-get install exfat-fuse
+* sudo apt-get install lnav
 </code></pre>
 </div>
-
-<h3 id="3-安装rails">3) 安装rails</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install rails
+<h3 id="安装java8">安装java8</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>* sudo add-apt-repository ppa:webupd8team/java
+* sudo apt-get update
+* sudo apt-get install oracle-java8-installer
+* java -version
+* sudo rm /usr/share/upstart/sessions/jayatana.conf
 </code></pre>
 </div>
-
-<h3 id="4--安装rubygame">4)  安装RubyGame</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code> <span class="nv">$ </span>gem update
+<h3 id="其他">其他:</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>* 搜狗
+* wps
+* atom
+* Chrome
 </code></pre>
 </div>
+<h3 id="anaconda">Anaconda</h3>
 
-<h3 id="5-安装jekyll">5) 安装jekyll</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install jekyll
+<div class="highlighter-rouge"><pre class="highlight"><code>* wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86\_64.sh
+* bash Anaconda3-5.0.1-Linux-x86\_64.sh
+*
+* echo 'export PATH="~/anaconda2/bin:$PATH"' \&gt;\&gt; ~/.bashrc
+* source ~/.bashrc
+
+* \# 创建python虚拟环境
+* conda create --name python3 python=3
+*
+* \# 启用虚拟环境
+* source activate python3 \# for Linux &amp; Mac
+*
+* \# 验证python版本
+* python —version
+*
+* \# 退出虚拟环境
+* source deactivate python34 \# for Linux &amp; Mac
+*
+* \# 删除虚拟环境
+* conda remove --name python3 —all
+*
+* \# 查看安装的所有包
+* conda list
+*
+* \# 安装python包
+* conda install pygame
 </code></pre>
 </div>
+<h3 id="pyqt5">pyqt5:</h3>
 
-<h3 id="6-验证版本">6) 验证版本</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ruby -v
+<div class="highlighter-rouge"><pre class="highlight"><code>下载安装qt
 
-<span class="gp">$ </span>gem -v
+http://download.qt.io/official\_releases/online\_installers/
 
-<span class="gp">$ </span>rvm -v
-</code></pre>
-</div>
+wget http://download.qt.io/official\_releases/online\_installers/qt-unified-linux-x64-online.run
 
-<h3 id="7-安装nginx">7) 安装nginx</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code> 下载 repo 列表
-<span class="gp">$ </span>wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+运行:
 
- 通过 rpm 添加列表
-<span class="gp">$ </span>rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm
+qt-unified-linux-x64-online.run
 
- 通过 yum 安装 nginx
-<span class="gp">$ </span>yum install nginx
+安装pyqt5:
 
- 运行Nginx
- 设置为开机启动
-<span class="gp">$ </span>systemctl <span class="nb">enable </span>nginx
-
- 配置文件
-<span class="gp">$ </span>vi /etc/nginx/conf.d/default.conf
-
- 重启Nginx
-<span class="gp">$ </span>systemctl restart nginx
-</code></pre>
-</div>
-
-<h3 id="8-安装jekyll-主题vno">8) 安装jekyll 主题vno</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/onevcat/vno-jekyll.git your_site
-
-<span class="gp">$ </span><span class="nb">cd </span>your_site
-
-<span class="gp">$ </span>bundler install
-
-<span class="gp">$ </span>bundler <span class="nb">exec </span>jekyll serve
-
-<span class="gp">$ </span>jekyll serve --detach
+pip install pyqt5
 </code></pre>
 </div>
 
@@ -295,12 +345,20 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
    
    <div class="read-more-item">
        <span class="read-more-item-dim">最近的文章</span>
-       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-1/" title="link to python基础(一)">python基础(一)</a></h2>
-       <p class="excerpt">#conding=utf-8# -*- coding:utf-8  -*-注释：#单行注释#单行注释 往往为下面一行代码进行说明'''多行注释多行注释 往往为下面一段代码进行说明'''注意:官方建议:单行注释 # 空格后再进行注释print(“test”) # 代码后加注释,代码后空两格 # 空一格再进行注释多行注释:单引号 双引号 都可以变量:python 变量:如果是”双引号”里面的值为:字符串print后面依靠%s取出值如果要对字符串进行运算,在非相同变量类型的时候需要进行强制类型转...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-11-19 16:16:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-1/>继续阅读</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2018/01/quantos-configure/" title="link to quantOS量化平台搭建">quantOS量化平台搭建</a></h2>
+       <p class="excerpt">Tushare  pip install tushare  pip install tushare –upgradeDataCore引用:https://www.quantos.org/datacore/doc.html实时行情:wget http://www.quantos.org/downloads/datacore/mdlink-1.2-linux.7z数据服务wget http://www.quantos.org/downloads/datacore/tktools-linux.7...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-01-16 22:11:00 +0800" class="post-list__meta--date date">2018-01-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/01/quantos-configure/>继续阅读</a></div>
    </div>
    
    
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/12/testing-theory/" title="link to 软件测试-基础理论">软件测试-基础理论</a></h2>
+       <p class="excerpt">软件开发模型瀑布模式:定义阶段:  计划  需求分析开发阶段:  设计  编码  测试维护阶段:  运行  维护优点:  开发的软件质量好缺点:  早期的错误可能要等到开发后期的阶段才能实现  各阶段之间产生大量文档,极大的增加了工作量适用的场合:  项目小,需求明确敏捷式开发模型:测试根据需求,把整个项目分成不同的模块,每个模块按照测试标准给出开发需求,让开发按照需求开发优点:测试人员为开发提供开发标准,开发的产品能够保质保量,开发效率高缺点:测试人员要求有需求分析能力和一定的代码基础软...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-12-15 22:55:00 +0800" class="post-list__meta--date date">2017-12-15</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/testing-theory/>继续阅读</a></div>
+   </div>
    
 </section>
 
@@ -310,8 +368,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
     <script>
 
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2017/11/new-jekyll-blog/";
-        this.page.identifier = "/2017/11/new-jekyll-blog/";
+        this.page.url = "http://localhost:4000/2018/01/ubuntu-configure/";
+        this.page.identifier = "/2018/01/ubuntu-configure/";
     };
 
     var disqus_shortname = '';
