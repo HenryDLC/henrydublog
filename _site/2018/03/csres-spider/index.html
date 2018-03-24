@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>工标网爬虫</title>
+  <meta name="description" content="```pythoncoding=utf-8import requestsfrom openpyxl import Workbook, load_workbookfrom lxml import etree">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="工标网爬虫">
+  <meta name="twitter:description" content="```pythoncoding=utf-8import requestsfrom openpyxl import Workbook, load_workbookfrom lxml import etree">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="工标网爬虫">
+  <meta property="og:description" content="```pythoncoding=utf-8import requestsfrom openpyxl import Workbook, load_workbookfrom lxml import etree">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/03/csres-spider/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-03-25 00:05:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">工标网爬虫</h1>
+  </header>
+
+  <section class="post">
+    <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span><span class="p">,</span> <span class="n">load_workbook</span>
+<span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+
+<span class="k">class</span> <span class="nc">csres</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temp_url</span> <span class="o">=</span> <span class="s">"http://www.csres.com/s.jsp?keyword={}"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">"User-Agent"</span><span class="p">:</span> <span class="s">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wb</span> <span class="o">=</span> <span class="n">load_workbook</span><span class="p">(</span><span class="s">"work.xlsx"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+    <span class="k">def</span> <span class="nf">get_url_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c"># 获取url列表</span>
+        <span class="c"># Excel 提取code</span>
+        <span class="n">sheet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="o">.</span><span class="n">get_sheet_by_name</span><span class="p">(</span><span class="s">"工作表1"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_url</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sheet</span><span class="p">[</span><span class="s">'A'</span><span class="p">]]</span>
+
+    <span class="k">def</span> <span class="nf">parse_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>  <span class="c"># 发送请求，获取html字符串</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_content_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">html_str</span><span class="p">):</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">html_str</span><span class="p">)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">"//thead[@class='th1']/tr[2]/td[5]/font/text()"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">save_content_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">div_state</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span><span class="c">#save</span>
+        <span class="c"># 存入Excel</span>
+        <span class="n">sheet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="o">.</span><span class="n">active</span>
+        <span class="n">sheet</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">"工作表1"</span>
+        <span class="n">sheet</span><span class="p">[</span><span class="s">"B</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">div_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">'work.xlsx'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c"># 实现主要逻辑</span>
+        <span class="c"># 1.url_list</span>
+        <span class="n">url_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_url_list</span><span class="p">()</span>
+        <span class="c"># 2.遍历，发送请求，获取数据</span>
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">url_list</span><span class="p">:</span>
+            <span class="n">html_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="c"># 3.提取数据</span>
+            <span class="n">div_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_content_list</span><span class="p">(</span><span class="n">html_str</span><span class="p">)</span>
+            <span class="c"># 4.保 存</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save_content_list</span><span class="p">(</span><span class="n">div_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">csres</span> <span class="o">=</span> <span class="n">csres</span><span class="p">()</span>
+    <span class="n">csres</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre>
+</div>
+
+  </section>
+
+</article>
+
+
+<div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+
+</div>
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"]
+    }
+};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/03/javascript-jquery-ajax/" title="link to JavaScript-jQuery-Ajax">JavaScript-jQuery-Ajax</a></h2>
+       <p class="excerpt">JavaScript窗口等待加载完毕再获取标签&lt;script&gt;    // 等window 窗口加载完毕 已经显示的 时候    window.onload = function () {        // 获取标签        var oDiv = document.getElementsById('div1')      }&lt;/script&gt;&lt;body&gt;  &lt;div id='div1'&gt;&lt;/div&gt;&lt;/body&gt...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:08:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/javascript-jquery-ajax/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework-4/" title="link to Flask-Web(框架四)">Flask-Web(框架四)</a></h2>
+       <p class="excerpt">新建一个flask项目:main文件:(程序入口)from models import dbdb.init_app(app)# 3 创建管理对象from flask_script import Managermanager = Manager(app)# 4 添加迁移命令from flask_migrate import MigrateCommand,MigrateMigrate(app,db)manager.add_command('migrate',MigrateCommand)# 5...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:03:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-4/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/03/csres-spider/";
+        this.page.identifier = "/2018/03/csres-spider/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Flask-Web(框架一)</title>
+  <meta name="description" content="引入包:">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flask-Web(框架一)">
+  <meta name="twitter:description" content="引入包:">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Flask-Web(框架一)">
+  <meta property="og:description" content="引入包:">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/03/flask-web-framework/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-03-24 23:38:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-24</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">Flask-Web(框架一)</h1>
+  </header>
+
+  <section class="post">
+    <p>引入包:</p>
+
+<p>Flask:主框架包</p>
+
+<p>render_template:模板包</p>
+
+<p>SQLAlchemy:ORM数据库操作</p>
+
+<p>BaseConverter:转换器父类</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">werkzeug.routing</span> <span class="kn">import</span> <span class="n">BaseConverter</span>
+</code></pre>
+</div>
+
+<p>数据库连接:</p>
+
+<p>固定格式:app.config[‘SQLALCHEMY_DATABASE_URI’] = ‘mysql://数据库用户名:数据库密码@数据库ip地址:数据库端口号/数据库名’</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'mysql://root:707116148@127.0.0.1:3306/flask_db'</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="c"># 创建数据库类</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>ORM操作数据库 增加Author和Book 两个表</p>
+
+<p>更多操作参考:<a href="http://blog.csdn.net/werewolf_st/article/details/45933949">http://blog.csdn.net/werewolf_st/article/details/45933949</a></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__talbename__</span> <span class="o">=</span> <span class="s">'author'</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">'author.id'</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">author</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="c"># 创建表</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span>
+
+    <span class="c"># 添加数据</span>
+    <span class="n">author1</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="s">'琼瑶'</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">author1</span><span class="p">)</span>
+
+    <span class="n">author2</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="s">'金庸'</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">author2</span><span class="p">)</span>
+
+    <span class="n">book1</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s">'射雕英雄传'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">book2</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s">'天龙八部'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">book3</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s">'雪山飞狐'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">book4</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s">'还珠格格'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">book5</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s">'情深深雨蒙蒙'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">book6</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s">'梅花三弄'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c"># 添加多条数据</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add_all</span><span class="p">([</span><span class="n">book1</span><span class="p">,</span> <span class="n">book2</span><span class="p">,</span> <span class="n">book3</span><span class="p">,</span> <span class="n">book4</span><span class="p">,</span> <span class="n">book5</span><span class="p">,</span> <span class="n">book6</span><span class="p">])</span>
+
+    <span class="c"># 提交数据</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>路由设置:</p>
+
+<p>@app.route(‘/路由地址/转换器‘)</p>
+
+<p>返回render_template()</p>
+
+<p>传入参数:html静态文件名,数据</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'index.html'</span><span class="p">,</span><span class="n">helow</span><span class="o">=</span><span class="s">'world'</span><span class="p">,</span><span class="n">list1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/alist'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">authorlist</span><span class="p">():</span>
+    <span class="c"># 查询所有作者信息</span>
+    <span class="n">alist</span> <span class="o">=</span> <span class="n">Author</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'author_list.html'</span><span class="p">,</span> <span class="n">alist</span> <span class="o">=</span> <span class="n">alist</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/blist/&lt;author_id&gt;'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">booklist</span><span class="p">(</span><span class="n">author_id</span><span class="p">):</span>
+    <span class="c">#  查询指定作者的图书</span>
+    <span class="n">blist</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">Book</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">author_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'book_list.html'</span><span class="p">,</span> <span class="n">blist</span> <span class="o">=</span> <span class="n">blist</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>自定义转换器</p>
+
+<p>继承BaseConverter父类,修改父类方法传入转换器所需的路由参数(转换规则由路由参数写好直接出传入自定义转换器判定)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">RegexConverter</span><span class="p">(</span><span class="n">BaseConverter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">map</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">RegexConverter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regex</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">app</span><span class="o">.</span><span class="n">url_map</span><span class="o">.</span><span class="n">converters</span><span class="p">[</span><span class="s">'re'</span><span class="p">]</span> <span class="o">=</span> <span class="n">RegexConverter</span>
+</code></pre>
+</div>
+
+<h3 id="代码总结">代码总结:</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">werkzeug.routing</span> <span class="kn">import</span> <span class="n">BaseConverter</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c"># 自定义转换器</span>
+<span class="k">class</span> <span class="nc">RegexConverter</span><span class="p">(</span><span class="n">BaseConverter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">map</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">RegexConverter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regex</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">app</span><span class="o">.</span><span class="n">url_map</span><span class="o">.</span><span class="n">converters</span><span class="p">[</span><span class="s">'re'</span><span class="p">]</span> <span class="o">=</span> <span class="n">RegexConverter</span>
+
+<span class="c"># 数据库连接</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'mysql://root:707116148@127.0.0.1:3306/flask_db'</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__talbename__</span> <span class="o">=</span> <span class="s">'author'</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">'author.id'</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">author</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'index.html'</span><span class="p">,</span><span class="n">helow</span><span class="o">=</span><span class="s">'world'</span><span class="p">,</span><span class="n">list1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/alist'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">authorlist</span><span class="p">():</span>
+    <span class="c"># 查询所有作者信息</span>
+    <span class="n">alist</span> <span class="o">=</span> <span class="n">Author</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'author_list.html'</span><span class="p">,</span> <span class="n">alist</span> <span class="o">=</span> <span class="n">alist</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/blist/&lt;author_id&gt;'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">booklist</span><span class="p">(</span><span class="n">author_id</span><span class="p">):</span>
+    <span class="c">#  查询指定作者的图书</span>
+    <span class="n">blist</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">Book</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">author_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'book_list.html'</span><span class="p">,</span> <span class="n">blist</span> <span class="o">=</span> <span class="n">blist</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="c"># # 创建表</span>
+    <span class="c"># db.create_all()</span>
+    <span class="c">#</span>
+    <span class="c"># # 添加数据</span>
+    <span class="c"># author1 = Author('琼瑶')</span>
+    <span class="c"># db.session.add(author1)</span>
+    <span class="c">#</span>
+    <span class="c"># author2 = Author('金庸')</span>
+    <span class="c"># db.session.add(author2)</span>
+    <span class="c">#</span>
+    <span class="c"># book1 = Book('射雕英雄传', 2)</span>
+    <span class="c"># book2 = Book('天龙八部', 2)</span>
+    <span class="c"># book3 = Book('雪山飞狐', 2)</span>
+    <span class="c">#</span>
+    <span class="c"># book4 = Book('还珠格格', 1)</span>
+    <span class="c"># book5 = Book('情深深雨蒙蒙', 1)</span>
+    <span class="c"># book6 = Book('梅花三弄', 1)</span>
+    <span class="c">#</span>
+    <span class="c"># # 添加多条数据</span>
+    <span class="c"># db.session.add_all([book1, book2, book3, book4, book5, book6])</span>
+    <span class="c">#</span>
+    <span class="c"># # 提交数据</span>
+    <span class="c"># db.session.commit()</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre>
+</div>
+
+  </section>
+
+</article>
+
+
+<div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+
+</div>
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"]
+    }
+};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework-2/" title="link to Flask-Web(框架二)">Flask-Web(框架二)</a></h2>
+       <p class="excerpt">应用上下文current_app对象:共享数据的作用缺点:储存在服务器内存中,服务器挂掉,信息丢失解决方法:Redis存储from flask import Flask, current_app, gapp = Flask(__name__)app.hello = 'world'@app.route('/')def index():    # print app.hello    current_app.hello = 'hello flask'    return 'hello worl...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:00:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-2/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/01/quantos-configure/" title="link to quantOS量化平台搭建">quantOS量化平台搭建</a></h2>
+       <p class="excerpt">Tushare  pip install tushare  pip install tushare –upgradeDataCore引用:https://www.quantos.org/datacore/doc.html实时行情:wget http://www.quantos.org/downloads/datacore/mdlink-1.2-linux.7z数据服务wget http://www.quantos.org/downloads/datacore/tktools-linux.7...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-01-16 22:11:00 +0800" class="post-list__meta--date date">2018-01-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/01/quantos-configure/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/03/flask-web-framework/";
+        this.page.identifier = "/2018/03/flask-web-framework/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

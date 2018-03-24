@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Flask-Web(框架二)</title>
+  <meta name="description" content="应用上下文">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flask-Web(框架二)">
+  <meta name="twitter:description" content="应用上下文">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Flask-Web(框架二)">
+  <meta property="og:description" content="应用上下文">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/03/flask-web-framework-2/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-03-25 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">Flask-Web(框架二)</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="应用上下文">应用上下文</h2>
+
+<p>current_app对象:共享数据的作用</p>
+
+<p>缺点:储存在服务器内存中,服务器挂掉,信息丢失</p>
+
+<p>解决方法:Redis存储</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">g</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'world'</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="c"># print app.hello</span>
+    <span class="n">current_app</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'hello flask'</span>
+    <span class="k">return</span> <span class="s">'hello world'</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/show'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">hello</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>g对象:</p>
+
+<p>每一个新的app对象,都会产生相应的g对象</p>
+
+<p>注:在请求响应当中会存在一个g对象,但是当请求结束后g对象则被释放掉</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">g</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'world'</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="c"># print app.hello</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'hello python'</span>
+    <span class="k">return</span> <span class="s">'hello world'</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/show'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">g</span><span class="o">.</span><span class="n">hello</span>
+    <span class="k">return</span> <span class="s">'hello world'</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="请求上下文">请求上下文</h2>
+
+<p>GET:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="s">'/get1'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get1</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'get1.html'</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/get2'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get2</span><span class="p">():</span>
+    <span class="nb">dict</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="s">'None'</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s">'c'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'get2.html'</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>POST:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="s">'/post1'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">post1</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'post1.html'</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/post2'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">post2</span><span class="p">():</span>
+    <span class="nb">dict</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span>
+    <span class="n">uname</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'uname'</span><span class="p">)</span>
+    <span class="n">upwd</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'upwd'</span><span class="p">)</span>
+    <span class="n">ugender</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'ugender'</span><span class="p">)</span>
+    <span class="n">uhobby</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'uhobby'</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">uhobby</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'post2.html'</span><span class="p">,</span> <span class="n">uname</span><span class="o">=</span><span class="n">uname</span><span class="p">,</span> <span class="n">upwd</span><span class="o">=</span><span class="n">upwd</span><span class="p">,</span> <span class="n">ugender</span><span class="o">=</span><span class="n">ugender</span><span class="p">,</span> <span class="n">uhobby</span><span class="o">=</span><span class="n">uhobby</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="响应">响应</h2>
+
+<p>视图函数 return 返回的必须是报文数据(字符串) 所以不能用return 10 直接返回整形10</p>
+
+<p>解决:可以返回str类型的字符串’10’ 或者 返回 render_template(‘xxx.html’)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="s">'/list1'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">list1</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">'</span><span class="si">%</span><span class="s">d'</span><span class="o">%</span><span class="mi">10</span>
+</code></pre>
+</div>
+
+<h2 id="重定向">重定向</h2>
+
+<p>直接返回一个重定向的连接地址,浏览器再发送一个新的请求</p>
+
+<p>调用from flask import redirect</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">redirect</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/red'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">red</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">'/green'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="json">JSON</h2>
+
+<p>调用from flask import jsonify</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/json1'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">json1</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'json1.html'</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/json2'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">json2</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'hello world '</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p># json1.html 点击显示按钮 接受json2发出的json数据</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span>
+          <span class="na">content=</span><span class="s">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"ie=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">'#btnShow'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/json2'</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'#divShow'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'&lt;h1&gt;'</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="o">+</span><span class="s1">'&lt;/h1&gt;'</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+        <span class="p">})</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"btnShow"</span> <span class="na">value=</span><span class="s">"显示"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"divShow"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="状态码">状态码</h2>
+
+<p>自定义状态码</p>
+
+<p>场景一: 强制抛出404错误 发出json数据,发送成功抛出201状态码</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">abort</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/json2'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">json2</span><span class="p">():</span>
+    <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span><span class="c">#错误</span>
+    <span class="c"># raise Exception()#异常</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'hello flask'</span><span class="p">),</span><span class="mi">201</span>
+</code></pre>
+</div>
+
+<p>场景二:处理404错误</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">handle404</span><span class="p">(</span><span class="n">exception</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'404.html'</span><span class="p">,</span><span class="n">exception</span><span class="o">=</span><span class="n">exception</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="状态保持">状态保持</h2>
+
+<p>cookie</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">make_response</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/cook_set'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">cookie_set</span><span class="p">():</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="s">'ok'</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s">'h1'</span><span class="p">,</span> <span class="s">'hello flask'</span><span class="p">,</span> <span class="n">max_age</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/cookie_get'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">cookie_get</span><span class="p">():</span>
+    <span class="n">h1</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'h1'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">h1</span>
+</code></pre>
+</div>
+
+<p>session</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">session</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/session_set'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">session_set</span><span class="p">():</span>
+    <span class="n">session</span><span class="p">[</span><span class="s">'hello'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'world'</span>
+    <span class="k">return</span> <span class="s">'ok'</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/session_get'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">session_get</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'hello'</span><span class="p">,</span> <span class="s">'None'</span><span class="p">)</span> <span class="c"># 如果没有session则显示None值</span>
+</code></pre>
+</div>
+
+<h2 id="蓝图">蓝图</h2>
+
+<p>项目中进行视图函数管理,便于维护,需要将视图文件分到不同的包或模块中</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># session_set.py</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">session</span>
+
+<span class="c"># 新建蓝图对象</span>
+<span class="c"># 参数1:功能描述</span>
+<span class="c"># 参数2:模块名称</span>
+<span class="n">session_set_blueprint</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s">'session_set'</span><span class="p">,</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c"># 蓝图 注册路由</span>
+<span class="nd">@session_set_blueprint.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">session_set</span><span class="p">():</span>
+    <span class="n">session</span><span class="p">[</span><span class="s">'hello'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'world'</span>
+    <span class="k">return</span> <span class="s">'ok'</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># session_get/session_get.py</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">session</span>
+<span class="n">session_get_Blueprint</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s">'session_get'</span><span class="p">,</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@session_get_Blueprint.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">session_get</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'hello'</span><span class="p">,</span> <span class="s">'None'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>注册蓝图:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">blueprints</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'helloworld'</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="c"># print app.hello</span>
+    <span class="k">return</span> <span class="s">'hello world'</span>
+
+<span class="c"># app中注册蓝图</span>
+<span class="kn">from</span> <span class="nn">session_set</span> <span class="kn">import</span> <span class="n">session_set_blueprint</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">session_set_blueprint</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="s">'/session_set'</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">session_get.session_get</span> <span class="kn">import</span> <span class="n">session_get_Blueprint</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">session_get_Blueprint</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="s">'/session_get'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="钩子结合g变量">钩子(结合g变量)</h2>
+
+<p>before_first_request:在处理第一个请求前运行</p>
+
+<p>before_request:在每次请求前运行</p>
+
+<p>after_request:如果没有未处理的异常抛出,在每次请求后运行</p>
+
+<p>teardown_request:在每次请求后运行,即使有未处理的异常抛出</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">g</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'helloworld'</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">csrf</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">'pass'</span>
+    <span class="k">return</span> <span class="s">'hello world'</span>
+
+<span class="nd">@app.before_request</span>
+<span class="k">def</span> <span class="nf">before</span><span class="p">():</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">csrf</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">print</span> <span class="s">'-------------before'</span>
+
+<span class="nd">@app.after_request</span>
+<span class="k">def</span> <span class="nf">before</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">'-------------after'</span>
+    <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">csrf</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s">'csrf'</span><span class="p">,</span><span class="s">'123'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span>
+
+<span class="nd">@app.teardown_request</span>
+<span class="k">def</span> <span class="nf">before</span><span class="p">(</span><span class="n">exception</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">'-------------teardown_request'</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>场景:</p>
+
+<p>before_request:用于请求数据预处理</p>
+
+<p>after_request:用于在未发生异常时进行资源释放</p>
+
+<p>teardown_request:用于发生异常时记录日志等功能</p>
+
+<h2 id="配置文件">配置文件</h2>
+
+<p>所有配置文件详见:<a href="http://www.pythondoc.com/flask/config.html">http://www.pythondoc.com/flask/config.html</a></p>
+
+<p>将所有配置信息写到独立的.py文件中</p>
+
+<p>开发模式&amp;生产模式 两种配置不同 定义不同的类,继承与Config父类</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+    <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s">'helloworld'</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s">'mysql://mysql://root:707116148@127.0.0.1:3306/flask_db'</span>
+    <span class="n">SQLALCHEMY_TRACK_MODIFICATIONS</span> <span class="o">=</span> <span class="bp">False</span>
+
+
+<span class="k">class</span> <span class="nc">DevelopmentConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+
+
+<span class="k">class</span> <span class="nc">ProductConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s">'mysql://root:707116148@127.0.0.1:3306/flask_db'</span>
+    <span class="n">SQLALCHEMY_TRACK_MODIFICATIONS</span> <span class="o">=</span> <span class="bp">False</span>
+</code></pre>
+</div>
+
+<p>调用写好的配置文件</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">setting</span> <span class="kn">import</span> <span class="n">DevelopmentConfig</span><span class="p">,</span> <span class="n">ProductConfig</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">DevelopmentConfig</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">'hello world'</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre>
+</div>
+
+  </section>
+
+</article>
+
+
+<div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+
+</div>
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"]
+    }
+};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework-3/" title="link to Flask-Web(框架三)">Flask-Web(框架三)</a></h2>
+       <p class="excerpt">设计模型类from flask_sqlalchemy import SQLAlchemyfrom setting import DevelopmentConfig # 连接数据库配置文件db = SQLAlchemy(app)class Author(db.Model):    __tablename__ = 'authors'    id = db.Column(db.INTEGER, primary_key=True)    name = db.Column(db.String(20)...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:03:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-3/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework/" title="link to Flask-Web(框架一)">Flask-Web(框架一)</a></h2>
+       <p class="excerpt">引入包:Flask:主框架包render_template:模板包SQLAlchemy:ORM数据库操作BaseConverter:转换器父类from flask import Flask, render_templatefrom flask_sqlalchemy import SQLAlchemyfrom werkzeug.routing import BaseConverter数据库连接:固定格式:app.config[‘SQLALCHEMY_DATABASE_URI’] = ‘mys...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-03-24 23:38:00 +0800" class="post-list__meta--date date">2018-03-24</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/03/flask-web-framework-2/";
+        this.page.identifier = "/2018/03/flask-web-framework-2/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

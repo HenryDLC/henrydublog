@@ -155,6 +155,48 @@
   <ol class="post-list">
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/12/data-tcp/" title="访问 数据通信-TCP(1)">数据通信-TCP(1)</a></h2>
+      <p class="excerpt">TCP协议TCP协议:传输控制协议  面向连接:创建连接-数据传送-终止连接  可靠传输:          发送应答机制:每发送一个信息,都会收到目标地址返回的确认收到信息      超时重传:等待特定时间没有收到确认信息,会再次重新发送一遍,知道接收端返回给发送端确认收到信息      错误校验:发送数据报文时会加上该数据的错误校验信息,接收方收到数据后拿收到的校验信息校验数据.如果吻合才会给发送端发送确认收收到信息.如果不吻合,接收方不会发送信息,等待发送方出发超时重传机制,重新发送...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2017-12-14 19:18:00 +0800" class="post-list__meta--date date">2017-12-14</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/data-tcp/>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/12/python-process-2/" title="访问 python-多任务(2)">python-多任务(2)</a></h2>
+      <p class="excerpt">同步/异步/线程/互斥锁通讯队列同步&amp;异步:参考:https://www.cnblogs.com/George1994/p/6702084.html  同步:多任务, 多个任务之间执行有先后顺序,必须一个先执行完成之后,另一个才能继续执行,zhi’you’yi’ge’zhu’xian  异步:多任务, 多个任务之间执行没有先后顺序,可以同时运行,执行的先后顺序不会有什么影响,存在多条运行主线进程池异步添加任务使用回调函数:回调函数是由主进程完成的异步添加任务,还以添加回调函数作为异...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2017-12-10 13:18:00 +0800" class="post-list__meta--date date">2017-12-10</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/python-process-2/>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/12/python-process-1/" title="访问 python-多任务(1)">python-多任务(1)</a></h2>
+      <p class="excerpt">  进程/多进程/进程池/阻塞/非阻塞多任务:让多个任务同时进行程序 : 代码(不表示代码已经运行)进程 : 代码运行中,除了代码还包括运行时需要的环境/资源等等进程:  运行着的代码，称为进程  进程:除了包含代码以外，还包含需要运行需要的系统资源等注:进程是操作系统分配资源的最小单位。父进程&amp;子进程:fork()函数:通过fork函数,可以在程序中新创建进程  os.fork()会创建一个子进程,并将程序信息复制到子进程中去.  os.fork()父进程和子进程都会得到一个返回...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2017-12-05 21:41:00 +0800" class="post-list__meta--date date">2017-12-05</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/python-process-1/>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/12/python-Build-in-Function/" title="访问 python常用内建函数&set集合">python常用内建函数&set集合</a></h2>
+      <p class="excerpt">range函数:python3:返回可迭代对象python2:返回列表range(起始值, 结束值的前一个, 步长)步长:range: 步长为负值,不同于切片rangge: 步长为负值,从起始值开始减去步长 直到减到结束值的前一个.切片: 步长表示正向或反向输出顺序,不参与运算# python3:range返回可迭代对象# python2:range返回列表# 注:python2中xrange函数相当于python3中的range,返回可迭代对象a = range(10)  # range...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2017-12-04 19:00:00 +0800" class="post-list__meta--date date">2017-12-04</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/python-Build-in-Function/>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/12/python-advanced-1/" title="访问 python高级语法1(生成器/迭代器/闭包/装饰器)">python高级语法1(生成器/迭代器/闭包/装饰器)</a></h2>
+      <p class="excerpt">生成器:====不直接生成,保存计算方式.每一次用创建一个,减轻内存消耗列表生成式  a = [x*2 for x in range(1000000000)]构造生成器:# 创建生成器(方法一)b = (x * 2 for x in range(1000000000))# 生成器 每次只生成一个(内存中保存的是计算的方法)c = next(b)print(c)d = next(b)print(d)e = next(b)print(e)print("###########")# # 创建生成...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2017-12-04 16:10:00 +0800" class="post-list__meta--date date">2017-12-04</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/python-advanced-1/>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/12/sql-primer/" title="访问 SQL-primer">SQL-primer</a></h2>
+      <p class="excerpt">MySQL安装启动MySQLsudo apt-get install mysql-serversudo service mysql startsudo service mysql stopsudo service mysql restart进入mysql  mysql -uroot -pyour_password配置mysqlvim /etc/mysql/mysql.cnf/mysql.conf.d/mysql.cnfBind-address 服务器绑定ipport 端口 3306data...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2017-12-01 18:55:00 +0800" class="post-list__meta--date date">2017-12-01</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/sql-primer/>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/11/hugo-blog/" title="访问 HUGO 博客搭建(Ubuntu)">HUGO 博客搭建(Ubuntu)</a></h2>
       <p class="excerpt">ubuntu 环境下:下载HUGO.deb安装包wget [https://github.com/gohugoio/hugo/releases/download/v0.26/hugo\_0.26\_Linux-64bit.deb](https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.deb)安装deb文件sudo dpkg -i hugo\*.deb查看版本hugo version安装...&hellip;</p>
       <div class="post-list__meta"><time datetime="2017-11-19 16:39:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/hugo-blog/>继续阅读</a></div>
@@ -182,34 +224,6 @@
       <hr class="post-list__divider" />
     </li>
     
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-3/" title="访问 python(基础三)">python(基础三)</a></h2>
-      <p class="excerpt">函数:# 函数名只能包含字母 数字 下划线,并且数字不能当开头# 函数的参数叫形参def test():	a = 1	b = 2	c = a + b	return ctest_def = test()print(test_def)# 函数内部定义的变量,局部变量,只能在函数内部使用# 多个函数中有同名变量,不会产生冲突,作用域不同# 在所有函数外部定义的变量,叫做全局变量# 再函数内部定义和全局变量同名的变量,就近原则,使用局部变量# 能够在函数的内部使用全局变量 可以访问值,不能修改全局...&hellip;</p>
-      <div class="post-list__meta"><time datetime="2017-11-19 16:23:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-3/>继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-2/" title="访问 python基础(二)">python基础(二)</a></h2>
-      <p class="excerpt">循环(while)#计算所有1-100之间的和index = 1my_sum = 0while index &lt;= 100:	my_sum = my_sum + index	index += 1print("ret = %d" % my_sum)# 计算所有1-100之间所有的奇数index = 1my_sum = 0while index &lt;= 100:	if index % 2 != 0:		my_sum = my_sum + index	index += 1print("r...&hellip;</p>
-      <div class="post-list__meta"><time datetime="2017-11-19 16:22:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-2/>继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-1/" title="访问 python基础(一)">python基础(一)</a></h2>
-      <p class="excerpt">#conding=utf-8# -*- coding:utf-8  -*-注释：#单行注释#单行注释 往往为下面一行代码进行说明'''多行注释多行注释 往往为下面一段代码进行说明'''注意:官方建议:单行注释 # 空格后再进行注释print(“test”) # 代码后加注释,代码后空两格 # 空一格再进行注释多行注释:单引号 双引号 都可以变量:python 变量:如果是”双引号”里面的值为:字符串print后面依靠%s取出值如果要对字符串进行运算,在非相同变量类型的时候需要进行强制类型转...&hellip;</p>
-      <div class="post-list__meta"><time datetime="2017-11-19 16:16:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-1/>继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/11/new-jekyll-blog/" title="访问 搭建Jekyll 博客">搭建Jekyll 博客</a></h2>
-      <p class="excerpt">1)  安装RVM下载安装RVM管理器,$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3&amp; curl -sSL https://get.rvm.io | bash -s stableor&amp; curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/...&hellip;</p>
-      <div class="post-list__meta"><time datetime="2017-11-19 15:51:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/new-jekyll-blog/>继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-    
   </ol>
 
   <hr class="post-list__divider " />
@@ -218,7 +232,9 @@
     
         <a class="newer-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; 最近</a>
     
-    <span class="pagination__page-number">2 / 2</span>
+    <span class="pagination__page-number">2 / 3</span>
+    
+        <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/3/#blog">更早 &rarr;</a>
     
 </nav>
 
@@ -228,7 +244,7 @@
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-01-16 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
         <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
     </footer>
 </section>

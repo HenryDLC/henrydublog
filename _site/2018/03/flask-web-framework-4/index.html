@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Flask-Web(框架四)</title>
+  <meta name="description" content="新建一个flask项目:">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flask-Web(框架四)">
+  <meta name="twitter:description" content="新建一个flask项目:">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Flask-Web(框架四)">
+  <meta property="og:description" content="新建一个flask项目:">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/03/flask-web-framework-4/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-03-25 00:03:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">Flask-Web(框架四)</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="新建一个flask项目">新建一个flask项目:</h2>
+
+<p>main文件:(程序入口)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="c"># 3 创建管理对象</span>
+<span class="kn">from</span> <span class="nn">flask_script</span> <span class="kn">import</span> <span class="n">Manager</span>
+<span class="n">manager</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="c"># 4 添加迁移命令</span>
+<span class="kn">from</span> <span class="nn">flask_migrate</span> <span class="kn">import</span> <span class="n">MigrateCommand</span><span class="p">,</span><span class="n">Migrate</span>
+<span class="n">Migrate</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="n">db</span><span class="p">)</span>
+<span class="n">manager</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="s">'migrate'</span><span class="p">,</span><span class="n">MigrateCommand</span><span class="p">)</span>
+
+<span class="c"># 5 注册蓝图</span>
+<span class="kn">from</span> <span class="nn">html_views</span> <span class="kn">import</span> <span class="n">html_blueprint</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">html_blueprint</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>manger文件:(创建flask对象)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">werkzeug.routing</span> <span class="kn">import</span> <span class="n">BaseConverter</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">logging.handlers</span> <span class="kn">import</span> <span class="n">RotatingFileHandler</span>
+
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">HtmlConverter</span><span class="p">(</span><span class="n">BaseConverter</span><span class="p">):</span>
+    <span class="n">regex</span> <span class="o">=</span> <span class="s">'.*'</span>
+
+
+<span class="k">def</span> <span class="nf">Create_app</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">Config</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">url_map</span><span class="o">.</span><span class="n">converters</span><span class="p">[</span><span class="s">'html'</span><span class="p">]</span> <span class="o">=</span> <span class="n">HtmlConverter</span>
+
+    <span class="c"># 日志文件</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+    <span class="n">file_log_handler</span> <span class="o">=</span> <span class="n">RotatingFileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s">"logs/ihome.log"</span><span class="p">),</span> <span class="n">maxBytes</span><span class="o">=</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+                                           <span class="n">backupCount</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">'</span><span class="si">%(levelname)</span><span class="s">s </span><span class="si">%(filename)</span><span class="s">s:</span><span class="si">%(lineno)</span><span class="s">d </span><span class="si">%(message)</span><span class="s">s'</span><span class="p">)</span>
+    <span class="n">file_log_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_log_handler</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">app</span>
+</code></pre>
+</div>
+
+<p>Config文件:(配置文件)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+
+<span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+    <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s">"mysql://root:707116148@127.0.0.1:3306/flask_py"</span>
+    <span class="n">SQLALCHEMY_TRACK_MODIFICATIONS</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">class</span> <span class="nc">DevelopConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">class</span> <span class="nc">ProductConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre>
+</div>
+
+<p>models文件:(ORM数据库)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">create_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DATETIME</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="n">update_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DATETIME</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span><span class="n">onupdate</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</code></pre>
+</div>
+
+<p>html_views文件:(路由 静态文件)(开发过程中使用)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+
+<span class="kn">from</span> <span class="nn">flask</span>  <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">current_app</span>
+<span class="n">html_blueprint</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s">'html'</span><span class="p">,</span> <span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@html_blueprint.route</span><span class="p">(</span><span class="s">'/&lt;html:filename&gt;'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">html</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s">'index.html'</span>
+
+    <span class="n">filename</span> <span class="o">=</span> <span class="s">'html/'</span> <span class="o">+</span> <span class="n">filename</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">send_static_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">html</span>
+</code></pre>
+</div>
+
+<p>备注:</p>
+
+<p>logs:日志文件</p>
+
+<p>static:静态文件</p>
+
+<p>template:模板文件</p>
+
+<p>api_v1:apiAPI借口文件</p>
+
+<p>status_code:状态码文件</p>
+
+<p>status_code:状态码文件</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<span class="k">class</span> <span class="nc">RET</span><span class="p">:</span>
+    <span class="n">OK</span> <span class="o">=</span> <span class="s">"0"</span>
+    <span class="n">DBERR</span> <span class="o">=</span> <span class="s">"4001"</span>
+    <span class="n">NODATA</span> <span class="o">=</span> <span class="s">"4002"</span>
+    <span class="n">DATAEXIST</span> <span class="o">=</span> <span class="s">"4003"</span>
+    <span class="n">DATAERR</span> <span class="o">=</span> <span class="s">"4004"</span>
+    <span class="n">SESSIONERR</span> <span class="o">=</span> <span class="s">"4101"</span>
+    <span class="n">LOGINERR</span> <span class="o">=</span> <span class="s">"4102"</span>
+    <span class="n">PARAMERR</span> <span class="o">=</span> <span class="s">"4103"</span>
+    <span class="n">USERERR</span> <span class="o">=</span> <span class="s">"4104"</span>
+    <span class="n">ROLEERR</span> <span class="o">=</span> <span class="s">"4105"</span>
+    <span class="n">PWDERR</span> <span class="o">=</span> <span class="s">"4106"</span>
+    <span class="n">REQERR</span> <span class="o">=</span> <span class="s">"4201"</span>
+    <span class="n">IPERR</span> <span class="o">=</span> <span class="s">"4202"</span>
+    <span class="n">THIRDERR</span> <span class="o">=</span> <span class="s">"4301"</span>
+    <span class="n">IOERR</span> <span class="o">=</span> <span class="s">"4302"</span>
+    <span class="n">SERVERERR</span> <span class="o">=</span> <span class="s">"4500"</span>
+    <span class="n">UNKOWNERR</span> <span class="o">=</span> <span class="s">"4501"</span>
+
+<span class="n">ret_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span> <span class="s">u"成功"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">DBERR</span><span class="p">:</span> <span class="s">u"数据库查询错误"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">NODATA</span><span class="p">:</span> <span class="s">u"无数据"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">DATAEXIST</span><span class="p">:</span> <span class="s">u"数据已存在"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">DATAERR</span><span class="p">:</span> <span class="s">u"数据错误"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">SESSIONERR</span><span class="p">:</span> <span class="s">u"用户未登录"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">LOGINERR</span><span class="p">:</span> <span class="s">u"用户登录失败"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">PARAMERR</span><span class="p">:</span> <span class="s">u"参数错误"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">USERERR</span><span class="p">:</span> <span class="s">u"用户不存在或未激活"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">ROLEERR</span><span class="p">:</span> <span class="s">u"用户身份错误"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">PWDERR</span><span class="p">:</span> <span class="s">u"密码错误"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">REQERR</span><span class="p">:</span> <span class="s">u"非法请求或请求次数受限"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">IPERR</span><span class="p">:</span> <span class="s">u"IP受限"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">THIRDERR</span><span class="p">:</span> <span class="s">u"第三方系统错误"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">IOERR</span><span class="p">:</span> <span class="s">u"文件读写错误"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">SERVERERR</span><span class="p">:</span> <span class="s">u"内部错误"</span><span class="p">,</span>
+    <span class="n">RET</span><span class="o">.</span><span class="n">UNKOWNERR</span><span class="p">:</span> <span class="s">u"未知错误"</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+  </section>
+
+</article>
+
+
+<div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+
+</div>
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"]
+    }
+};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/03/csres-spider/" title="link to 工标网爬虫">工标网爬虫</a></h2>
+       <p class="excerpt"># coding=utf-8import requestsfrom openpyxl import Workbook, load_workbookfrom lxml import etreeclass csres:    def __init__(self):        self.temp_url = "http://www.csres.com/s.jsp?keyword={}"        self.headers = {            "User-Agent": "Moz...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:05:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/csres-spider/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework-3/" title="link to Flask-Web(框架三)">Flask-Web(框架三)</a></h2>
+       <p class="excerpt">设计模型类from flask_sqlalchemy import SQLAlchemyfrom setting import DevelopmentConfig # 连接数据库配置文件db = SQLAlchemy(app)class Author(db.Model):    __tablename__ = 'authors'    id = db.Column(db.INTEGER, primary_key=True)    name = db.Column(db.String(20)...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:03:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-3/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/03/flask-web-framework-4/";
+        this.page.identifier = "/2018/03/flask-web-framework-4/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
