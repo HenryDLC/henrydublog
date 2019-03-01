@@ -2380,5 +2380,5 @@ print(r)  # >>> 123456
 
 思维导图总结
 --------
-![image](https://github.com/HenryDLC/learn_python/raw/master/images/learn_python.png)
+![image](https://github.com/HenryDLC/learn_python/raw/master/python基础/learn_python.png)
 
