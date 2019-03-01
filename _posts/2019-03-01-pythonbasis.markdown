@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "Pytho基础"
+title: "Python基础"
 date: "2019-03-01 22:59"
 ---
 
