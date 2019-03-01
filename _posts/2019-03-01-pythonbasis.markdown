@@ -2378,5 +2378,7 @@ with open('test.txt', 'r') as f:
 print(r)  # >>> 123456
 ```
 
-
+思维导图总结
+--------
+![image](https://github.com/HenryDLC/learn_python/raw/master/images/learn_python.png)
 
