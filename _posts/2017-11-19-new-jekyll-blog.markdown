@@ -76,3 +76,50 @@ sudo make
 sudo make install`
 sudo vim /usr/local/nginx/nginx.conf
 ```
+
+> 配置nginx
+主要更改location --> root /home/www/_site;
+每次运行`bundler exec jekyll serve`都会更新`_site`目录,生成新的静态文件
+jekyll是一个生成静态网站的程序
+```bash
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+    #                '$status $body_bytes_sent "$http_referer" '
+    #                '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   /home/www/_site;
+            index  index.html index.htm;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+}
+```
