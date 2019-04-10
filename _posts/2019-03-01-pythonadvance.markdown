@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Python高级"
-date: "2019-04-10 13:58"
+date: "2019-04-10 13:20"
 ---
 
 匿名函数
@@ -20,7 +20,7 @@ range函数
 # range(起始值, 截止值-1, 步长)  返回:可迭代对象
 a = range(1, 10, 2)
 for i in a:
-    print(i)
+    print(i)a
 # >>> 1
 # >>> 3
 # >>> 5
@@ -137,12 +137,12 @@ import 同级文件
 import sys
 print(sys.path)
 '''
-['/Users/HenryDu/PycharmProjects/untitled', 
-'/Users/HenryDu/PycharmProjects/untitled', 
-'/Users/HenryDu/anaconda3/envs/learn_py/lib/python37.zip', 
-'/Users/HenryDu/anaconda3/envs/learn_py/lib/python3.7', 
-'/Users/HenryDu/anaconda3/envs/learn_py/lib/python3.7/lib-dynload', 
-'/Users/HenryDu/anaconda3/envs/learn_py/lib/python3.7/site-packages', 
+['/Users/HenryDu/PycharmProjects/untitled',
+'/Users/HenryDu/PycharmProjects/untitled',
+'/Users/HenryDu/anaconda3/envs/learn_py/lib/python37.zip',
+'/Users/HenryDu/anaconda3/envs/learn_py/lib/python3.7',
+'/Users/HenryDu/anaconda3/envs/learn_py/lib/python3.7/lib-dynload',
+'/Users/HenryDu/anaconda3/envs/learn_py/lib/python3.7/site-packages',
 '/Applications/PyCharm.app/Contents/helpers/pycharm_matplotlib_backend']
 '''
 ```
@@ -877,7 +877,7 @@ def fun1(f):
         print('fun1 停止')
 
         return age
-    
+
     # 带参数的装饰器
     inner.__name__ = f.__name__
     inner.__doc__ = f.__doc__
@@ -1214,7 +1214,7 @@ class bank(object):
     def money(self):
         raise AttributeError('该属性无法读取')
 
-    
+
     @money.setter
     def money(self, num):
         if isinstance(num, int):
@@ -1302,7 +1302,7 @@ gc.disable()
 多任务
 ===
 
-多任务状态 
+多任务状态
 ------
 
 ### 同步与异步
@@ -2360,7 +2360,6 @@ for i in range(5):
 # >>> 消费者Thread-6 消费了一个数据
 # >>> 消费者Thread-8 消费了一个数据
 ```
-
 思维导图总结
 --------
 ![image](https://github.com/HenryDLC/learn_python/raw/master/python基础/learn_python.png)
