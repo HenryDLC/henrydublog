@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-11-19 16:39:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2017-11-19 16:39:00 +0000" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">HUGO 博客搭建(Ubuntu)</h1>
   </header>
@@ -163,81 +163,69 @@
 
 <p>下载HUGO.deb安装包</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget <span class="o">[</span>https://github.com/gohugoio/hugo/releases/download/v0.26/hugo<span class="se">\_</span>0.26<span class="se">\_</span>Linux-64bit.deb]<span class="o">(</span>https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.deb<span class="o">)</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="o">[</span>https://github.com/gohugoio/hugo/releases/download/v0.26/hugo<span class="se">\_</span>0.26<span class="se">\_</span>Linux-64bit.deb]<span class="o">(</span>https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.deb<span class="o">)</span>
+</code></pre></div></div>
 
 <p>安装deb文件</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dpkg -i hugo<span class="se">\*</span>.deb
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">-i</span> hugo<span class="se">\*</span>.deb
+</code></pre></div></div>
 
 <p>查看版本</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>hugo version
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hugo version
+</code></pre></div></div>
 
 <p>安装git</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
-sudo apt-get install git
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>git
+</code></pre></div></div>
 
 <p>创建博客:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>hugo new site myabout <span class="nb">cd </span>myblogs
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hugo new site myabout <span class="nb">cd </span>myblogs
+</code></pre></div></div>
 
 <p>git克隆hugo主题:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/sethmacleod/dimension.git themes/dimension
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sethmacleod/dimension.git themes/dimension
+</code></pre></div></div>
 
 <p>把config.toml拷贝到博客根目录:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cp themes/dimension/exampleSite/config.toml 拷贝到myblogs根目录
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>themes/dimension/exampleSite/config.toml 拷贝到myblogs根目录
+</code></pre></div></div>
 
 <p>安装Nginx:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get install nginx
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>nginx
+</code></pre></div></div>
 
 <p>配置Nginx(建议先备份default):</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo vim /etc/nginx/sites-available/default
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>server { listen 80; listen [::]:80;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>vim /etc/nginx/sites-available/default
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server { listen 80; listen [::]:80;
 server\_name ip或域名地址; root /opt/myblogs;
 location ^~ / { proxy\_set\_header X-Real-IP $remote\_addr; proxy\_set\_header Host $http\_host; proxy\_pass http://127.0.0.1:1313/; } }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>重启Nginx配置或整个Nginx程序:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>service nginx reload
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service nginx reload
 
 service nginx restart
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>后台启动hugo:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>nohup hugo server —watch &amp;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nohup hugo server —watch &amp;
 
 nohup hugo server --watch &amp;
 
 nohup hugo server --watch &amp;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>参考网址:</p>
 
@@ -253,11 +241,10 @@ nohup hugo server --watch &amp;
 
 <h3 id="ubuntu-阿里源">ubuntu 阿里源:</h3>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo gedit /etc/apt/sources.list
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gedit /etc/apt/sources.list
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>\# deb cdrom:[Ubuntu 16.04 LTS \_Xenial Xerus\_ - Release amd64 (20160420.1)]/ xenial main restricted
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\# deb cdrom:[Ubuntu 16.04 LTS \_Xenial Xerus\_ - Release amd64 (20160420.1)]/ xenial main restricted
 
 deb-src http://archive.ubuntu.com/ubuntu xenial main restricted \#Added by software-properties
 
@@ -292,12 +279,10 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiv
 deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
 
 deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+</code></pre></div></div>
 
   </section>
 
@@ -348,7 +333,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2017/12/sql-primer/" title="link to SQL-primer">SQL-primer</a></h2>
        <p class="excerpt">MySQL安装启动MySQLsudo apt-get install mysql-serversudo service mysql startsudo service mysql stopsudo service mysql restart进入mysql  mysql -uroot -pyour_password配置mysqlvim /etc/mysql/mysql.cnf/mysql.conf.d/mysql.cnfBind-address 服务器绑定ipport 端口 3306data...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-12-01 18:55:00 +0800" class="post-list__meta--date date">2017-12-01</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/sql-primer/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2017-12-01 18:55:00 +0000" class="post-list__meta--date date">2017-12-01</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/sql-primer/>继续阅读</a></div>
    </div>
    
    
@@ -358,7 +343,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2017/11/ghostblog/" title="link to 搭建Ghost 博客">搭建Ghost 博客</a></h2>
        <p class="excerpt">升级所有包，不改变软件设置和系统设置，系统版本升级，内核不改变yum -y upgrade更新 yum 的 repo listrpm -Uvh http://download-i2.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm验证成功rpm -q epel-release重建缓存yum makecache安装wget（-bash: wget: command not found）yum -y install wget...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-11-19 16:36:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/ghostblog/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:36:00 +0000" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/ghostblog/>继续阅读</a></div>
    </div>
    
 </section>
@@ -392,8 +377,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-12-14 19:18:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-12-14</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2017-12-14 19:18:00 +0000" itemprop="datePublished" class="post-meta__date date">2017-12-14</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">数据通信-UDP</h1>
   </header>
@@ -245,7 +245,7 @@
   <li>resv_from()可以接收数据的同时 还可以返回客户端的ip地址</li>
 </ul>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 精简版</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 精简版</span>
 <span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="n">PORT</span> <span class="o">=</span> <span class="mi">8080</span>  <span class="c"># 常量 定义端口号</span>
@@ -259,10 +259,9 @@
   <span class="k">print</span><span class="p">(</span><span class="s">"接收到了客户端 </span><span class="si">%</span><span class="s">s 传来的数据 </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">clinet_address</span><span class="p">,</span> <span class="n">recv_data</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
 
 <span class="c"># server_socket.close()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="n">PORT</span> <span class="o">=</span> <span class="mi">8080</span>  <span class="c"># 常量 定义端口号</span>
 
@@ -290,8 +289,7 @@
 
 <span class="c"># 不再接收数据, 将套接字socket关闭</span>
 <span class="c"># server_socket.close()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="udp客户端代码实现">UDP客户端代码实现:</h2>
 
@@ -299,7 +297,7 @@
   <p>注:终端使用  nc -lu 端口号 模仿服务器 对客户端进行测试</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 精简版</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 精简版</span>
 <span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="n">clinet_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
@@ -309,10 +307,9 @@
 <span class="n">clinet_socket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">server_address</span><span class="p">)</span>
 
 <span class="n">clinet_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="c"># 创建用于通讯的socket套接字</span>
 <span class="n">clinet_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
@@ -327,8 +324,7 @@
 
 <span class="c"># 如果不需要使用套接字进行通讯, 关闭套接字</span>
 <span class="n">clinet_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="客户端服务器-都可以循环多次发送接收数据">客户端/服务器 都可以循环多次发送接收数据:</h3>
 
@@ -336,7 +332,7 @@
 
 <p>客户端:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 客户端 发送数据给服务器端 并接收服务器端发来的数据</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 客户端 发送数据给服务器端 并接收服务器端发来的数据</span>
 <span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="n">clinet_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
@@ -351,12 +347,11 @@
     <span class="k">print</span><span class="p">(</span><span class="s">"接收端了服务器</span><span class="si">%</span><span class="s">s 传来的数据</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">sender_address</span><span class="p">,</span> <span class="n">recv_data</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
 
 <span class="c"># clinet_socket.close()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>服务器端:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 服务器端接收客户端数据 并将数据发回给客户端</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 服务器端接收客户端数据 并将数据发回给客户端</span>
 <span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="n">PORT</span> <span class="o">=</span> <span class="mi">8080</span>
@@ -373,12 +368,11 @@
   <span class="n">server_socket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">recv_data</span><span class="p">,</span> <span class="n">clinet_address</span><span class="p">)</span>
 
 <span class="c"># server_socket.close()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="使用udp进行广播">使用UDP进行广播:</h3>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 精华版</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 精华版</span>
 <span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
@@ -391,10 +385,9 @@
 
 <span class="c"># # 如果不再使用套接字进行通讯，关闭套接字</span>
 <span class="c"># client_socket.close()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
 
 
 <span class="c"># 创建用于通讯的套接字socket</span>
@@ -418,8 +411,7 @@
 <span class="c"># # 如果不再使用套接字进行通讯，关闭套接字</span>
 <span class="c"># client_socket.close()</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="udp总结">UDP总结:</h2>
 
@@ -489,7 +481,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2017/12/testing-theory/" title="link to 软件测试-基础理论">软件测试-基础理论</a></h2>
        <p class="excerpt">软件开发模型瀑布模式:定义阶段:  计划  需求分析开发阶段:  设计  编码  测试维护阶段:  运行  维护优点:  开发的软件质量好缺点:  早期的错误可能要等到开发后期的阶段才能实现  各阶段之间产生大量文档,极大的增加了工作量适用的场合:  项目小,需求明确敏捷式开发模型:测试根据需求,把整个项目分成不同的模块,每个模块按照测试标准给出开发需求,让开发按照需求开发优点:测试人员为开发提供开发标准,开发的产品能够保质保量,开发效率高缺点:测试人员要求有需求分析能力和一定的代码基础软...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-12-15 22:55:00 +0800" class="post-list__meta--date date">2017-12-15</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/testing-theory/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2017-12-15 22:55:00 +0000" class="post-list__meta--date date">2017-12-15</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/testing-theory/>继续阅读</a></div>
    </div>
    
    
@@ -499,7 +491,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2017/12/data-tcp/" title="link to 数据通信-TCP(1)">数据通信-TCP(1)</a></h2>
        <p class="excerpt">TCP协议TCP协议:传输控制协议  面向连接:创建连接-数据传送-终止连接  可靠传输:          发送应答机制:每发送一个信息,都会收到目标地址返回的确认收到信息      超时重传:等待特定时间没有收到确认信息,会再次重新发送一遍,知道接收端返回给发送端确认收到信息      错误校验:发送数据报文时会加上该数据的错误校验信息,接收方收到数据后拿收到的校验信息校验数据.如果吻合才会给发送端发送确认收收到信息.如果不吻合,接收方不会发送信息,等待发送方出发超时重传机制,重新发送...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-12-14 19:18:00 +0800" class="post-list__meta--date date">2017-12-14</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/data-tcp/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2017-12-14 19:18:00 +0000" class="post-list__meta--date date">2017-12-14</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/data-tcp/>继续阅读</a></div>
    </div>
    
 </section>
@@ -533,8 +525,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-11-19 16:34:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2017-11-19 16:34:00 +0000" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化</h1>
   </header>
@@ -168,19 +168,17 @@
 <h3 id="ss服务器你需要">SS服务器你需要:</h3>
 
 <p>硬件层:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>一台非中国大陆地区的Linux系统服务器(本文使用centOS7)
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>一台非中国大陆地区的Linux系统服务器(本文使用centOS7)
+</code></pre></div></div>
 <p>软件层:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Python2         python第二版 一般Linux系统自带
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python2         python第二版 一般Linux系统自带
 
 pip             python包管理器
 
 shadowsocks     ss服务器端
 
 Linux内核       内核版本&gt;=4.9
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="服务器的选择">服务器的选择:</h3>
 
 <p>你需要购买一台非大陆地区的服务器</p>
@@ -223,44 +221,39 @@ Linux内核       内核版本&gt;=4.9
 <p><a href="http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html">http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html</a></p>
 
 <p>安装pip包管理器:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 
 python get-pip.py
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="安装shadowsocks">安装shadowsocks:</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install --upgrade pip
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install --upgrade pip
 
 pip install shadowsocks
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="配置shadowsocks">配置shadowsocks:</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>vim /etc/shadowsocks.json
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/shadowsocks.json
+</code></pre></div></div>
 <p>增加以下内容:</p>
 
 <p>Shadowsocks接受这样的<a href="http://www.json.org/">JSON</a>格式配置：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"server"</span><span class="p">:</span><span class="s2">"ip地址"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"server_port"</span><span class="p">:</span><span class="mi">8388</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"local_port"</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"password"</span><span class="p">:</span><span class="s2">"密码"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timeout"</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"aes-256-cfb"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "server":"ip地址",
+    "server_port":8388,
+    "local_port":1080,
+    "password":"密码",
+    "timeout":600,
+    "method":"aes-256-cfb"
+}
+</code></pre></div></div>
 
 <p>加密方式:可选<code class="highlighter-rouge">aes-128-cfb, aes-192-cfb, aes-256-cfb, bf-cfb, cast5-cfb, des-cfb, rc4-md5, chacha20, salsa20, rc4, table</code></p>
 
 <h2 id="配置自启动">配置自启动:</h2>
-<div class="highlighter-rouge"><pre class="highlight"><code>vim /etc/systemd/system/shadowsocks.service
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/systemd/system/shadowsocks.service
+</code></pre></div></div>
 <p>增加以下内容:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
 Description=Shadowsocks
 
 [Service]
@@ -268,20 +261,17 @@ TimeoutStartSec=0
 
 ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
 [Install] WantedBy=multi-user.target
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="更新配置启动shadowsocks">更新配置,启动Shadowsocks</h2>
-<div class="highlighter-rouge"><pre class="highlight"><code>systemctl enable shadowsocks
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable shadowsocks
 
 systemctl start shadowsocks
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>检查SS服务是否启动:
 ———–</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>systemctl status shadowsocks -l
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status shadowsocks -l
+</code></pre></div></div>
 <p>显示类似以下内容表示成功:</p>
 
 <blockquote>
@@ -304,17 +294,15 @@ systemctl start shadowsocks
 
 <p>为了启用BBR算法，您需要修改<code class="highlighter-rouge">sysctl</code>配置如下：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">echo</span> <span class="s">'net.core.default_qdisc=fq'</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="o">.</span><span class="n">conf</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">echo</span> <span class="s">'net.core.default_qdisc=fq'</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="o">.</span><span class="n">conf</span>
 <span class="n">echo</span> <span class="s">'net.ipv4.tcp_congestion_control=bbr'</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="o">.</span><span class="n">conf</span>
 <span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">p</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>现在，您可以使用以下命令确认启用了BBR：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">sysctl</span> <span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">tcp_available_congestion_control</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">sysctl</span> <span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">tcp_available_congestion_control</span>
+</code></pre></div></div>
 
 <p>输出应该类似于：</p>
 
@@ -324,9 +312,8 @@ systemctl start shadowsocks
 
 <p>接下来，验证：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">n</span> <span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">tcp_congestion_control</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">n</span> <span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">tcp_congestion_control</span>
+</code></pre></div></div>
 
 <p>输出应为：</p>
 
@@ -383,7 +370,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2017/11/ghostblog/" title="link to 搭建Ghost 博客">搭建Ghost 博客</a></h2>
        <p class="excerpt">升级所有包，不改变软件设置和系统设置，系统版本升级，内核不改变yum -y upgrade更新 yum 的 repo listrpm -Uvh http://download-i2.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm验证成功rpm -q epel-release重建缓存yum makecache安装wget（-bash: wget: command not found）yum -y install wget...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-11-19 16:36:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/ghostblog/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:36:00 +0000" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/ghostblog/>继续阅读</a></div>
    </div>
    
    
@@ -391,9 +378,9 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
    
    <div class="read-more-item">
        <span class="read-more-item-dim">更早的文章</span>
-       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-4/" title="link to python(基础四)">python(基础四)</a></h2>
-       <p class="excerpt">面向对象:类:类:笼统的概念类名:名字属性:一组数据(特性)方法:功能对象:具体 表明 物体# 联想:定义函数"""def 函数名():    pass返回值 return参数:缺省参数/命名参数/不定长参数解包变量交换"""# 定义一个类# class 类名(大驼峰):#     属性#     方法class Cat:    # 属性    # 方法(类里面的函数)    def eat(self):        print("猫在吃鱼")    def drink(self):  ...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-11-19 16:23:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-4/>继续阅读</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/new-jekyll-blog/" title="link to 搭建Jekyll 博客">搭建Jekyll 博客</a></h2>
+       <p class="excerpt">1)  安装rubysudo apt-get install ruby-full build-essential zlib1g-devecho '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.bashrcecho 'export GEM_HOME="$HOME/gems"' &gt;&gt; ~/.bashrcecho 'export PATH="$HOME/gems/bin:$PATH"' &gt;&gt; ~/.bashrcsource ~/.b...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 15:51:00 +0000" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/new-jekyll-blog/>继续阅读</a></div>
    </div>
    
 </section>
@@ -427,8 +414,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

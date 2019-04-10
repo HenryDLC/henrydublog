@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2018-03-25 00:08:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2018-03-25 00:08:00 +0000" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">JavaScript-jQuery-Ajax</h1>
   </header>
@@ -163,7 +163,7 @@
 
 <p>窗口等待加载完毕再获取标签</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="c1">// 等window 窗口加载完毕 已经显示的 时候</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 获取标签</span>
@@ -174,12 +174,11 @@
 <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'div1'</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>.语法 修改 class id value 属性</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
     <span class="p">.</span><span class="nx">red</span><span class="p">{</span>
         <span class="nl">color</span><span class="p">:</span> <span class="nx">blue</span><span class="p">;</span>
     <span class="p">}</span>
@@ -201,14 +200,13 @@
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">style</span><span class="o">=</span><span class="s2">"background-color: red"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"one"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"搜索"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"first"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">style</span><span class="o">=</span><span class="s2">"background-color: red"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"one"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"搜索"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"first"</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>如果 变量 改变成 系统默认的 属性 使用 []</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 获取元素</span>
         <span class="kd">var</span> <span class="nx">oIput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'input1'</span><span class="p">)</span>
@@ -223,12 +221,11 @@
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"input1"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"哈哈哈"</span><span class="o">&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>innerHTML 修改包裹的内容</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 获取div标签</span>
         <span class="kd">var</span> <span class="nx">oDiv</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'div1'</span><span class="p">)</span>
@@ -240,13 +237,12 @@
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"div1"</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span><span class="nx">div</span><span class="err">包裹的内容</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span></code></pre>
-</div>
+<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"div1"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span><span class="nx">div</span><span class="err">包裹的内容</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span></code></pre></div></div>
 
 <p>函数的定义与执行</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 函数定义</span>
         <span class="kd">function</span> <span class="nx">fnTest</span><span class="p">()</span> <span class="p">{</span>
@@ -263,12 +259,11 @@
         <span class="nx">fnSum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>变量/函数的预解析</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="nx">fnTest</span><span class="p">()</span>
 
@@ -283,12 +278,11 @@
          <span class="kd">var</span> <span class="nx">iNumber</span> <span class="o">=</span> <span class="mi">100</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>匿名函数</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 正常定义函数</span>
         <span class="kd">function</span> <span class="nx">fnTest</span><span class="p">()</span> <span class="p">{</span>
@@ -308,12 +302,11 @@
 <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"button"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"btn"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"普通按钮"</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>if判断语句</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">iOne</span> <span class="o">=</span> <span class="mi">100</span>
         <span class="kd">var</span> <span class="nx">iTwo</span> <span class="o">=</span> <span class="mi">200</span>
@@ -346,12 +339,11 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>return 关键字</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// return 阻止程序运行 无论是不是在函数内 都可以组织程序向下运行</span>
         <span class="kd">function</span> <span class="nx">fnTest</span><span class="p">()</span> <span class="p">{</span>
@@ -372,10 +364,9 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 带返回值函数</span>
         <span class="kd">function</span> <span class="nx">fnSum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
@@ -395,10 +386,9 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 阻止系统默认行为 submit</span>
         <span class="nx">oForm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'form'</span><span class="p">)</span>
@@ -416,12 +406,11 @@
         <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"sub"</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>条件运算符</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">iNumber</span> <span class="o">=</span> <span class="mi">20</span>
         <span class="kd">var</span> <span class="nx">sNumber</span> <span class="o">=</span> <span class="s1">'20'</span>
@@ -444,12 +433,11 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>显示隐藏div块案例</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
     <span class="p">.</span><span class="nx">box</span><span class="p">{</span>
         <span class="nl">width</span><span class="p">:</span> <span class="mi">200</span><span class="nx">px</span><span class="p">;</span>
         <span class="nl">height</span><span class="p">:</span> <span class="mi">200</span><span class="nx">px</span><span class="p">;</span>
@@ -486,14 +474,13 @@
 </span>
 <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"button"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"显示"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"btn"</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"div1"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"div1"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>数组-定义</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 实例化对象</span>
         <span class="kd">var</span> <span class="nx">aOneArry</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">)</span>
@@ -504,12 +491,11 @@
         <span class="nx">alert</span><span class="p">(</span><span class="nx">aThreeArry</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>数组-操作</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">aOneArry</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">]</span>
         <span class="c1">// 增</span>
@@ -547,10 +533,9 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// 遍历数组&amp;数组画三角</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 遍历数组&amp;数组画三角</span>
 <span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
     <span class="p">.</span><span class="nx">box</span><span class="p">{</span>
         <span class="nl">width</span><span class="p">:</span> <span class="mi">500</span><span class="nx">px</span><span class="p">;</span>
@@ -558,7 +543,7 @@
         <span class="nl">border</span><span class="p">:</span> <span class="mi">1</span><span class="nx">px</span> <span class="nx">solid</span> <span class="nx">black</span><span class="p">;</span>
         <span class="nl">margin</span><span class="p">:</span><span class="nx">auto</span><span class="p">;</span>
 
-        <span class="nx">text</span><span class="o">-</span><span class="nx">align</span><span class="err">:</span> <span class="nx">center</span><span class="p">;</span>
+        <span class="nx">text</span><span class="o">-</span><span class="nx">align</span><span class="p">:</span> <span class="nx">center</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/style</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
@@ -591,14 +576,13 @@
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"div1"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"div1"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>去重</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">aOneArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'d'</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
@@ -617,12 +601,11 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>列表加载数组数据</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 获取列表元素</span>
         <span class="kd">var</span> <span class="nx">aList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'list'</span><span class="p">)</span>
@@ -640,12 +623,11 @@
         <span class="nx">aList</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span> <span class="nx">sStr</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>类型转换</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">iOne</span> <span class="o">=</span> <span class="mi">100</span>
         <span class="kd">var</span> <span class="nx">iTwo</span> <span class="o">=</span> <span class="s1">'200'</span>
@@ -667,12 +649,11 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>NaN : 不是纯数字</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">sOne</span> <span class="o">=</span> <span class="s1">'123abc'</span>
         <span class="kd">var</span> <span class="nx">sTwo</span> <span class="o">=</span> <span class="s1">'abc123'</span>
@@ -684,12 +665,11 @@
         <span class="nx">alert</span><span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">sTwo</span><span class="p">))</span> <span class="c1">// 返回True    它是一个'不是纯数字的类型'</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>调试方法</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
         <span class="c1">// 阻止程序的运行</span>
@@ -707,12 +687,11 @@
         <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'test'</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>全局变量&amp;局部变量</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
         <span class="c1">// 全局变量</span>
@@ -728,12 +707,11 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>字符串操作</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 字符串操作</span>
         <span class="kd">var</span> <span class="nx">sName</span> <span class="o">=</span> <span class="s1">'老王'</span>
@@ -785,12 +763,11 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>定时器</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 执行一次</span>
         <span class="c1">// setTimeout(功能,时间)</span>
@@ -816,12 +793,11 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>封闭函数</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 匿名函数 -- 直接运行</span>
         <span class="c1">// -- 打开 内部可能做一些操作</span>
@@ -853,14 +829,13 @@
 
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <h1 id="jquery">jQuery</h1>
 
 <p>关联函数库 测试</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
 
 <span class="c1">// 关联jQuery 函数库 CDN</span>
 <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"https://cdn.bootcss.com/jquery/1.12.2/jquery.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script</span><span class="err">&gt;
@@ -871,12 +846,11 @@
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>Js &amp; jQuery 对比</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
 
     <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 获取元素</span>
@@ -897,12 +871,11 @@
         <span class="nx">alert</span><span class="p">(</span><span class="s1">'Js +'</span> <span class="o">+</span> <span class="nx">sSize</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>jQuery 的css属性操作</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
 
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="c1">// 常用选择器</span>
@@ -932,24 +905,23 @@
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">div</span><span class="err">标签</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">p</span> <span class="kr">class</span> <span class="o">=</span> <span class="s1">'para'</span><span class="o">&gt;</span><span class="err">类</span> <span class="err">段落</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">p</span> <span class="kd">class</span> <span class="o">=</span> <span class="s1">'para'</span><span class="o">&gt;</span><span class="err">类</span> <span class="err">段落</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="nx">span</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"spa"</span><span class="o">&gt;</span><span class="nx">ID</span> <span class="nx">span</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="err">层级选择器</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box2"</span><span class="o">&gt;</span><span class="nx">box2</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box3"</span><span class="o">&gt;</span><span class="nx">box3</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box2"</span><span class="o">&gt;</span><span class="nx">box2</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box3"</span><span class="o">&gt;</span><span class="nx">box3</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
 
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>选择器的过滤</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
 
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -966,15 +938,15 @@
         <span class="nx">$eq</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span><span class="s1">'color'</span><span class="p">:</span><span class="s1">'red'</span><span class="p">})</span>
     <span class="p">})</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span>
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="err">段落标签</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box1"</span><span class="o">&gt;</span><span class="nx">box1</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box2"</span><span class="o">&gt;</span><span class="nx">box2</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box3"</span><span class="o">&gt;</span><span class="nx">box3</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box1"</span><span class="o">&gt;</span><span class="nx">box1</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box2"</span><span class="o">&gt;</span><span class="nx">box2</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box3"</span><span class="o">&gt;</span><span class="nx">box3</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">ul</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"list"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">ul</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"list"</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
@@ -983,12 +955,11 @@
 </span><span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>选择器的转移</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// 选择器转移</span>
@@ -1020,30 +991,29 @@
     <span class="p">})</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box1"</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box2"</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box3"</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box1"</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box2"</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box3"</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box4"</span><span class="o">&gt;</span><span class="mi">4</span>
-    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"child1"</span><span class="o">&gt;</span><span class="err">子元素</span><span class="mi">1</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"child2"</span><span class="o">&gt;</span><span class="err">子元素</span><span class="mi">2</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"child3"</span><span class="o">&gt;</span><span class="err">子元素</span><span class="mi">3</span>
-    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"grandson"</span><span class="o">&gt;</span><span class="err">孙子</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box4"</span><span class="o">&gt;</span><span class="mi">4</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"child1"</span><span class="o">&gt;</span><span class="err">子元素</span><span class="mi">1</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"child2"</span><span class="o">&gt;</span><span class="err">子元素</span><span class="mi">2</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"child3"</span><span class="o">&gt;</span><span class="err">子元素</span><span class="mi">3</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"grandson"</span><span class="o">&gt;</span><span class="err">孙子</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"child4"</span><span class="o">&gt;</span><span class="err">子元素</span><span class="mi">4</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"child4"</span><span class="o">&gt;</span><span class="err">子元素</span><span class="mi">4</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box5"</span><span class="o">&gt;</span><span class="mi">5</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box6"</span><span class="o">&gt;</span><span class="mi">6</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box7"</span><span class="o">&gt;</span><span class="mi">7</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box5"</span><span class="o">&gt;</span><span class="mi">5</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box6"</span><span class="o">&gt;</span><span class="mi">6</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box7"</span><span class="o">&gt;</span><span class="mi">7</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>length判断元素是否有无,元素总共个数</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="c1">// length 判断标签是否有无 和标签的个数</span>
     <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -1064,12 +1034,11 @@
 </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>click事件.this绑定</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">//设置宽高 背景色</span>
@@ -1104,9 +1073,9 @@
 
     <span class="p">})</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">ul</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"list"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">ul</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"list"</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
@@ -1115,22 +1084,21 @@
 </span><span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>操作样式名称</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
     <span class="nx">div</span><span class="p">{</span>
         <span class="nl">width</span><span class="p">:</span> <span class="mi">200</span><span class="nx">px</span><span class="p">;</span>
         <span class="nl">height</span><span class="p">:</span> <span class="mi">200</span><span class="nx">px</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="p">.</span><span class="nx">box</span><span class="p">{</span>
-        <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="err">:</span> <span class="nx">red</span><span class="p">;</span>
+        <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">red</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="p">.</span><span class="nx">green</span><span class="p">{</span>
-        <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="err">:</span> <span class="nx">green</span><span class="p">;</span>
+        <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">green</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/style</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
@@ -1145,15 +1113,14 @@
     <span class="p">})</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>标签内属性 操作(非css样式)</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
 
     <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -1185,29 +1152,27 @@
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"../../favicon.ico"</span> <span class="nx">alt</span><span class="o">=</span><span class="s2">"图片01"</span> <span class="nx">renminbi</span><span class="o">=</span><span class="s2">"10000"</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span><span class="nx">div</span><span class="err">包裹的内容</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"sContent"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"test"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span><span class="nx">div</span><span class="err">包裹的内容</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"sContent"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"test"</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <h1 id="ajaxjson">Ajax&amp;Json</h1>
 
 <p>Json书写格式</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"age"</span><span class="p">:</span><span class="mi">20</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"age"</span><span class="p">:</span><span class="mi">20</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>Ajax请求数据</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">"UTF-8"</span><span class="o">&gt;</span>
@@ -1243,12 +1208,11 @@
 
 <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/html</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>局部刷新</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
      <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
          <span class="nx">$</span><span class="p">(</span><span class="s2">".welcome"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
              <span class="c1">// 请求服务器上的数据</span>
@@ -1277,8 +1241,7 @@
          <span class="p">})</span>
      <span class="p">})</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>跨域请求 / 非服务器传参</p>
 
@@ -1286,7 +1249,7 @@
 
 <p>数据类型是jsonp</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
     <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
             <span class="c1">// 网站:域名下面的data.js文件</span>
@@ -1307,8 +1270,7 @@
             <span class="p">})</span>
     <span class="p">})</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
   </section>
 
@@ -1355,13 +1317,21 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
 <section class="read-more">
    
    
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/03/pythonbasis/" title="link to Python基础">Python基础</a></h2>
+       <p class="excerpt">变量定义变量:a = 1b = 2c = 1.23d = 'test'# 多个变量赋值x,y,z=1,'2',3.0变量名规则:  变量名的长度不受限制，但其中的字符必须是字母、数字、或者下划线（_），而不能使用空格、连字符、标点符号、引号或其他字符。  变量名的第一个字符不能是数字，而必须是字母或下划线。  Python区分大小写。  不能将Python关键字用作变量名。输入:Temp = input("输入想出入的字符:")print(Temp)输出:print('test')数据类型...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-03-01 22:59:00 +0000" class="post-list__meta--date date">2019-03-01</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2019/03/pythonbasis/>继续阅读</a></div>
+   </div>
+   
+   
    
    
    <div class="read-more-item">
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/03/csres-spider/" title="link to 工标网爬虫">工标网爬虫</a></h2>
        <p class="excerpt"># coding=utf-8import requestsfrom openpyxl import Workbook, load_workbookfrom lxml import etreeclass csres:    def __init__(self):        self.temp_url = "http://www.csres.com/s.jsp?keyword={}"        self.headers = {            "User-Agent": "Moz...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-03-25 00:05:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/csres-spider/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:05:00 +0000" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/csres-spider/>继续阅读</a></div>
    </div>
    
 </section>
@@ -1395,8 +1365,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

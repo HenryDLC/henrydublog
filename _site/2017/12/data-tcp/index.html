@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-12-14 19:18:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-12-14</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2017-12-14 19:18:00 +0000" itemprop="datePublished" class="post-meta__date date">2017-12-14</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">数据通信-TCP(1)</h1>
   </header>
@@ -288,7 +288,7 @@
   <li>当有一个客户端完成了三次握手 操作系统会将其数据 从监听队列移除.监听队列有了新的位置能够处理新的客户端的连接请求</li>
 </ol>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 精简版</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 精简版</span>
 <span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="n">PORT</span> <span class="o">=</span> <span class="mi">8080</span>
@@ -314,12 +314,11 @@
 
 <span class="n">client_sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">server_sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>当服务器使用accept方法接收了一个客户端的连接请求后,会返回一个新的socket对象,在这个新的socket对象中保存了与这个客户端进行数据传输所用到的数据资源信息,比如要保存在这个客户端通信室维护的数据报编号,还会保存客户端的ip地址/端口号等信息</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="n">PORT</span> <span class="o">=</span> <span class="mi">8080</span>
 
@@ -360,8 +359,7 @@
 <span class="c"># 如果不想再接收新的客户端连接请求 可以关闭server_socket</span>
 <span class="n">server_sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </section>
 
@@ -412,7 +410,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2017/12/data-udp/" title="link to 数据通信-UDP">数据通信-UDP</a></h2>
        <p class="excerpt">UDP协议UDP:用户数据报协议  无连接          把数据直接传递到目标地址,无所谓对方是否接收到        面向数据报          把报文一次性传递给对方,不分批次传递      优点:  效率高:适用于实时性比较高的业务(直播/语音聊天)缺点:  不可靠Socket套接字操作系统封装的实现设备间网络通信的工具创建socket:  socket.socket(AddressFamily, Type)Address Family：  可以选择 AF_INET（用于 In...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-12-14 19:18:00 +0800" class="post-list__meta--date date">2017-12-14</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/data-udp/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2017-12-14 19:18:00 +0000" class="post-list__meta--date date">2017-12-14</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/data-udp/>继续阅读</a></div>
    </div>
    
    
@@ -420,9 +418,9 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
    
    <div class="read-more-item">
        <span class="read-more-item-dim">更早的文章</span>
-       <h2 class="post-list__post-title post-title"><a href="/2017/12/python-process-2/" title="link to python-多任务(2)">python-多任务(2)</a></h2>
-       <p class="excerpt">同步/异步/线程/互斥锁通讯队列同步&amp;异步:参考:https://www.cnblogs.com/George1994/p/6702084.html  同步:多任务, 多个任务之间执行有先后顺序,必须一个先执行完成之后,另一个才能继续执行,zhi’you’yi’ge’zhu’xian  异步:多任务, 多个任务之间执行没有先后顺序,可以同时运行,执行的先后顺序不会有什么影响,存在多条运行主线进程池异步添加任务使用回调函数:回调函数是由主进程完成的异步添加任务,还以添加回调函数作为异...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-12-10 13:18:00 +0800" class="post-list__meta--date date">2017-12-10</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/python-process-2/>继续阅读</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2017/12/sql-primer/" title="link to SQL-primer">SQL-primer</a></h2>
+       <p class="excerpt">MySQL安装启动MySQLsudo apt-get install mysql-serversudo service mysql startsudo service mysql stopsudo service mysql restart进入mysql  mysql -uroot -pyour_password配置mysqlvim /etc/mysql/mysql.cnf/mysql.conf.d/mysql.cnfBind-address 服务器绑定ipport 端口 3306data...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-12-01 18:55:00 +0000" class="post-list__meta--date date">2017-12-01</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/sql-primer/>继续阅读</a></div>
    </div>
    
 </section>
@@ -456,8 +454,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

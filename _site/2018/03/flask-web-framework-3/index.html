@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2018-03-25 00:03:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2018-03-25 00:03:00 +0000" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">Flask-Web(框架三)</h1>
   </header>
@@ -161,7 +161,7 @@
   <section class="post">
     <h2 id="设计模型类">设计模型类</h2>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
 <span class="kn">from</span> <span class="nn">setting</span> <span class="kn">import</span> <span class="n">DevelopmentConfig</span> <span class="c"># 连接数据库配置文件</span>
 <span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
@@ -179,16 +179,14 @@
     <span class="n">info</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
     <span class="n">author_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span><span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">'authors.id'</span><span class="p">))</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="迁移">迁移</h2>
 
 <p>命令行执行flask脚本操作安装Flask-script</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt;&gt; </span>sudo pip install Flask-script
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> <span class="nb">sudo </span>pip <span class="nb">install </span>Flask-script
+</code></pre></div></div>
 
 <p>重要:</p>
 
@@ -198,11 +196,10 @@
 
 <p>安装Flask迁移包:Flask-Migrate</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt;&gt; </span>sudo pip install Flask-Migrate
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> <span class="nb">sudo </span>pip <span class="nb">install </span>Flask-Migrate
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="kn">from</span> <span class="nn">setting</span> <span class="kn">import</span> <span class="n">DevelopmentConfig</span>
 <span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
@@ -253,30 +250,26 @@
     <span class="n">manager</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>init 初始化操作</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt;&gt; </span>python py2flask2.py db_migrate init
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> python py2flask2.py db_migrate init
+</code></pre></div></div>
 
 <p>生成迁移数据</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt;&gt; </span>python py2flask2.py db_migrate migrate -m <span class="s1">'init'</span>
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> python py2flask2.py db_migrate migrate <span class="nt">-m</span> <span class="s1">'init'</span>
+</code></pre></div></div>
 
 <p>执行迁移,与数据库交互</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt;&gt; </span>python py2flask2.py db_migrate upgrade
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> python py2flask2.py db_migrate upgrade
+</code></pre></div></div>
 
 <h2 id="数据处理">数据处理</h2>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">redirect</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">redirect</span>
 
 <span class="n">view_blueprint</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s">'view'</span><span class="p">,</span> <span class="n">__name__</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">py2flask2</span> <span class="kn">import</span> <span class="o">*</span>
@@ -321,14 +314,13 @@
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">author</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>HTML示例:</p>
 
 <p>index.html</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
 <span class="nt">&lt;ul&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/add"</span><span class="nt">&gt;</span>添加作者<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;table</span> <span class="na">border=</span><span class="s">"1"</span><span class="nt">&gt;</span>
@@ -344,24 +336,22 @@
 <span class="nt">&lt;/table&gt;</span>
 <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>add.html</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
 <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">"/add"</span><span class="nt">&gt;</span>
     用户名：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"uname"</span><span class="nt">&gt;&lt;br&gt;</span>
     邮箱：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"uemail"</span><span class="nt">&gt;&lt;br&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"提交"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>delete.html</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
 <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/delete/"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
     确定要删除<span class="ni">&amp;nbsp;</span>（邮箱为：）<span class="ni">&amp;nbsp;</span>吗？<span class="nt">&lt;br&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"确定"</span><span class="nt">&gt;</span>
@@ -369,12 +359,11 @@
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>取消<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>update.html</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
 <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">"/update/"</span><span class="nt">&gt;</span>
     编号：<span class="nt">&lt;br&gt;</span>
     用户名：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"uname"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;&lt;br&gt;</span>
@@ -382,12 +371,11 @@
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"提交"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="数据查询">数据查询:</h2>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nd">@view_blueprint.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@view_blueprint.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
     <span class="c"># 查询所有</span>
     <span class="n">alist</span> <span class="o">=</span> <span class="n">Author</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
@@ -398,8 +386,7 @@
     <span class="c"># alist = Author.query.order_by('-id')</span>
 
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'index.html'</span><span class="p">,</span> <span class="n">alist</span><span class="o">=</span><span class="n">alist</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </section>
 
@@ -450,7 +437,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework-4/" title="link to Flask-Web(框架四)">Flask-Web(框架四)</a></h2>
        <p class="excerpt">新建一个flask项目:main文件:(程序入口)from models import dbdb.init_app(app)# 3 创建管理对象from flask_script import Managermanager = Manager(app)# 4 添加迁移命令from flask_migrate import MigrateCommand,MigrateMigrate(app,db)manager.add_command('migrate',MigrateCommand)# 5...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-03-25 00:03:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-4/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:03:00 +0000" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-4/>继续阅读</a></div>
    </div>
    
    
@@ -460,7 +447,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework-2/" title="link to Flask-Web(框架二)">Flask-Web(框架二)</a></h2>
        <p class="excerpt">应用上下文current_app对象:共享数据的作用缺点:储存在服务器内存中,服务器挂掉,信息丢失解决方法:Redis存储from flask import Flask, current_app, gapp = Flask(__name__)app.hello = 'world'@app.route('/')def index():    # print app.hello    current_app.hello = 'hello flask'    return 'hello worl...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-03-25 00:00:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-2/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:00:00 +0000" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-2/>继续阅读</a></div>
    </div>
    
 </section>
@@ -494,8 +481,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 
