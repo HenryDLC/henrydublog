@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2018-01-16 22:09:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-01-16</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2018-01-16 22:09:00 +0000" itemprop="datePublished" class="post-meta__date date">2018-01-16</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">ubuntu初始配置</h1>
   </header>
@@ -161,7 +161,7 @@
   <section class="post">
     <h3 id="替换阿里源">替换阿里源</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo gedit /etc/apt/sources.list
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/apt/sources.list
 
 \# deb cdrom:[Ubuntu 16.04 LTS \_Xenial Xerus\_ - Release amd64 (20160420.1)]/ xenial main restricted
 
@@ -202,11 +202,10 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 sudo apt-get update
 
 sudo apt-get upgrade
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="卸载掉不常用app">卸载掉不常用App</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>* sudo apt-get remove unity-webapps-common
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* sudo apt-get remove unity-webapps-common
 * sudo apt-get remove thunderbird（邮箱）
 * sudo apt-get remove totem （视频播放器）
 * sudo apt-get remove rhythmbox（音乐播放器）
@@ -221,10 +220,9 @@ sudo apt-get upgrade
 * sudo apt-get remove webbrowser-app
 * sudo apt-get remove gnome-sudoku
 * sudo apt-get remove libreoffice-common
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="安装常用app">安装常用App</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>* sudo apt-get install wget
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* sudo apt-get install wget
 * sudo apt-get install vim
 * sudo apt-get install git
 * sudo apt-get install vpnc
@@ -233,29 +231,26 @@ sudo apt-get upgrade
 * sudo apt-get install cmake qtcreator
 * sudo apt-get install exfat-fuse
 * sudo apt-get install lnav
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="安装java8">安装java8</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>* sudo add-apt-repository ppa:webupd8team/java
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* sudo add-apt-repository ppa:webupd8team/java
 * sudo apt-get update
 * sudo apt-get install oracle-java8-installer
 * java -version
 * sudo rm /usr/share/upstart/sessions/jayatana.conf
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="其他">其他:</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>* 搜狗
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* 搜狗
 * wps
 * atom
 * Chrome
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="anaconda">Anaconda</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86\_64.sh
-* bash Anaconda3-5.0.1-Linux-x86\_64.sh
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+* bash Anaconda3-5.0.1-Linux-x86_64.sh
 *
-* echo 'export PATH="~/anaconda2/bin:$PATH"' \&gt;\&gt; ~/.bashrc
+* echo 'export PATH="~/anaconda3/bin:$PATH"' &gt;&gt; ~/.bashrc
 * source ~/.bashrc
 
 * \# 创建python虚拟环境
@@ -278,11 +273,10 @@ sudo apt-get upgrade
 *
 * \# 安装python包
 * conda install pygame
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="pyqt5">pyqt5:</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>下载安装qt
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>下载安装qt
 
 http://download.qt.io/official\_releases/online\_installers/
 
@@ -295,8 +289,7 @@ qt-unified-linux-x64-online.run
 安装pyqt5:
 
 pip install pyqt5
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </section>
 
@@ -347,7 +340,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/01/quantos-configure/" title="link to quantOS量化平台搭建">quantOS量化平台搭建</a></h2>
        <p class="excerpt">Tushare  pip install tushare  pip install tushare –upgradeDataCore引用:https://www.quantos.org/datacore/doc.html实时行情:wget http://www.quantos.org/downloads/datacore/mdlink-1.2-linux.7z数据服务wget http://www.quantos.org/downloads/datacore/tktools-linux.7...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-01-16 22:11:00 +0800" class="post-list__meta--date date">2018-01-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/01/quantos-configure/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2018-01-16 22:11:00 +0000" class="post-list__meta--date date">2018-01-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/01/quantos-configure/>继续阅读</a></div>
    </div>
    
    
@@ -357,7 +350,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2017/12/testing-theory/" title="link to 软件测试-基础理论">软件测试-基础理论</a></h2>
        <p class="excerpt">软件开发模型瀑布模式:定义阶段:  计划  需求分析开发阶段:  设计  编码  测试维护阶段:  运行  维护优点:  开发的软件质量好缺点:  早期的错误可能要等到开发后期的阶段才能实现  各阶段之间产生大量文档,极大的增加了工作量适用的场合:  项目小,需求明确敏捷式开发模型:测试根据需求,把整个项目分成不同的模块,每个模块按照测试标准给出开发需求,让开发按照需求开发优点:测试人员为开发提供开发标准,开发的产品能够保质保量,开发效率高缺点:测试人员要求有需求分析能力和一定的代码基础软...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-12-15 22:55:00 +0800" class="post-list__meta--date date">2017-12-15</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/testing-theory/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2017-12-15 22:55:00 +0000" class="post-list__meta--date date">2017-12-15</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/testing-theory/>继续阅读</a></div>
    </div>
    
 </section>
@@ -391,8 +384,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

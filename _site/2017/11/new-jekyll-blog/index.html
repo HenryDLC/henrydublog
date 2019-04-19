@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>搭建Jekyll 博客</title>
-  <meta name="description" content="1)  安装RVM```bash下载安装RVM管理器,$ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  <meta name="description" content="1)  安装rubysudo apt-get install ruby-full build-essential zlib1g-devecho '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.bashrcecho 'export GEM_HOME="$HOME/gems"'...">
   <meta name="author" content="Wei Wang">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="搭建Jekyll 博客">
-  <meta name="twitter:description" content="1)  安装RVM```bash下载安装RVM管理器,$ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  <meta name="twitter:description" content="1)  安装rubysudo apt-get install ruby-full build-essential zlib1g-devecho '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.bashrcecho 'export GEM_HOME="$HOME/gems"'...">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="搭建Jekyll 博客">
-  <meta property="og:description" content="1)  安装RVM```bash下载安装RVM管理器,$ gpg –keyserver hkp://keys.gnupg.net –recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3">
+  <meta property="og:description" content="1)  安装rubysudo apt-get install ruby-full build-essential zlib1g-devecho '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.bashrcecho 'export GEM_HOME="$HOME/gems"'...">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -153,100 +153,125 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-11-19 15:51:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2017-11-19 15:51:00 +0000" itemprop="datePublished" class="post-meta__date date">2017-11-19</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">搭建Jekyll 博客</h1>
   </header>
 
   <section class="post">
-    <h3 id="1--安装rvm">1)  安装RVM</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>下载安装RVM管理器,
-<span class="gp">$ </span>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-
-&amp; curl -sSL https://get.rvm.io | bash -s stable
-or
-&amp; curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
-
-启动rvm<span class="o">(</span>or重开终端或重启系统<span class="o">)</span>
-&amp; <span class="nb">source</span> /etc/profile.d/rvm.sh
-
-更改ruby下载地址
-&amp; <span class="nb">echo</span> <span class="s2">"ruby_url=https://cache.ruby-china.org/pub/ruby"</span> &gt; ~/.rvm/user/db
-
-rvm 安装路径
-&amp; /usr/local/rvm
-</code></pre>
-</div>
-
-<h3 id="2-安装ruby">2) 安装ruby</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>rvm requirements
-  <span class="nv">$ </span>rvm install 2.3.0
-</code></pre>
-</div>
-
-<h3 id="6-安装-bundler">6) 安装 Bundler</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>gem install bundler
-</code></pre>
-</div>
-
-<h3 id="3-安装rails">3) 安装rails</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install rails
-</code></pre>
-</div>
-
-<h3 id="4--安装rubygame">4)  安装RubyGame</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code> <span class="nv">$ </span>gem update
-</code></pre>
-</div>
-
-<h3 id="5-安装jekyll">5) 安装jekyll</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install jekyll
-</code></pre>
-</div>
+    <h3 id="1--安装ruby">1)  安装ruby</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>ruby-full build-essential zlib1g-dev
+<span class="nb">echo</span> <span class="s1">'# Install Ruby Gems to ~/gems'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">echo</span> <span class="s1">'export GEM_HOME="$HOME/gems"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">echo</span> <span class="s1">'export PATH="$HOME/gems/bin:$PATH"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">source</span> ~/.bashrc
+</code></pre></div></div>
 
 <h3 id="6-验证版本">6) 验证版本</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ruby -v
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ruby <span class="nt">-v</span>
+<span class="nv">$ </span>gem <span class="nt">-v</span>
 
-<span class="gp">$ </span>gem -v
+</code></pre></div></div>
 
-<span class="gp">$ </span>rvm -v
-</code></pre>
-</div>
+<h3 id="8-安装jekyll">8) 安装jekyll</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>jekyll bundler
+</code></pre></div></div>
 
-<h3 id="7-安装nginx">7) 安装nginx</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code> 下载 repo 列表
-<span class="gp">$ </span>wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+<p>安装主题vno</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/onevcat/vno-jekyll.git your_site
 
- 通过 rpm 添加列表
-<span class="gp">$ </span>rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm
+<span class="nv">$ </span><span class="nb">cd </span>your_site
 
- 通过 yum 安装 nginx
-<span class="gp">$ </span>yum install nginx
+<span class="nv">$ </span>bundler <span class="nb">install</span>
 
- 运行Nginx
- 设置为开机启动
-<span class="gp">$ </span>systemctl <span class="nb">enable </span>nginx
+<span class="nv">$ </span>测试:bundler <span class="nb">exec </span>jekyll serve
 
- 配置文件
-<span class="gp">$ </span>vi /etc/nginx/conf.d/default.conf
+<span class="nv">$ </span>后台运行:bundle <span class="nb">exec </span>jekyll serve <span class="nt">--detach</span>
+</code></pre></div></div>
 
- 重启Nginx
-<span class="gp">$ </span>systemctl restart nginx
-</code></pre>
-</div>
+<h3 id="n-安装nginx">n) 安装nginx</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> 下载nginx
+wget http://nginx.org/download/nginx-1.15.8.tar.gz
+wget https://ftp.pcre.org/pub/pcre/pcre-8.36.tar.gz
+wget http://www.zlib.net/zlib-1.2.11.tar.gz
 
-<h3 id="8-安装jekyll-主题vno">8) 安装jekyll 主题vno</h3>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/onevcat/vno-jekyll.git your_site
+<span class="o">&gt;</span> 安装gcc
+apt-get <span class="nb">install </span>gcc libc6-dev g++
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential
 
-<span class="gp">$ </span><span class="nb">cd </span>your_site
+<span class="o">&gt;</span> 解压nginx以及依赖:
+<span class="nb">tar</span> <span class="nt">-xzvf</span> nginx-1.15.8.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzvf</span> pcre-8.36.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzvf</span> zlib-1.2.11.tar.gz
 
-<span class="gp">$ </span>bundler install
+<span class="o">&gt;</span> 安装pcre
+<span class="nb">cd </span>pcre-8.36
+<span class="nb">sudo</span> ./configure 
+<span class="nb">sudo </span>make
+<span class="nb">sudo </span>make <span class="nb">install</span>
 
-<span class="gp">$ </span>bundler <span class="nb">exec </span>jekyll serve
+<span class="o">&gt;</span> 安装zlib
+<span class="nb">cd </span>zlib-1.2.11
+<span class="nb">sudo</span> ./configure 
+<span class="nb">sudo </span>make
+<span class="nb">sudo </span>make <span class="nb">install</span>
 
-<span class="gp">$ </span>jekyll serve --detach
-</code></pre>
-</div>
+<span class="o">&gt;</span> 安装nginx
+<span class="nb">cd </span>nginx-1.15.8
+<span class="c"># pcre 和 zlib的源文件路径要检查对应:</span>
+./configure <span class="nt">--prefix</span><span class="o">=</span>/usr/local/nginx <span class="nt">--with-pcre</span><span class="o">=</span>/home/ubuntu/nginx/pcre-8.36 <span class="nt">--with-zlib</span><span class="o">=</span>/home/ubuntu/nginx/zlib-1.2.11
+<span class="nb">sudo </span>make
+<span class="nb">sudo </span>make <span class="nb">install</span><span class="sb">`</span>
+<span class="nb">sudo </span>vim /usr/local/nginx/nginx.conf
+</code></pre></div></div>
+
+<blockquote>
+  <p>配置nginx
+主要更改location –&gt; root /home/www/_site;
+每次运行<code class="highlighter-rouge">bundler exec jekyll serve</code>都会更新<code class="highlighter-rouge">_site</code>目录,生成新的静态文件
+jekyll是一个生成静态网站的程序
+```bash
+http {
+    include       mime.types;
+    default_type  application/octet-stream;</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+#                '$status $body_bytes_sent "$http_referer" '
+#                '"$http_user_agent" "$http_x_forwarded_for"';
+
+#access_log  logs/access.log  main;
+
+sendfile        on;
+#tcp_nopush     on;
+
+#keepalive_timeout  0;
+keepalive_timeout  65;
+
+#gzip  on;
+
+server {
+    listen       80;
+    server_name  localhost;
+
+    #charset koi8-r;
+
+    #access_log  logs/host.access.log  main;
+
+    location / {
+        root   /home/www/_site;
+        index  index.html index.htm;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    } } ```
+</code></pre></div></div>
 
   </section>
 
@@ -295,9 +320,9 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
    
    <div class="read-more-item">
        <span class="read-more-item-dim">最近的文章</span>
-       <h2 class="post-list__post-title post-title"><a href="/2017/11/pythonbasis-1/" title="link to python基础(一)">python基础(一)</a></h2>
-       <p class="excerpt">#conding=utf-8# -*- coding:utf-8  -*-注释：#单行注释#单行注释 往往为下面一行代码进行说明'''多行注释多行注释 往往为下面一段代码进行说明'''注意:官方建议:单行注释 # 空格后再进行注释print(“test”) # 代码后加注释,代码后空两格 # 空一格再进行注释多行注释:单引号 双引号 都可以变量:python 变量:如果是”双引号”里面的值为:字符串print后面依靠%s取出值如果要对字符串进行运算,在非相同变量类型的时候需要进行强制类型转...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-11-19 16:16:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/pythonbasis-1/>继续阅读</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2017/11/shadowsocks-centos7/" title="link to CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化">CentOS 7 配置 shadowsocks 及打开谷歌TCP BBR 算法优化</a></h2>
+       <p class="excerpt">前言:一直在用的SS服务商给我发了封邮件…..内容是它被查水表了 需要关闭所有SS服务…..没办法 我只能在自己的blog服务器中 搭建自己的SS服务器 并且开启BBR算法 优化服务器的上网速度SS服务器你需要:硬件层:一台非中国大陆地区的Linux系统服务器(本文使用centOS7)软件层:Python2         python第二版 一般Linux系统自带pip             python包管理器shadowsocks     ss服务器端Linux内核       内...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:34:00 +0000" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/shadowsocks-centos7/>继续阅读</a></div>
    </div>
    
    
@@ -333,8 +358,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-12-01 18:55:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-12-01</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2017-12-01 18:55:00 +0000" itemprop="datePublished" class="post-meta__date date">2017-12-01</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">SQL-primer</h1>
   </header>
@@ -296,7 +296,7 @@ your_password</p>
 
 <p>增删改</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># 增删改</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 增删改</span>
 <span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'mysql'</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">'root'</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s">'test'</span><span class="p">,</span><span class="n">charset</span><span class="o">=</span><span class="s">"utf8"</span><span class="p">)</span>
@@ -308,12 +308,11 @@ your_password</p>
 <span class="n">cs1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>查询</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Connect</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span> <span class="n">charset</span><span class="o">=</span><span class="s">'utf8'</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">'root'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'mysql'</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s">'test'</span><span class="p">)</span>
 <span class="n">cs1</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
@@ -323,12 +322,11 @@ your_password</p>
 <span class="n">cs1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="综合应用">综合应用:</h3>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c"># 连接mysql</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">Connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">'root'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'mysql'</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s">'test'</span><span class="p">,</span> <span class="n">charset</span><span class="o">=</span><span class="s">'utf8'</span><span class="p">)</span>
@@ -348,8 +346,7 @@ your_password</p>
 <span class="c"># 关闭数据库</span>
 <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="mongodb">MongoDB</h1>
 
@@ -653,7 +650,7 @@ your_password</p>
 
 <p>from pymongo import *</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">from</span> <span class="n">pymongo</span> <span class="n">import</span> <span class="o">*</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">from</span> <span class="n">pymongo</span> <span class="n">import</span> <span class="o">*</span>
 
 <span class="n">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="k">host</span><span class="o">=</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">27017</span><span class="p">)</span>
@@ -679,8 +676,7 @@ your_password</p>
     <span class="o">#</span> <span class="err">删除</span> <span class="err">多条</span>
     <span class="n">db</span><span class="p">.</span><span class="n">stu</span><span class="p">.</span><span class="n">delete_many</span><span class="p">(</span><span class="err">{</span><span class="s1">'gender'</span><span class="p">:</span> <span class="k">True</span><span class="err">}</span><span class="p">)</span>
     <span class="n">print</span><span class="p">(</span><span class="s1">'ok'</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="redis">Redis</h1>
 
@@ -1193,9 +1189,9 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
    
    <div class="read-more-item">
        <span class="read-more-item-dim">最近的文章</span>
-       <h2 class="post-list__post-title post-title"><a href="/2017/12/python-advanced-1/" title="link to python高级语法1(生成器/迭代器/闭包/装饰器)">python高级语法1(生成器/迭代器/闭包/装饰器)</a></h2>
-       <p class="excerpt">生成器:====不直接生成,保存计算方式.每一次用创建一个,减轻内存消耗列表生成式  a = [x*2 for x in range(1000000000)]构造生成器:# 创建生成器(方法一)b = (x * 2 for x in range(1000000000))# 生成器 每次只生成一个(内存中保存的是计算的方法)c = next(b)print(c)d = next(b)print(d)e = next(b)print(e)print("###########")# # 创建生成...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-12-04 16:10:00 +0800" class="post-list__meta--date date">2017-12-04</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/python-advanced-1/>继续阅读</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2017/12/data-tcp/" title="link to 数据通信-TCP(1)">数据通信-TCP(1)</a></h2>
+       <p class="excerpt">TCP协议TCP协议:传输控制协议  面向连接:创建连接-数据传送-终止连接  可靠传输:          发送应答机制:每发送一个信息,都会收到目标地址返回的确认收到信息      超时重传:等待特定时间没有收到确认信息,会再次重新发送一遍,知道接收端返回给发送端确认收到信息      错误校验:发送数据报文时会加上该数据的错误校验信息,接收方收到数据后拿收到的校验信息校验数据.如果吻合才会给发送端发送确认收收到信息.如果不吻合,接收方不会发送信息,等待发送方出发超时重传机制,重新发送...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-12-14 19:18:00 +0000" class="post-list__meta--date date">2017-12-14</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/12/data-tcp/>继续阅读</a></div>
    </div>
    
    
@@ -1205,7 +1201,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2017/11/hugo-blog/" title="link to HUGO 博客搭建(Ubuntu)">HUGO 博客搭建(Ubuntu)</a></h2>
        <p class="excerpt">ubuntu 环境下:下载HUGO.deb安装包wget [https://github.com/gohugoio/hugo/releases/download/v0.26/hugo\_0.26\_Linux-64bit.deb](https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.deb)安装deb文件sudo dpkg -i hugo\*.deb查看版本hugo version安装...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-11-19 16:39:00 +0800" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/hugo-blog/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2017-11-19 16:39:00 +0000" class="post-list__meta--date date">2017-11-19</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2017/11/hugo-blog/>继续阅读</a></div>
    </div>
    
 </section>
@@ -1239,8 +1235,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

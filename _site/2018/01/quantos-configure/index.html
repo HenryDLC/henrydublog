@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2018-01-16 22:11:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-01-16</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2018-01-16 22:11:00 +0000" itemprop="datePublished" class="post-meta__date date">2018-01-16</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">quantOS量化平台搭建</h1>
   </header>
@@ -216,102 +216,101 @@
 
 <p># json数据 把注释删掉</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"global"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"mdlink_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8700"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink连接地址</span><span class="w">
-        </span><span class="nt">"qms_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:9000"</span><span class="w"> </span><span class="err">//qms连接地址</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"global"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"mdlink_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8700"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink连接地址</span><span class="w">
+        </span><span class="s2">"qms_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:9000"</span><span class="w"> </span><span class="err">//qms连接地址</span><span class="w">
     </span><span class="p">},</span><span class="w">
 
-    </span><span class="nt">"qms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qms01"</span><span class="p">,</span><span class="w"> </span><span class="err">//qms名称</span><span class="w">
-        </span><span class="nt">"check_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//qms重启时，是否对tick文件进行代码检查</span><span class="w">
-        </span><span class="nt">"save_tk"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//是否保存tick文件，保存tick后，qms在重启时会根据保存的tick还原分钟线，否则重启后会丢失之前的分钟线数据</span><span class="w">
-        </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:9000"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">qms地址及端口</span><span class="w">
+    </span><span class="s2">"qms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qms01"</span><span class="p">,</span><span class="w"> </span><span class="err">//qms名称</span><span class="w">
+        </span><span class="s2">"check_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//qms重启时，是否对tick文件进行代码检查</span><span class="w">
+        </span><span class="s2">"save_tk"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//是否保存tick文件，保存tick后，qms在重启时会根据保存的tick还原分钟线，否则重启后会丢失之前的分钟线数据</span><span class="w">
+        </span><span class="s2">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:9000"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">qms地址及端口</span><span class="w">
     </span><span class="p">},</span><span class="w">
 
-    </span><span class="nt">"mdlink"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"mdlink"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"mdlink2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">配置名称</span><span class="w">
-            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:8700"</span><span class="p">,</span><span class="w"> </span><span class="err">//行情推送地址及端口</span><span class="w">
-            </span><span class="nt">"do_merge"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">是否进行行情合并</span><span class="w">
-            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERGE"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，MERGE表示为行情合并mdlink</span><span class="w">
-            </span><span class="nt">"time_tolerance"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">上游mdlink行情源及相应地址和端口</span><span class="w">
-                </span><span class="p">{</span><span class="w"> </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:10001"</span><span class="p">,</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future1"</span><span class="w"> </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w"> </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:10002"</span><span class="p">,</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock1"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"mdlink2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">配置名称</span><span class="w">
+            </span><span class="s2">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:8700"</span><span class="p">,</span><span class="w"> </span><span class="err">//行情推送地址及端口</span><span class="w">
+            </span><span class="s2">"do_merge"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">是否进行行情合并</span><span class="w">
+            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERGE"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，MERGE表示为行情合并mdlink</span><span class="w">
+            </span><span class="s2">"time_tolerance"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">上游mdlink行情源及相应地址和端口</span><span class="w">
+                </span><span class="p">{</span><span class="w"> </span><span class="s2">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:10001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future1"</span><span class="w"> </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w"> </span><span class="s2">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:10002"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock1"</span><span class="w"> </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
 
-        </span><span class="nt">"future1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10001"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTP"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，CTP表示为mdlink_ctp读取的配置</span><span class="w">
-            </span><span class="nt">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">source编号</span><span class="w">
-            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">CTP行情源配置，该配置由期货公司提供</span><span class="w">
+        </span><span class="s2">"future1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTP"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，CTP表示为mdlink_ctp读取的配置</span><span class="w">
+            </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">source编号</span><span class="w">
+            </span><span class="s2">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">CTP行情源配置，该配置由期货公司提供</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future1"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTP"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"front"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTP"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"front"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                         </span><span class="s2">"180.168.146.187:10010"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"180.168.146.187:10011"</span><span class="w">
                     </span><span class="p">],</span><span class="w">
-                    </span><span class="nt">"broker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"investor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"udp"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"multicast"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                    </span><span class="s2">"broker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"investor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"udp"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"multicast"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
 
-        </span><span class="nt">"stock1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10002"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDF"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，</span><span class="nt">"TDF"</span><span class="err">表示为mdlink_tdf读取的配置</span><span class="w">
-            </span><span class="nt">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">TDF行情源配置，该配置由万得宏汇公司提供</span><span class="w">
+        </span><span class="s2">"stock1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10002"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDF"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mdlink类型，</span><span class="s2">"TDF"</span><span class="err">表示为mdlink_tdf读取的配置</span><span class="w">
+            </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">TDF行情源配置，该配置由万得宏汇公司提供</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock1"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDF"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.xxx.xxx.xxx"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="err">xxxx</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDXXXXXX"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxx"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ-2;SH-2;CF-2"</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDF"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx.xxx.xxx.xxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"port"</span><span class="p">:</span><span class="w"> </span><span class="err">xxxx</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TDXXXXXX"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ-2;SH-2;CF-2"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"stock2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10003"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SINA"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"stock2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10003"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SINA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock2"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SINA"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://hq.sinajs.cn/list="</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ;SH;"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"insttypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1;2;3;4;5;100;"</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock2"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SINA"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://hq.sinajs.cn/list="</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ;SH;"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"insttypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1;2;3;4;5;100;"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
 
-        </span><span class="nt">"stock3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10004"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TENCENT"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"stock3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:10004"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TENCENT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock3"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TENCENT"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://qt.gtimg.cn/q="</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ;SH;"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"insttypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1;2;3;4;5;100;"</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stock3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TENCENT"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://qt.gtimg.cn/q="</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"markets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SZ;SH;"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"insttypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1;2;3;4;5;100;"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>数据准备程序:</p>
 
@@ -349,34 +348,33 @@
 
 <p># json数据 把注释删掉</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"mdlink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">需要连接的mdlink地址</span><span class="w">
-    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8700"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8701"</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"mdlink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">需要连接的mdlink地址</span><span class="w">
+    </span><span class="s2">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8700"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pub_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:8701"</span><span class="w">
   </span><span class="p">},</span><span class="w">
 
-  </span><span class="nt">"qms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//需要连接的qms地址</span><span class="w">
-    </span><span class="nt">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:9000"</span><span class="w">
+  </span><span class="s2">"qms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//需要连接的qms地址</span><span class="w">
+    </span><span class="s2">"addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://127.0.0.1:9000"</span><span class="w">
   </span><span class="p">},</span><span class="w">
 
-  </span><span class="nt">"frontend"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">dataserver地址（DataApi用）</span><span class="w">
-    </span><span class="nt">"zmqrpc_addr"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:8910"</span><span class="w">
+  </span><span class="s2">"frontend"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">dataserver地址（DataApi用）</span><span class="w">
+    </span><span class="s2">"zmqrpc_addr"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp://0.0.0.0:8910"</span><span class="w">
   </span><span class="p">},</span><span class="w">
 
-  </span><span class="nt">"http_server"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">websocket访问端口</span><span class="w">
-    </span><span class="nt">"port"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"8912"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"doc_root"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"web/new"</span><span class="w">
+  </span><span class="s2">"http_server"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">websocket访问端口</span><span class="w">
+    </span><span class="s2">"port"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"8912"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"doc_root"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"web/new"</span><span class="w">
   </span><span class="p">},</span><span class="w">
 
-  </span><span class="nt">"his_bar"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">历史行情数据文件配置（1.2版本加入）</span><span class="w">
-    </span><span class="nt">"bar1m_path"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarONE/@MKT/@YYYY/@MKT@YYYYMMDD-1M.h5"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bar5m_path"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarFIVE/@MKT/@YYYY/@MKT@YYYYMMDD-5M.h5"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bar15m_path"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarQUARTER/@MKT/@YYYY/@MKT@YYYYMMDD-15M.h5"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tick_path"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/Tick/@MKT/@YYYY/@MKT@YYYYMMDD-tk.h5"</span><span class="w">
+  </span><span class="s2">"his_bar"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">历史行情数据文件配置（</span><span class="mf">1.2</span><span class="err">版本加入）</span><span class="w">
+    </span><span class="s2">"bar1m_path"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarONE/@MKT/@YYYY/@MKT@YYYYMMDD-1M.h5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bar5m_path"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarFIVE/@MKT/@YYYY/@MKT@YYYYMMDD-5M.h5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bar15m_path"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/BarQUARTER/@MKT/@YYYY/@MKT@YYYYMMDD-15M.h5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tick_path"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"D:/store/data/raw_data/Tick/@MKT/@YYYY/@MKT@YYYYMMDD-tk.h5"</span><span class="w">
   </span><span class="p">}</span><span class="w">  
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <h3 id="启动dataserver">启动DataServer</h3>
 
@@ -416,11 +414,10 @@
 
 <p>验证:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">jaqs</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">jaqs</span>
 
 <span class="n">Jaqs</span><span class="o">.</span><span class="n">__version__</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="tradesim">TradeSim</h1>
 
@@ -517,7 +514,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework/" title="link to Flask-Web(框架一)">Flask-Web(框架一)</a></h2>
        <p class="excerpt">引入包:Flask:主框架包render_template:模板包SQLAlchemy:ORM数据库操作BaseConverter:转换器父类from flask import Flask, render_templatefrom flask_sqlalchemy import SQLAlchemyfrom werkzeug.routing import BaseConverter数据库连接:固定格式:app.config[‘SQLALCHEMY_DATABASE_URI’] = ‘mys...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-03-24 23:38:00 +0800" class="post-list__meta--date date">2018-03-24</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2018-03-24 23:38:00 +0000" class="post-list__meta--date date">2018-03-24</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework/>继续阅读</a></div>
    </div>
    
    
@@ -527,7 +524,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/01/ubuntu-configure/" title="link to ubuntu初始配置">ubuntu初始配置</a></h2>
        <p class="excerpt">替换阿里源sudo gedit /etc/apt/sources.list\# deb cdrom:[Ubuntu 16.04 LTS \_Xenial Xerus\_ - Release amd64 (20160420.1)]/ xenial main restricteddeb-src http://archive.ubuntu.com/ubuntu xenial main restricted \#Added by software-propertiesdeb http://mirr...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-01-16 22:09:00 +0800" class="post-list__meta--date date">2018-01-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/01/ubuntu-configure/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2018-01-16 22:09:00 +0000" class="post-list__meta--date date">2018-01-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/01/ubuntu-configure/>继续阅读</a></div>
    </div>
    
 </section>
@@ -561,8 +558,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

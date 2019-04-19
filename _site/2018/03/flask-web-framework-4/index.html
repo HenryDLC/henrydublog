@@ -153,7 +153,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2018-03-25 00:03:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2018-03-25 00:03:00 +0000" itemprop="datePublished" class="post-meta__date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
     <h1 class="post-title">Flask-Web(框架四)</h1>
   </header>
@@ -163,7 +163,7 @@
 
 <p>main文件:(程序入口)</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">db</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">db</span>
 <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 <span class="c"># 3 创建管理对象</span>
@@ -182,12 +182,11 @@
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
     <span class="n">manager</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>manger文件:(创建flask对象)</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="kn">from</span> <span class="nn">werkzeug.routing</span> <span class="kn">import</span> <span class="n">BaseConverter</span>
 
@@ -216,12 +215,11 @@
     <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_log_handler</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">app</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Config文件:(配置文件)</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
 
 <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
     <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
@@ -233,12 +231,11 @@
 
 <span class="k">class</span> <span class="nc">ProductConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
     <span class="k">pass</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>models文件:(ORM数据库)</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
 
 <span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -247,12 +244,11 @@
 <span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">create_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DATETIME</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
     <span class="n">update_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DATETIME</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span><span class="n">onupdate</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>html_views文件:(路由 静态文件)(开发过程中使用)</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
 
 <span class="kn">from</span> <span class="nn">flask</span>  <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">current_app</span>
 <span class="n">html_blueprint</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s">'html'</span><span class="p">,</span> <span class="n">__name__</span><span class="p">)</span>
@@ -265,8 +261,7 @@
     <span class="n">filename</span> <span class="o">=</span> <span class="s">'html/'</span> <span class="o">+</span> <span class="n">filename</span>
     <span class="n">html</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">send_static_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">html</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>备注:</p>
 
@@ -282,7 +277,7 @@
 
 <p>status_code:状态码文件</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># coding=utf-8</span>
 <span class="k">class</span> <span class="nc">RET</span><span class="p">:</span>
     <span class="n">OK</span> <span class="o">=</span> <span class="s">"0"</span>
     <span class="n">DBERR</span> <span class="o">=</span> <span class="s">"4001"</span>
@@ -321,8 +316,7 @@
     <span class="n">RET</span><span class="o">.</span><span class="n">SERVERERR</span><span class="p">:</span> <span class="s">u"内部错误"</span><span class="p">,</span>
     <span class="n">RET</span><span class="o">.</span><span class="n">UNKOWNERR</span><span class="p">:</span> <span class="s">u"未知错误"</span><span class="p">,</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </section>
 
@@ -373,7 +367,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/03/csres-spider/" title="link to 工标网爬虫">工标网爬虫</a></h2>
        <p class="excerpt"># coding=utf-8import requestsfrom openpyxl import Workbook, load_workbookfrom lxml import etreeclass csres:    def __init__(self):        self.temp_url = "http://www.csres.com/s.jsp?keyword={}"        self.headers = {            "User-Agent": "Moz...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-03-25 00:05:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/csres-spider/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:05:00 +0000" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/csres-spider/>继续阅读</a></div>
    </div>
    
    
@@ -383,7 +377,7 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/03/flask-web-framework-3/" title="link to Flask-Web(框架三)">Flask-Web(框架三)</a></h2>
        <p class="excerpt">设计模型类from flask_sqlalchemy import SQLAlchemyfrom setting import DevelopmentConfig # 连接数据库配置文件db = SQLAlchemy(app)class Author(db.Model):    __tablename__ = 'authors'    id = db.Column(db.INTEGER, primary_key=True)    name = db.Column(db.String(20)...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-03-25 00:03:00 +0800" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-3/>继续阅读</a></div>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:03:00 +0000" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/flask-web-framework-3/>继续阅读</a></div>
    </div>
    
 </section>
@@ -417,8 +411,8 @@ with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createEle
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-03-25 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
-        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2018</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>
 

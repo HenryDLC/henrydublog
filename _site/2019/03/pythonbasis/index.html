@@ -1,0 +1,2786 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Python基础</title>
+  <meta name="description" content="变量">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python基础">
+  <meta name="twitter:description" content="变量">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Python基础">
+  <meta property="og:description" content="变量">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2019/03/pythonbasis/">
+  <link rel="alternate" type="application/rss+xml" title="HenryDu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 HenryDu 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="HenryDu logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for HenryDu" class="blog-button">HenryDu</a></h1>
+
+        
+        <span class="panel-cover__subtitle panel-subtitle">用无所谓的态度过着随遇而安的生活</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Hallo,ich heiße 杜立成.爱苹果、爱游戏、向往天空、喜欢下雨、相机在手上、骑车可以跑很远.不想要阅人无数希望能行云万里.喜欢python,热爱爬虫,Web可以写一点,挑战让生活变得精彩。</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="My blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://weibo.com/tiantianplayworld" target="_blank" title="My weibo">微博</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My resume">简历</a></li>
+                
+                  <li class="navigation__item"><a href="http://henrydublog.com" target="_blank" title="My aboout">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/tiantianplayworld" title="@tiantianplayworld 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/HenryDLC" title="@HenryDLC 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/henryduLC" title="@henryduLC" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/101638713009817352746" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:707116148@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-slate"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-03-01 22:59:00 +0000" itemprop="datePublished" class="post-meta__date date">2019-03-01</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">Python基础</h1>
+  </header>
+
+  <section class="post">
+    <h1 id="变量">变量</h1>
+
+<h3 id="定义变量">定义变量:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">1.23</span>
+<span class="n">d</span> <span class="o">=</span> <span class="s">'test'</span>
+
+<span class="c"># 多个变量赋值</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="s">'2'</span><span class="p">,</span><span class="mf">3.0</span>
+</code></pre></div></div>
+
+<h3 id="变量名规则">变量名规则:</h3>
+
+<ul>
+  <li>变量名的长度不受限制，但其中的字符必须是字母、数字、或者下划线（_），而不能使用空格、连字符、标点符号、引号或其他字符。</li>
+  <li>变量名的第一个字符不能是数字，而必须是字母或下划线。</li>
+  <li>Python区分大小写。</li>
+  <li>不能将Python关键字用作变量名。</li>
+</ul>
+
+<p>输入:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Temp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"输入想出入的字符:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Temp</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="输出">输出:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'test'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="数据类型">数据类型:</h1>
+
+<h2 id="字符型">字符型:</h2>
+
+<h3 id="格式化">格式化:</h3>
+
+<p>%d %s %f:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 字符串:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s">"xxx"</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"我宣你:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c"># %d数字型:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"a = </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">d + </span><span class="si">%</span><span class="s">d = </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">))</span>
+
+<span class="c"># 浮点型:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">3.1415926</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"圆周率:</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c"># 字典匹配 %s 字符型</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span><span class="s">"xxx"</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"我宣你:</span><span class="si">%(name)</span><span class="s">s"</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>深入阅读:<a href="https://www.jb51.net/article/134290.htm">https://www.jb51.net/article/134290.htm</a></p>
+
+<p>format:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="s">"xxx"</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"我宣你:{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="s">'henry'</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'henry'</span><span class="p">,</span><span class="s">'age'</span><span class="p">:</span><span class="mi">18</span><span class="p">}</span>
+<span class="c"># 位置参数</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"我是:{},今年{}岁"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">"Henry"</span><span class="p">,</span><span class="s">"18"</span><span class="p">))</span>
+<span class="c"># 关键字参数</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"我是:{name},今年{age}岁"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"Henry"</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>
+<span class="c"># 索引参数</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"我是:{1},今年{0}岁"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">"18"</span><span class="p">,</span><span class="s">"Henry"</span><span class="p">))</span>
+<span class="c"># 列表参数</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"我是:{},今年{}岁"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">li</span><span class="p">))</span>
+<span class="c"># 字典参数</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"我是:{name},今年{age}岁"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">dict</span><span class="p">))</span>
+
+<span class="c"># 填充与格式化</span>
+<span class="c"># :[填充字符][对齐方式 &lt;^&gt;][宽度]</span>
+<span class="c"># 右对齐</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{0:*&gt;10}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="c"># 左对齐</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{0:*&lt;10}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="c"># 居中对齐</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{0:*^10}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c"># 精度与进制</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{0:.2f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{0:b}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="c"># 八进制</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{0:o}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="c"># 16进制</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{0:x}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="c"># 千分位格式化</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{:,}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">111111111</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="编码">编码:</h3>
+
+<p>decode():解码</p>
+
+<p>encode():编码</p>
+
+<p>注:py2默认ASCII码，py3默认的utf8</p>
+
+<p>因为py2默认的是ASCII进行编码,所以当程序一旦出现中文就会无法解码,所以py2的程序中要在开头添加一行注释表明该py2文件要使用UTF-8进行编码</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#-*-coding:utf-8-*-</span>
+</code></pre></div></div>
+
+<p>Python2</p>
+
+<p>Unicode —&gt; Str</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*-coding:utf-8-*-</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s">u'中文'</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>GBK -Unicode-&gt;UTF-8</p>
+
+<p>注: 将一个str直接编码城另一种编码,py解释会先将str编译成unicode编码再进行目标编码的转换.但由于py2默认是ascii编码,所以我们需要声明str字符串的编码格式</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 声明编码格式</span>
+<span class="c"># 方法一</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span> <span class="c"># Python2.5 初始化后会删除 sys.setdefaultencoding 这个方法，我们需要重新载入</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+
+<span class="c"># 方法二</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">'中文'</span>
+<span class="n">s</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gb18030'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*-coding:utf-8-*-</span>
+<span class="c"># GBK -Unicode-&gt;UTF-8</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">u'中文'</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Str —&gt; Unicode</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*-coding:utf-8-*-</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="s">u'中文'</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s">'gbk'</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>忽略错误编码</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*-coding:utf-8-*-</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="s">u'中文'</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+<span class="c"># decode("编码"默认:strict抛出异常)</span>
+<span class="c"># ignore: 忽略 非法字符</span>
+<span class="c"># replace:用?取代非法字符</span>
+<span class="c"># xmlcharrefreplace: 则使用XML的字符引用</span>
+<span class="n">s</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">,</span> <span class="s">'ignore'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>深入阅读:</p>
+
+<p><a href="https://www.jianshu.com/p/5682a0e0a9ba">https://www.jianshu.com/p/5682a0e0a9ba</a></p>
+
+<p><a href="https://www.cnblogs.com/jinhaolin/p/5128973.html">https://www.cnblogs.com/jinhaolin/p/5128973.html</a></p>
+
+<p>python3</p>
+
+<p>Str&lt;—&gt; Bytes</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'字符串'</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Bytes &lt;—&gt; Str</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'字符串'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>总结:</p>
+
+<p>py2和py3在编码上最大的区别是py2默认的编码方式是Unicode而py3则是UTF-8.所以当我们在py2中想要将一个字符串转换成另一种编码,首先要将这个字符串decode解码成Unicode之后再eccode编码成指定类型.而在py3中默认是UTF-8编码,所以我们想将字符串转换成bytes类型,不再是解码而是直接编码成bytes,反之想将bytes转换成utf-8则需要decode解码.</p>
+
+<p>深度阅读:<a href="https://foofish.net/how-python3-handle-charset-encoding.html">https://foofish.net/how-python3-handle-charset-encoding.html</a></p>
+
+<h3 id="求长">求长:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>
+<span class="n">T</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 26</span>
+</code></pre></div></div>
+
+<h3 id="截取切片">截取(切片):</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; DEF</span>
+</code></pre></div></div>
+
+<h3 id="查找子串">查找子串:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># find() 查到返回索引,否则返回-f</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'EFG'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 4</span>
+
+<span class="c"># index() 查到返回索引,否则抛出异常</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">'2'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; ValueError: substring not found</span>
+</code></pre></div></div>
+
+<h3 id="拼接">拼接:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="s">'ABCDEFGHIJKLMN'</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s">'OPQRSTUVWXYZ'</span>
+<span class="n">T</span> <span class="o">=</span> <span class="s">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s1</span><span class="o">+</span><span class="n">s2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>    <span class="c"># &gt;&gt;&gt; A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z</span>
+</code></pre></div></div>
+
+<h3 id="替换">替换:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="s">'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z'</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'D,E,F,G,H'</span><span class="p">,</span> <span class="s">'d,e,f,g,h'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; A,B,C,d,e,f,g,h,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z</span>
+</code></pre></div></div>
+
+<p>大小写转换:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="s">'ABc dEf'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>          <span class="c"># 把所有字符中的小写字母转换成大写字母</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>          <span class="c"># 把所有字符中的大写字母转换成小写字母</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>     <span class="c"># 把第一个字母转化为大写字母，其余小写</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>          <span class="c"># 把每个单词的第一个字母转化为大写，其余小写</span>
+
+<span class="s">'''
+&gt;&gt;&gt;
+ABC DEF
+abc def
+Abc def
+Abc Def
+'''</span>
+</code></pre></div></div>
+
+<h3 id="去空">去空:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="s">'  ABc dEf  '</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c"># 把头和尾的空格去掉</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>  <span class="c"># 把左边的空格去掉</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>  <span class="c"># 把右边的空格去掉</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+
+<span class="c"># 把所有的空个去掉</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="分割">分割:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="s">'A,B,C,d,e,f,g,h,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z'</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">','</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; ['A', 'B', 'C', 'd,e,f,g,h,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z']</span>
+</code></pre></div></div>
+
+<h2 id="常用方法">常用方法</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 删除 string 字符串末尾的指定字符（默认为空格）</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">'aaaaaI love you aaaa'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">'a'</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; aaaaaI love you</span>
+
+<span class="c"># 返回一个原字符串右对齐,并使用空格填充至长度 width 的新字符串。如果指定的长度小于字符串的长度则返回原字符串</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="s">'0'</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; 000000000000000000000000000000aaaaaI love you aaaa</span>
+
+<span class="n">s2</span> <span class="o">=</span> <span class="s">'you'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; 12</span>
+</code></pre></div></div>
+
+<h2 id="数字型">数字型</h2>
+
+<h3 id="整形">整形:</h3>
+
+<p>整型(Int) - 通常被称为是整型或整数，是正或负整数，不带小数点</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</code></pre></div></div>
+
+<h3 id="长整型">长整型:</h3>
+
+<p>长整型(long integers) - 无限大小的整数，整数最后是一个大写或小写的L</p>
+
+<p>注:long长整型旨在python2中出现,python3统一为int型</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="il">10L</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+<span class="c"># &gt;&gt;&gt; 10</span>
+<span class="c"># &gt;&gt;&gt; &lt;type 'long'&gt;</span>
+</code></pre></div></div>
+
+<h3 id="浮点型">浮点型:</h3>
+
+<p>浮点型(floating point real values) - 浮点型由整数部分与小数部分组成，浮点型也可以使用科学计数法表示（2.5e2 = 2.5 x 102 = 250）</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mf">3.1415926</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c"># &gt;&gt;&gt; 3.1415926</span>
+</code></pre></div></div>
+
+<h3 id="复数">复数:</h3>
+
+<p>复数(complex numbers) - 复数由实数部分和虚数部分构成，可以用a + bj,或者complex(a,b)表示， 复数的实部a和虚部b都</p>
+
+<h2 id="列表">列表</h2>
+
+<h3 id="增">增:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">3.12</span><span class="p">,</span> <span class="s">'ab'</span><span class="p">]</span>
+
+<span class="c"># 增</span>
+<span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'add'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="删">删:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">3.12</span><span class="p">,</span> <span class="s">'ab'</span><span class="p">]</span>
+
+<span class="c"># 删</span>
+<span class="n">li</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="改">改:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">3.12</span><span class="p">,</span> <span class="s">'ab'</span><span class="p">]</span>
+
+<span class="c"># 改</span>
+<span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">'c'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="查">查:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">3.12</span><span class="p">,</span> <span class="s">'ab'</span><span class="p">]</span>
+
+<span class="c"># 查</span>
+<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="切片">切片:</h3>
+
+<p>num_li[起始:结束-1:步长]</p>
+
+<p>num = num_li[-2:] 负数表示从列表反方向(从右往左)查找</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num_li</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">]</span>
+
+<span class="c"># 切片</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">num_li</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c"># ['e', 'f']</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">num_li</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c"># ['c', 'd', 'e', 'f']</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="n">num_li</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c"># ['a', 'b']</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">num_li</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c"># ['a', 'b', 'c', 'd']</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="n">num_li</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c"># ['b', 'c']</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="n">num_li</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c"># ['d', 'e']</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="n">num_li</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c"># ['a', 'c', 'e']</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">num_li</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c"># ['f', 'd', 'b']</span>
+
+</code></pre></div></div>
+
+<h3 id="遍历">遍历:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num_li</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">]</span>
+<span class="n">num_li2</span> <span class="o">=</span> <span class="p">[(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">),</span> <span class="p">(</span><span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">),</span> <span class="p">(</span><span class="s">'g'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">),</span> <span class="p">(</span><span class="s">'i'</span><span class="p">,</span> <span class="s">'j'</span><span class="p">)]</span>
+<span class="c"># 迭代</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">num_li</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="s">'''a
+b
+c
+d
+e
+f
+'''</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">num_li2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="s">'''
+a b
+c d
+e f
+g h
+i j
+'''</span>    
+
+<span class="n">num_li</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">]</span>
+<span class="c"># 角标迭代</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">num_li</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="s">'''
+0 a
+1 b
+2 c
+3 d
+4 e
+5 f
+'''</span>    
+</code></pre></div></div>
+
+<h3 id="常用方法-1">常用方法:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="mi">51</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+
+<span class="c"># 获取列表元素个数</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span> <span class="c"># &gt;&gt;&gt; 9</span>
+<span class="c"># 获取列表最大元素</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span> <span class="c"># &gt;&gt;&gt; 51</span>
+<span class="c"># 获取列表最小元素</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span> <span class="c"># &gt;&gt;&gt; 0</span>
+
+<span class="c"># 统计某个元素在列表中出现的次数</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c"># &gt;&gt;&gt; 3</span>
+
+<span class="c"># 在末尾添加另一个序列的多个值</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; [0, 1, 2, 3, 4, 5, 5, 5, 51, 6, 7]</span>
+
+<span class="c"># 查找某个值第一个匹配项的索引位置</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">51</span><span class="p">))</span> <span class="c"># &gt;&gt;&gt; 8</span>
+
+<span class="c"># 查找某个值的第一次所在的位置并删除</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; [0, 1, 2, 3, 4, 5, 5, 5, 6, 7]</span>
+
+<span class="c"># 反向列表元素</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; [7, 6, 5, 5, 5, 4, 3, 2, 1, 0]</span>
+
+<span class="c"># 对列表进行排序 reverse = True 降序， reverse = False 升序（默认)</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; [0, 1, 2, 3, 4, 5, 5, 5, 6, 7]</span>
+
+</code></pre></div></div>
+
+<h3 id="字典">字典:</h3>
+
+<p>增:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="c"># 增</span>
+<span class="n">dict_1</span><span class="p">[</span><span class="s">'f'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6}</span>
+</code></pre></div></div>
+
+<p>删:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="c"># 删</span>
+<span class="k">del</span> <span class="n">dict_1</span><span class="p">[</span><span class="s">'f'</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}</span>
+</code></pre></div></div>
+
+<p>改:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="c"># 改</span>
+<span class="n">dict_1</span><span class="p">[</span><span class="s">'c'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'a': 1, 'b': 2, 'c': 6, 'd': 4, 'e': 5}</span>
+</code></pre></div></div>
+
+<p>查:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="c"># 查</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">[</span><span class="s">'b'</span><span class="p">])</span> <span class="c"># &gt;&gt;&gt; 2</span>
+</code></pre></div></div>
+
+<p>遍历:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="c"># 遍历</span>
+
+<span class="c"># 1）遍历key值</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">dict_1</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<span class="c"># &gt;&gt;&gt; a  1</span>
+<span class="c"># &gt;&gt;&gt; b  2</span>
+<span class="c"># &gt;&gt;&gt; c  3</span>
+
+<span class="c"># 2）遍历value值</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="c"># &gt;&gt;&gt; 1</span>
+<span class="c"># &gt;&gt;&gt; 2</span>
+<span class="c"># &gt;&gt;&gt; 3</span>
+    
+<span class="c"># 3）遍历字典项</span>
+<span class="k">for</span> <span class="n">kv</span> <span class="ow">in</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">kv</span><span class="p">)</span>
+<span class="c"># &gt;&gt;&gt; ('a', 1)</span>
+<span class="c"># &gt;&gt;&gt; ('b', 2)</span>
+<span class="c"># &gt;&gt;&gt; ('c', 3)</span>
+    
+<span class="c"># 4）遍历字典健值</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="c"># &gt;&gt;&gt; a  1</span>
+<span class="c"># &gt;&gt;&gt; b  2</span>
+<span class="c"># &gt;&gt;&gt; c  3    </span>
+</code></pre></div></div>
+
+<p>常用方法:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="c"># 计算字典键的个数</span>
+<span class="n">len_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">len_num</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; 3</span>
+
+<span class="c"># 类型转化为字符串</span>
+<span class="n">str_dict</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">str_dict</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'a': 1, 'b': 2, 'c': 3}</span>
+
+<span class="c"># 返回一个字典的浅复制</span>
+<span class="n">dict_1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c"># 创建一个新字典,seq为键,value里的每个元素的集合为每个键的值</span>
+<span class="n">seq</span> <span class="o">=</span> <span class="p">(</span><span class="s">'I'</span><span class="p">,</span> <span class="s">'love'</span><span class="p">,</span> <span class="s">'you'</span><span class="p">)</span>
+<span class="n">new_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="s">'^_^'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">new_dict</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'I': '^_^', 'love': '^_^', 'you': '^_^'}</span>
+
+<span class="c"># 判断键值是否在字典内 python2:dict.has_key()牙龈出血和洗牙两概念吧</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; True</span>
+
+<span class="c"># 将字典键值转换为元祖,以列表形式返回[(key,value),(key,value),(key,value)]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; dict_items([('a', 1), ('b', 2), ('c', 3)])</span>
+
+<span class="c"># 以列表返回字典里所有的键</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; dict_keys(['a', 'b', 'c'])</span>
+
+<span class="c"># 以列表返回字典里所有的值</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; dict_values([1, 2, 3])</span>
+
+<span class="c"># 把dict2字典的键值更新到dict1</span>
+<span class="n">dict_2</span> <span class="o">=</span> <span class="p">{</span><span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">dict_1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dict_2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}</span>
+
+<span class="c"># 返回指定键的值,如果没有返回default</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; 1</span>
+
+<span class="c"># 返回指定键的值,如果没有则添加键值为default</span>
+<span class="n">key_value</span> <span class="o">=</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">'num'</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">key_value</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; None</span>
+
+<span class="c"># 删除指定键的值(返回值为被删除的值)</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">'b'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; 2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'a': 1, 'c': 3, 'd': 4, 'e': 5, 'num': None}</span>
+
+<span class="c"># 随机删字典中的键的值(返回值为被删除的值)</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; ('num', None)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'a': 1, 'c': 3, 'd': 4, 'e': 5}</span>
+
+<span class="c"># 删除字典内所有元素</span>
+<span class="n">dict_1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {}</span>
+
+</code></pre></div></div>
+
+<h3 id="set">set</h3>
+
+<p>创建一个集合:</p>
+
+<p>set()和{}</p>
+
+<p>注意:创建一个空集合set{}, 而不是 { }，因为 { } 是用来创建一个空字典。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 创建集合 &amp; 去重</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'a', 'b', 'c', 'd', 'e'}</span>
+</code></pre></div></div>
+
+<p>判断是否在集合内</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'a'</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'f'</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; False</span>
+</code></pre></div></div>
+
+<p>运算</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s">'abracadabra'</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s">'alacazam'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'r', 'b', 'd'}  # 集合a中包含而集合b中不包含的元素</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'l', 'm', 'z', 'r', 'c', 'a', 'b', 'd'}  # 集合a或b中包含的所有元素</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'a', 'c'} # 集合a和b中都包含了的元素</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'r', 'l', 'm', 'b', 'd', 'z'} # 不同时包含于a和b的元素</span>
+</code></pre></div></div>
+
+<p>增</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 增</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'f'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="c"># &gt;&gt;&gt; {'f', 'e', 'd', 'c', 'a', 'b'}</span>
+<span class="c"># 增加多个元素</span>
+<span class="n">s</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="s">'g'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">,</span> <span class="s">'i'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'a', 'd', 'b', 'c', 'h', 'g', 'i', 'f', 'e'}</span>
+</code></pre></div></div>
+
+<p>删</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 删</span>
+<span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">'f'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'g', 'a', 'e', 'i', 'h', 'c', 'd', 'b'}</span>
+<span class="c"># 删除一个不存在的元素 不会报错</span>
+<span class="n">s</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s">'z'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'g', 'a', 'e', 'i', 'h', 'c', 'd', 'b'}</span>
+
+<span class="c"># 随机删除元素</span>
+<span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'g', 'a', 'e', 'h', 'c', 'd', 'b'}</span>
+</code></pre></div></div>
+
+<p>常用方法</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">,</span> <span class="s">'g'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">}</span>
+
+<span class="c"># copy()	拷贝一个集合</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'c', 'b', 'd', 'e', 'a'}</span>
+
+<span class="c"># clear() 移除集合中的所有元素</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">clear</span><span class="p">())</span>  <span class="c"># &gt;&gt;&gt; None</span>
+
+<span class="c"># difference() 返回多个集合的差集</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; {'c', 'a', 'b'}</span>
+
+<span class="c"># intersection()	返回集合的交集(返回新的集合)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; {'d', 'e'}</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">,</span> <span class="s">'g'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">}</span>
+
+<span class="c"># intersection_update()	删除集合中的元素，该元素在指定的集合中不存在。(不创建新的集合,在本集合中做删除处理)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">intersection_update</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'e', 'd'}</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">,</span> <span class="s">'g'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">}</span>
+<span class="c"># difference_update() 移除集合中的元素，该元素在指定的集合也存在。</span>
+<span class="n">s</span><span class="o">.</span><span class="n">difference_update</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'a', 'c', 'b'}</span>
+
+<span class="c"># isdisjoint()	判断两个集合是否包含相同的元素，如果没有返回 True，否则返回 False。</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; True</span>
+
+<span class="c"># issubset() 判断指定集合是否为该方法参数集合的子集。</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; False  (s{'b', 'a', 'c'} s2{'g', 'd', 'h', 'e', 'f'}</span>
+
+<span class="c"># issuperset()	判断该方法的参数集合是否为指定集合的子集</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; False  (s{'b', 'a', 'c'} s2{'g', 'd', 'h', 'e', 'f'}</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">,</span> <span class="s">'g'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">}</span>
+<span class="c"># symmetric_difference()	返回两个集合中不重复的元素集合。</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; {'f', 'c', 'h', 'a', 'g', 'b'}</span>
+
+<span class="c"># symmetric_difference_update()	移除当前集合中在另外一个指定集合相同的元素，并将另外一个指定集合中不同的元素插入到当前集合中。</span>
+<span class="n">s</span><span class="o">.</span><span class="n">symmetric_difference_update</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; {'c', 'a', 'b', 'g', 'h', 'f'}</span>
+
+<span class="c"># union()	返回两个集合的并集</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; {'g', 'b', 'c', 'f', 'e', 'a', 'd', 'h'}</span>
+
+</code></pre></div></div>
+
+<h3 id="元组">元组</h3>
+
+<p>创建元组</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>改</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tup1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">tup2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">tup</span> <span class="o">=</span> <span class="n">tup1</span> <span class="o">+</span> <span class="n">tup2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; (1, 2, 3, 4, 5, 6)</span>
+</code></pre></div></div>
+
+<p>删</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">del</span> <span class="n">tup</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; NameError: name 'tup' is not defined</span>
+</code></pre></div></div>
+
+<p>常用方法</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c"># 计算元组个数</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tup</span><span class="p">))</span>
+
+<span class="c"># 返回元组中元素最大值</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">tup</span><span class="p">))</span>
+
+<span class="c"># 返回元组中元素最小值</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">tup</span><span class="p">))</span>
+
+<span class="c"># 切片</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c"># 迭代</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tup</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="c"># 元素是否存在</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">tup</span><span class="p">)</span>
+
+<span class="c"># 复制(元组后加",")</span>
+<span class="k">print</span><span class="p">((</span><span class="s">'a'</span><span class="p">,)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h3 id="布尔">布尔</h3>
+
+<p>True</p>
+
+<p>False</p>
+
+<h1 id="条件判断">条件判断</h1>
+
+<h2 id="ifelseelif">if/else/elif</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="逻辑运算符">逻辑运算符</h2>
+
+<h3 id="算术运算符">算术运算符</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>+</th>
+      <th>加 - 两个对象相加</th>
+      <th>a + b 输出结果 31</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-</td>
+      <td>减 - 得到负数或是一个数减去另一个数</td>
+      <td>a - b 输出结果 -11</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>乘 - 两个数相乘或是返回一个被重复若干次的字符串</td>
+      <td>a * b 输出结果 210</td>
+    </tr>
+    <tr>
+      <td>/</td>
+      <td>除 - x 除以 y</td>
+      <td>b / a 输出结果 2.1</td>
+    </tr>
+    <tr>
+      <td>%</td>
+      <td>取模 - 返回除法的余数</td>
+      <td>b % a 输出结果 1</td>
+    </tr>
+    <tr>
+      <td>**</td>
+      <td>幂 - 返回x的y次幂</td>
+      <td>a**b 为10的21次方</td>
+    </tr>
+    <tr>
+      <td>//</td>
+      <td>取整除 - 向下取接近除数的整数</td>
+      <td>»&gt; 9//2=4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="比较关系运算符">比较（关系）运算符</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>运算符</th>
+      <th>描述</th>
+      <th>实例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>==</td>
+      <td>等于 - 比较对象是否相等</td>
+      <td>(a == b) 返回 False。</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>不等于 - 比较两个对象是否不相等</td>
+      <td>(a != b) 返回 True。</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>大于 - 返回x是否大于y</td>
+      <td>(a &gt; b) 返回 False。</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>小于 - 返回x是否小于y。所有比较运算符返回1表示真，返回0表示假。这分别与特殊的变量True和False等价。注意，这些变量名的大写。</td>
+      <td>(a &lt; b) 返回 True。</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>大于等于 - 返回x是否大于等于y。</td>
+      <td>(a &gt;= b) 返回 False。</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>小于等于 - 返回x是否小于等于y。</td>
+      <td>(a &lt;= b) 返回 True。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="赋值运算符">赋值运算符</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>运算符</th>
+      <th>描述</th>
+      <th>实例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>简单的赋值运算符</td>
+      <td>c = a + b 将 a + b 的运算结果赋值为 c</td>
+    </tr>
+    <tr>
+      <td>+=</td>
+      <td>加法赋值运算符</td>
+      <td>c += a 等效于 c = c + a</td>
+    </tr>
+    <tr>
+      <td>-=</td>
+      <td>减法赋值运算符</td>
+      <td>c -= a 等效于 c = c - a</td>
+    </tr>
+    <tr>
+      <td>*=</td>
+      <td>乘法赋值运算符</td>
+      <td>c *= a 等效于 c = c * a</td>
+    </tr>
+    <tr>
+      <td>/=</td>
+      <td>除法赋值运算符</td>
+      <td>c /= a 等效于 c = c / a</td>
+    </tr>
+    <tr>
+      <td>%=</td>
+      <td>取模赋值运算符</td>
+      <td>c %= a 等效于 c = c % a</td>
+    </tr>
+    <tr>
+      <td>**=</td>
+      <td>幂赋值运算符</td>
+      <td>c **= a 等效于 c = c ** a</td>
+    </tr>
+    <tr>
+      <td>//=</td>
+      <td>取整除赋值运算符</td>
+      <td>c //= a 等效于 c = c // a</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="逻辑运算符-1">逻辑运算符</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>运算符</th>
+      <th>逻辑表达式</th>
+      <th>描述</th>
+      <th>实例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>and</td>
+      <td>x and y</td>
+      <td>布尔”与” - 如果 x 为 False，x and y 返回 False，否则它返回 y 的计算值。</td>
+      <td>(a and b) 返回 20。</td>
+    </tr>
+    <tr>
+      <td>or</td>
+      <td>x or y</td>
+      <td>布尔”或” - 如果 x 是 True，它返回 x 的值，否则它返回 y 的计算值。</td>
+      <td>(a or b) 返回 10。</td>
+    </tr>
+    <tr>
+      <td>not</td>
+      <td>not x</td>
+      <td>布尔”非” - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。</td>
+      <td>not(a and b) 返回 False</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="位运算符">位运算符</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>运算符</th>
+      <th>描述</th>
+      <th>实例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&amp;</td>
+      <td>按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0</td>
+      <td>(a &amp; b) 输出结果 12 ，二进制解释： 0000 1100</td>
+    </tr>
+    <tr>
+      <td>|</td>
+      <td>按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1。</td>
+      <td>(a | b) 输出结果 61 ，二进制解释： 0011 1101</td>
+    </tr>
+    <tr>
+      <td>^</td>
+      <td>按位异或运算符：当两对应的二进位相异时，结果为1</td>
+      <td>(a ^ b) 输出结果 49 ，二进制解释： 0011 0001</td>
+    </tr>
+    <tr>
+      <td>~</td>
+      <td>按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1。~x 类似于 -x-1</td>
+      <td>(~a ) 输出结果 -61 ，二进制解释： 1100 0011， 在一个有符号二进制数的补码形式。</td>
+    </tr>
+    <tr>
+      <td>«</td>
+      <td>左移动运算符：运算数的各二进位全部左移若干位，由”«“右边的数指定移动的位数，高位丢弃，低位补0。</td>
+      <td>a « 2 输出结果 240 ，二进制解释： 1111 0000</td>
+    </tr>
+    <tr>
+      <td>»</td>
+      <td>右移动运算符：把”»“左边的运算数的各二进位全部右移若干位，”»“右边的数指定移动的位数</td>
+      <td>a » 2 输出结果 15 ，二进制解释： 0000 1111</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="成员运算符">成员运算符</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>运算符</th>
+      <th>描述</th>
+      <th>实例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>in</td>
+      <td>如果在指定的序列中找到值返回 True，否则返回 False。</td>
+      <td>x 在 y 序列中 , 如果 x 在 y 序列中返回 True。</td>
+    </tr>
+    <tr>
+      <td>not in</td>
+      <td>如果在指定的序列中没有找到值返回 True，否则返回 False。</td>
+      <td>x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="身份运算符">身份运算符</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>运算符</th>
+      <th>描述</th>
+      <th>实例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>is</td>
+      <td>is 是判断两个标识符是不是引用自一个对象</td>
+      <td>x is y, 类似 id(x) == id(y) , 如果引用的是同一个对象则返回 True，否则返回 False</td>
+    </tr>
+    <tr>
+      <td>is not</td>
+      <td>is not 是判断两个标识符是不是引用自不同对象</td>
+      <td>x is not y ， 类似 id(a) != id(b)。如果引用的不是同一个对象则返回结果 True，否则返回 False。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="运算符优先级">运算符优先级</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>运算符</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**</td>
+      <td>指数 (最高优先级)</td>
+    </tr>
+    <tr>
+      <td>~ + -</td>
+      <td>按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)</td>
+    </tr>
+    <tr>
+      <td>* / % //</td>
+      <td>乘，除，取模和取整除</td>
+    </tr>
+    <tr>
+      <td>+ -</td>
+      <td>加法减法</td>
+    </tr>
+    <tr>
+      <td>» «</td>
+      <td>右移，左移运算符</td>
+    </tr>
+    <tr>
+      <td>&amp;</td>
+      <td>位 ‘AND’</td>
+    </tr>
+    <tr>
+      <td>^ |</td>
+      <td>位运算符</td>
+    </tr>
+    <tr>
+      <td>&lt;= &lt; &gt; &gt;=</td>
+      <td>比较运算符</td>
+    </tr>
+    <tr>
+      <td>&lt;&gt; == !=</td>
+      <td>等于运算符</td>
+    </tr>
+    <tr>
+      <td>= %= /= //= -= += *= **=</td>
+      <td>赋值运算符</td>
+    </tr>
+    <tr>
+      <td>is is not</td>
+      <td>身份运算符</td>
+    </tr>
+    <tr>
+      <td>in not in</td>
+      <td>成员运算符</td>
+    </tr>
+    <tr>
+      <td>and or not</td>
+      <td>逻辑运算符</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="循环">循环</h1>
+
+<h2 id="while">while</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1~100的和:</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c"># &gt;&gt;&gt; 5050</span>
+</code></pre></div></div>
+
+<h2 id="for">for</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 循环遍历</span>
+<span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="breakcontinue">break/continue</h2>
+
+<p>continue:跳出本次循环(仅本次次)</p>
+
+<p>break:跳出循环</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'HELLO'</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Hi'</span><span class="p">)</span>
+<span class="c"># &gt;&gt;&gt; 不输出任何内容</span>
+</code></pre></div></div>
+
+<h2 id="pass">pass</h2>
+
+<p>不做任何动作</p>
+
+<h1 id="推导式">推导式</h1>
+
+<h2 id="列表推导式">列表推导式</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">([</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span><span class="p">])</span>  <span class="c"># &gt;&gt;&gt;[1, 4, 16, 25, 49, 64]</span>
+</code></pre></div></div>
+
+<h2 id="字典推导式">字典推导式</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mcase</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span> <span class="s">'A'</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s">'Z'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="n">mcase_frequency</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">mcase</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">mcase</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">mcase</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="n">ifk</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">]}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mcase_frequency</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt;{'a': 17, 'b': 34}</span>
+</code></pre></div></div>
+
+<h2 id="集合推导式">集合推导式</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">({</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>  <span class="c"># &gt;&gt;&gt; {1, 4}</span>
+</code></pre></div></div>
+
+<h1 id="函数">函数</h1>
+
+<p>定义函数时，需要确定函数名和参数个数；</p>
+
+<p>如果有必要，可以先对参数的数据类型做检查；</p>
+
+<p>函数体内部可以用return随时返回函数结果；</p>
+
+<p>函数执行完毕也没有return语句时，自动return None。</p>
+
+<p>函数可以同时返回多个值，但其实就是一个tuple。</p>
+
+<h2 id="定义">定义</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_def</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<h2 id="调用">调用</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_def</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="n">my_def</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="返回值">返回值</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_def</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">my_def</span><span class="p">())</span>  <span class="c"># &gt;&gt;&gt; 0</span>
+</code></pre></div></div>
+
+<h2 id="参数">参数</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_def</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">my_def</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; 2</span>
+</code></pre></div></div>
+
+<h3 id="缺省参数">缺省参数</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 缺省参数</span>
+<span class="k">def</span> <span class="nf">my_def</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+
+
+<span class="c"># 缺省参数 指定参数名</span>
+<span class="k">def</span> <span class="nf">my_def2</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">my_def</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; (1, 2, 3)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_def2</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; (4, 5, 6)</span>
+</code></pre></div></div>
+
+<h3 id="不定长参数">不定长参数</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_def</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
+
+
+<span class="c"># * 以列表的形式传进去多个值</span>
+<span class="c"># ** 以键值对的形式传进多个值</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_def</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">a</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="局部变量">局部变量</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 全局变量</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">my_def</span><span class="p">():</span>
+    <span class="c"># 局部变量</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; NameError: name 'b' is not defined</span>
+</code></pre></div></div>
+
+<h3 id="修改局部变量global">修改局部变量global</h3>
+
+<p>注意:global 同时声明和赋值(global b = 2) 是不被允许的</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 全局变量</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">my_def</span><span class="p">():</span>
+    <span class="c"># 局部变量</span>
+    <span class="k">global</span> <span class="n">b</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">b</span>
+
+
+<span class="n">my_def</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 2</span>
+</code></pre></div></div>
+
+<h2 id="嵌套">嵌套</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 全局变量</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">my_def</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">my_def2</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">my_def2</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">my_def</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; 1 2</span>
+</code></pre></div></div>
+
+<h2 id="函数文档">函数文档</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">"""
+    :param a: 第一个加数
+    :param b: 第二个加数
+    :return: 返回两个加数的和
+    """</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span>
+<span class="c"># &gt;&gt;&gt;   </span>
+<span class="c">#     :param a: 第一个加数</span>
+<span class="c">#     :param b: 第二个加数</span>
+<span class="c">#     :return: 返回两个加数的和</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; 3</span>
+</code></pre></div></div>
+
+<h1 id="模块">模块</h1>
+
+<h2 id="import">import</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">listdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'./'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">listdir</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; ['t.py', '.idea']</span>
+</code></pre></div></div>
+
+<h2 id="from--import-">from .. import ..</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<h1 id="面向对象">面向对象</h1>
+
+<h2 id="定义类">定义类</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># class 类名:</span>
+<span class="c">#     属性</span>
+<span class="c">#     方法</span>
+</code></pre></div></div>
+
+<h2 id="实例属性">实例属性</h2>
+
+<h3 id="添加">添加</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"向前走"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"停止"</span><span class="p">)</span>
+
+
+<span class="c"># 实例</span>
+<span class="n">audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="c"># 添加实例属性</span>
+<span class="n">audi</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s">'yellow'</span>
+</code></pre></div></div>
+
+<h3 id="获取">获取</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"向前走"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"停止"</span><span class="p">)</span>
+
+
+<span class="c"># 实例</span>
+<span class="n">audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="c"># 添加实例属性</span>
+<span class="n">audi</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s">'yellow'</span>
+
+<span class="c"># 获取实例属性</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">audi</span><span class="o">.</span><span class="n">color</span>
+<span class="k">print</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; yellow</span>
+</code></pre></div></div>
+
+<h2 id="self变量">self变量</h2>
+
+<p>变量用来接收你给他的引用</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"向前走"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"停止"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">my_car</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"car name is </span><span class="si">%</span><span class="s">s,car color is </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">))</span>
+
+
+<span class="c"># 实例</span>
+<span class="n">audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="c"># 添加实例属性</span>
+<span class="n">audi</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'Audi'</span>
+<span class="n">audi</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s">'yellow'</span>
+
+<span class="c"># 方法获取实例属性</span>
+<span class="n">audi</span><span class="o">.</span><span class="n">my_car</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; car name is Audi,car color is yellow</span>
+</code></pre></div></div>
+
+<h2 id="__init__">__init__</h2>
+
+<p>完成对象的初始化</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_name</span><span class="p">,</span> <span class="n">new_color</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"__init__方法会被自动调用"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">new_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">new_color</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"向前走"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"停止"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">my_car</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"car name is </span><span class="si">%</span><span class="s">s,car color is </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">))</span>
+
+
+<span class="c"># 实例</span>
+<span class="n">audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s">'Audi'</span><span class="p">,</span><span class="s">'yellow'</span><span class="p">)</span>
+<span class="c"># 方法获取实例属性</span>
+<span class="n">audi</span><span class="o">.</span><span class="n">my_car</span><span class="p">()</span>
+<span class="c"># &gt;&gt;&gt; __init__方法会被自动调用</span>
+<span class="c"># &gt;&gt;&gt; car name is Audi,car color is yellow</span>
+
+<span class="n">Mercedes_Benz</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s">'Mercedes-Benz'</span><span class="p">,</span><span class="s">'pink'</span><span class="p">)</span>
+<span class="n">Mercedes_Benz</span><span class="o">.</span><span class="n">my_car</span><span class="p">()</span>
+<span class="c"># &gt;&gt;&gt; __init__方法会被自动调用</span>
+<span class="c"># &gt;&gt;&gt; car name is Mercedes-Benz,car color is pink</span>
+</code></pre></div></div>
+
+<h2 id="__str__">__str__</h2>
+
+<p>返回对象的描述信息</p>
+
+<p>注意:__str__方法,必须有return返回值</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_name</span><span class="p">,</span> <span class="n">new_color</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">new_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">new_color</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"向前走"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"停止"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">my_car</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"car name is </span><span class="si">%</span><span class="s">s,car color is </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"This is MyCar,name is {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="c"># 实例</span>
+<span class="n">audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s">'Audi'</span><span class="p">,</span> <span class="s">'yellow'</span><span class="p">)</span>
+
+<span class="c"># 如果不自定义对象描述直接打印对象:</span>
+<span class="c"># print(audio) 输出信息为内存地址:&lt;__main__.Car object at 0x7fcc8004c898&gt;</span>
+
+<span class="c"># 利用__str__定义对象描述,输出为我们定义好的字符串</span>
+<span class="c"># 获取我们自己定义的对象描述信息</span>
+<span class="k">print</span><span class="p">(</span><span class="n">audi</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="私有继承多态">私有/继承/多态</h2>
+
+<h3 id="私有属性">私有属性</h3>
+
+<p>定义:__两个下划线开头的变量名,设为私有属性</p>
+
+<p>私有属性:只能在方法内使用,不允许实例对象直接调用</p>
+
+<p>设计:一个私有属性,搭配两个方法.一个负责接收参数并判断过滤合法性,一个负责返回相对应的参数方便使用</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># 私有属性</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__age</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">set_Color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'yellow'</span><span class="p">,</span> <span class="s">'blue'</span><span class="p">,</span> <span class="s">'red'</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__color</span> <span class="o">=</span> <span class="n">color</span>
+
+    <span class="k">def</span> <span class="nf">get_color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__color</span>
+
+
+<span class="n">Audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">Audi</span><span class="o">.</span><span class="n">set_Color</span><span class="p">(</span><span class="s">'red'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Audi</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>  <span class="c"># &gt;&gt;&gt; red</span>
+
+<span class="n">Audi</span><span class="o">.</span><span class="n">set_Color</span><span class="p">(</span><span class="s">'pink'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Audi</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>  <span class="c"># &gt;&gt;&gt; red</span>
+</code></pre></div></div>
+
+<h3 id="私有方法">私有方法</h3>
+
+<p>隐藏核心代码,无法轻易改变</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">car_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">car_name</span>
+
+    <span class="k">def</span> <span class="nf">__run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="s">'run...'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">currency</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">currency</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__run</span><span class="p">()</span>
+
+
+<span class="n">Audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s">'R8'</span><span class="p">)</span>
+<span class="n">Audi</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="继承">继承</h3>
+
+<p>单继承</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Action</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'run'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"stop"</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">Bicycle</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="n">Audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">Audi</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; run</span>
+<span class="n">Giant</span> <span class="o">=</span> <span class="n">Bicycle</span><span class="p">()</span>
+<span class="n">Giant</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; stop</span>
+</code></pre></div></div>
+
+<p>多层继承</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Action</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'run'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"stop"</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">car_name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">car_name</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Bicycle</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">Audi</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">quickly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Run quickly....."</span><span class="p">)</span>
+
+
+<span class="n">R8</span> <span class="o">=</span> <span class="n">Audi</span><span class="p">()</span>
+<span class="n">R8</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; run</span>
+<span class="n">R8</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="s">'R8'</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; R8</span>
+<span class="n">R8</span><span class="o">.</span><span class="n">quickly</span><span class="p">()</span>  <span class="c"># &gt;&gt; Run quickly.....</span>
+</code></pre></div></div>
+
+<p>多继承</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Mercedes_Benz</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'run...'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Audi</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'stop...'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="n">Mercedes_Benz</span><span class="p">,</span> <span class="n">Audi</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">Action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Mercedes_Benz</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Audi</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+<span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">car</span><span class="o">.</span><span class="n">Action</span><span class="p">()</span>
+<span class="c"># &gt;&gt;&gt; run...</span>
+<span class="c"># &gt;&gt;&gt; stop...</span>
+</code></pre></div></div>
+
+<h3 id="重写父类方法">重写父类方法</h3>
+
+<p>重写</p>
+
+<p>在定义的类中重新定义一个和父类相同的方法名,这样父类的方法就会被覆盖,实现重写父类方法的效果</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Action</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'run'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"stop"</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">car_name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">car_name</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Audi</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">quickly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Run quickly....."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'slow run'</span><span class="p">)</span>
+
+
+<span class="n">R8</span> <span class="o">=</span> <span class="n">Audi</span><span class="p">(</span><span class="s">'R8'</span><span class="p">)</span>
+<span class="n">R8</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; slow run</span>
+<span class="n">R8</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; R8</span>
+<span class="n">R8</span><span class="o">.</span><span class="n">quickly</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; Run quickly.....</span>
+</code></pre></div></div>
+
+<p>调用被重写的父类方法</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Action</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'run'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"stop"</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Audi</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">quickly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Run quickly....."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># 被重写的父类</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'slow run'</span><span class="p">)</span>
+        <span class="c"># 第一种方式调用被重写方法</span>
+        <span class="n">Action</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c"># 第二种方式调用被重写方法</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="c"># 第三种方式调用被重写方法</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Audi</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+
+<span class="n">R8</span> <span class="o">=</span> <span class="n">Audi</span><span class="p">()</span>
+<span class="n">R8</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="c"># &gt;&gt;&gt; slow run</span>
+<span class="c"># &gt;&gt;&gt; run</span>
+<span class="c"># &gt;&gt;&gt; run</span>
+<span class="c"># &gt;&gt;&gt; run</span>
+
+<span class="n">R8</span><span class="o">.</span><span class="n">quickly</span><span class="p">()</span>  <span class="c"># &gt;&gt;&gt; Run quickly.....</span>
+
+</code></pre></div></div>
+
+<h3 id="多态">多态</h3>
+
+<p>python是解释型弱类型语言,所以支持多态的同时不需要特别声明,所以不需要额外关注.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Mercedes_Benz</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'run...'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Audi</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'run...'</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">car</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+
+<span class="n">audi</span> <span class="o">=</span> <span class="n">Audi</span><span class="p">()</span>
+<span class="n">car</span><span class="p">(</span><span class="n">audi</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; run...</span>
+
+<span class="n">mercedes_benz</span> <span class="o">=</span> <span class="n">Mercedes_Benz</span><span class="p">()</span>
+<span class="n">car</span><span class="p">(</span><span class="n">mercedes_benz</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; run...</span>
+</code></pre></div></div>
+
+<h2 id="类属性">类属性</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c"># 类属性</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c"># 实例属性</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="c"># 类对象创建类</span>
+        <span class="c"># 类创建实例对象</span>
+        <span class="c"># 创建类对象的同时,创建类属性</span>
+        <span class="c"># 所以类属性不会随着创建新的实例对象的改变而改变,但实例属性会被__init__初始化</span>
+        <span class="n">Student</span><span class="o">.</span><span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c"># 调用类属性</span>
+
+    <span class="k">def</span> <span class="nf">student_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="n">Tom</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Tom'</span><span class="p">)</span>
+<span class="n">JC</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'JC'</span><span class="p">)</span>
+<span class="n">Peter</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Peter'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">Student</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h2 id="实例对象共享类属性资源">实例对象共享类属性资源</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c"># 类属性</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c"># 实例属性</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">Student</span><span class="o">.</span><span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c"># 调用类属性</span>
+
+    <span class="k">def</span> <span class="nf">student_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+
+<span class="n">Tom</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Tom'</span><span class="p">)</span>
+<span class="n">JC</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'JC'</span><span class="p">)</span>
+<span class="n">Peter</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Peter'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">Peter</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; Peter</span>
+
+
+<span class="c"># 类属性可以被实例对象直接调用,在实例属性中如果找不到需要调用的属性,那么实例就会在类属性中寻找</span>
+<span class="c"># 类属性是各个实例对象中共享的资源</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Peter</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 3</span>
+</code></pre></div></div>
+
+<h2 id="类方法">类方法</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c"># 类属性</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c"># 实例属性</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">Student</span><span class="o">.</span><span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c"># 调用类属性</span>
+
+    <span class="k">def</span> <span class="nf">student_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+    <span class="c"># 定义类方法,利用@classmethod</span>
+    <span class="c"># cls表示:当前的类对象</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="n">cls</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">200</span>
+
+
+<span class="n">Tom</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Tom'</span><span class="p">)</span>
+<span class="n">JC</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'JC'</span><span class="p">)</span>
+<span class="n">Peter</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Peter'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">Peter</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 3  调用了类属性num的值</span>
+<span class="n">Peter</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Peter</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 100  并不是修改了类属性num,而是创建了实例属性num给Peter实例</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">JC</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 3  Peter实例并不是真的改动了类属性, 所以类属性依然为3</span>
+
+
+<span class="c"># 类属性只能由类方法进行修改</span>
+<span class="n">Student</span><span class="o">.</span><span class="n">edit</span><span class="p">()</span>  <span class="c"># 运行类方法</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Tom</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 200</span>
+<span class="k">print</span><span class="p">(</span><span class="n">JC</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 200</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Peter</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 100 因为之前Peter实例对象添加了一个num=100的属性(12行)</span>
+</code></pre></div></div>
+
+<h3 id="利用类方法批量创建实例对象">利用类方法批量创建实例对象</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c"># 类属性</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c"># 实例属性</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">Student</span><span class="o">.</span><span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c"># 调用类属性</span>
+
+    <span class="k">def</span> <span class="nf">student_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'班级一共有多少人?'</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">creat_student</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+        <span class="n">objs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">objs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cls</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">objs</span>
+
+
+<span class="n">students</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">creat_student</span><span class="p">([</span><span class="s">'Tom'</span><span class="p">,</span> <span class="s">'JC'</span><span class="p">,</span> <span class="s">'Peter'</span><span class="p">])</span>
+<span class="n">students</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c"># &gt;&gt; 班级一共有多少人?</span>
+<span class="k">print</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt; 3</span>
+</code></pre></div></div>
+
+<h2 id="静态方法">静态方法</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c"># 类属性</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c"># 实例属性</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">Student</span><span class="o">.</span><span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c"># 调用类属性</span>
+
+    <span class="k">def</span> <span class="nf">student_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+        
+    <span class="c"># 定义一个静态方法</span>
+    <span class="c"># 静态方法不需要往里面传入self或其他的值</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'班级一共有多少人?'</span><span class="p">)</span>
+
+
+<span class="n">Tom</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Tom'</span><span class="p">)</span>
+<span class="n">JC</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'JC'</span><span class="p">)</span>
+<span class="n">Peter</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">'Peter'</span><span class="p">)</span>
+
+<span class="n">Peter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c"># &gt;&gt; 班级一共有多少人?</span>
+<span class="k">print</span><span class="p">(</span><span class="n">JC</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>  <span class="c"># &gt;&gt; 3</span>
+
+</code></pre></div></div>
+
+<h2 id="工厂模式">工厂模式</h2>
+
+<h3 id="简单工厂模式">简单工厂模式</h3>
+
+<p>简单工厂模式可以理解为流水线又或者是多人作业模式.</p>
+
+<p>三跟人进行分配:</p>
+
+<p>1:维护学生以及学生的行为(1~13行)</p>
+
+<p>2:维护班级学生名单(16~26行)</p>
+
+<p>3:维护’点名’ 这一行为(29~35行)</p>
+
+<p>三个人可以进行接口的制定,并不需要关心对方是如何实现的,直接调用规定好的函数接口就可以.大大减少沟通成本提高效率</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Tom</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">talk_hi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Here!'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Peter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">talk_hi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'coming!'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">JC</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">talk_hi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'yeah!'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Classes</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'Tom'</span><span class="p">:</span>
+            <span class="n">student</span> <span class="o">=</span> <span class="n">Tom</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'JC'</span><span class="p">:</span>
+            <span class="n">student</span> <span class="o">=</span> <span class="n">JC</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'Peter'</span><span class="p">:</span>
+            <span class="n">student</span> <span class="o">=</span> <span class="n">Peter</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">student</span>
+
+
+<span class="k">class</span> <span class="nc">Call_The_Roll</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_the_roll</span> <span class="o">=</span> <span class="n">Classes</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_the_roll</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">names</span>
+
+<span class="n">call_the_roll</span> <span class="o">=</span> <span class="n">Call_The_Roll</span><span class="p">()</span>
+<span class="n">student_name</span> <span class="o">=</span> <span class="n">call_the_roll</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="s">'Tom'</span><span class="p">)</span>
+<span class="n">student_name</span><span class="o">.</span><span class="n">talk_hi</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="工厂方法模式">工厂方法模式</h3>
+
+<p>创建一个父类school,在父类中定义可以实现的功能(创建实例对象的方法),而真正实现动作将全部交给子类,选择了使用了哪个子类，自然也就决定了实际创建的动作是什么。</p>
+
+<p>School类相当于各个子类的总调度,真正实现功能的是子类,但是能够实现什么动作,我们查看父类School便可知道</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">School</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c"># 点名</span>
+    <span class="k">def</span> <span class="nf">call_The_Roll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="c"># 上操</span>
+    <span class="k">def</span> <span class="nf">March</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="c"># 开会</span>
+    <span class="k">def</span> <span class="nf">Meeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">school_main</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        
+        <span class="c"># 根据名字喊到</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_the_roll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_The_Roll</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="c"># 上操</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">march</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">March</span><span class="p">()</span>
+
+        <span class="c"># 开会</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meeting</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Meeting</span><span class="p">()</span>
+
+        <span class="c"># 将喊到返回给老师</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_the_roll</span>
+
+
+<span class="k">class</span> <span class="nc">Tom</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">talk_hi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Here!'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Peter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">talk_hi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'coming!'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">JC</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">talk_hi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'yeah!'</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Classes</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'Tom'</span><span class="p">:</span>
+            <span class="n">student</span> <span class="o">=</span> <span class="n">Tom</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'JC'</span><span class="p">:</span>
+            <span class="n">student</span> <span class="o">=</span> <span class="n">JC</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'Peter'</span><span class="p">:</span>
+            <span class="n">student</span> <span class="o">=</span> <span class="n">Peter</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">student</span>
+
+
+<span class="k">class</span> <span class="nc">Call_The_Roll</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_the_roll</span> <span class="o">=</span> <span class="n">Classes</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_the_roll</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">names</span>
+
+
+<span class="n">call_the_roll</span> <span class="o">=</span> <span class="n">Call_The_Roll</span><span class="p">()</span>
+<span class="n">student_name</span> <span class="o">=</span> <span class="n">call_the_roll</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="s">'JC'</span><span class="p">)</span>
+<span class="n">student_name</span><span class="o">.</span><span class="n">talk_hi</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<h2 id="单例模式">单例模式</h2>
+
+<p>无论创建多少次实例对象,都只创建一次</p>
+
+<h3 id="__new__方法">__new__方法</h3>
+
+<p>__new__方法:创建一个类,在基类object已经写好了一个__new__方法,作用就是新建一个新的类模板</p>
+
+<p>cls参数:类对象的引用</p>
+
+<p>返回值:创建一个类对象必须调用object.__new__()方法并返回创建成功的类对象.</p>
+
+<p>注意:</p>
+
+<p>python的构造方法分为两步:</p>
+
+<p>__new__创建</p>
+
+<p>__init_初始化</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'__new__'</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'__init__'</span><span class="p">)</span>
+
+
+<span class="n">Audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="c"># &gt;&gt;&gt; __new__</span>
+<span class="c"># &gt;&gt;&gt; __init__</span>
+</code></pre></div></div>
+
+<h3 id="创建单例类">创建单例类</h3>
+
+<p>重写父类__new__方法,并且定义一个类属性.将类对象的引用作为判断,如果没有这个引用那我们就创建一个,如果已经存在那我们将存在的引用返回给创建的实例.这样我们就无法多次创建新的实例了.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="n">__instance</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+
+
+<span class="n">Audi</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">Mercedes_Benz</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">Audi</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; &lt;__main__.Car object at 0x7feae003e320&gt;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Mercedes_Benz</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; &lt;__main__.Car object at 0x7feae003e320&gt;</span>
+</code></pre></div></div>
+
+<h3 id="初始化一次">初始化一次</h3>
+
+<p>def __new__(cls, *args, **kwargs):</p>
+
+<p>在创建实例对象时,先运行__new__方法,所以创建时我们传递了cls参数,没有其他位置传递’Audi’这个参数.所以我们需要添加(*args, **kwargs)不定长参数</p>
+
+<p>__first_init = True:</p>
+
+<p>和判断是否重复穿件类对象一样,我们添加一个属性,在__init__初始化后,我们将__first_init = True改为False,这样就不会重复初始化了</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="n">__instance</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">__first_init</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instance</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">car_name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">Car</span><span class="o">.</span><span class="n">__first_init</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">car_name</span>
+            <span class="n">Car</span><span class="o">.</span><span class="n">__first_init</span> <span class="o">=</span> <span class="bp">False</span>
+
+
+<span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s">'Audi'</span><span class="p">)</span>
+<span class="n">car_2</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s">'Mercedes_Benz'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; &lt;__main__.Car object at 0x7feae003e320&gt;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">car_2</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; &lt;__main__.Car object at 0x7feae003e320&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">car</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; Audi</span>
+<span class="k">print</span><span class="p">(</span><span class="n">car_2</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; Audi</span>
+</code></pre></div></div>
+
+<h1 id="异常处理调试">异常处理/调试</h1>
+
+<h2 id="异常">异常</h2>
+
+<h3 id="捕获异常">捕获异常</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># try... except...</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'程序错误'</span><span class="p">)</span>
+<span class="c"># &gt;&gt;&gt; 程序错误</span>
+</code></pre></div></div>
+
+<p>捕获特定异常</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="nb">ZeroDivisionError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'程序错误'</span><span class="p">)</span>
+
+<span class="c"># &gt;&gt;&gt; FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'</span>
+</code></pre></div></div>
+
+<p>捕获多个异常</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">)</span>
+<span class="k">except</span> <span class="p">(</span><span class="nb">ZeroDivisionError</span><span class="p">,</span><span class="n">FileNotFoundError</span><span class="p">)</span> <span class="k">as</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'程序错误'</span><span class="p">)</span>
+
+<span class="c"># &gt;&gt;&gt; 程序错误</span>
+</code></pre></div></div>
+
+<p>不同异常处理</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">/</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">)</span>
+<span class="k">except</span> <span class="p">(</span><span class="nb">ZeroDivisionError</span><span class="p">,</span> <span class="n">FileNotFoundError</span><span class="p">)</span> <span class="k">as</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'程序错误'</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">NameError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'不同异常处理'</span><span class="p">)</span>
+
+<span class="c"># &gt;&gt;&gt; 不同异常处理</span>
+</code></pre></div></div>
+
+<p>获取异常信息</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="p">(</span><span class="nb">ZeroDivisionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'分母不能为零'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="c"># &gt;&gt;&gt; 程序错误</span>
+<span class="c"># &gt;&gt;&gt; division by zero</span>
+</code></pre></div></div>
+
+<h3 id="没有异常则执行">没有异常则执行</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">/</span> <span class="mi">1</span>
+<span class="k">except</span> <span class="p">(</span><span class="nb">ZeroDivisionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'分母不能为零'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'程序执行成功'</span><span class="p">)</span>
+
+<span class="c"># &gt;&gt;&gt; 程序执行成功</span>
+</code></pre></div></div>
+
+<h3 id="无论是否有异常都执行">无论是否有异常都执行</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">/</span> <span class="mi">1</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">)</span>
+<span class="k">except</span> <span class="p">(</span><span class="nb">ZeroDivisionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'分母不能为零'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'程序执行成功'</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'无论是否有异常都执行'</span><span class="p">)</span>
+<span class="c"># &gt;&gt;&gt; 无论是否有异常都执行</span>
+<span class="c"># &gt;&gt;&gt; FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'</span>
+</code></pre></div></div>
+
+<h2 id="异常的传递">异常的传递</h2>
+
+<p>内部的异常捕获后无法对这个错误进行处理,所以内部的异常会传递到外面的异常中</p>
+
+<p>注意:调用了一个函数,函数中产生了异常,并不是函数产生了异常,而是函数把异常传给了调用者.是调用者产生了异常</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span>  <span class="c"># 错误代码,内部的异常捕获后无法对这个错误进行处理,所以内部的异常会传递到外面的异常中</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'关闭文件'</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'没有这个文件'</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 没有这个文件</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; division by zero</span>
+    
+<span class="c"># 注意:</span>
+<span class="c"># def test():</span>
+<span class="c">#     print(1 / 0)</span>
+
+<span class="c"># user =  test()  # 函数中产生的异常传递给了被调用者,所以是user产生了异常</span>
+</code></pre></div></div>
+
+<h2 id="抛出自定义的异常">抛出自定义的异常</h2>
+
+<p>定义异常:</p>
+
+<p>创建一个子类,继承于Exception</p>
+
+<p>raise引发 自定义的异常创建异常类的实例对象,如果自定义的异常类需要实例属性参数则传入相应的参数</p>
+
+<p>except会从Exception基类里找到自定义的异常类createException的实例对象并获得这个异常实例对象的初始化结果和__str__说明结果.我们如果需要可以从Exception获取到异常类实例对象运行后的结果</p>
+
+<p>获取结果(13行)也可改成(except Exception as e:):</p>
+
+<p>except createException as e:</p>
+
+<p>print(e)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">createException</span><span class="p">(</span><span class="nb">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'{}{}字符串输入错误!'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="s">' '</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">'请输入字符数量大于3的字符串'</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="s">'ab'</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">createException</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">createException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="c"># &gt;&gt;&gt; ab 字符串输入错误!</span>
+<span class="c"># &gt;&gt;&gt; 请输入字符数量大于3的字符串</span>
+</code></pre></div></div>
+
+<h2 id="异常处理中抛出异常">异常处理中抛出异常</h2>
+
+<p>当正常捕获到一个异常后进行正常的处理操作,此时我们可以选择在这个异常区域内(try… except…)选择是否处理,如果不想在本区域内处理异常,可以通过raise关键字把这个异常再一次抛出,如果外层还有try… except…则可以被捕获,再进行处理.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">add</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="nb">bool</span> <span class="o">=</span> <span class="nb">bool</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+            <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="nb">bool</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span>
+        <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">e</span>
+
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; 0.0</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; division by zero</span>
+</code></pre></div></div>
+
+<h2 id="调试">调试</h2>
+
+<p>assert expression [, arguments]</p>
+
+<p>assert 表达式 [, 参数]</p>
+
+<p>assert len(lists) &gt;=5,’列表元素个数小于5’</p>
+
+<p>assert 2==1,’2不等于1’</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">num</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c"># 如果断言失败，assert语句本身就会抛出AssertionError：AssertionError: 分母不能为0</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'分母不能为0'</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">AssertionError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'重新输入!'</span><span class="p">)</span>
+
+
+<span class="n">num</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 重新输入!</span>
+</code></pre></div></div>
+
+<h1 id="io文件处理">IO文件处理</h1>
+
+<p>参数:open(file, mode=’r’, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)</p>
+
+<ul>
+  <li>ile: 必需，文件路径（相对或者绝对路径）。</li>
+  <li>mode: 可选，文件打开模式</li>
+  <li>buffering: 设置缓冲</li>
+  <li>encoding: 一般使用utf8</li>
+  <li>errors: 报错级别</li>
+  <li>newline: 区分换行符</li>
+  <li>closefd: 传入的file参数类型</li>
+  <li>opener:</li>
+</ul>
+
+<p>open()参数:不同模式打开文件的完全列表：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>模式</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>r</td>
+      <td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
+    </tr>
+    <tr>
+      <td>rb</td>
+      <td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。</td>
+    </tr>
+    <tr>
+      <td>r+</td>
+      <td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+    </tr>
+    <tr>
+      <td>rb+</td>
+      <td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+    </tr>
+    <tr>
+      <td>wb</td>
+      <td>以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+    </tr>
+    <tr>
+      <td>w+</td>
+      <td>打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+    </tr>
+    <tr>
+      <td>wb+</td>
+      <td>以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+    </tr>
+    <tr>
+      <td>ab</td>
+      <td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+    </tr>
+    <tr>
+      <td>a+</td>
+      <td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
+    </tr>
+    <tr>
+      <td>ab+</td>
+      <td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="打开文件">打开文件</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 打开文件</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="写入文件">写入文件</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 打开文件</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="c"># 写入文件</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'helloworld'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="读取文件">读取文件</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 打开文件</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="c"># 读取文件</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="关闭文件">关闭文件</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 打开文件</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="c"># 写入文件</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'helloworld'</span><span class="p">)</span>
+<span class="c"># 关闭文件</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="常用方法-2">常用方法</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'r+'</span><span class="p">)</span>
+<span class="c"># 1</span>
+<span class="c"># 2</span>
+<span class="c"># 3</span>
+<span class="c"># 4</span>
+<span class="c"># 5</span>
+<span class="c"># 6</span>
+<span class="c"># 7</span>
+
+<span class="c"># 刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。</span>
+<span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="c"># 读取整行，包括"\n"字符。</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>  <span class="c"># &gt;&gt;&gt; 1</span>
+
+<span class="c"># 读取所有行并返回列表，若给定sizeint &gt; 0，则是设置一次读多少字节，这是为了减轻读取压力。</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>  <span class="c"># &gt;&gt;&gt; ['2\n', '3\n', '4\n', '5\n', '6\n', '7']</span>
+
+<span class="c"># 设置文件当前位置</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c"># &gt;&gt;&gt; 2</span>
+
+<span class="c"># 返回文件当前位置。</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>  <span class="c"># &gt;&gt;&gt; 2</span>
+
+<span class="c"># 截取文件，截取的字节通过size指定，默认为当前文件位置。</span>
+<span class="n">f</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c"># 将字符串写入文件，返回的是写入的字符长度。</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'hello'</span><span class="p">)</span>
+
+<span class="c"># 向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。</span>
+<span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'abcd</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'efgh'</span><span class="p">]</span>
+<span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c"># hello</span>
+<span class="c"># abcd</span>
+<span class="c"># efgh</span>
+</code></pre></div></div>
+
+<h2 id="自动打开关闭文件">自动打开关闭文件</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>  <span class="c"># &gt;&gt;&gt; 123456</span>
+</code></pre></div></div>
+
+<h2 id="思维导图总结">思维导图总结</h2>
+<p><img src="https://github.com/HenryDLC/learn_python/raw/master/python基础/learn_python.png" alt="image" /></p>
+
+
+  </section>
+
+</article>
+
+
+<div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+
+</div>
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["weixin", "tsina", "qzone", "douban", "sqq", "evernotecn", "renren"]
+    }
+};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/04/pythonadvance/" title="link to Python高级">Python高级</a></h2>
+       <p class="excerpt">匿名函数生成数,可用list()方法生成列表python3 返回可迭代对象python2 返回列表(python2中xrange()函数返回可迭代对象)range函数# range(起始值, 截止值-1, 步长)  返回:可迭代对象a = range(1, 10, 2)for i in a:    print(i)a# &gt;&gt;&gt; 1# &gt;&gt;&gt; 3# &gt;&gt;&gt; 5# &gt;&gt;&gt; 7# &gt;&gt;&gt; 9lambda匿名...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-04-09 13:20:00 +0000" class="post-list__meta--date date">2019-04-09</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2019/04/pythonadvance/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/03/javascript-jquery-ajax/" title="link to JavaScript-jQuery-Ajax">JavaScript-jQuery-Ajax</a></h2>
+       <p class="excerpt">JavaScript窗口等待加载完毕再获取标签&lt;script&gt;    // 等window 窗口加载完毕 已经显示的 时候    window.onload = function () {        // 获取标签        var oDiv = document.getElementsById('div1')      }&lt;/script&gt;&lt;body&gt;  &lt;div id='div1'&gt;&lt;/div&gt;&lt;/body&gt...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-03-25 00:08:00 +0000" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/03/javascript-jquery-ajax/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2019/03/pythonbasis/";
+        this.page.identifier = "/2019/03/pythonbasis/";
+    };
+
+    var disqus_shortname = '';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://henrydu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-10 生成，感谢 <a href="https://github.com/">github</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://henrydublog">@HenryDu</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/HenryDLC/henrydublog">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-104897325-1', 'henrydublog.com');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
