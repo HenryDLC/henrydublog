@@ -4,6 +4,8 @@ title: "MySql数据库"
 date: "2019-04-18 22:59"
 ---
 
+
+
 登入mysql
 =======
 
@@ -158,17 +160,14 @@ show tables;
 desc 表名;
 ```
 
+```sql
 +-------+------------------+------+-----+---------+----------------+
-
-| Field | Type | Null | Key | Default | Extra |
-
+| Field | Type             | Null | Key | Default | Extra          |
 +-------+------------------+------+-----+---------+----------------+
-
-| id | int(10) unsigned | NO | PRI | NULL | auto\_increment |
-
-| name | varchar(10) | YES | | NULL | |
-
+| id    | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(10)      | YES  |     | NULL    |                |
 +-------+------------------+------+-----+---------+----------------+
+```
 
 查看表创建语句
 
@@ -176,25 +175,18 @@ desc 表名;
 show create table 表名;
 ```
 
+```sql
 +----------+----------------------------------------------------------------------------------------------+
-
-| Table | Create Table
-
+| Table    | Create Table                                                                                                                                                                             
 +----------+----------------------------------------------------------------------------------------------+
-
 | students | CREATE TABLE `students` (
-
- `id` int(10) unsigned NOT NULL AUTO\_INCREMENT,
-
- `name` varchar(10) DEFAULT NULL,
-
- PRIMARY KEY (`id`)
-
-) ENGINE=InnoDB AUTO\_INCREMENT=4 DEFAULT CHARSET=utf8
-
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 
 +----------+----------------------------------------------------------------------------------------------+
-
 1 row in set (0.00 sec)
+```
 
 备份表
 
@@ -202,17 +194,14 @@ show create table 表名;
 create table students_back select * from students;
 ```
 
+```sql
 +---------------+
-
-| Tables\_in\_aa |
-
+| Tables_in_aa  |
 +---------------+
-
-| students |
-
-| students\_back |
-
+| students      |
+| students_back |
 +---------------+
+```
 
 表重命名
 ----
@@ -283,49 +272,35 @@ delete from students where id=10;
 alter table students add isdelete bit default 0;
 ```
 
+```sql
 +----+------+----------+
-
 | id | name | isdelete |
-
 +----+------+----------+
-
-| 1 | tom | |
-
-| 2 | JC | |
-
-| 3 | JC | |
-
-| 4 | aa | |
-
-| 5 | bb | |
-
+|  1 | tom  |          |
+|  2 | JC   |          |
+|  3 | JC   |          |
+|  4 | aa   |          |
+|  5 | bb   |          |
 +----+------+----------+
-
 5 rows in set (0.00 sec)
+```
 
 ```sql
 update students set isdelete=1 where id=5;
 ```
 
+```sql
 +----+------+----------+
-
 | id | name | isdelete |
-
 +----+------+----------+
-
-| 1 | tom | |
-
-| 2 | JC | |
-
-| 3 | JC | |
-
-| 4 | aa | |
-
-| 5 | bb | |
-
+|  1 | tom  |          |
+|  2 | JC   |          |
+|  3 | JC   |          |
+|  4 | aa   |          |
+|  5 | bb   |         |
 +----+------+----------+
-
 5 rows in set (0.00 sec)
+```
 
 表设计
 ===
@@ -628,7 +603,7 @@ select * from students where height is not null;
 ### 正序
 
 ```sql
-select * from students order by age asc;
+select * from students order by age asc; 
 +----+-----------+------+--------+--------+--------+----------+
 | id | name      | age  | height | gender | cls_id | isdelete |
 +----+-----------+------+--------+--------+--------+----------+
@@ -777,7 +752,7 @@ select height,gender,count(*) from students group by height,gender;
 
 ### 筛选
 
-###
+### 
 
 * having
 * where是对from后面指定的表进行数据筛选，属于对原始数据的筛选
@@ -1286,7 +1261,7 @@ select * from classes where id in (select cls_id from students);
 
 ```
 
-any | some 任意一个
+any 和 some:任意一个
 
 ```sql
 格式: 主查询 where 列 = any (列子查询)
@@ -1388,7 +1363,7 @@ select * from classes where id >all (select cls_id from students where cls_id be
 ### 创建外键
 
 ```sql
-alter table goods add foreign key (cate_id) references goods_cates(cate_id);
+alter table goods add foreign key (cate_id) references goods_cates(cate_id); 
 alter table goods add foreign key (brand_id) references goods_brands(brand_id);
 ```
 
@@ -1433,7 +1408,7 @@ alter table goods drop foreign key 外键名称;
 ```sql
 create view 视图名称 as selct语句
 
-create view stu_view as
+create view stu_view as 
 select s.name sname, p.name pname from students s inner join classes p on s.cls_id=p.id;
 ```
 
