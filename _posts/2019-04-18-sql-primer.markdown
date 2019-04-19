@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "mysql数据库"
+title: "MySql数据库"
 date: "2019-04-18 22:59"
 ---
 
