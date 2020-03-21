@@ -34,6 +34,8 @@ $ cd your_site
 
 $ bundler install
 
+$ gem update --system '3.0'
+
 $ 测试:bundler exec jekyll serve
 
 $ 后台运行:bundle exec jekyll serve --detach
