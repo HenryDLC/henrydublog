@@ -75,7 +75,7 @@ cd nginx-1.15.8
 # pcre 和 zlib的源文件路径要检查对应:
 ./configure --prefix=/usr/local/nginx --with-pcre=/home/ubuntu/nginx/pcre-8.36 --with-zlib=/home/ubuntu/nginx/zlib-1.2.11
 sudo make
-sudo make install`
+sudo make install
 sudo vim /usr/local/nginx/nginx.conf
 ```
 
