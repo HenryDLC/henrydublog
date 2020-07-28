@@ -132,6 +132,7 @@ http {
             root   /usr/share/nginx/html;
         }
 }
+}
 events {
   worker_connections  1024;  ## Default: 1024
 }
