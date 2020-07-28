@@ -32,6 +32,14 @@ $ git clone https://github.com/onevcat/vno-jekyll.git your_site
 
 $ cd your_site
 
+Check the bundler version on Gemfile.lock
+cat Gemfile.lock | grep -A 1 "BUNDLED"
+That will give bundler version, something like this
+BUNDLED WITH 2.0.1
+Then install that specific version of bundler
+gem install bundler -v '2.0.1'
+
+
 $ bundler install
 
 $ gem update --system '3.0'
